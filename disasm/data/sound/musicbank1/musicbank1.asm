@@ -5,6 +5,8 @@
    include "..\musicmacros.asm"
    include "..\musicenums.asm"
    org 08000h
+   
+   binclude "../yminst.bin"
 
 		dw Music_33
 		dw Music_34
