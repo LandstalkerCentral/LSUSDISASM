@@ -1,0 +1,13 @@
+/***********************Directories***************************/
+#dir    data/
+#dir    data/sound/
+
+/***********************Data***************************/
+
+#split	0x1E0000,0x1E8000,data/sound/pcmbank0.bin
+#split	0x1E8000,0x1F0000,data/sound/pcmbank1.bin
+#split	0x1F0000,0x1F5D48,data/sound/musicbank0.bin
+#split	0x1F6000,0x1F8000,data/sound/sounddriver.bin
+#split	0x1F8000,0x1FFAB1,data/sound/musicbank1.bin
+
+split    0x0,0x0,\0x0 - .bin
