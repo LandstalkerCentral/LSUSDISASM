@@ -17,8 +17,8 @@ echo -------------------------------------------------------------
 echo Start of assembly
 echo Assembling sound driver ...
 cd ../disasm/data/sound/
-REM ..\..\..\tools\asw\asw.exe ..\..\code\common\tech\sound\sounddriver.asm
-REM ..\..\..\tools\asw\p2bin.exe ..\..\code\common\tech\sound\sounddriver.p .\sounddriver.bin -k -r $0000-$1fff
+..\..\..\tools\asw\asw.exe ..\..\code\common\tech\sound\sounddriver.asm
+..\..\..\tools\asw\p2bin.exe ..\..\code\common\tech\sound\sounddriver.p .\sounddriver.bin -k -r $0000-$1fff
 cd musicbank0/
 ..\..\..\..\tools\asw\asw.exe -x -E errors.log .\musicbank0.asm
 ..\..\..\..\tools\asw\p2bin.exe .\musicbank0.p ..\musicbank0build.bin -k -r $8000-$dfff
