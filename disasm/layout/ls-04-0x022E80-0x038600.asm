@@ -5841,8 +5841,7 @@ loc_24AF4:
 byte_24B16:
                 
                 sndCom  MUSIC_ITEM_CHEST
-                dc.b $30 
-                dc.b   2
+                move.w  d2,d0
                 bsr.w   sub_291D6
                 move.w  #$11,d0
                 bsr.w   sub_28FD8
@@ -6782,7 +6781,8 @@ loc_24F78:
                 bsr.w   sub_28FE8
                 bcs.s   loc_24F88
                 trap    #2
-                ori.b   #$52,(a2) 
+                dc.w $12
+                bra.s   loc_24FDA
 loc_24F88:
                 
                 move.w  d1,d0
@@ -6799,9 +6799,7 @@ loc_24FA0:
                 dc.w $C
                 sndCom  SOUND_COMMAND_FADE_OUT
                 bsr.w   sub_29046
-                dc.b   0
-                dc.b $77 
-                sndCom  MUSIC_CURE
+                ori.w   #$4E40,8(sp,d0.w)
                 bsr.w   sub_29046
                 ori.w   #$1028,$16(sp,d0.w)
                 bsr.w   sub_29162
@@ -6841,9 +6839,7 @@ loc_24FF8:
                 dc.b   0
                 dc.b $27 
                 sndCom  MUSIC_SAVE
-                dc.b $4E 
-                dc.b $B9 
-                ori.b   #$46,d0 
+                jsr     (sub_446).l
                 jsr     (sub_3CE).l
                 move.b  #$FF,(byte_FF1903).l
                 trap    #2
@@ -6855,8 +6851,8 @@ loc_25022:
                 bsr.w   sub_28FE8
                 bcs.s   loc_2503A
                 trap    #2
-                ori.b   #0,(a6)
-                tst.l   (a2)+
+                dc.w $16
+                bsr.w   sub_29ACC
                 jmp     (loc_4AC).l
 loc_2503A:
                 
@@ -15526,7 +15522,8 @@ sub_27386:
                  
                 sndCom  SFX_DEATH
                 trap    #1
-                dc.w $105D
+                dc.b $10
+                dc.b $5D 
                 rts
                 trap    #1
                 dc.w $1079
@@ -15854,7 +15851,8 @@ sub_274DA:
                 dc.w $1035
                 sndCom  MUSIC_ITEM_CHEST
                 trap    #1
-                dc.w $1031
+                dc.b $10
+                dc.b $31 
                 jsr     (sub_446).l
                 trap    #1
                 move.b  $4E75(a5),d0
@@ -16131,7 +16129,8 @@ sub_27608:
                  
                 sndCom  SFX_DEATH
                 trap    #1
-                dc.w $1197
+                dc.b $11
+                dc.b $97 
                 rts
 
     ; End of function sub_27608
@@ -16335,7 +16334,8 @@ sub_276DE:
                 move.b  $4E75(a3),(a1)
                 sndCom  MUSIC_URGENT_NIGEL
                 trap    #1
-                dc.w $13A1
+                dc.b $13
+                dc.b $A1 
                 rts
                 trap    #1
                 dc.w $13B7
@@ -16345,10 +16345,14 @@ sub_276DE:
                 dc.b $3B 
                 sndCom  MUSIC_MYSTERIOUS_ISLAND
                 trap    #1
-                dc.w $13AB
+                dc.b $13
+                dc.b $AB 
                 sndCom  SOUND_COMMAND_FADE_OUT
                 rts
-                bsr.w   sub_29060
+                dc.b $61 
+                dc.b   0
+                dc.b $19
+                dc.b $4E 
                 trap    #1
                 dc.w $13A7
                 rts
@@ -16364,7 +16368,8 @@ sub_2771A:
                 dc.w $13C9
                 sndCom  MUSIC_A_BALLAD_FOR_PRINCESS_LORIA_LOOP
                 trap    #1
-                dc.w $13C9
+                dc.b $13
+                dc.b $C9 
                 rts
 
     ; End of function sub_2771A
@@ -22333,10 +22338,10 @@ sub_28F08:
                 
                  
                 sndCom  MUSIC_HEHEH_THINK_ILL_DISRUPT_THIS_GOOD_CHEER
-                rts
 
     ; End of function sub_28F08
 
+                rts
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -22344,10 +22349,10 @@ sub_28F0E:
                 
                  
                 sndCom  MUSIC_BLACK_MARKET
-                rts
 
     ; End of function sub_28F0E
 
+                rts
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -22507,9 +22512,9 @@ sub_29026:
                 beq.s   return_29044
                 bsr.w   sub_29D16
                 sndCom  MUSIC_ITEM_CHEST
-                dc.b $61 
-                dc.b   0
-                ori.b   #$B9,-(a6)
+                bsr.w   sub_29060
+                dc.b   8
+                dc.b $B9 
                 ori.b   #$FF,d1
                 move.b  d2,-(a4)
 return_29044:
@@ -22542,11 +22547,11 @@ sub_29060:
                 clr.w   d0
                 move.b  (MUSIC_INDEX).l,d0
                 sndCom  SOUND_COMMAND_GET_D0_PARAMETER
-                move.l  (sp)+,d0
-                rts
 
     ; End of function sub_29060
 
+                move.l  (sp)+,d0
+                rts
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -26801,21 +26806,16 @@ sub_2A4F2:
                 clr.w   d0
                 move.b  byte_2A50C(pc,d1.w),d0
                 sndCom  SOUND_COMMAND_GET_D0_PARAMETER
-                rts
 
     ; End of function sub_2A4F2
 
-
-; =============== S U B R O U T I N E =======================================
-
-sub_2A4FE:
-                
-                bsr.w   sub_28FB8
+                rts
+                dc.b $61 
+                dc.b   0
+                dc.b $EA 
+                dc.b $B8 
                 bset    #1,(byte_FF1917).l
                 rts
-
-    ; End of function sub_2A4FE
-
 byte_2A50C:     dc.b $41
                 dc.b $42 
                 dc.b $43 
@@ -26935,7 +26935,10 @@ sub_2A586:
                 move.b  byte_2A5A0(pc,d1.w),d0
                 sndCom  SOUND_COMMAND_GET_D0_PARAMETER
                 rts
-                bsr.w   sub_28FB8
+                dc.b $61 
+                dc.b   0
+                dc.b $EA 
+                dc.b $24 
                 bset    #1,(byte_FF1917).l
                 rts
 

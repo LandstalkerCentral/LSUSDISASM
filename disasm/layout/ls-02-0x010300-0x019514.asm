@@ -1954,10 +1954,10 @@ sub_10F82:
                 btst    #6,(byte_FF102A).l
                 bne.w   sub_10F4C
                 sndCom  SFX_RUMBLE
-                bra.w   sub_10F4C
 
     ; End of function sub_10F82
 
+                bra.w   sub_10F4C
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -2349,9 +2349,7 @@ sub_112E4:
                 cmpi.b  #7,(dword_FF5400+2).l
                 bcc.w   sub_10F52
                 sndCom  SFX_RUMBLE
-                dc.b   8
-                dc.b $AD 
-                ori.b   #8,d4
+                bclr    #4,8(a5)
                 bra.w   sub_10F4C
 
     ; End of function sub_112E4
@@ -2401,10 +2399,10 @@ sub_11352:
                 cmpi.b  #$24,(dword_FF5400).l 
                 bne.w   sub_10F52
                 sndCom  MUSIC_HEY_ITS_YOUR_TURN
-                bra.w   sub_10F4C
 
     ; End of function sub_11352
 
+                bra.w   sub_10F4C
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -4230,7 +4228,7 @@ loc_120FC:
                 bra.w   loc_13178
                 bra.w   loc_131AC
                 bra.w   byte_131BA
-                bra.w   loc_131C0
+                bra.w   unk_131C0
                 bra.w   loc_131DE
                 bra.w   loc_131E6
                 bra.w   loc_131EE
@@ -4251,8 +4249,8 @@ loc_120FC:
                 bra.w   loc_1344E
                 bra.w   loc_13456
                 bra.w   byte_1345E
-                bra.w   loc_13472
-                bra.w   loc_13482
+                bra.w   unk_13472
+                bra.w   unk_13482
                 bra.w   loc_1348A
                 bra.w   loc_13492
                 bra.w   loc_134CA
@@ -4265,12 +4263,12 @@ loc_120FC:
                 bra.w   loc_13784
                 bra.w   loc_137E8
                 bra.w   byte_13810
-                bra.w   loc_13816
+                bra.w   unk_13816
                 bra.w   loc_13842
                 bra.w   loc_13854
                 bra.w   loc_13860
                 bra.w   byte_13878
-                bra.w   loc_1387E
+                bra.w   unk_1387E
                 bra.w   loc_138B4
                 bra.w   loc_138BC
                 bra.w   loc_138C4
@@ -4280,7 +4278,7 @@ loc_120FC:
                 bra.w   loc_1393A
                 bra.w   loc_13944
                 bra.w   loc_13958
-                bra.w   loc_13972
+                bra.w   unk_13972
                 bra.w   loc_13986
                 bra.w   loc_1399A
                 bra.w   loc_139AE
@@ -4335,7 +4333,7 @@ loc_120FC:
                 bra.w   loc_13E16
                 bra.w   loc_13E3A
                 bra.w   loc_13E42
-                bra.w   loc_13F98
+                bra.w   unk_13F98
                 bra.w   loc_13FA0
                 bra.w   loc_13FDC
                 bra.w   loc_13FEC
@@ -4508,9 +4506,14 @@ loc_12668:
                 move.b  (MUSIC_INDEX).l,d0
                 sndCom  SOUND_COMMAND_GET_D0_PARAMETER
                 rts
-loc_12674:
+unk_12674:
                 
-                jsr     (sub_2A8).l
+                dc.b $4E 
+                dc.b $B9 
+                dc.b   0
+                dc.b   0
+                dc.b   2
+                dc.b $A8 
                 jsr     sub_22EF8
                 rts
 loc_12682:
@@ -4526,31 +4529,31 @@ loc_12682:
 loc_1268C:
                 
                 move.w  #9,d0
-                bra.s   loc_12674
+                bra.s   unk_12674
 loc_12692:
                 
                 move.w  #$A,d0
-                bra.s   loc_12674
+                bra.s   unk_12674
 loc_12698:
                 
                 move.w  #$D,d0
-                bra.s   loc_12674
+                bra.s   unk_12674
 loc_1269E:
                 
                 bsr.w   sub_15838
                 move.w  #$E,d0
-                bsr.s   loc_12674
+                bsr.s   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 loc_126B2:
                 
                 bsr.w   sub_15838
                 move.w  #$F,d0
-                bra.s   loc_12674
+                bra.s   unk_12674
 loc_126BC:
                 
                 move.w  #$10,d0
-                bra.s   loc_12674
+                bra.s   unk_12674
 loc_126C2:
                 
                 move.w  (word_FF1204).l,d0
@@ -4568,10 +4571,10 @@ loc_126F4:
                 move.b  #1,(byte_FF114B).l
                 move.b  #$21,(byte_FF114D).l 
                 move.w  #$B,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$11,(byte_FF114D).l
                 move.w  #$C,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114D).l 
                 rts
 loc_12726:
@@ -4585,14 +4588,14 @@ loc_12726:
                 jsr     (sub_296).l
                 jsr     (sub_2A2).l
                 move.w  #$12,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 movem.l (sp)+,a5
                 movea.l a5,a0
                 andi.b  #$3F,4(a0) 
                 bsr.w   loc_10492
                 jsr     (sub_3F8).l
                 move.w  #$13,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12774:
                 
                 move.l  a5,d0
@@ -4609,11 +4612,11 @@ loc_12774:
 loc_127A4:
                 
                 move.w  #$14,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_127AC:
                 
                 move.w  #$15,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$C,d0
                 move.b  #$D,d1
                 bsr.w   sub_1587C
@@ -4624,7 +4627,7 @@ loc_127AC:
 loc_127D8:
                 
                 move.w  #$16,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #9,d0
                 bsr.w   sub_10842
                 bset    #0,(byte_FF1001).l
@@ -4632,18 +4635,18 @@ loc_127D8:
 loc_127F2:
                 
                 move.w  #$17,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_127FA:
                 
                 move.w  #$18,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12802:
                 
                 move.w  #6,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_15838
                 move.w  #7,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_1584A
                 move.w  #$27,d7 
 loc_1281E:
@@ -4661,7 +4664,7 @@ loc_1281E:
                 movem.w (sp)+,d7
                 dbf     d7,loc_1281E
                 move.w  #8,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114D).l 
                 rts
 loc_12868:
@@ -4669,38 +4672,38 @@ loc_12868:
                 move.b  #1,(byte_FF114B).l
                 move.b  #$11,(byte_FF114D).l
                 move.w  #0,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114D).l 
                 bset    #5,(byte_FF1000).l
                 rts
 loc_12892:
                 
                 move.w  #1,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1289A:
                 
                 move.w  #2,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_128A2:
                 
                 move.b  #9,d0
                 bsr.w   sub_10842
                 move.w  #$19,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bset    #1,(byte_FF5438).l
                 bset    #0,(byte_FF1001).l
                 rts
 loc_128C4:
                 
                 move.w  #$1A,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bclr    #1,(byte_FF5438).l
                 rts
 loc_128D6:
                 
                 bsr.w   sub_15838
                 move.w  #$1B,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114D).l 
                 tst.b   (byte_FF1904).l
                 beq.s   loc_12906
@@ -4721,7 +4724,7 @@ loc_1291A:
                 
                 bsr.w   sub_15838
                 move.w  #$1C,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114D).l 
                 tst.b   (byte_FF1904).l
                 beq.s   loc_1294A
@@ -4748,14 +4751,14 @@ loc_12966:
 loc_12970:
                 
                 move.w  #3,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$21,(byte_FF114D).l 
                 move.w  #4,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12988:
                 
                 move.w  #5,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_1584A
                 bset    #7,(byte_FF1000).l
                 jsr     (sub_3E6).l
@@ -4789,7 +4792,7 @@ loc_12A22:
                 
                 bsr.w   sub_15838
                 move.w  #$1D,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 move.b  #$D,d0
                 bsr.w   sub_10842
@@ -4798,11 +4801,11 @@ loc_12A22:
 loc_12A48:
                 
                 move.w  #$1E,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12A50:
                 
                 move.w  #$20,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bset    #0,(byte_FF1001).l
                 movea.l (dword_FF187C).l,a0
                 move.b  4(a0),d0
@@ -4813,7 +4816,7 @@ loc_12A50:
 loc_12A7A:
                 
                 move.w  #$21,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bset    #3,(byte_FF1004).l
                 rts
 loc_12A8C:
@@ -4827,23 +4830,23 @@ loc_12A8C:
 loc_12AA8:
                 
                 move.w  #$22,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12AB0:
                 
                 move.w  #$23,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12AB8:
                 
                 move.w  #$24,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12AC0:
                 
                 move.w  #$25,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12AC8:
                 
                 move.w  #$36,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 btst    #3,(byte_FF1004).l
                 beq.s   loc_12AF2
                 sndCom  SFX_BOULDER_HIT
@@ -4861,15 +4864,15 @@ loc_12AFA:
                 bsr.w   sub_10842
                 bset    #0,(byte_FF1005).l
                 move.w  #$32,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12B12:
                 
                 move.w  #$33,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12B1A:
                 
                 move.w  #$34,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12B22:
                 
                 move.w  (word_FF5428).l,d0
@@ -4891,17 +4894,17 @@ loc_12B46:
 loc_12B6A:
                 
                 move.w  #$2D,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12B72:
                 
                 move.w  #$2E,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   loc_12BFE
                 bset    #2,(byte_FF1005).l
                 bsr.w   sub_15838
                 move.w  #$30,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_1584A
                 move.w  #$25,d7 
 loc_12BA0:
@@ -4923,18 +4926,18 @@ loc_12BA0:
                 dbf     d7,loc_12BA0
                 bsr.w   sub_13140
                 move.w  #$31,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114D).l 
                 rts
 loc_12BFE:
                 
                 move.w  #$2F,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12C06:
                 
                 clr.b   (byte_FF103A).l
                 move.w  #$37,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.s   return_12C4E
                 bset    #7,(byte_FF1005).l
@@ -5098,14 +5101,14 @@ loc_12DAC:
                 
                 cmpi.w  #$FF,(word_FF543E).l
                 bne.s   loc_12DCE
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   loc_12DCE
                 rts
 loc_12DC6:
                 
                 move.w  #$3D,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
 loc_12DCE:
                 
                 bclr    #7,(byte_FF1005).l
@@ -5150,11 +5153,11 @@ loc_12E48:
                 bclr    #4,(byte_FF1146).l
                 bclr    #2,(byte_FF1153).l
                 move.w  #$3E,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12EC0:
                 
                 move.w  #$3F,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.s   return_12EE0
                 bset    #0,(byte_FF1001).l
@@ -5177,13 +5180,13 @@ loc_12F00:
                 move.l  d0,(dword_FF1878).l
                 bsr.w   sub_177DC
                 move.w  #$40,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_1691E
                 bra.w   sub_1693A
 loc_12F20:
                 
                 move.w  #$41,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 moveq   #$32,d0 
                 btst    #1,(byte_FF1001).l
                 bne.s   loc_12F50
@@ -5212,11 +5215,11 @@ loc_12F5C:
 loc_12F7E:
                 
                 move.w  #$43,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12F86:
                 
                 move.w  #$42,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.s   return_12F9E
                 bset    #2,(byte_FF1003).l
@@ -5226,30 +5229,30 @@ return_12F9E:
 loc_12FA0:
                 
                 move.w  #$44,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bset    #0,(byte_FF1001).l
                 rts
 loc_12FB2:
                 
                 move.w  #$5B,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12FBA:
                 
                 move.w  #$45,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12FC2:
                 
                 move.w  #$46,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_12FCA:
                 
                 move.w  #$48,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.s   return_12FE4
                 bsr.s   sub_12FE6
                 move.w  #$49,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
 return_12FE4:
                 
                 rts
@@ -5281,29 +5284,29 @@ sub_12FE6:
 loc_1302A:
                 
                 move.w  #$4A,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bset    #0,(byte_FF1001).l
                 rts
 loc_1303C:
                 
                 move.w  #$4B,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13044:
                 
                 move.w  #$4C,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1304C:
                 
                 move.w  #$4D,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13054:
                 
                 move.w  #$47,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1305C:
                 
                 move.w  #$4E,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$51,(byte_FF114B).l 
                 move.b  #$21,(byte_FF114D).l 
 loc_13074:
@@ -5312,7 +5315,7 @@ loc_13074:
                 cmpi.b  #$21,(byte_FF114B).l 
                 bne.s   loc_13074
                 move.w  #$4F,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.w  #3,d7
 loc_13090:
                 
@@ -5350,7 +5353,7 @@ loc_1309C:
                 bsr.w   sub_1979C
                 jsr     (sub_3F8).l
                 move.w  #$50,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114D).l 
                 rts
 
@@ -5380,15 +5383,15 @@ return_1315E:
 loc_13160:
                 
                 move.w  #$51,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13168:
                 
                 move.w  #$52,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13170:
                 
                 move.w  #$53,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13178:
                 
                 move.w  #$C,$24(a5)
@@ -5397,7 +5400,7 @@ loc_13178:
                 movem.l a5,-(sp)
                 jsr     (sub_3F8).l
                 move.w  #$54,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 movem.l (sp)+,a5
                 clr.w   $26(a5)
                 bset    #7,$48(a5)
@@ -5410,32 +5413,36 @@ loc_131AC:
 byte_131BA:
                 
                 sndCom  SFX_SWORD_CLANG
-                dc.b $4E 
-                dc.b $75 
-loc_131C0:
+                rts
+unk_131C0:
                 
-                move.w  #4,$24(a5)
+                dc.b $3B 
+                dc.b $7C 
+                dc.b   0
+                dc.b   4
+                dc.b   0
+                dc.b $24 
                 clr.w   $26(a5)
                 bset    #7,$48(a5)
                 jsr     (sub_3F8).l
                 move.w  #$55,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_131DE:
                 
                 move.w  #$56,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_131E6:
                 
                 move.w  #$57,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_131EE:
                 
                 move.w  #$58,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_131F6:
                 
                 move.w  #$59,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_131FE:
                 
                 bset    #1,(byte_FF1012).l
@@ -5452,7 +5459,7 @@ loc_13230:
                 
                 bset    #0,(byte_FF1001).l
                 move.w  #$5A,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13240:
                 
                 bset    #0,(byte_FF1001).l
@@ -5460,7 +5467,7 @@ loc_13240:
                 andi.b  #$C0,d0
                 or.b    d0,(byte_FF1001).l
                 move.w  #$5C,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13260:
                 
                 move.b  (byte_FF1001).l,d1
@@ -5480,16 +5487,16 @@ loc_13260:
                 jsr     (sub_3FE).l
                 jsr     (sub_3F8).l
                 move.w  #$5D,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_132B6:
                 
                 move.w  #$5E,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   loc_13370
                 bsr.w   sub_15838
                 move.w  #$5F,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_1584A
 loc_132D8:
                 
@@ -5527,7 +5534,7 @@ loc_13370:
 loc_13380:
                 
                 move.w  #$60,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13388:
                 
                 bsr.w   sub_15838
@@ -5542,7 +5549,7 @@ loc_1338C:
                 move.w  #$62,d0 
 loc_133AE:
                 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_1584A
                 move.b  #$31,(byte_FF114B).l 
                 lea     (dword_FF5400).l,a0
@@ -5587,19 +5594,19 @@ loc_1342E:
 loc_1343E:
                 
                 move.w  #$63,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13446:
                 
                 move.w  #$64,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1344E:
                 
                 move.w  #$65,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13456:
                 
                 move.w  #$66,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 byte_1345E:
                 
                 sndCom  SOUND_COMMAND_FFFADE_OUT
@@ -5607,25 +5614,31 @@ byte_1345E:
                 jsr     (sub_278).l
                 sndCom  MUSIC_A_BALLAD_FOR_PRINCESS_LORIA
                 rts
-loc_13472:
+unk_13472:
                 
-                move.w  #$B4,d0 
+                dc.b $30 
+                dc.b $3C 
+                dc.b   0
+                dc.b $B4 
                 jsr     (sub_278).l
                 sndCom  MUSIC_THE_MARQUIS_INVITATION
                 rts
-loc_13482:
+unk_13482:
                 
-                move.w  #$67,d0 
-                bra.w   loc_12674
+                dc.b $30 
+                dc.b $3C 
+                dc.b   0
+                dc.b $67 
+                bra.w   unk_12674
 loc_1348A:
                 
                 move.w  #$68,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13492:
                 
                 bsr.w   sub_15838
                 move.w  #$69,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   loc_134BA
                 move.b  #$1F,d0
@@ -5658,17 +5671,17 @@ loc_134D2:
                 move.w  #$78,d0 
                 jsr     (sub_278).l
                 move.w  #$6A,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$53,(byte_FF114B).l 
                 move.b  #$21,(byte_FF114D).l 
                 bsr.w   loc_15852
                 move.w  #$6B,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$55,(byte_FF114B).l 
                 move.b  #$22,(byte_FF114D).l 
                 bsr.w   loc_15852
                 move.w  #$6C,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 sndCom  SOUND_COMMAND_FFFADE_OUT
                 move.w  #4,d6
                 bsr.w   sub_135D0
@@ -5754,11 +5767,11 @@ return_13672:
 loc_13674:
                 
                 move.w  #$6D,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1367C:
                 
                 move.w  #$6E,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13684:
                 
                 move.w  #$B,d7
@@ -5778,16 +5791,16 @@ byte_13688:
 loc_136B6:
                 
                 move.w  #$1F,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_136BE:
                 
                 bsr.w   sub_15838
                 move.w  #$26,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 clr.b   (byte_FF114B).l
                 jsr     sub_3860C
                 move.w  #$27,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bset    #1,(byte_FF1004).l
                 move.w  (word_FF1204).l,d0
                 jsr     (sub_3F2).l
@@ -5804,7 +5817,7 @@ loc_136BE:
 loc_13726:
                 
                 move.w  #$71,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.w  #2,d7
 loc_13732:
                 
@@ -5812,14 +5825,12 @@ loc_13732:
                 move.w  #0,$26(a5)
                 bsr.s   sub_1375A
                 sndCom  SFX_SWORD_CLANG
-                dc.b $3B 
-                dc.b $7C 
-                ori.b   #$26,d4 
+                move.w  #4,$26(a5)
                 bsr.s   sub_1375A
                 movem.w (sp)+,d7
                 dbf     d7,loc_13732
                 move.w  #$72,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 
 ; END OF FUNCTION CHUNK FOR sub_120F6
 
@@ -5846,7 +5857,7 @@ loc_13784:
                 
                 bset    #4,(byte_FF1014).l
                 move.w  #$73,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   loc_137CA
                 move.w  (word_FF5428).l,d0
@@ -5875,21 +5886,28 @@ loc_137E8:
                 bsr.w   sub_1979C
                 jsr     (sub_3F8).l
                 move.w  #$74,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 byte_13810:
                 
                 sndCom  SFX_BLIP
                 rts
-loc_13816:
+unk_13816:
                 
-                bset    #0,(byte_FF1001).l
+                dc.b   8
+                dc.b $F9 
+                dc.b   0
+                dc.b   0
+                dc.b   0
+                dc.b $FF
+                dc.b $10
+                dc.b   1
                 move.b  (byte_FF5404).l,d0
                 andi.b  #$C0,d0
                 eori.b  #$40,d0 
                 andi.b  #$3F,(byte_FF1001).l 
                 or.b    d0,(byte_FF1001).l
                 move.w  #$75,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13842:
                 
                 move.b  (byte_FF1001).l,d0
@@ -5900,12 +5918,12 @@ loc_13854:
                 
                 bsr.w   sub_15838
                 move.w  #$6F,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13860:
                 
                 bset    #5,$C(a5)
                 move.w  #$70,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 byte_13878:
@@ -5918,30 +5936,35 @@ byte_13878:
 
 ; START OF FUNCTION CHUNK FOR sub_120F6
 
-loc_1387E:
+unk_1387E:
                 
-                move.w  #$C,$24(a5)
+                dc.b $3B 
+                dc.b $7C 
+                dc.b   0
+                dc.b  $C
+                dc.b   0
+                dc.b $24 
                 clr.w   $26(a5)
                 bset    #7,$48(a5)
                 jsr     (sub_3F8).l
                 jsr     (sub_2A8).l
                 move.w  #$28,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$57,(byte_FF114B).l 
                 move.b  #$23,(byte_FF114D).l 
                 rts
 loc_138B4:
                 
                 move.w  #$29,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_138BC:
                 
                 move.w  #$2A,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_138C4:
                 
                 move.w  #$2B,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$59,(byte_FF114B).l 
                 move.b  #$22,(byte_FF114D).l 
                 rts
@@ -5950,7 +5973,7 @@ loc_138DE:
                 move.b  #$27,d0 
                 jsr     sub_22F0C
                 move.w  #$2C,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$5B,(byte_FF114B).l 
                 move.b  #$31,(byte_FF114D).l 
                 rts
@@ -5965,7 +5988,7 @@ loc_13902:
 loc_1391E:
                 
                 move.w  #$76,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 bne.w   return_13938
                 bclr    #2,(byte_FF1016).l
@@ -5998,9 +6021,16 @@ loc_13958:
 
 ; START OF FUNCTION CHUNK FOR sub_120F6
 
-loc_13972:
+unk_13972:
                 
-                btst    #1,(byte_FF1015).l
+                dc.b   8
+                dc.b $39 
+                dc.b   0
+                dc.b   1
+                dc.b   0
+                dc.b $FF
+                dc.b $10
+                dc.b $15
                 bne.s   return_13984
                 bset    #0,(byte_FF1001).l
 return_13984:
@@ -6041,7 +6071,7 @@ return_139D4:
 loc_139D6:
                 
                 move.w  #$77,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   return_139F0
                 bset    #0,(byte_FF1001).l
@@ -6051,11 +6081,11 @@ return_139F0:
 loc_139F2:
                 
                 move.w  #$78,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_139FA:
                 
                 move.w  #$79,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   loc_13A16
                 bset    #0,(byte_FF1001).l
@@ -6069,7 +6099,7 @@ loc_13A16:
 loc_13A2C:
                 
                 move.w  #$7A,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13A34:
                 
                 movem.l a5,-(sp)
@@ -6082,11 +6112,11 @@ loc_13A34:
 loc_13A56:
                 
                 move.w  #$7B,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13A5E:
                 
                 move.w  #$7C,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 movem.l a5,-(sp)
                 lea     (unk_FF5900).l,a5
                 jsr     sub_1A4400
@@ -6098,7 +6128,7 @@ loc_13A5E:
 loc_13A90:
                 
                 move.w  #$7D,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   loc_13AAC
                 bset    #5,(byte_FF1016).l
@@ -6110,7 +6140,7 @@ loc_13AAC:
 loc_13AB6:
                 
                 move.w  #$7E,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   loc_13AD2
                 bset    #6,(byte_FF1016).l
@@ -6122,7 +6152,7 @@ loc_13AD2:
 loc_13ADC:
                 
                 move.w  #$7F,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   return_13AF6
                 bset    #7,(byte_FF1016).l
@@ -6185,26 +6215,26 @@ loc_13B74:
 loc_13B9C:
                 
                 move.w  #$80,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13BA4:
                 
                 move.w  #$81,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13BAC:
                 
                 move.w  #$82,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13BB4:
                 
                 move.w  #$83,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13BBC:
                 
                 move.w  #$84,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_15838
                 move.w  #$85,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 loc_13BDA:
@@ -6246,12 +6276,12 @@ sub_13C22:
 sub_13C34:
                 
                 move.w  #$86,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_15838
                 move.w  #$87,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.w  #$88,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 
@@ -6271,9 +6301,7 @@ loc_13C64:
                 andi.b  #$3F,(byte_FF5404).l 
                 ori.b   #$80,(byte_FF5404).l
                 sndCom  SFX_SPELL_CAST
-                dc.b $4E 
-                dc.b $B9 
-                ori.b   #$4C,d0 
+                jsr     (sub_44C).l
                 move.w  #$1DB,d0
                 bsr.w   sub_1586E
                 jsr     (sub_434).l
@@ -6289,7 +6317,7 @@ loc_13C64:
 loc_13CBA:
                 
                 move.w  #$89,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   return_13CD4
                 bset    #0,(byte_FF1001).l
@@ -6299,7 +6327,7 @@ return_13CD4:
 loc_13CD6:
                 
                 move.w  #$8A,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13CDE:
                 
                 move.b  #$23,d0 
@@ -6312,18 +6340,18 @@ loc_13CF0:
 loc_13CF4:
                 
                 move.w  #$8B,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13CFC:
                 
                 move.w  #$8C,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13D04:
                 
                 move.w  #$8D,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.s   sub_13D16
                 move.w  #$8E,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 
 ; END OF FUNCTION CHUNK FOR sub_120F6
 
@@ -6339,9 +6367,7 @@ loc_13D1A:
                 move.w  #0,$26(a5)
                 bsr.s   sub_13D3C
                 sndCom  SFX_SWORD_SLASH
-                dc.b $3B 
-                dc.b $7C 
-                ori.b   #$26,d4 
+                move.w  #4,$26(a5)
                 bsr.s   sub_13D3C
                 movem.w (sp)+,d7
                 dbf     d7,loc_13D1A
@@ -6371,11 +6397,11 @@ sub_13D3C:
 loc_13D66:
                 
                 move.w  #$8F,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13D6E:
                 
                 move.w  #$90,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13D76:
                 
                 move.b  #$28,d0 
@@ -6383,36 +6409,36 @@ loc_13D76:
                 move.b  #$2A,d0 
                 jsr     sub_22F0C
                 move.w  #$91,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13D92:
                 
                 move.w  #$92,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13D9A:
                 
                 bset    #2,(byte_FF1013).l
                 move.w  #$93,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13DAA:
                 
                 move.w  #$94,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13DB2:
                 
                 move.w  #$95,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13DBA:
                 
                 move.w  #$96,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13DC2:
                 
                 move.w  #$97,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13DCA:
                 
                 move.w  #$98,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13DD2:
                 
                 move.w  (word_FF5428).l,d0
@@ -6425,19 +6451,19 @@ loc_13DD2:
 loc_13DF6:
                 
                 move.w  #$98,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13DFE:
                 
                 move.w  #$99,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13E06:
                 
                 move.w  #$9A,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13E0E:
                 
                 move.w  #$9B,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13E16:
                 
                 move.w  (word_FF5428).l,d0
@@ -6450,11 +6476,11 @@ loc_13E16:
 loc_13E3A:
                 
                 move.w  #$9C,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13E42:
                 
                 move.w  #$9D,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 addi.w  #$A00,$18(a5)
                 addi.w  #$A00,$1A(a5)
                 addi.w  #$A00,$1C(a5)
@@ -6486,7 +6512,7 @@ loc_13E86:
 loc_13EB0:
                 
                 move.w  #$9E,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 
 ; END OF FUNCTION CHUNK FOR sub_120F6
 
@@ -6678,21 +6704,22 @@ loc_13F74:
 return_13F96:
                 
                 rts
-loc_13F98:
+unk_13F98:
                 
-                move.w  #$9E,d0 
-                bra.w   loc_12674
+                dc.b $30 
+                dc.b $3C 
+                dc.b   0
+                dc.b $9E 
+                bra.w   unk_12674
 loc_13FA0:
                 
                 move.w  #0,$26(a5)
                 bsr.s   sub_13FB2
                 sndCom  SFX_SWORD_SLASH
-                dc.b $3B 
-                dc.b $7C 
-                ori.b   #$26,d4 
 
     ; End of function sub_13F6E
 
+                move.w  #4,$26(a5)
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -6716,54 +6743,54 @@ loc_13FDC:
                 
                 bset    #6,(byte_FF1020).l
                 move.w  #$A0,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13FEC:
                 
                 move.w  #$A1,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13FF4:
                 
                 move.w  #$A2,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_13FFC:
                 
                 move.w  #$A3,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14004:
                 
                 move.w  #$A4,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1400C:
                 
                 move.w  #$AC,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14014:
                 
                 move.w  #$AD,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 return_1401C:
                 
                 rts
 loc_1401E:
                 
                 move.w  #$AE,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14026:
                 
                 move.w  #$AF,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1402E:
                 
                 move.w  #$B0,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14036:
                 
                 move.w  #$B1,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1403E:
                 
                 move.w  #$B2,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14046:
                 
                 move.b  #$C0,d0
@@ -6783,7 +6810,7 @@ loc_14058:
                 movem.l (sp)+,a5
                 bsr.w   sub_15838
                 move.w  #$A5,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   loc_140C2
                 bsr.w   sub_1584A
@@ -6800,24 +6827,24 @@ loc_140C2:
 loc_140CC:
                 
                 move.w  #$A6,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_140D4:
                 
                 move.w  #$A7,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 loc_140E6:
                 
                 move.w  #$A8,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_140EE:
                 
                 move.w  #$A9,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_15838
                 move.w  #$AA,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 lea     (dword_FF5400).l,a0
                 andi.b  #$3F,4(a0) 
                 ori.b   #$80,4(a0)
@@ -6828,7 +6855,7 @@ loc_140EE:
                 jsr     (sub_2A2).l
                 movem.l (sp)+,a5
                 move.w  #$AB,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 bset    #4,(byte_FF1024).l
                 bset    #0,(byte_FF1001).l
@@ -6840,12 +6867,12 @@ loc_14158:
                 
                 bsr.w   sub_15838
                 move.w  #$B3,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   loc_141E0
                 move.b  #$11,(byte_FF114D).l
                 move.w  #$B4,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.w  #$3C,d0 
                 jsr     (sub_278).l
                 move.b  #$24,(byte_FF114D).l 
@@ -6855,12 +6882,12 @@ loc_14190:
                 cmpi.b  #$24,(byte_FF114B).l 
                 bne.s   loc_14190
                 move.w  #$B5,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$5D,(byte_FF114B).l 
                 move.b  #$22,(byte_FF114D).l 
                 bsr.w   loc_15852
                 move.w  #$B6,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$5F,(byte_FF114B).l 
                 move.b  #$22,(byte_FF114D).l 
                 bsr.w   loc_15852
@@ -6872,15 +6899,15 @@ loc_141E0:
 loc_141EA:
                 
                 move.w  #$B8,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_141F2:
                 
                 move.w  #$B9,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_141FA:
                 
                 move.w  #$BA,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14202:
                 
                 btst    #7,(byte_FF1015).l
@@ -6896,11 +6923,11 @@ loc_14216:
 loc_14220:
                 
                 move.w  #$BB,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14228:
                 
                 move.w  #$BC,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bset    #1,(byte_FF1026).l
                 move.w  #$275,(word_FF1204).l
                 bsr.s   sub_14266
@@ -6937,14 +6964,14 @@ sub_14266:
 loc_1428A:
                 
                 move.w  #$BD,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14292:
                 
                 move.b  (byte_FF5404).l,d0
                 andi.b  #$C0,d0
                 beq.s   loc_142BA
                 move.w  #$C1,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   return_142B8
                 bset    #4,(byte_FF102B).l
@@ -6954,14 +6981,13 @@ return_142B8:
 loc_142BA:
                 
                 move.w  #$C2,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_142C2:
                 
                 move.w  #$BE,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 sndCom  MUSIC_JINGLE_1
-                dc.b $70 
-                dc.b   0
+                moveq   #0,d0
                 jsr     sub_38610
                 andi.b  #$3F,(byte_FF5404).l 
                 ori.b   #$80,(byte_FF5404).l
@@ -7008,7 +7034,7 @@ loc_14338:
 loc_14364:
                 
                 move.w  #$C3,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.w  (word_FF5428).l,d0
                 movem.w d0,-(sp)
                 move.w  #$E69C,(word_FF5428).l
@@ -7019,11 +7045,11 @@ loc_14364:
 loc_14390:
                 
                 move.w  #$BF,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14398:
                 
                 move.w  #$C0,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.w  #$21F,(word_FF1204).l
                 move.w  #$2D28,(dword_FF5400).l
                 jsr     (sub_3EC).l
@@ -7035,27 +7061,27 @@ loc_14398:
 loc_143C8:
                 
                 move.w  #$C4,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_143D0:
                 
                 move.w  #$C5,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_143D8:
                 
                 move.w  #$C6,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_143E0:
                 
                 move.w  #$C8,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_143E8:
                 
                 move.w  #$C9,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_143F0:
                 
                 move.w  #$CA,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 
 ; END OF FUNCTION CHUNK FOR sub_120F6
 
@@ -7066,36 +7092,36 @@ loc_143F0:
 loc_143FA:
                 
                 move.w  #$CC,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14402:
                 
                 move.w  #$9F,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1440A:
                 
                 move.w  #$CD,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$53,(byte_FF114B).l 
                 move.b  #$21,(byte_FF114D).l 
                 bsr.w   loc_15852
                 move.b  #$31,(byte_FF114B).l 
                 move.w  #$CE,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14436:
                 
                 move.w  #$D4,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_13D16
                 move.w  #$D5,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1444A:
                 
                 move.w  #$CF,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14452:
                 
                 move.w  #$D0,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1445A:
                 
                 movem.l a5,-(sp)
@@ -7124,13 +7150,13 @@ loc_1445A:
 loc_144E0:
                 
                 move.w  #$D1,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_144E8:
                 
                 clr.b   (byte_FF1008).l
                 clr.b   (byte_FF1009).l
                 move.w  #$D2,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_144FC:
                 
                 btst    #3,(byte_FF1007).l
@@ -7148,12 +7174,12 @@ loc_14518:
                 addi.w  #$40,$18(a5) 
                 addi.w  #$40,$1A(a5) 
                 move.w  #$D3,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1452C:
                 
                 bset    #5,$C(a5)
                 move.w  #$D6,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1453A:
                 
                 move.w  #$FFFF,(word_FF5500).l
@@ -7162,15 +7188,15 @@ loc_14544:
                 
                 bsr.w   sub_15838
                 move.w  #$D7,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14550:
                 
                 move.w  #$D8,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14558:
                 
                 move.w  #$D9,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 loc_1456A:
@@ -7190,7 +7216,7 @@ loc_1458E:
                 
                 bset    #1,(byte_FF102A).l
                 move.w  #$E3,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1459E:
                 
                 jmp     sub_22EA4
@@ -7210,7 +7236,7 @@ loc_145C2:
 loc_145CE:
                 
                 move.w  #$DA,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 clr.w   $26(a5)
                 bsr.s   sub_145E2
                 move.w  #4,$26(a5)
@@ -7240,7 +7266,7 @@ loc_1460C:
                 
                 bsr.w   loc_12668
                 move.w  #$DB,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 movea.l a5,a0
                 lea     (byte_FF5680).l,a5
                 movea.l $32(a0),a1
@@ -7294,7 +7320,7 @@ loc_146F0:
                 
                 bclr    #0,(byte_FF1039).l
                 move.w  #$DC,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.w  #$2F,d7 
 loc_14704:
                 
@@ -7315,7 +7341,7 @@ loc_14704:
                 clr.b   (byte_FF1142).l
                 clr.b   (byte_FF1145).l
                 move.w  #$DD,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 movem.l a5,-(sp)
                 move.w  #$6400,d0
                 lea     (dword_FF5400).l,a5
@@ -7333,7 +7359,7 @@ loc_14704:
                 jsr     (sub_2A8).l
                 bsr.w   sub_15838
                 move.w  #$DE,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 clr.b   (byte_FF114B).l
                 clr.w   (word_FF0588).l
                 clr.w   (word_FF12DE).l
@@ -7369,7 +7395,7 @@ sub_147E8:
 loc_14806:
                 
                 move.w  #$DF,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.w  #$2F,d7 
 loc_14812:
                 
@@ -7393,7 +7419,7 @@ loc_14836:
                 dbf     d7,loc_14836
                 bsr.w   sub_15838
                 move.w  #$E0,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 move.w  #$3F,d7 
 loc_1486C:
@@ -7407,7 +7433,7 @@ loc_1487E:
                 
                 bset    #0,(byte_FF1001).l
                 move.w  #$E1,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1488E:
                 
                 bclr    #7,(byte_FF560C).l
@@ -7418,7 +7444,7 @@ loc_148A0:
                 bsr.w   loc_12668
                 bset    #4,(byte_FF560C).l
                 move.w  #$E2,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 movea.l a5,a0
                 lea     (byte_FF5600).l,a5
                 movea.l $32(a0),a1
@@ -7452,37 +7478,37 @@ loc_14900:
 loc_14922:
                 
                 move.w  #$E5,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1492A:
                 
                 move.w  #$E6,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14932:
                 
                 move.w  #$E7,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1493A:
                 
                 move.w  #$E8,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14942:
                 
                 move.w  #$E9,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 moveq   #9,d0
                 jsr     (sub_45E).l
                 rts
 loc_14954:
                 
                 move.w  #$EB,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1495C:
                 
                 move.w  #$EC,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_15838
                 move.w  #$ED,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$61,(byte_FF114B).l 
                 move.b  #$22,(byte_FF114D).l 
 loc_14980:
@@ -7491,7 +7517,7 @@ loc_14980:
                 cmpi.b  #$22,(byte_FF114B).l 
                 bne.s   loc_14980
                 move.w  #$EE,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$63,(byte_FF114B).l 
                 move.b  #$21,(byte_FF114D).l 
 loc_149A8:
@@ -7500,25 +7526,25 @@ loc_149A8:
                 cmpi.b  #$21,(byte_FF114B).l 
                 bne.s   loc_149A8
                 move.w  #$EF,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_149C0:
                 
                 moveq   #$A,d0
                 jsr     (sub_45E).l
                 move.w  #$EA,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_149D0:
                 
                 move.w  #$F0,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_149D8:
                 
                 move.w  #$F1,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_149E0:
                 
                 move.w  #$F2,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 loc_149F2:
@@ -7532,11 +7558,11 @@ loc_149F2:
                 move.w  #$F8,d0 
 loc_14A12:
                 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14A16:
                 
                 move.w  #$FB,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14A1E:
                 
                 lea     (word_FF5480).l,a0
@@ -7660,7 +7686,7 @@ loc_14B8E:      jsr     (sub_272).l
 sub_14BF2:
                 
                 movem.w d1,-(sp)
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 movem.w (sp)+,d0
                 jmp     (sub_278).l
 
@@ -7784,9 +7810,7 @@ loc_14DE0:
                 move.w  #$78,d1 
                 bsr.w   sub_14BF2
                 sndCom  MUSIC_LETS_GO_ON_AN_ADVENTURE
-                dc.b $4E 
-                dc.b $F9 
-                ori.b   #$14,d2
+                jmp     sub_22F14
 loc_14E0A:
                 
                 move.w  #$10D,d0
@@ -7869,7 +7893,7 @@ loc_14EE6:
 loc_14EF8:
                 
                 move.w  #$F3,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 byte_14F00:
                 
                 sndCom  SFX_MONSTER_SKREECH
@@ -7885,15 +7909,15 @@ byte_14F00:
 loc_14F3C:
                 
                 move.w  #$F4,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14F44:
                 
                 move.w  #$F5,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14F4C:
                 
                 move.w  #$F6,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14F54:
                 
                 move.w  #$8000,(word_FF540A).l
@@ -7909,22 +7933,22 @@ loc_14F54:
                 jsr     (sub_3F8).l
                 bsr.w   sub_15838
                 move.w  #$F7,d0 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 loc_14FB2:
                 
                 move.w  #$FC,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14FBA:
                 
                 bset    #2,(byte_FF1029).l
                 move.w  #$120,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_14FCA:
                 
                 move.w  #$121,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 byte_14FD2:
                 
                 sndCom  MUSIC_JINGLE_1
@@ -7960,7 +7984,7 @@ loc_15018:
 loc_1502C:
                 
                 move.w  #$122,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   return_15046
                 bset    #0,(byte_FF1001).l
@@ -7987,25 +8011,25 @@ loc_1506E:
 loc_1508C:
                 
                 move.w  #$123,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_15094:
                 
                 move.w  #$124,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1509C:
                 
                 btst    #3,(byte_FF1001).l
                 beq.s   loc_150AE
                 move.w  #$129,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_150AE:
                 
                 move.w  #$124,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_150B6:
                 
                 move.w  #$128,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   return_150D0
                 bset    #0,(byte_FF1001).l
@@ -8034,7 +8058,7 @@ loc_150F4:
 loc_1510C:
                 
                 move.w  #$12A,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   return_15126
                 bset    #3,(byte_FF1029).l
@@ -8044,7 +8068,7 @@ return_15126:
 loc_15128:
                 
                 move.w  #$12B,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   return_15142
                 bset    #4,(byte_FF1029).l
@@ -8054,12 +8078,12 @@ return_15142:
 loc_15144:
                 
                 move.w  #$12C,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1514C:
                 
                 bsr.w   sub_15838
                 move.w  #$12F,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 loc_15162:
@@ -8070,40 +8094,40 @@ loc_1516A:
                 
                 bsr.w   sub_15838
                 move.w  #$12D,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 loc_15180:
                 
                 bsr.w   sub_15838
                 move.w  #$12E,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 loc_15196:
                 
                 move.w  #$C7,d0 
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1519E:
                 
                 move.w  #$130,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_151A6:
                 
                 move.w  #$131,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_151AE:
                 
                 move.w  #$132,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_151B6:
                 
                 move.w  #$133,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_151BE:
                 
                 move.w  #$134,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_151C6:
                 
                 bclr    #7,(byte_FF558C).l
@@ -8115,7 +8139,7 @@ loc_151E8:
                 
                 bsr.w   loc_12668
                 move.w  #$135,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 lea     (word_FF5580).l,a5
                 jsr     sub_1A4400
                 rts
@@ -8129,12 +8153,12 @@ loc_15202:
 loc_15224:
                 
                 move.w  #$136,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1522C:
                 
                 bsr.w   loc_12668
                 move.w  #$137,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 lea     (word_FF5500).l,a5
                 jsr     sub_1A4400
                 rts
@@ -8142,7 +8166,7 @@ loc_15246:
                 
                 bsr.w   sub_15838
                 move.w  #$138,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 loc_1525C:
@@ -8151,20 +8175,20 @@ loc_1525C:
                 btst    #4,(byte_FF1038).l
                 bne.s   return_15272
                 move.w  #$139,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
 return_15272:
                 
                 rts
 loc_15274:
                 
                 move.w  #$13A,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.b  #$31,(byte_FF114B).l 
                 rts
 loc_15286:
                 
                 move.w  #$13F,d0
-                bra.w   loc_12674
+                bra.w   unk_12674
 loc_1528E:
                 
                 move.w  #$6F,(word_FF1204).l 
@@ -8235,7 +8259,7 @@ loc_152C2:
                 or.w    d0,$940(a1)
                 or.w    d0,$940(a2)
                 move.w  #$140,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bclr    #6,$C(a5)
                 bclr    #6,$4C(a5)
                 move.w  #$C,$24(a5)
@@ -8268,14 +8292,12 @@ loc_15426:
 byte_15438:
                 
                 sndCom  MUSIC_LIGHT_OF_THE_SETTING_SUN
-                dc.b $30 
-                dc.b $3C 
-                bchg    d0,d1
-                bra.w   loc_12674
+                move.w  #$141,d0
+                bra.w   unk_12674
 loc_15444:
                 
                 move.w  #$142,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 move.w  #$70,(word_FF1204).l 
                 bsr.w   sub_14266
                 movem.l (sp)+,d0
@@ -8291,12 +8313,8 @@ loc_1546A:
 byte_1547C:
                 
                 sndCom  SFX_SHLARF
-                dc.b $3B 
-                dc.b $7C 
-                dc.b   0
-                dc.b   8
-                ori.b   #$7C,-(a4) 
-                ori.b   #$26,d4 
+                move.w  #8,$24(a5)
+                move.w  #4,$26(a5)
                 bset    #7,$48(a5)
                 movem.l a5,-(sp)
                 jsr     (sub_3F8).l
@@ -8326,7 +8344,7 @@ loc_154EE:
                 movem.w (sp)+,d7
                 dbf     d7,loc_154EE
                 move.w  #$143,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 jsr     (sub_46A).l
                 jsr     (sub_242).l
                 sndCom  MUSIC_DIVINE_GUARDIAN_OF_THE_MAZE
@@ -8513,7 +8531,7 @@ loc_15790:
                 move.b  d0,(byte_FF103B).l
                 move.l  d0,(dword_FF1878).l
                 move.w  #$126,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
 loc_157C0:
                 
                 movem.l (sp)+,d1
@@ -8525,7 +8543,7 @@ loc_157C0:
                 move.w  #$124,d0
 loc_157DA:
                 
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 bsr.w   sub_1691E
                 bsr.w   sub_1693A
                 lea     (word_FF5580).l,a1
@@ -8547,7 +8565,7 @@ loc_15808:
                 move.b  (byte_FF103B).l,d0
                 move.l  d0,(dword_FF1878).l
                 move.w  #$125,d0
-                bsr.w   loc_12674
+                bsr.w   unk_12674
                 tst.b   (byte_FF1904).l
                 beq.w   return_15836
                 bset    #0,(byte_FF1001).l
@@ -8703,9 +8721,7 @@ sub_15972:
 byte_1597C:
                 
                 sndCom  SFX_RUMBLE
-                dc.b $48 
-                dc.b $A7 
-                btst    d0,d0
+                movem.w d7,-(sp)
                 move.w  #$27,d6 
 loc_15988:
                 
@@ -9117,13 +9133,16 @@ loc_15D7A:
 loc_15D80:
                 
                 btst    #0,$38(a5)
-                beq.s   loc_15D96
+                beq.s   unk_15D96
                 bset    #3,(byte_FF1028).l
                 sndCom  SFX_SWORD_CLANG
                 bra.s   loc_15D7A
-loc_15D96:
+unk_15D96:
                 
-                move.w  $7C(a5),d0
+                dc.b $30 
+                dc.b $2D 
+                dc.b   0
+                dc.b $7C 
                 bsr.w   sub_1657E
                 sub.w   d0,$3E(a5)
                 bhi.s   loc_15DAA
@@ -9189,13 +9208,16 @@ loc_15E3C:
 loc_15E42:
                 
                 btst    #0,$38(a5)
-                beq.s   loc_15E58
+                beq.s   unk_15E58
                 bset    #3,(byte_FF1028).l
                 sndCom  SFX_SWORD_CLANG
                 bra.s   loc_15E3C
-loc_15E58:
+unk_15E58:
                 
-                move.w  $7C(a5),d0
+                dc.b $30 
+                dc.b $2D 
+                dc.b   0
+                dc.b $7C 
                 bsr.w   sub_1657E
                 sub.w   d0,$3E(a5)
                 bhi.s   loc_15E6C
@@ -9261,13 +9283,16 @@ loc_15EFE:
 loc_15F04:
                 
                 btst    #0,$38(a5)
-                beq.s   loc_15F1A
+                beq.s   unk_15F1A
                 bset    #3,(byte_FF1028).l
                 sndCom  SFX_SWORD_CLANG
                 bra.s   loc_15EFE
-loc_15F1A:
+unk_15F1A:
                 
-                move.w  $7C(a5),d0
+                dc.b $30 
+                dc.b $2D 
+                dc.b   0
+                dc.b $7C 
                 bsr.w   sub_1657E
                 sub.w   d0,$3E(a5)
                 bhi.s   loc_15F2E
@@ -9333,13 +9358,16 @@ loc_15FC0:
 loc_15FC6:
                 
                 btst    #0,$38(a5)
-                beq.s   loc_15FDC
+                beq.s   unk_15FDC
                 bset    #3,(byte_FF1028).l
                 sndCom  SFX_SWORD_CLANG
                 bra.s   loc_15FC0
-loc_15FDC:
+unk_15FDC:
                 
-                move.w  $7C(a5),d0
+                dc.b $30 
+                dc.b $2D 
+                dc.b   0
+                dc.b $7C 
                 bsr.w   sub_1657E
                 sub.w   d0,$3E(a5)
                 bhi.s   loc_15FF0
@@ -13482,17 +13510,16 @@ loc_17782:
 byte_1778C:
                 
                 sndCom  SFX_POISON
-                dc.b   1
-                dc.b $F9 
-                dc.b   0
-                dc.b $FF
-                move.b  d6,$C00(a0)
-                ori.b   #8,d1
+                bset    d0,(byte_FF1146).l
+                cmpi.b  #1,d0
+                bcs.s   loc_177A4
                 cmpi.b  #2,d0
                 beq.s   loc_177B4
 return_177A2:
                 
                 rts
+loc_177A4:
+                
                 clr.b   (byte_FF1148).l
                 move.b  #8,(byte_FF1149).l
                 rts
@@ -13829,7 +13856,7 @@ loc_17918:
                 bra.w   loc_1904E
                 bra.w   loc_190A0
                 bra.w   loc_190C8
-                bra.w   loc_18EDE
+                bra.w   unk_18EDE
                 bra.w   loc_18CF2
                 bra.w   loc_18F12
                 bra.w   loc_18F70
@@ -14668,8 +14695,7 @@ loc_18082:
                 bsr.w   sub_17B50
                 bcc.w   loc_18128
                 sndCom  SFX_DIALOG_BLEEP_7
-                dc.b $4A 
-                dc.b   7
+                tst.b   d7
                 beq.s   loc_18108
                 move.b  $C(a0),d0
                 andi.b  #$82,d0
@@ -15855,7 +15881,7 @@ loc_18BDE:
                 clr.w   d0
                 move.b  $2A(a5),d0
                 lsl.w   #7,d0
-                lea     ($FF5480).l,a6
+                lea     (word_FF5480).l,a6
                 tst.b   $C(a6,d0.w)
                 bmi.s   return_18BF6
                 bra.w   loc_17AC2
@@ -16007,13 +16033,9 @@ loc_18D8C:
                 tst.b   d0
                 bne.s   loc_18DAE
                 sndCom  SFX_TRAP_HIT
-                dc.b $3B 
-                dc.b $7C 
-                dc.b   0
-                dc.b   8
-                ori.b   #$6D,-(a4) 
-                ori.b   #$ED,-(a6)
-                ori.b   #$48,d7 
+                move.w  #8,$24(a5)
+                clr.w   $26(a5)
+                bset    #7,$48(a5)
                 rts
 loc_18DAE:
                 
@@ -16122,9 +16144,12 @@ loc_18EC8:
 return_18EDC:
                 
                 rts
-loc_18EDE:
+unk_18EDE:
                 
-                bsr.w   sub_17B50
+                dc.b $61 
+                dc.b   0
+                dc.b $EC 
+                dc.b $70 
                 bcs.s   loc_18EF0
 loc_18EE4:
                 

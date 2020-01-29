@@ -12859,25 +12859,26 @@ sub_1A7882:
                 move.w  #$500,$2C(a5)
                 addq.b  #1,$D(a5)
                 cmpi.b  #$F,$D(a5)
-                bcc.w   sub_1A78B4
+                bcc.w   unk_1A78B4
                 cmpi.b  #2,$D(a5)
                 bne.s   return_1A78B2
                 sndCom  SFX_ENEMY_DEATH
-return_1A78B2:
-                
-                rts
 
     ; End of function sub_1A7882
 
 
-; =============== S U B R O U T I N E =======================================
+; START OF FUNCTION CHUNK FOR sub_1A7882
 
-sub_1A78B4:
+return_1A78B2:
                 
-                bsr.w   sub_1A87A6
+                rts
 
-    ; End of function sub_1A78B4
+; END OF FUNCTION CHUNK FOR sub_1A7882
 
+unk_1A78B4:     dc.b $61 
+                dc.b   0
+                dc.b  $E
+                dc.b $F0 
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -13053,16 +13054,19 @@ loc_1A7A86:
                 move.w  #$500,$2C(a5)
                 addq.b  #1,$D(a5)
                 cmpi.b  #$F,$D(a5)
-                bcc.w   loc_1A7AB8
+                bcc.w   unk_1A7AB8
                 cmpi.b  #2,$D(a5)
                 bne.s   return_1A7AB6
                 sndCom  SFX_ENEMY_DEATH
 return_1A7AB6:
                 
                 rts
-loc_1A7AB8:
+unk_1A7AB8:
                 
-                bsr.w   sub_1A87A6
+                dc.b $61 
+                dc.b   0
+                dc.b  $C
+                dc.b $EC 
                 bra.w   loc_1A78DE
 
 ; END OF FUNCTION CHUNK FOR sub_1A78B8
@@ -22079,10 +22083,8 @@ loc_1ACF6A:
                 cmpi.b  #$20,$4D(a5) 
                 bne.s   loc_1ACF98
                 sndCom  SFX_FALL
-                dc.b $3C 
-                dc.b $3C 
-                ori.b   #$B9,d2
-                ori.b   #$62,d0 
+                move.w  #2,d6
+                jsr     (sub_362).l
                 move.w  #$40,d0 
                 tst.b   d7
                 beq.s   loc_1ACF92
@@ -22158,10 +22160,7 @@ loc_1AD04E:
                 bhi.s   loc_1AD09E
                 move.w  #$300,$2C(a5)
                 sndCom  SFX_SLASH
-                dc.b $10
-                dc.b $3C 
-                dc.b   0
-                dc.b   3
+                move.b  #3,d0
                 move.w  #$1400,d1
                 bsr.w   sub_1AC474
                 bcs.w   return_1AD09C
@@ -25051,9 +25050,9 @@ loc_1AEB8C:
                 bhi.w   loc_1AEBE2
                 bcs.w   return_1AEBF2
                 sndCom  SFX_BUBOBI
-                dc.b $10
+                move.b  #2,d0
+                dc.b $32 
                 dc.b $3C 
-                ori.b   #$3C,d2 
                 move.b  d0,d7
                 bsr.w   sub_1AC474
                 bcs.w   loc_1AEBF4
@@ -25277,9 +25276,7 @@ loc_1AEDD2:
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1AEDEA
                 sndCom  SFX_BOULDER_HIT
-                dc.b $3B 
-                dc.b $7C 
-                subi.b  #$2C,d0 
+                move.w  #$400,$2C(a5)
                 rts
 loc_1AEDEA:
                 

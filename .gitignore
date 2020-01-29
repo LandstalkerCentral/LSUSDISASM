@@ -1,3 +1,4 @@
 
 *.bin
 *.bak
+build/output.log

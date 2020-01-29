@@ -818,7 +818,7 @@ sub_3E6:
 
 sub_3EC:
                 
-                jmp     (sub_620E).l
+                jmp     (loc_620E).l
 
     ; End of function sub_3EC
 
@@ -5512,12 +5512,10 @@ loc_2A26:
                 
                 move.b  d0,(MUSIC_INDEX).l
                 sndCom  SOUND_COMMAND_GET_D0_PARAMETER
-return_2A30:
-                
-                rts
 
     ; End of function sub_2996
 
+return_2A30:    rts
 unk_2A32:       dc.b $25 
                 dc.b   3
                 dc.b $13
@@ -8740,12 +8738,10 @@ loc_3FAC:
                 beq.s   return_400A
                 move.b  #$10,(byte_FF113E).l
                 sndCom  SFX_JUMP
-loc_3FCE:
-                
-                lea     (dword_FF5400).l,a5
 
     ; End of function sub_3F92
 
+loc_3FCE:       lea     (dword_FF5400).l,a5
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -15459,35 +15455,23 @@ sub_620A:
 
     ; End of function sub_620A
 
-
-; =============== S U B R O U T I N E =======================================
-
-sub_620E:
-                
-                bsr.w   sub_8EF4
-loc_6212:
-                
-                bsr.w   sub_A0C2
+loc_620E:       bsr.w   sub_8EF4
+loc_6212:       bsr.w   sub_A0C2
                 clr.b   d0
                 bsr.w   sub_2824
                 bsr.w   sub_8E9C
                 bra.w   loc_6698
-loc_6224:
-                
-                move.b  #$FF,(byte_FF112C).l
+loc_6224:       move.b  #$FF,(byte_FF112C).l
                 move.b  #$FF,(byte_FF112D).l
                 move.b  #$FF,(byte_FF112E).l
                 move.b  #$FF,(byte_FF112F).l
-                bra.s   sub_620E
-
-    ; End of function sub_620E
-
+                bra.s   loc_620E
 
 ; START OF FUNCTION CHUNK FOR sub_603C
 
 loc_6246:
                 
-                bsr.w   sub_667C
+                bsr.w   unk_667C
                 bcc.s   return_6208
                 cmpi.w  #$295,(word_FF1204).l
                 bne.s   sub_620A
@@ -15535,7 +15519,7 @@ loc_62C6:
                 andi.b  #$3F,d1 
                 cmpi.b  #8,d1
                 beq.s   return_62E8
-                bsr.w   sub_667C
+                bsr.w   unk_667C
                 bcc.s   return_62E8
                 move.w  (word_FF5422).l,(word_FF1208).l
                 bra.s   loc_62EA
@@ -15577,7 +15561,7 @@ loc_6330:
                 bra.w   sub_E110
 loc_634A:
                 
-                bsr.w   sub_667C
+                bsr.w   unk_667C
                 bcc.s   loc_6388
                 move.w  (word_FF12DA).l,d0
                 bmi.s   return_63CA
@@ -15663,7 +15647,7 @@ loc_6460:
                 move.w  #$100,d1
 loc_6464:
                 
-                bsr.w   sub_667C
+                bsr.w   unk_667C
                 bcc.s   return_6480
                 tst.b   (byte_FF1142).l
                 bne.s   return_6480
@@ -15778,7 +15762,7 @@ loc_6610:
                 andi.b  #$3F,d1 
                 cmpi.b  #$2E,d1 
                 beq.s   return_667A
-                bsr.w   sub_667C
+                bsr.w   unk_667C
                 bcc.s   return_667A
                 move.w  (word_FF5422).l,(word_FF1208).l
                 move.w  (word_FF543E).l,d0
@@ -15801,41 +15785,22 @@ return_667A:
 
 ; END OF FUNCTION CHUNK FOR sub_603C
 
-
-; =============== S U B R O U T I N E =======================================
-
-sub_667C:
-                
-                clr.w   d0
+unk_667C:       dc.b $42 
+                dc.b $40 
                 move.b  (word_FF5422).l,d0
                 lsl.b   #4,d0
                 cmp.w   (word_FF5412).l,d0
                 bne.s   loc_6694
                 ori     #1,ccr
                 rts
-loc_6694:
-                
-                tst.b   d0
+loc_6694:       tst.b   d0
                 rts
-
-    ; End of function sub_667C
-
-
-; START OF FUNCTION CHUNK FOR sub_620E
-
-loc_6698:
-                
-                move.b  #$35,d0 
+loc_6698:       move.b  #$35,d0 
                 jsr     sub_22ED0
                 tst.w   d1
                 bmi.s   return_66AA
                 bsr.w   sub_8B44
-return_66AA:
-                
-                rts
-
-; END OF FUNCTION CHUNK FOR sub_620E
-
+return_66AA:    rts
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -16054,7 +16019,7 @@ loc_6962:
                 ori.w   #$80,(dword_FF542C).l 
                 cmpi.b  #$1E,d0
                 bcs.w   loc_69FA
-                bne.s   loc_69D8
+                bne.s   unk_69D8
                 move.w  (word_FF12E0).l,d0
                 beq.s   loc_69FA
                 cmpi.b  #$2E,$2B(a1,d1.w) 
@@ -16079,9 +16044,16 @@ loc_6996:
                 move.b  #$56,d0 
                 sndCom  SOUND_COMMAND_GET_D0_PARAMETER
                 bra.s   loc_69FA
-loc_69D8:
+unk_69D8:
                 
-                andi.w  #$FF3F,(dword_FF542C).l
+                dc.b   2
+                dc.b $79 
+                dc.b $FF
+                dc.b $3F 
+                dc.b   0
+                dc.b $FF
+                dc.b $54 
+                dc.b $2C 
                 ori.w   #$40,(dword_FF542C).l 
                 cmpi.b  #$26,d0 
                 bcs.s   loc_69FA
@@ -21012,10 +20984,10 @@ sub_86DA:
                 jsr     sub_1036C
                 jsr     sub_10340
                 sndCom  SFX_SPECIAL_ITEM_USE
-                bra.w   loc_8BBA
 
     ; End of function sub_86DA
 
+                bra.w   loc_8BBA
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -21071,10 +21043,9 @@ loc_8762:
                 move.b  #1,d0
                 jsr     sub_10378
                 sndCom  SFX_SPECIAL_ITEM_USE
-                dc.b $60 
-                dc.b   0
-                subi.b  #0,(a6)
-                subi.b  #$12,(a2)
+                bra.w   loc_8BBA
+                bra.w   loc_8BBA
+                bsr.s   sub_87BE
                 bcs.w   loc_8BC0
                 tst.b   d7
                 beq.w   loc_8BC0
@@ -21553,7 +21524,7 @@ sub_8BF2:
                 move.w  #$1732,(dword_FF5400).l
                 bset    #6,(byte_FF540C).l
                 bset    #0,(byte_FF1026).l
-                bsr.w   sub_620E
+                bsr.w   loc_620E
                 sndCom  MUSIC_WHISTLE
                 move.w  #$B7,d0 
                 jsr     (sub_BA4).l
@@ -21563,7 +21534,7 @@ sub_8BF2:
                 move.l  d0,(dword_FF5400).l
                 bclr    #6,(byte_FF540C).l
                 bclr    #0,(byte_FF1026).l
-                bsr.w   sub_620E
+                bsr.w   loc_620E
                 move.b  (MUSIC_INDEX).l,d0
                 sndCom  SOUND_COMMAND_GET_D0_PARAMETER
                 bset    #0,(byte_FF1026).l
@@ -37650,8 +37621,8 @@ loc_D662:
 
 sub_D68C:
                 
-                trap    #SOUND_COMMAND
-                dc.w $42
+                 
+                sndCom  SFX_MENU_SELECTION
                 bsr.w   sub_D730
                 lea     (unk_FF2C0C).l,a0
                 subq.w  #1,(a0)
@@ -37670,8 +37641,8 @@ loc_D69E:
 
 sub_D6AA:
                 
-                trap    #SOUND_COMMAND
-                dc.w $42
+                 
+                sndCom  SFX_MENU_SELECTION
                 bsr.w   sub_D730
                 lea     (unk_FF2C0C).l,a0
                 addq.w  #1,(a0)
@@ -37690,8 +37661,8 @@ loc_D6BC:
 
 sub_D6C8:
                 
-                trap    #SOUND_COMMAND
-                dc.w $42
+                 
+                sndCom  SFX_MENU_SELECTION
                 bsr.w   sub_D730
                 lea     (unk_FF2C0A).l,a0
                 subq.w  #1,(a0)
@@ -37711,8 +37682,8 @@ loc_D6DA:
 
 sub_D6EC:
                 
-                trap    #SOUND_COMMAND
-                dc.w $42
+                 
+                sndCom  SFX_MENU_SELECTION
                 bsr.w   sub_D710
                 lea     (unk_FF2C0A).l,a0
                 addq.w  #1,(a0)
@@ -38307,10 +38278,10 @@ loc_DBB6:
 byte_DBBC:
                 
                 sndCom  SFX_REFUSAL
-                bra.w   loc_D3C6
 
     ; End of function sub_DB28
 
+                bra.w   loc_D3C6
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -40830,7 +40801,8 @@ sub_EBA4:
                 
                  
                 sndCom  SFX_MENU_SELECTION
-                andi.b  #$51,(a2)+ 
+                bsr.w   sub_EDC4
+                subq.w  #1,(a1)
                 moveq   #7,d7
 loc_EBB0:
                 
@@ -40849,7 +40821,8 @@ sub_EBBE:
                 
                  
                 sndCom  SFX_MENU_SELECTION
-                andi.b  #$51,d0 
+                bsr.w   sub_EDC4
+                addq.w  #1,(a1)
                 moveq   #7,d7
 loc_EBCA:
                 
@@ -40867,7 +40840,8 @@ sub_EBD6:
                 
                  
                 sndCom  SFX_MENU_SELECTION
-                bset    d0,$5350(a0)
+                bsr.w   sub_EDC4
+                subq.w  #1,(a0)
                 moveq   #7,d7
 loc_EBE2:
                 
@@ -40885,7 +40859,7 @@ sub_EBEE:
                 
                  
                 sndCom  SFX_MENU_SELECTION
-                bset    d0,(a0)
+                bsr.w   sub_EDC4
                 addq.w  #1,(a0)
                 moveq   #7,d7
 loc_EBFA:
@@ -41328,12 +41302,15 @@ loc_EF6E:
                 tst.w   d0
                 bmi.w   loc_EEF6
                 cmp.w   -4(a6),d0
-                bne.s   loc_EF84
+                bne.s   unk_EF84
                 sndCom  SFX_REFUSAL
                 bra.s   loc_EF6E
-loc_EF84:
+unk_EF84:
                 
-                move.w  d0,-6(a6)
+                dc.b $3D 
+                dc.b $40 
+                dc.b $FF
+                dc.b $FA 
                 bsr.w   sub_F5F4
                 move.w  #$49,d1 
                 bsr.w   sub_F618
@@ -42790,9 +42767,9 @@ sub_FA24:
                 bsr.w   sub_F2E2
                 move.b  (byte_FF0F8E).l,d1
                 cmpi.b  #$10,d1
-                bcs.s   loc_FA58
+                bcs.s   unk_FA58
                 clr.w   -$A(a6)
-                jsr     sub_FABC(pc)
+                jsr     unk_FABC(pc)
                 nop
                 move.b  (byte_FF0F8E).l,d1
                 andi.b  #$10,d1
@@ -42803,16 +42780,15 @@ byte_FA52:
                 
                 sndCom  SFX_VALIDATION
                 rts
-loc_FA58:
+unk_FA58:
                 
-                bsr.s   loc_FA6C
+                dc.b $61 
+                dc.b $12
                 move.w  d0,-2(a4)
-                bsr.s   sub_FABC
+                bsr.s   unk_FABC
                 bsr.w   sub_F8B6
                 jsr     (sub_B5E).l
                 bra.s   sub_FA24
-loc_FA6C:
-                
                 move.w  -2(a4),d0
                 move.w  -8(a4),d1
                 move.w  -$A(a4),d2
@@ -42820,7 +42796,7 @@ loc_FA6C:
                 btst    #2,d3
                 bne.s   loc_FA8C
                 btst    #3,d3
-                bne.s   loc_FAA2
+                bne.s   unk_FAA2
                 rts
 loc_FA8C:
                 
@@ -42836,9 +42812,10 @@ loc_FA94:
 return_FAA0:
                 
                 rts
-loc_FAA2:
+unk_FAA2:
                 
-                addq.w  #1,d0
+                dc.b $52 
+                dc.b $40 
                 cmp.w   d2,d0
                 bcs.s   loc_FAAE
                 move.w  d2,d0
@@ -42849,31 +42826,22 @@ loc_FAAE:
                 add.w   d1,-4(a4)
                 clr.w   -$A(a6)
                 sndCom  SFX_MENU_SELECTION
-return_FABA:
-                
-                rts
 
     ; End of function sub_FA24
 
-
-; =============== S U B R O U T I N E =======================================
-
-sub_FABC:
-                
-                addq.w  #1,-$A(a6)
+return_FABA:    rts
+unk_FABC:       dc.b $52 
+                dc.b $6E 
+                dc.b $FF
+                dc.b $F6 
                 move.w  -$A(a6),d0
                 andi.b  #$10,d0
                 beq.s   loc_FAD4
                 move.w  #1,(word_FF0556).l
                 rts
-loc_FAD4:
-                
-                move.w  -4(a4),(word_FF0556).l
+loc_FAD4:       move.w  -4(a4),(word_FF0556).l
                 move.w  -6(a4),(word_FF0550).l
                 rts
-
-    ; End of function sub_FABC
-
 
 ; =============== S U B R O U T I N E =======================================
 
