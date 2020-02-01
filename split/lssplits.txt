@@ -1,9 +1,41 @@
 /***********************Directories***************************/
 #dir    data/
-#dir    data/sound/
+#dir    data/sound
+#dir    data/scripting
+#dir    data/scripting/text
+#dir    data/graphics
+#dir    data/graphics/specialscreens
+#dir    data/graphics/tech
+#dir    data/graphics/tech/fonts
+#dir    data/graphics/tech/menus
 
 /***********************Data***************************/
 
+#split	0x9242,0x95AC,data/graphics/tech/menus/statusbartileset.bin
+#split	0xFD5C,0xFE37,data/graphics/specialscreens/savescreentileset.bin
+#split	0x2A884,0x2B27A,data/graphics/tech/fonts/mainfont.bin
+#split	0x2B27A,0x2C29B,data/scripting/text/textbank0.bin
+#split	0x2C29B,0x2DCC8,data/scripting/text/textbank1.bin
+#split	0x2DCC8,0x2F787,data/scripting/text/textbank2.bin
+#split	0x2F787,0x3153E,data/scripting/text/textbank3.bin
+#split	0x3153E,0x330AB,data/scripting/text/textbank4.bin
+#split	0x330AB,0x34830,data/scripting/text/textbank5.bin
+#split	0x34830,0x36087,data/scripting/text/textbank6.bin
+#split	0x36087,0x377E3,data/scripting/text/textbank7.bin
+#split	0x377E3,0x38368,data/scripting/text/textbank8.bin
+#split	0x39ED8,0x3A564,data/graphics/specialscreens/titlescreentileset1.bin
+#split	0x3A564,0x3BCAE,data/graphics/specialscreens/titlescreentileset2.bin
+#split	0x3BCAE,0x3DD92,data/graphics/specialscreens/titlescreentileset3.bin
+#split	0x3DD92,0x3DDFE,data/graphics/specialscreens/titlescreenlayout1.bin
+#split	0x3DDFE,0x3DE52,data/graphics/specialscreens/titlescreenlayout2.bin
+#split	0x3DE52,0x3DECA,data/graphics/specialscreens/titlescreenlayout3.bin
+#split	0x3DECA,0x3DEEA,data/graphics/specialscreens/titlescreenpalette1.bin
+#split	0x3DEEA,0x3DF0A,data/graphics/specialscreens/titlescreenpalette2.bin
+#split	0x3DF8A,0x3E621,data/graphics/specialscreens/climaxlogotileset.bin
+#split	0x3E621,0x3E64C,data/graphics/specialscreens/climaxlogolayout.bin
+#split	0x3E64C,0x3E654,data/graphics/specialscreens/climaxlogopalette.bin
+#split	0x9A4EA,0x9AC6C,data/graphics/tech/fonts/introfont.bin
+#split	0x11EBB4,0x11F314,data/graphics/tech/fonts/regionlockfont.bin
 #split	0x1E0000,0x1E8000,data/sound/pcmbank0.bin
 #split	0x1E8000,0x1F0000,data/sound/pcmbank1.bin
 #split	0x1F0000,0x1F6000,data/sound/musicbank0build.bin

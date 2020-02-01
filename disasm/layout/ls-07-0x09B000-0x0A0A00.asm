@@ -15246,7 +15246,7 @@ sub_9EB9C:
                 move.b  d0,d1
                 andi.b  #7,d1
                 lsr.b   #3,d0
-                lea     (unk_FF1080).l,a0
+                lea     (CHEST_FLAGS).l,a0
                 bset    d1,(a0,d0.w)
 return_9EBC4:
                 
@@ -15264,7 +15264,7 @@ loc_9EBC6:
                 move.b  d0,d1
                 andi.b  #7,d1
                 lsr.b   #3,d0
-                lea     (unk_FF1080).l,a0
+                lea     (CHEST_FLAGS).l,a0
                 btst    d1,(a0,d0.w)
                 rts
 
@@ -15295,15 +15295,15 @@ loc_9EC06:
                 clr.w   d2
                 jsr     (sub_320).l
                 lea     unk_9FA42(pc), a0
-                lea     (unk_FF2C00).l,a1
+                lea     (byte_FF2C00).l,a1
                 lea     (loc_4000).w,a2
                 jsr     (sub_2F0).l
                 lea     unk_A0033(pc), a0
-                lea     (unk_FF5C02).l,a1
+                lea     (byte_FF5C02).l,a1
                 lea     (loc_2000).w,a2
                 jsr     (sub_2F0).l
                 lea     unk_A086F(pc), a0
-                lea     (unk_FF5C02).l,a1
+                lea     (byte_FF5C02).l,a1
                 jsr     sub_38608
                 lea     byte_9FA3A(pc), a0
                 lea     (word_FF0080).l,a1
@@ -15319,7 +15319,7 @@ loc_9EC06:
                 move.b  #1,(a0)+
                 move.b  #2,(a0)+
                 move.b  #3,(a0)+
-                lea     unk_9ED1A(pc), a0
+                lea     EndingText(pc), a0
 loc_9EC9A:
                 
                 move.w  -$C(a6),d0
@@ -15383,7 +15383,7 @@ sub_9ED10:
 
     ; End of function sub_9ED10
 
-unk_9ED1A:      dc.b   2
+EndingText:     dc.b   2
                 dc.b $FF
                 dc.b  $D
                 dc.b   2
@@ -17769,11 +17769,11 @@ loc_9F662:
 
 sub_9F694:
                 
-                move.w  #1,(word_FF1194).l
+                move.w  #1,(unk_FF1194).l
                 clr.b   (byte_FF1129).l
                 clr.b   -$E(a6)
                 movem.l d0/d7-a0,-(sp)
-                lea     (unk_FF3900).l,a0
+                lea     (byte_FF3900).l,a0
                 move.b  (byte_FF1BFA).l,d0
                 move.b  d0,d1
                 lsl.l   #8,d0
@@ -17823,7 +17823,7 @@ loc_9F700:
                 bcc.w   loc_9F71E
                 subi.b  #$3F,d0 
                 ext.w   d0
-                sub.w   d0,(word_FF1194).l
+                sub.w   d0,(unk_FF1194).l
                 bra.s   loc_9F6DC
 loc_9F71E:
                 
@@ -17871,8 +17871,8 @@ sub_9F76E:
                 move.w  d0,d1
                 lsl.w   #5,d1
                 movea.l d1,a1
-                lea     (unk_FF3940).l,a0
-                move.w  (word_FF1194).l,d1
+                lea     (byte_FF3940).l,a0
+                move.w  (unk_FF1194).l,d1
                 move.w  d1,d2
                 lsr.w   #2,d1
                 andi.b  #7,d2
@@ -17895,7 +17895,7 @@ loc_9F7B0:
                 jsr     (sub_2C6).l
                 jsr     (sub_2A2).l
                 bsr.w   sub_9ECDC
-                lea     (unk_FF1C80).l,a0
+                lea     (byte_FF1C80).l,a0
                 move.w  -6(a6),d0
                 tst.b   d0
                 bpl.w   loc_9F804
@@ -17948,29 +17948,29 @@ loc_9F81A:
 
 loc_9F82C:
                 
-                lea     (unk_FF5C04).l,a2
+                lea     (byte_FF5C04).l,a2
                 moveq   #2,d7
                 bra.w   loc_9F858
 loc_9F838:
                 
-                lea     (unk_FF5C5E).l,a2
+                lea     (byte_FF5C5E).l,a2
                 moveq   #2,d7
                 bra.w   loc_9F858
 loc_9F844:
                 
-                lea     (unk_FF5CB8).l,a2
+                lea     (byte_FF5CB8).l,a2
                 moveq   #4,d7
                 bra.w   loc_9F858
 loc_9F850:
                 
-                lea     (unk_FF5D4E).l,a2
+                lea     (byte_FF5D4E).l,a2
                 moveq   #3,d7
 loc_9F858:
                 
                 move.l  a0,-(sp)
                 move.w  -6(a6),d1
                 add.w   d1,d1
-                lea     (unk_FF1C80).l,a3
+                lea     (byte_FF1C80).l,a3
                 lea     (a3,d1.w),a3
 loc_9F86A:
                 
@@ -17994,7 +17994,7 @@ loc_9F870:
 
 sub_9F886:
                 
-                lea     (unk_FF2C00).l,a0
+                lea     (byte_FF2C00).l,a0
                 tst.b   d0
                 beq.w   loc_9F8BA
                 cmpi.b  #$80,d0
@@ -18023,11 +18023,11 @@ loc_9F8BA:
 loc_9F8C0:
                 
                 bsr.w   sub_9F8E0
-                addq.w  #1,(word_FF1194).l
+                addq.w  #1,(unk_FF1194).l
                 dbf     d2,loc_9F8C0
                 lea     (unk_FF2C01).l,a0
                 bsr.w   sub_9F8E0
-                addq.w  #1,(word_FF1194).l
+                addq.w  #1,(unk_FF1194).l
                 rts
 
     ; End of function sub_9F886
@@ -18037,8 +18037,8 @@ loc_9F8C0:
 
 sub_9F8E0:
                 
-                lea     (unk_FF3940).l,a1
-                move.w  (word_FF1194).l,d0
+                lea     (byte_FF3940).l,a1
+                move.w  (unk_FF1194).l,d0
                 move.w  d0,d1
                 andi.b  #$F8,d1
                 lsl.w   #3,d1
@@ -18047,7 +18047,7 @@ sub_9F8E0:
                 andi.w  #7,d1
                 lsr.w   #1,d1
                 lea     (a1,d1.w),a1
-                lea     (unk_FF1BFB).l,a2
+                lea     (byte_FF1BFB).l,a2
                 move.b  (a2)+,d5
                 move.b  (a2)+,d6
                 move.b  (a2)+,d7
@@ -18111,7 +18111,7 @@ loc_9F962:
 
 sub_9F96A:
                 
-                move.w  (word_FF1194).l,d0
+                move.w  (unk_FF1194).l,d0
                 andi.w  #$F,d0
                 bne.s   loc_9F978
                 rts
@@ -18124,11 +18124,11 @@ loc_9F978:
                 rts
 loc_9F982:
                 
-                move.w  (word_FF1194).l,d0
+                move.w  (unk_FF1194).l,d0
                 andi.w  #$FFF0,d0
                 addi.w  #$10,d0
-                move.w  d0,(word_FF1194).l
-                lea     (unk_FF4103).l,a1
+                move.w  d0,(unk_FF1194).l
+                lea     (byte_FF4103).l,a1
                 moveq   #$F,d6
                 cmpi.b  #2,d1
                 beq.w   loc_9F9DA
