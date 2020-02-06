@@ -579,10 +579,10 @@ loc_19A4A:
                 movem.l (sp)+,a1
                 move.w  $54(a1),d1
                 addq.w  #1,d1
-                move.w  d1,(unk_FF5412).l
+                move.w  d1,(word_FF5412).l
                 add.b   (byte_FF5405).l,d1
                 subq.b  #1,d1
-                move.w  d1,(unk_FF5454).l
+                move.w  d1,(word_FF5454).l
                 bra.s   loc_19ABA
 loc_19AA8:
                 
@@ -719,7 +719,7 @@ loc_19BEC:
                 bne.s   loc_19C14
                 btst    #6,(MAIN_FLAGS+2).l
                 beq.w   return_1A308
-                move.w  #$2119,(unk_FF5500).l
+                move.w  #$2119,(word_FF5500).l
                 clr.w   (unk_FF5512).l
                 bra.w   return_1A308
 loc_19C14:
@@ -773,7 +773,7 @@ loc_19C80:
                 bne.s   loc_19CD6
                 clr.b   d1
                 bsr.w   sub_1979C
-                lea     (unk_FF5500).l,a1
+                lea     (word_FF5500).l,a1
                 move.w  #$120F,(a1)
                 move.b  #$C0,d1
                 or.b    d1,4(a1)
@@ -785,7 +785,7 @@ loc_19CD6:
                 move.b  #$40,d1 
                 or.b    d1,4(a1)
                 bsr.w   sub_1979C
-                lea     (unk_FF5500).l,a1
+                lea     (word_FF5500).l,a1
                 move.w  #$1210,(a1)
                 andi.b  #$3F,4(a1) 
                 move.b  #$80,d1
@@ -1189,9 +1189,9 @@ loc_1A2B6:
                 
                 cmpi.w  #$2EF,(word_FF1204).l
                 bne.w   loc_1A2D8
-                cmpi.w  #$FE,(byte_FF12DE).l 
+                cmpi.w  #$FE,(word_FF12DE).l 
                 bne.w   return_1A308
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 bra.w   return_1A308
 loc_1A2D8:
                 
@@ -25004,7 +25004,7 @@ unk_1B932:      dc.b $E1
                 dc.b $61 
                 dc.b $84 
                 dc.b   4
-unk_20100:      dc.b $17
+                dc.b $17
                 dc.b $16
                 dc.b   0
                 dc.b   0
@@ -25262,7 +25262,7 @@ unk_20100:      dc.b $17
                 dc.b   0
                 dc.b $15
                 dc.b $E2 
-unk_20202:      dc.b $81 
+                dc.b $81 
                 dc.b   0
                 dc.b   0
                 dc.b $38 
@@ -36604,4 +36604,4 @@ unk_2226B:      dc.b $77
                 dc.b   0
                 dc.b $FF
                 dc.b $FF
-                align $22E80
+                align $022E80

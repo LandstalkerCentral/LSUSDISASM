@@ -18,7 +18,7 @@ sub_9B000:
 
 sub_9B004:
                 
-                jmp     sub_9EBE0(pc)
+                jmp     byte_9EBE0(pc)
 
     ; End of function sub_9B004
 
@@ -45,7 +45,7 @@ sub_9B00C:
 
 sub_9B010:
                 
-                jmp     loc_9EBC6(pc)
+                jmp     sub_9EBC6(pc)
 
     ; End of function sub_9B010
 
@@ -15255,9 +15255,9 @@ return_9EBC4:
     ; End of function sub_9EB9C
 
 
-; START OF FUNCTION CHUNK FOR sub_9B010
+; =============== S U B R O U T I N E =======================================
 
-loc_9EBC6:
+sub_9EBC6:
                 
                 clr.w   d0
                 move.b  $37(a1),d0
@@ -15268,15 +15268,14 @@ loc_9EBC6:
                 btst    d1,(a0,d0.w)
                 rts
 
-; END OF FUNCTION CHUNK FOR sub_9B010
+    ; End of function sub_9EBC6
 
+byte_9EBE0:     sndCom  MUSIC_TO_THE_GREAT_ADVENTURERS
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_9EBE0:
+sub_9EBE4:
                 
-                 
-                sndCom  MUSIC_TO_THE_GREAT_ADVENTURERS
                 link    a6,#-$10
                 clr.w   -2(a6)
                 clr.w   -$10(a6)
@@ -15297,11 +15296,11 @@ loc_9EC06:
                 lea     unk_9FA42(pc), a0
                 lea     (byte_FF2C00).l,a1
                 lea     (loc_4000).w,a2
-                jsr     (sub_2F0).l
+                jsr     (sub_2F0).l     
                 lea     unk_A0033(pc), a0
                 lea     (byte_FF5C02).l,a1
-                lea     (loc_2000).w,a2
-                jsr     (sub_2F0).l
+                lea     ($2000).w,a2
+                jsr     (sub_2F0).l     
                 lea     unk_A086F(pc), a0
                 lea     (byte_FF5C02).l,a1
                 jsr     sub_38608
@@ -15346,7 +15345,7 @@ loc_9ECC2:
                 unlk    a6
                 rts
 
-    ; End of function sub_9EBE0
+    ; End of function sub_9EBE4
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -17741,7 +17740,7 @@ sub_9F644:
                 rts
 loc_9F654:
                 
-                lea     ($FF1C00).l,a0
+                lea     (word_FF1C00).l,a0
                 lea     $80(a0),a1
                 move.w  #$13F,d7
 loc_9F662:
@@ -17769,7 +17768,7 @@ loc_9F662:
 
 sub_9F694:
                 
-                move.w  #1,(unk_FF1194).l
+                move.w  #1,(word_FF1194).l
                 clr.b   (byte_FF1129).l
                 clr.b   -$E(a6)
                 movem.l d0/d7-a0,-(sp)
@@ -17823,7 +17822,7 @@ loc_9F700:
                 bcc.w   loc_9F71E
                 subi.b  #$3F,d0 
                 ext.w   d0
-                sub.w   d0,(unk_FF1194).l
+                sub.w   d0,(word_FF1194).l
                 bra.s   loc_9F6DC
 loc_9F71E:
                 
@@ -17872,7 +17871,7 @@ sub_9F76E:
                 lsl.w   #5,d1
                 movea.l d1,a1
                 lea     (byte_FF3940).l,a0
-                move.w  (unk_FF1194).l,d1
+                move.w  (word_FF1194).l,d1
                 move.w  d1,d2
                 lsr.w   #2,d1
                 andi.b  #7,d2
@@ -18023,11 +18022,11 @@ loc_9F8BA:
 loc_9F8C0:
                 
                 bsr.w   sub_9F8E0
-                addq.w  #1,(unk_FF1194).l
+                addq.w  #1,(word_FF1194).l
                 dbf     d2,loc_9F8C0
                 lea     (unk_FF2C01).l,a0
                 bsr.w   sub_9F8E0
-                addq.w  #1,(unk_FF1194).l
+                addq.w  #1,(word_FF1194).l
                 rts
 
     ; End of function sub_9F886
@@ -18038,7 +18037,7 @@ loc_9F8C0:
 sub_9F8E0:
                 
                 lea     (byte_FF3940).l,a1
-                move.w  (unk_FF1194).l,d0
+                move.w  (word_FF1194).l,d0
                 move.w  d0,d1
                 andi.b  #$F8,d1
                 lsl.w   #3,d1
@@ -18111,7 +18110,7 @@ loc_9F962:
 
 sub_9F96A:
                 
-                move.w  (unk_FF1194).l,d0
+                move.w  (word_FF1194).l,d0
                 andi.w  #$F,d0
                 bne.s   loc_9F978
                 rts
@@ -18124,10 +18123,10 @@ loc_9F978:
                 rts
 loc_9F982:
                 
-                move.w  (unk_FF1194).l,d0
+                move.w  (word_FF1194).l,d0
                 andi.w  #$FFF0,d0
                 addi.w  #$10,d0
-                move.w  d0,(unk_FF1194).l
+                move.w  d0,(word_FF1194).l
                 lea     (byte_FF4103).l,a1
                 moveq   #$F,d6
                 cmpi.b  #2,d1
@@ -21879,4 +21878,4 @@ unk_A086F:      dc.b  $F
                 dc.b   7
                 dc.b $FF
                 dc.b $FF
-                align $A0A00
+                align $0A0A00

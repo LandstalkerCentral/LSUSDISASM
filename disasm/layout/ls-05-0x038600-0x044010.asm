@@ -143,8 +143,8 @@ sub_386D0:
                 
                 lea     unk_386E4(pc), a0
                 lea     (byte_FF2C00).l,a1
-                lea     (off_20).w,a2   
-                jmp     (sub_2F0).l
+                lea     ($20).w,a2
+                jmp     (sub_2F0).l     
 
     ; End of function sub_386D0
 
@@ -911,7 +911,7 @@ sub_389D4:
                 jsr     (sub_314).l
                 move.w  #$9203,d0
                 jsr     (sub_30E).l
-                move.w  #$8A18,(byte_FF0FC4).l
+                move.w  #$8A18,(word_FF0FC4).l
                 move.w  #$8A18,(VDP_Control).l
                 bsr.s   sub_38A12
                 bsr.s   sub_38A2E
@@ -928,8 +928,8 @@ sub_38A12:
                 
                 lea     unk_38ACC(pc), a0
                 lea     (byte_FF2C00).l,a1
-                lea     (loc_2000).w,a2
-                jsr     (sub_2F6).l
+                lea     ($2000).w,a2
+                jsr     (sub_2F6).l     
                 jsr     (sub_2A8).l
                 rts
 
@@ -943,8 +943,8 @@ sub_38A2E:
                 jsr     (sub_224).l
                 jsr     (sub_25A).l
                 jsr     (sub_21E).l
-                clr.w   (byte_FF0100).l
-                clr.w   (byte_FF0500).l
+                clr.w   (dword_FF0100).l
+                clr.w   (dword_FF0500).l
                 jsr     (sub_2CC).l
                 jsr     (sub_2DE).l
                 jsr     (sub_2A8).l
@@ -4437,7 +4437,7 @@ loc_39848:
                 lea     TitleScreenTileset1(pc), a0
                 lea     (byte_FF2C00).l,a1
                 lea     (0).w,a2
-                jsr     (sub_2F0).l
+                jsr     (sub_2F0).l     
                 lea     TitleScreenLayout1(pc), a0
                 lea     (byte_FF2C00).l,a1
                 bsr.w   sub_3976A
@@ -4448,7 +4448,7 @@ loc_39848:
                 lea     TitleScreenTileset2(pc), a0
                 lea     (byte_FF2C00).l,a1
                 lea     ($2000).w,a2
-                jsr     (sub_2F0).l
+                jsr     (sub_2F0).l     
                 lea     TitleScreenLayout2(pc), a0
                 lea     (byte_FF2C00).l,a1
                 bsr.w   sub_3976A
@@ -4459,7 +4459,7 @@ loc_39848:
                 lea     TitleScreenTileset3(pc), a0
                 lea     (byte_FF2C00).l,a1
                 lea     ($5000).w,a2
-                jsr     (sub_2F0).l
+                jsr     (sub_2F0).l     
                 lea     TitleScreenLayout3(pc), a0
                 lea     (byte_FF2C00).l,a1
                 bsr.w   sub_3976A
@@ -4554,7 +4554,7 @@ loc_399C6:
 
 sub_399CC:
                 
-                link    a6,#-$1E
+                link    a6,#$FFE2
                 movea.l a6,a0
                 moveq   #$1D,d7
                 clr.b   d0
@@ -5319,7 +5319,7 @@ sub_3DF0A:
                 lea     ClimaxLogoTileset(pc), a0
                 lea     (byte_FF2C00).l,a1
                 lea     (initStack).w,a2
-                jsr     (sub_2F0).l
+                jsr     (sub_2F0).l     
                 lea     ClimaxLogoLayout(pc), a0
                 lea     (byte_FF2C00).l,a1
                 bsr.w   sub_3976A
@@ -5370,12 +5370,12 @@ loc_3E682:
                 lea     unk_43D2A(pc), a0
                 lea     (byte_FF5C02).l,a1
                 lea     (off_20).w,a2   
-                jsr     (sub_2F6).l
+                jsr     (sub_2F6).l     
                 jsr     (sub_2A8).l
                 lea     unk_43D4C(pc), a0
                 lea     (byte_FF5C82).l,a1
                 lea     ($A0).w,a2
-                jsr     (sub_2F6).l
+                jsr     (sub_2F6).l     
                 jsr     (sub_2A2).l
                 bsr.w   sub_3EB0E
                 bsr.w   sub_3EB5E
@@ -5389,12 +5389,12 @@ loc_3E682:
                 lea     unk_3ED9A(pc), a0
                 lea     (byte_FF5C02).l,a1
                 lea     ($1000).w,a2
-                jsr     (sub_2F6).l
+                jsr     (sub_2F6).l     
                 jsr     (sub_2A8).l
                 lea     unk_41B41(pc), a0
                 lea     (byte_FF5C02).l,a1
                 lea     (byte_6000).w,a2
-                jsr     (sub_2F6).l
+                jsr     (sub_2F6).l     
                 jsr     (sub_2A8).l
                 lea     unk_41B01(pc), a0
                 lea     (byte_FF2C00).l,a1
@@ -5613,8 +5613,7 @@ loc_3E972:
                 bcc.s   loc_3E97E
                 moveq   #8,d0
                 bra.s   loc_3E98A
-                dc.b $4E 
-                dc.b $75 
+                rts
 loc_3E97E:
                 
                 cmpi.w  #$14,d0
@@ -5853,7 +5852,7 @@ unk_3EAF6:      dc.b   1
 
 sub_3EB0E:
                 
-                move.w  #1,(unk_FF1194).l
+                move.w  #1,(word_FF1194).l
                 clr.b   (byte_FF1129).l
                 move.b  #1,(byte_FF112A).l
                 lea     (byte_FF3900).l,a1
@@ -21801,7 +21800,7 @@ unk_41B41:      dc.b $8A
                 dc.b $41 
                 dc.b $10
                 dc.b   0
-unk_42A61:      dc.b $44 
+                dc.b $44 
                 dc.b $40 
                 dc.b $2C 
                 dc.b $B5 
@@ -22049,7 +22048,7 @@ unk_42A61:      dc.b $44
                 dc.b $7F 
                 dc.b  $E
                 dc.b  $D
-unk_42B59:      dc.b $22 
+                dc.b $22 
                 dc.b $24 
                 dc.b $32 
                 dc.b $33 
@@ -26936,4 +26935,4 @@ byte_43E2E:     dc.b 0
                 dc.b   0
                 dc.b $FF
                 dc.b $FF
-                align $44010
+                align $044010
