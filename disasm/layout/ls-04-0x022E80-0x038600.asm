@@ -576,7 +576,7 @@ sub_230CA:
                 bpl.s   loc_230D6
                 not.w   d0
                 lsl.w   #2,d0
-                jmp     loc_23150(pc,d0.w)
+                jmp     sub_23150(pc,d0.w)
 loc_230D6:
                 
                 cmpi.b  #$47,d0 
@@ -613,10 +613,7 @@ sub_23104:
                 btst    #1,(byte_FF1155).l
                 beq.s   loc_23136
                 move.b  (byte_FF1154).l,d0
-                dc.b $4E 
-                dc.b $40 
-                dc.b $FF
-                dc.b $FF
+                sndCom  SOUND_COMMAND_GET_D0_PARAMETER
 loc_23136:
                 
                 movem.w (sp)+,d0
@@ -641,43 +638,207 @@ loc_2314A:
     ; End of function sub_2313C
 
 
-; START OF FUNCTION CHUNK FOR sub_230CA
+; =============== S U B R O U T I N E =======================================
 
-loc_23150:
+sub_23150:
                 
                 bra.w   loc_231CA
+
+    ; End of function sub_23150
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23154:
+                
                 bra.w   loc_22F70
-                bra.w   loc_231DA
-                bra.w   loc_231E2
-                bra.w   loc_23280
-                bra.w   loc_231EE
-                bra.w   return_2320A
-                bra.w   return_2320C
-                bra.w   loc_2320E
-                bra.w   loc_23238
-                bra.w   loc_2323E
-                bra.w   loc_23244
-                bra.w   loc_2324E
-                bra.w   loc_2329A
+
+    ; End of function sub_23154
+
+                bra.w   sub_231DA
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2315C:
+                
+                bra.w   sub_231E2
+
+    ; End of function sub_2315C
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23160:
+                
+                bra.w   sub_23280
+
+    ; End of function sub_23160
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23164:
+                
+                bra.w   sub_231EE
+
+    ; End of function sub_23164
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23168:
+                
+                bra.w   sub_2320A
+
+    ; End of function sub_23168
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2316C:
+                
+                bra.w   sub_2320C
+
+    ; End of function sub_2316C
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23170:
+                
+                bra.w   sub_2320E
+
+    ; End of function sub_23170
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23174:
+                
+                bra.w   sub_23238
+
+    ; End of function sub_23174
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23178:
+                
+                bra.w   sub_2323E
+
+    ; End of function sub_23178
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2317C:
+                
+                bra.w   sub_23244
+
+    ; End of function sub_2317C
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23180:
+                
+                bra.w   sub_2324E
+
+    ; End of function sub_23180
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23184:
+                
+                bra.w   sub_2329A
+
+    ; End of function sub_23184
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23188:
+                
                 bra.w   sub_23314
+
+    ; End of function sub_23188
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2318C:
+                
                 bra.w   loc_2329E
-                ori.b   #0,d0
-                ori.b   #0,d0
-                ori.b   #0,d0
-                ori.b   #0,d0
-                ori.b   #0,d0
-                bra.w   return_2332A
-                ori.b   #0,d0
-                ori.b   #0,d0
-                ori.b   #0,d0
-                bra.w   loc_2332C
+
+    ; End of function sub_2318C
+
+                dc.l 0
+                dc.l 0
+                dc.l 0
+                dc.l 0
+                dc.l 0
+
+; =============== S U B R O U T I N E =======================================
+
+sub_231A4:
+                
+                bra.w   sub_2332A
+
+    ; End of function sub_231A4
+
+                dc.l 0
+                dc.l 0
+                dc.l 0
+
+; =============== S U B R O U T I N E =======================================
+
+sub_231B4:
+                
+                bra.w   sub_2332C
+
+    ; End of function sub_231B4
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_231B8:
+                
                 bra.w   return_23102
+
+    ; End of function sub_231B8
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_231BC:
+                
                 bra.w   loc_231C4
+
+    ; End of function sub_231BC
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_231C0:
+                
                 bra.w   return_23102
+
+    ; End of function sub_231C0
+
+
+; START OF FUNCTION CHUNK FOR sub_231BC
+
 loc_231C4:
                 
                 clr.w   d0
                 bra.w   loc_230D6
+
+; END OF FUNCTION CHUNK FOR sub_231BC
+
+
+; START OF FUNCTION CHUNK FOR sub_230CA
+
 loc_231CA:
                 
                 bsr.w   sub_2313C
@@ -687,16 +848,34 @@ loc_231D4:
                 
                 movem.l (sp)+,d0
                 rts
-loc_231DA:
+
+; END OF FUNCTION CHUNK FOR sub_230CA
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_231DA:
                 
                 bsr.w   sub_23336
                 bra.w   sub_2335C
-loc_231E2:
+
+    ; End of function sub_231DA
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_231E2:
                 
                 bsr.w   sub_23336
                 bsr.w   sub_2949A
                 bra.w   sub_2335C
-loc_231EE:
+
+    ; End of function sub_231E2
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_231EE:
                 
                 bsr.w   sub_23314
                 bsr.w   sub_23336
@@ -706,13 +885,31 @@ loc_231EE:
                 clr.w   (a1)+
                 move.w  #$FFFF,(a1)+
                 rts
-return_2320A:
+
+    ; End of function sub_231EE
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2320A:
                 
                 rts
-return_2320C:
+
+    ; End of function sub_2320A
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2320C:
                 
                 rts
-loc_2320E:
+
+    ; End of function sub_2320C
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2320E:
                 
                 move.w  #$3B,d0 
 loc_23212:
@@ -726,23 +923,53 @@ loc_23216:
                 bne.s   loc_23232
                 jsr     (sub_272).l
                 dbf     d0,loc_23216
+
+    ; End of function sub_2320E
+
+
+; START OF FUNCTION CHUNK FOR sub_23280
+
 loc_23232:
                 
                 movem.w (sp)+,d0
                 rts
-loc_23238:
+
+; END OF FUNCTION CHUNK FOR sub_23280
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23238:
                 
                 move.w  #$59,d0 
                 bra.s   loc_23212
-loc_2323E:
+
+    ; End of function sub_23238
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2323E:
                 
                 move.w  #$77,d0 
                 bra.s   loc_23212
-loc_23244:
+
+    ; End of function sub_2323E
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23244:
                 
                 move.w  #$3B,d0 
                 jmp     (sub_278).l
-loc_2324E:
+
+    ; End of function sub_23244
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2324E:
                 
                 move.l  (dword_FF1878).l,d7
                 jsr     (sub_338).l
@@ -761,7 +988,13 @@ loc_23276:
                 dbf     d1,loc_2326E
                 move.w  #$FFFF,(a1)+
                 rts
-loc_23280:
+
+    ; End of function sub_2324E
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_23280:
                 
                 movem.w d2,-(sp)
 loc_23284:
@@ -775,7 +1008,13 @@ loc_2328E:
                 bsr.s   sub_232CE
                 beq.s   loc_2328E
                 bra.s   loc_23232
-loc_2329A:
+
+    ; End of function sub_23280
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2329A:
                 
                 bsr.w   loc_22F70
 loc_2329E:
@@ -798,7 +1037,7 @@ loc_232B8:
                 clr.w   (word_FF0560).l
                 bra.w   loc_23232
 
-; END OF FUNCTION CHUNK FOR sub_230CA
+    ; End of function sub_2329A
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -847,18 +1086,24 @@ sub_23314:
     ; End of function sub_23314
 
 
-; START OF FUNCTION CHUNK FOR sub_230CA
+; =============== S U B R O U T I N E =======================================
 
-return_2332A:
+sub_2332A:
                 
                 rts
-loc_2332C:
+
+    ; End of function sub_2332A
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2332C:
                 
                 bsr.s   sub_23336
                 move.b  d1,(byte_FF112A).l
                 rts
 
-; END OF FUNCTION CHUNK FOR sub_230CA
+    ; End of function sub_2332C
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -1137,8 +1382,6 @@ sub_2345C:
 sub_2346C:
                 
                 bsr.s   sub_2349E
-loc_2346E:
-                
                 bcs.s   loc_23476
                 move.w  #$8AB0,d0
                 bra.s   loc_2347A
@@ -5837,8 +6080,7 @@ loc_24AF4:
                 move.w  #$18,d0
                 bsr.w   sub_28FD8
                 bsr.w   sub_29046
-                dc.b   0
-                dc.b $77 
+                dc.w $77
                 bra.s   loc_24B36
 byte_24B16:
                 
@@ -6687,7 +6929,7 @@ unk_24D34:      dc.b   2
 sub_24EBE:
                 
                 movem.l d0/a0,-(sp)
-                lea     (word_FF5480).l,a0
+                lea     (byte_FF5480).l,a0
 loc_24EC8:
                 
                 move.w  (a0),d0
@@ -7078,7 +7320,12 @@ sub_251D0:
 
     ; End of function sub_251D0
 
-loc_251EA:      move.w  (a0)+,d0
+
+; =============== S U B R O U T I N E =======================================
+
+sub_251EA:
+                
+                move.w  (a0)+,d0
                 move.w  d0,d4
                 andi.w  #$7800,d4
                 rol.w   #5,d4
@@ -7086,8 +7333,11 @@ loc_251EA:      move.w  (a0)+,d0
                 cmp.w   d4,d1
                 blt.s   sub_25204
                 sub.w   d4,d1
-                dbf     d2,loc_251EA
+                dbf     d2,sub_251EA
                 bra.s   loc_25218
+
+    ; End of function sub_251EA
+
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -7103,12 +7353,28 @@ loc_25212:
 
     ; End of function sub_25204
 
-loc_25218:      tst.w   (word_210).w
+
+; START OF FUNCTION CHUNK FOR sub_251EA
+
+loc_25218:
+                
+                tst.w   (word_210).w
                 bne.s   loc_25222
                 trap    #1
+
+; END OF FUNCTION CHUNK FOR sub_251EA
+
                 dc.w $25D7
-loc_25222:      ori     #1,ccr
+
+; START OF FUNCTION CHUNK FOR sub_251EA
+
+loc_25222:
+                
+                ori     #1,ccr
                 bra.s   loc_25212
+
+; END OF FUNCTION CHUNK FOR sub_251EA
+
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -7154,13 +7420,7 @@ loc_25262:
                 tst.w   (word_210).w
                 bne.s   loc_2526C
                 trap    #1
-
-; END OF FUNCTION CHUNK FOR sub_25228
-
                 dc.w $258D
-
-; START OF FUNCTION CHUNK FOR sub_25228
-
 loc_2526C:
                 
                 ori     #1,ccr
@@ -7204,13 +7464,7 @@ loc_252A0:
                 tst.w   (word_210).w
                 bne.s   loc_252AA
                 trap    #1
-
-; END OF FUNCTION CHUNK FOR sub_25272
-
                 dc.w $254F
-
-; START OF FUNCTION CHUNK FOR sub_25272
-
 loc_252AA:
                 
                 ori     #1,ccr
@@ -7287,14 +7541,26 @@ sub_25318:
 
     ; End of function sub_25318
 
-                btst    d0,($1F000156).l
-                move.b  d0,d7
-                bchg    d0,(a5)
-                move.b  d0,-(a6)
-                bchg    d0,(a0)
-                move.b  d0,d6
-                bchg    d0,d0
-                move.b  d0,-(a5)
+                dc.b   1
+                dc.b $39 
+                dc.b $1F
+                dc.b   0
+                dc.b   1
+                dc.b $56 
+                dc.b $1E
+                dc.b   0
+                dc.b   1
+                dc.b $55 
+                dc.b $1D
+                dc.b   0
+                dc.b   1
+                dc.b $50 
+                dc.b $1C
+                dc.b   0
+                dc.b   1
+                dc.b $40 
+                dc.b $1B
+                dc.b   0
                 dc.b   1
                 dc.b $31 
                 dc.b $1A
@@ -9944,50 +10210,31 @@ loc_25DB0:
 
     ; End of function sub_25D96
 
-                dc.b $48 
-                dc.b $E7 
-                dc.b $80 
-                dc.b $80 
-                dc.b $20
-                dc.b $6F 
-                dc.b   0
-                dc.b   8
-                dc.b $30 
-                dc.b $10
-                dc.b $61 
-                dc.b   0
-                dc.b $36 
-                dc.b $82 
-                dc.b $66 
-                dc.b  $A
-                dc.b $61 
-                dc.b   0
-                dc.b $36 
-                dc.b $52 
-                dc.b $30 
-                dc.b $28 
-                dc.b   0
-                dc.b   2
-                dc.b $60 
-                dc.b   4
-                dc.b $30 
-                dc.b $28 
-                dc.b   0
-                dc.b   4
-                dc.b $61 
-                dc.b   0
-                dc.b $F6 
-                dc.b $1A
-                dc.b $5C 
-                dc.b $AF 
-                dc.b   0
-                dc.b   8
-                dc.b $4C 
-                dc.b $DF 
-                dc.b   1
-                dc.b   1
-                dc.b $4E 
-                dc.b $75 
+
+; =============== S U B R O U T I N E =======================================
+
+sub_25DBE:
+                
+                movem.l d0/a0,-(sp)
+                movea.l 8(sp),a0
+                move.w  (a0),d0
+                bsr.w   sub_2944C
+                bne.s   loc_25DD8
+                bsr.w   sub_29422
+                move.w  2(a0),d0
+                bra.s   loc_25DDC
+loc_25DD8:
+                
+                move.w  4(a0),d0
+loc_25DDC:
+                
+                bsr.w   sub_253F8
+                addq.l  #6,8(sp)
+                movem.l (sp)+,d0/a0
+                rts
+
+    ; End of function sub_25DBE
+
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -10013,16 +10260,10 @@ loc_25E08:
 
     ; End of function sub_25DEA
 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $D8 
+                bsr.w   sub_24EF0
                 dc.b $19
                 dc.b $E3 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $EC 
+                bsr.w   sub_24F0A
                 dc.b $19
                 dc.b $DF 
                 dc.b $19
@@ -10031,16 +10272,10 @@ loc_25E08:
                 dc.b $E3 
                 dc.b $19
                 dc.b $E5 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $C6 
+                bsr.w   sub_24EF0
                 dc.b $1A
                 dc.b $43 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $DA 
+                bsr.w   sub_24F0A
                 dc.b $1A
                 dc.b $3F 
                 dc.b $1A
@@ -10049,16 +10284,10 @@ loc_25E08:
                 dc.b $43 
                 dc.b $1A
                 dc.b $45 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $B4 
+                bsr.w   sub_24EF0
                 dc.b $1A
                 dc.b $51 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $C8 
+                bsr.w   sub_24F0A
                 dc.b $1A
                 dc.b $4D 
                 dc.b $1A
@@ -10067,16 +10296,10 @@ loc_25E08:
                 dc.b $51 
                 dc.b $1A
                 dc.b $53 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $A2 
+                bsr.w   sub_24EF0
                 dc.b $1A
                 dc.b $4F 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $B6 
+                bsr.w   sub_24F0A
                 dc.b $1A
                 dc.b $4B 
                 dc.b $1A
@@ -10085,16 +10308,10 @@ loc_25E08:
                 dc.b $4F 
                 dc.b $1A
                 dc.b $51 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $90 
+                bsr.w   sub_24EF0
                 dc.b $1A
                 dc.b $5D 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $A4 
+                bsr.w   sub_24F0A
                 dc.b $1A
                 dc.b $59 
                 dc.b $1A
@@ -10103,16 +10320,10 @@ loc_25E08:
                 dc.b $5D 
                 dc.b $1A
                 dc.b $5F 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $7E 
+                bsr.w   sub_24EF0
                 dc.b   0
                 dc.b  $E
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $92 
+                bsr.w   sub_24F0A
                 dc.b $1A
                 dc.b $5B 
                 dc.b $1A
@@ -10121,28 +10332,18 @@ loc_25E08:
                 dc.b $5F 
                 dc.b $1A
                 dc.b $61 
-                dc.b $61 
-                dc.b   0
-                dc.b $FF
-                dc.b $12
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $53 
                 dc.b $1A
                 dc.b $4B 
                 dc.b $1A
                 dc.b $4D 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $60 
+                rts
+                bsr.w   sub_24EF0
                 dc.b   0
                 dc.b $32 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $74 
+                bsr.w   sub_24F0A
                 dc.b   0
                 dc.b $38 
                 dc.b   0
@@ -10151,258 +10352,175 @@ loc_25E08:
                 dc.b $50 
                 dc.b   0
                 dc.b $5C 
-                dc.b $61 
-                dc.b   0
-                dc.b $FE 
-                dc.b $F4 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $40 
                 dc.b $1A
                 dc.b $6B 
                 dc.b $1A
                 dc.b $51 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FE 
-                dc.b $E8 
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $40 
                 dc.b $1A
                 dc.b $61 
                 dc.b $1A
                 dc.b $4B 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FE 
-                dc.b $DC 
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $40 
                 dc.b $1A
                 dc.b $61 
                 dc.b $1A
                 dc.b $4D 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FE 
-                dc.b $D0 
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $40 
                 dc.b $1A
                 dc.b $4B 
                 dc.b $1A
                 dc.b $35 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FE 
-                dc.b $C4 
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $40 
                 dc.b $1A
                 dc.b $41 
                 dc.b $1A
                 dc.b $2B 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FE 
-                dc.b $B8 
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $40 
                 dc.b $1A
                 dc.b $37 
                 dc.b $1A
                 dc.b $21 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FE 
-                dc.b $AC 
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $40 
                 dc.b $1A
                 dc.b $2D 
                 dc.b $1A
                 dc.b $17
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FE 
-                dc.b $A0 
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $40 
                 dc.b $1A
                 dc.b $23 
                 dc.b $1A
                 dc.b  $F
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FE 
-                dc.b $94 
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $40 
                 dc.b $1A
                 dc.b $1B
                 dc.b $1A
                 dc.b   7
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FE 
-                dc.b $88 
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $40 
                 dc.b $1A
                 dc.b $11
                 dc.b $19
                 dc.b $FD 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b $46 
+                rts
+                bsr.s   sub_25F60
                 dc.b $19
                 dc.b $23 
                 dc.b $1A
                 dc.b $21 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b $3E 
+                rts
+                bsr.s   sub_25F60
                 dc.b $19
                 dc.b $1D
                 dc.b $1A
                 dc.b $1B
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b $36 
+                rts
+                bsr.s   sub_25F60
                 dc.b $19
                 dc.b $17
                 dc.b $1A
                 dc.b $15
-                dc.b $4E 
-                dc.b $75 
+                rts
                 dc.b $61 
                 dc.b $2E 
                 dc.b $19
                 dc.b $11
                 dc.b $1A
                 dc.b  $F
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b $26 
+                rts
+                bsr.s   sub_25F60
                 dc.b $19
                 dc.b  $B
                 dc.b $1A
                 dc.b   9
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b $1E
+                rts
+                bsr.s   sub_25F60
                 dc.b $19
                 dc.b   5
                 dc.b $1A
                 dc.b   3
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b $16
+                rts
+                bsr.s   sub_25F60
                 dc.b $18
                 dc.b $FF
                 dc.b $19
                 dc.b $FD 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b  $E
+                rts
+                bsr.s   sub_25F60
                 dc.b $18
                 dc.b $F9 
                 dc.b $19
                 dc.b $F7 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   6
+                rts
+                bsr.s   sub_25F60
                 dc.b $18
                 dc.b $B9 
                 dc.b $19
                 dc.b $DF 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $48 
-                dc.b $E7 
-                dc.b $FF
-                dc.b $FE 
-                dc.b $42 
-                dc.b   0
-                dc.b $4E 
-                dc.b $B9 
-                dc.b   0
-                dc.b   0
-                dc.b   3
-                dc.b $B0 
-                dc.b $20
-                dc.b $6F 
-                dc.b   0
-                dc.b $3C 
-                dc.b  $C
-                dc.b   1
-                dc.b   0
-                dc.b $7B 
-                dc.b $66 
-                dc.b   6
-                dc.b $30 
-                dc.b $28 
-                dc.b   0
-                dc.b   2
-                dc.b $60 
-                dc.b   2
-                dc.b $30 
-                dc.b $10
-                dc.b $61 
-                dc.b   0
-                dc.b $F4 
-                dc.b $78 
-                dc.b $58 
-                dc.b $AF 
-                dc.b   0
-                dc.b $3C 
-                dc.b $4C 
-                dc.b $DF 
-                dc.b $7F 
-                dc.b $FF
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FE 
-                dc.b $5C 
+                rts
+
+; =============== S U B R O U T I N E =======================================
+
+sub_25F60:
+                
+                movem.l d0-a6,-(sp)
+                clr.b   d0
+                jsr     (sub_3B0).l
+                movea.l $3C(sp),a0
+                cmpi.b  #$7B,d1 
+                bne.s   loc_25F7C
+                move.w  2(a0),d0
+                bra.s   loc_25F7E
+loc_25F7C:
+                
+                move.w  (a0),d0
+loc_25F7E:
+                
+                bsr.w   sub_253F8
+                addq.l  #4,$3C(sp)
+                movem.l (sp)+,d0-a6
+                rts
+
+    ; End of function sub_25F60
+
+                bsr.w   sub_25DEA
                 dc.b $1A
                 dc.b $6B 
                 dc.b $1A
                 dc.b $6F 
                 dc.b $30 
                 dc.b $28 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F3 
-                dc.b $16
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $1A
@@ -10425,10 +10543,7 @@ loc_25E08:
                 dc.b $8B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $FC 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $1A
@@ -10447,10 +10562,7 @@ loc_25E08:
                 dc.b $79 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $E6 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $1A
@@ -10469,10 +10581,7 @@ loc_25E08:
                 dc.b $6F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $D0 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $1A
@@ -10487,10 +10596,7 @@ loc_25E08:
                 dc.b $61 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $BE 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b   0
@@ -10509,22 +10615,15 @@ loc_25E08:
                 dc.b $61 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $FD 
-                dc.b $E2 
+                bsr.w   sub_25DEA
                 dc.b $1A
                 dc.b $3D 
                 dc.b $1A
                 dc.b $3F 
                 dc.b $1A
                 dc.b $41 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $9C 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $1A
@@ -10547,10 +10646,7 @@ loc_25E08:
                 dc.b $57 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $82 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $1A
@@ -10565,10 +10661,7 @@ loc_25E08:
                 dc.b $4D 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $70 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $1A
@@ -10583,10 +10676,7 @@ loc_25E08:
                 dc.b $45 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $5E 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $1A
@@ -10605,10 +10695,7 @@ loc_25E08:
                 dc.b $3D 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $48 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b   0
@@ -10635,46 +10722,31 @@ loc_25E08:
                 dc.b $4F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $FD 
-                dc.b $64 
+                bsr.w   sub_25DEA
                 dc.b $1A
                 dc.b  $B
                 dc.b $1A
                 dc.b $11
                 dc.b $1A
                 dc.b $13
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FD 
-                dc.b $2C 
+                rts
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $C1 
                 dc.b $1A
                 dc.b   9
                 dc.b $1A
                 dc.b $15
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FD 
-                dc.b $20
+                rts
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $DA 
                 dc.b $1A
                 dc.b  $F
                 dc.b $1A
                 dc.b $13
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b   6
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $1A
@@ -10689,10 +10761,7 @@ loc_25E08:
                 dc.b $19
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b $F4 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b   0
@@ -10711,22 +10780,15 @@ loc_25E08:
                 dc.b $11
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $FC 
-                dc.b $EC 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $C0 
                 dc.b $19
                 dc.b $F3 
                 dc.b $19
                 dc.b $F5 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b $D2 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $19
@@ -10741,10 +10803,7 @@ loc_25E08:
                 dc.b $F1 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b $C0 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $19
@@ -10759,10 +10818,7 @@ loc_25E08:
                 dc.b $EB 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b $AE 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b   0
@@ -10777,22 +10833,15 @@ loc_25E08:
                 dc.b $E9 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $FC 
-                dc.b $D6 
+                bsr.w   sub_25DEA
                 dc.b $19
                 dc.b $C9 
                 dc.b $19
                 dc.b $CD 
                 dc.b $19
                 dc.b $CF 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b $90 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $19
@@ -10807,46 +10856,31 @@ loc_25E08:
                 dc.b  $E
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $FC 
-                dc.b $8C 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $E2 
                 dc.b $19
                 dc.b $CB 
                 dc.b $19
                 dc.b $CD 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $19
                 dc.b $C9 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $19
                 dc.b $C5 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $19
                 dc.b $C1 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $19
                 dc.b $BD 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b $5A 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   0
                 dc.b $19
@@ -10861,16 +10895,11 @@ loc_25E08:
                 dc.b $BD 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $19
                 dc.b $AF 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b $42 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   1
                 dc.b $19
@@ -10881,10 +10910,7 @@ loc_25E08:
                 dc.b $AF 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b $34 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   1
                 dc.b $19
@@ -10927,22 +10953,15 @@ loc_25E08:
                 dc.b $CD 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $FB 
-                dc.b $EC 
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $12
                 dc.b $19
                 dc.b $7B 
                 dc.b $19
                 dc.b $79 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $FA 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   2
                 dc.b $19
@@ -10953,10 +10972,7 @@ loc_25E08:
                 dc.b $9D 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $EC 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   2
                 dc.b $19
@@ -10967,40 +10983,27 @@ loc_25E08:
                 dc.b $93 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $19
                 dc.b $89 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $FB 
-                dc.b $E6 
+                rts
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $C2 
                 dc.b $19
                 dc.b $85 
                 dc.b $19
                 dc.b $89 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $19
                 dc.b $81 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $19
                 dc.b $7D 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $C0 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   3
                 dc.b $19
@@ -11011,16 +11014,11 @@ loc_25E08:
                 dc.b $79 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $19
                 dc.b $6F 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $AC 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   3
                 dc.b $19
@@ -11031,10 +11029,7 @@ loc_25E08:
                 dc.b $6B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $9E 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   4
                 dc.b $19
@@ -11045,10 +11040,7 @@ loc_25E08:
                 dc.b $61 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $90 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   4
                 dc.b $19
@@ -11059,22 +11051,15 @@ loc_25E08:
                 dc.b  $A
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $FB 
-                dc.b $90 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $C3 
                 dc.b $19
                 dc.b $4B 
                 dc.b $19
                 dc.b $4D 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $76 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   2
                 dc.b $19
@@ -11085,16 +11070,11 @@ loc_25E08:
                 dc.b $45 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $19
                 dc.b $3B 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $62 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   3
                 dc.b $19
@@ -11105,10 +11085,7 @@ loc_25E08:
                 dc.b $37 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $54 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   3
                 dc.b $19
@@ -11119,10 +11096,7 @@ loc_25E08:
                 dc.b $2F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $46 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   4
                 dc.b $19
@@ -11133,22 +11107,15 @@ loc_25E08:
                 dc.b  $A
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $FB 
-                dc.b $46 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $C3 
                 dc.b $19
                 dc.b $19
                 dc.b $19
                 dc.b $1B
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $2C 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $19
@@ -11175,10 +11142,7 @@ loc_25E08:
                 dc.b $11
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b  $E
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11201,10 +11165,7 @@ loc_25E08:
                 dc.b   1
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $F4 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11219,10 +11180,7 @@ loc_25E08:
                 dc.b $F3 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $E2 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11233,10 +11191,7 @@ loc_25E08:
                 dc.b $E7 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $D4 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11259,10 +11214,7 @@ loc_25E08:
                 dc.b $E1 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $BA 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11277,10 +11229,7 @@ loc_25E08:
                 dc.b $D1 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $A8 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11299,16 +11248,11 @@ loc_25E08:
                 dc.b $C7 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $18
                 dc.b $B9 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $8C 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11327,10 +11271,7 @@ loc_25E08:
                 dc.b $B9 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $76 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11353,10 +11294,7 @@ loc_25E08:
                 dc.b $AD 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $5C 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11379,10 +11317,7 @@ loc_25E08:
                 dc.b $A1 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $42 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   8
                 dc.b $18
@@ -11393,10 +11328,7 @@ loc_25E08:
                 dc.b $91 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $34 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11415,10 +11347,7 @@ loc_25E08:
                 dc.b $8F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $1E
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11441,10 +11370,7 @@ loc_25E08:
                 dc.b $89 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b   4
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   8
                 dc.b   0
@@ -11459,22 +11385,15 @@ loc_25E08:
                 dc.b $C3 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $FA 
-                dc.b $2C 
+                bsr.w   sub_25DEA
                 dc.b $18
                 dc.b $5F 
                 dc.b $18
                 dc.b $63 
                 dc.b $18
                 dc.b $65 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $E6 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11497,10 +11416,7 @@ loc_25E08:
                 dc.b $6F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $CC 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11515,10 +11431,7 @@ loc_25E08:
                 dc.b $5F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $BA 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11541,10 +11454,7 @@ loc_25E08:
                 dc.b $57 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $A0 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11571,10 +11481,7 @@ loc_25E08:
                 dc.b $4B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $82 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11601,40 +11508,27 @@ loc_25E08:
                 dc.b $47 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F9 
-                dc.b $9E 
+                bsr.w   sub_25DEA
                 dc.b $18
                 dc.b $19
                 dc.b $18
                 dc.b $1D
                 dc.b   0
                 dc.b   8
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F9 
-                dc.b $92 
+                rts
+                bsr.w   sub_25DEA
                 dc.b $18
                 dc.b $17
                 dc.b $18
                 dc.b $13
                 dc.b $18
                 dc.b $1B
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $18
                 dc.b $1D
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $46 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11653,10 +11547,7 @@ loc_25E08:
                 dc.b $1D
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $30 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $18
@@ -11667,10 +11558,7 @@ loc_25E08:
                 dc.b  $B
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $22 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   8
                 dc.b $17
@@ -11685,10 +11573,7 @@ loc_25E08:
                 dc.b   5
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $10
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $17
@@ -11703,10 +11588,7 @@ loc_25E08:
                 dc.b $F9 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $FE 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $17
@@ -11721,10 +11603,7 @@ loc_25E08:
                 dc.b $EF 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $EC 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b $17
@@ -11739,16 +11618,11 @@ loc_25E08:
                 dc.b $E5 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $17
                 dc.b $D7 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $D4 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -11763,10 +11637,7 @@ loc_25E08:
                 dc.b $D5 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $C2 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -11797,10 +11668,7 @@ loc_25E08:
                 dc.b $D5 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $A0 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -11815,10 +11683,7 @@ loc_25E08:
                 dc.b $B9 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $8E 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -11849,22 +11714,15 @@ loc_25E08:
                 dc.b $BF 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F8 
-                dc.b $52 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $32 
                 dc.b $17
                 dc.b $99 
                 dc.b $17
                 dc.b $91 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $60 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -11875,10 +11733,7 @@ loc_25E08:
                 dc.b $97 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $52 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -11889,10 +11744,7 @@ loc_25E08:
                 dc.b $8D 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $44 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -11907,34 +11759,23 @@ loc_25E08:
                 dc.b $85 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $17
                 dc.b $79 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $17
                 dc.b $77 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $17
                 dc.b $75 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $17
                 dc.b $73 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $1A
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -11949,10 +11790,7 @@ loc_25E08:
                 dc.b $75 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b   8
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -11971,10 +11809,7 @@ loc_25E08:
                 dc.b $6F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EC 
-                dc.b $F2 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -11985,10 +11820,7 @@ loc_25E08:
                 dc.b $5F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EC 
-                dc.b $E4 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -12007,16 +11839,11 @@ loc_25E08:
                 dc.b $5F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $17
                 dc.b $4D 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EC 
-                dc.b $C8 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -12027,22 +11854,15 @@ loc_25E08:
                 dc.b $49 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $17
                 dc.b $41 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $17
                 dc.b $3D 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EC 
-                dc.b $AE 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $17
@@ -12061,22 +11881,15 @@ loc_25E08:
                 dc.b $3F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F7 
-                dc.b $7E 
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $1A
                 dc.b $17
                 dc.b $27 
                 dc.b $17
                 dc.b $25 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EC 
-                dc.b $8C 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b   0
@@ -12095,46 +11908,24 @@ loc_25E08:
                 dc.b $29 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $17
                 dc.b  $B
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b $C8 
-                dc.b $61 
-                dc.b   0
-                dc.b $2E 
-                dc.b  $A
-                dc.b $67 
-                dc.b   8
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b $2C 
-                dc.b $61 
-                dc.b   0
-                dc.b $2D 
-                dc.b $D6 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F7 
-                dc.b $44 
+                move.w  #$C8,d0 
+loc_26640:      bsr.w   sub_2944C
+                beq.s   return_2664E
+                move.w  #$2C,d0 
+                bsr.w   sub_29422
+return_2664E:   rts
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $1E
                 dc.b $16
                 dc.b $FB 
                 dc.b $16
                 dc.b $F7 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EC 
-                dc.b $52 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $16
@@ -12153,10 +11944,7 @@ loc_25E08:
                 dc.b $FB 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EC 
-                dc.b $3C 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $16
@@ -12179,22 +11967,15 @@ loc_25E08:
                 dc.b $F5 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $16
                 dc.b $DF 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $16
                 dc.b $DB 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EC 
-                dc.b $16
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b   0
@@ -12217,106 +11998,66 @@ loc_25E08:
                 dc.b $5E 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F7 
-                dc.b  $A
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $C7 
                 dc.b $16
                 dc.b $BD 
                 dc.b $16
                 dc.b $C7 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $16
                 dc.b $BF 
-                dc.b $61 
-                dc.b   0
-                dc.b $29 
-                dc.b $24 
+                bsr.w   sub_28FE8
                 dc.b $65 
                 dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $16
                 dc.b $BB 
-                dc.b $60 
-                dc.b $2A 
-                dc.b $4E 
-                dc.b $41 
+                bra.s   return_266F8
+loc_266CE:      trap    #1
                 dc.b $16
                 dc.b $B7 
-                dc.b $61 
-                dc.b   0
-                dc.b $29 
-                dc.b $14
-                dc.b $64 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                bsr.w   sub_28FE8
+                bcc.s   loc_266DE
+                trap    #1
                 dc.b $16
                 dc.b $B7 
-                dc.b $60 
-                dc.b $16
-                dc.b $4E 
-                dc.b $41 
+                bra.s   loc_266F4
+loc_266DE:      trap    #1
                 dc.b $16
                 dc.b $A9 
-                dc.b $61 
-                dc.b   0
-                dc.b $29 
-                dc.b   4
-                dc.b $64 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                bsr.w   sub_28FE8
+                bcc.s   loc_266EE
+                trap    #1
                 dc.b $16
                 dc.b $AB 
-                dc.b $60 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
-                dc.b $16
-                dc.b $9B 
-                dc.b $60 
-                dc.b $DA 
-                dc.b $4E 
-                dc.b $41 
+                bra.s   loc_266F4
+loc_266EE:      trap    #1
+                move.b  (a3)+,(a3)
+                bra.s   loc_266CE
+loc_266F4:      trap    #1
                 dc.b $16
                 dc.b $A1 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F6 
-                dc.b $C2 
+return_266F8:   rts
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $DD 
                 dc.b $16
                 dc.b $A9 
                 dc.b $16
                 dc.b $B3 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F6 
-                dc.b $8E 
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $52 
                 dc.b $16
                 dc.b $A9 
                 dc.b $FF
                 dc.b $A8 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EB 
-                dc.b $9C 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $16
@@ -12339,46 +12080,31 @@ loc_25E08:
                 dc.b $A9 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F6 
-                dc.b $68 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $53 
                 dc.b $16
                 dc.b $8B 
                 dc.b $16
                 dc.b $8D 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F6 
-                dc.b $5C 
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $52 
                 dc.b $16
                 dc.b $83 
                 dc.b $16
                 dc.b $7B 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F6 
-                dc.b $50 
+                rts
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $E4 
                 dc.b $1D
                 dc.b $61 
                 dc.b $16
                 dc.b $79 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EB 
-                dc.b $5E 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $16
@@ -12409,10 +12135,7 @@ loc_25E08:
                 dc.b $87 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EB 
-                dc.b $3C 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $16
@@ -12439,10 +12162,7 @@ loc_25E08:
                 dc.b $73 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EB 
-                dc.b $1E
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $16
@@ -12473,10 +12193,7 @@ loc_25E08:
                 dc.b $6B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $FC 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $16
@@ -12499,22 +12216,15 @@ loc_25E08:
                 dc.b $16
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F5 
-                dc.b $C8 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $4A 
                 dc.b $24 
                 dc.b $11
                 dc.b $16
                 dc.b $3F 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $D6 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b   0
@@ -12525,34 +12235,19 @@ loc_25E08:
                 dc.b $45 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $16
                 dc.b $2B 
-                dc.b $61 
-                dc.b   0
-                dc.b $27 
-                dc.b $FC 
-                dc.b $64 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
-                dc.b $16
-                dc.b $25 
-                dc.b $60 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
-                dc.b $16
-                dc.b $27 
-                dc.b $60 
-                dc.b $EE 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $B0 
+loc_267EA:      bsr.w   sub_28FE8
+                bcc.s   loc_267F6
+                trap    #1
+                move.b  -(a5),d3
+                bra.s   return_267FC
+loc_267F6:      trap    #1
+                move.b  -(sp),d3
+                bra.s   loc_267EA
+return_267FC:   rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $16
@@ -12571,10 +12266,7 @@ loc_25E08:
                 dc.b $31 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $9A 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $16
@@ -12589,10 +12281,7 @@ loc_25E08:
                 dc.b $23 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $88 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $16
@@ -12611,10 +12300,7 @@ loc_25E08:
                 dc.b $1D
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $72 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $16
@@ -12629,22 +12315,15 @@ loc_25E08:
                 dc.b  $E
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F5 
-                dc.b $46 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $4A 
                 dc.b $23 
                 dc.b $8B 
                 dc.b $15
                 dc.b $FB 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $54 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b   0
@@ -12655,22 +12334,15 @@ loc_25E08:
                 dc.b $F5 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F5 
-                dc.b $2C 
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $28 
                 dc.b $15
                 dc.b $E5 
                 dc.b $15
                 dc.b $E3 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $3A 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -12689,10 +12361,7 @@ loc_25E08:
                 dc.b $E9 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $24 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -12723,22 +12392,15 @@ loc_25E08:
                 dc.b $F3 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F5 
-                dc.b $3C 
+                bsr.w   sub_25DEA
                 dc.b $15
                 dc.b $C9 
                 dc.b $15
                 dc.b $CD 
                 dc.b $15
                 dc.b $CB 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b $F6 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -12753,18 +12415,14 @@ loc_25E08:
                 dc.b $D1 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F4 
-                dc.b $CA 
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $A2 
                 dc.b $15
                 dc.b $BD 
                 dc.b $15
                 dc.b $B7 
-                dc.b $4E 
-                dc.b $75 
+                rts
                 dc.b  $C
                 dc.b $79 
                 dc.b   6
@@ -12775,10 +12433,7 @@ loc_25E08:
                 dc.b $3C 
                 dc.b $6D 
                 dc.b  $C
-                dc.b $61 
-                dc.b   0
-                dc.b $F4 
-                dc.b $B4 
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b   8
                 dc.b $1B
@@ -12787,22 +12442,15 @@ loc_25E08:
                 dc.b $F1 
                 dc.b $60 
                 dc.b  $A
-                dc.b $61 
-                dc.b   0
-                dc.b $F4 
-                dc.b $A8 
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b   8
                 dc.b $15
                 dc.b $A1 
                 dc.b $15
                 dc.b $9F 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b $B6 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -12817,10 +12465,7 @@ loc_25E08:
                 dc.b $A1 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b $A4 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -12831,10 +12476,7 @@ loc_25E08:
                 dc.b $97 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b $96 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -12853,60 +12495,29 @@ loc_25E08:
                 dc.b $3C 
                 dc.b   0
                 dc.b $1B
-                dc.b $61 
-                dc.b   0
-                dc.b $2B 
-                dc.b $1C
-                dc.b $67 
-                dc.b $16
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b  $F
-                dc.b $61 
-                dc.b   0
-                dc.b $2B 
-                dc.b $12
-                dc.b $66 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                bsr.w   sub_2944C
+                beq.s   loc_2694A
+                move.w  #$F,d0
+                bsr.w   sub_2944C
+                bne.s   loc_26944
+                trap    #1
                 dc.b $1B
                 dc.b $B9 
-                dc.b $60 
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
+                bra.s   loc_26948
+loc_26944:      trap    #1
                 dc.b $1B
                 dc.b $AF 
-                dc.b $60 
-                dc.b $14
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b $1A
-                dc.b $61 
-                dc.b   0
-                dc.b $2A 
-                dc.b $FC 
-                dc.b $66 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
-                dc.b $15
-                dc.b $59 
-                dc.b $60 
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
+loc_26948:      bra.s   return_2695E
+loc_2694A:      move.w  #$1A,d0
+                bsr.w   sub_2944C
+                bne.s   loc_2695A
+                trap    #1
+                move.b  (a1)+,$6004(a2)
+loc_2695A:      trap    #1
                 dc.b $1B
                 dc.b $A3 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b $4E 
+return_2695E:   rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -12933,10 +12544,7 @@ loc_25E08:
                 dc.b $65 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b $30 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -12963,28 +12571,19 @@ loc_25E08:
                 dc.b $59 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $15
                 dc.b $3F 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $15
                 dc.b $3B 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $15
                 dc.b $37 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b   0
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -13019,10 +12618,7 @@ loc_25E08:
                 dc.b $43 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $DA 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -13041,10 +12637,7 @@ loc_25E08:
                 dc.b $27 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $C4 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -13071,10 +12664,7 @@ loc_25E08:
                 dc.b $1F
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $A6 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $15
@@ -13097,16 +12687,11 @@ loc_25E08:
                 dc.b  $D
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $14
                 dc.b $F7 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $86 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $14
@@ -13121,16 +12706,11 @@ loc_25E08:
                 dc.b $F5 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $14
                 dc.b $E7 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $6E 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $14
@@ -13141,10 +12721,7 @@ loc_25E08:
                 dc.b $E3 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $60 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b   0
@@ -13171,22 +12748,15 @@ loc_25E08:
                 dc.b $E5 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F3 
-                dc.b $28 
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $2A 
                 dc.b $14
                 dc.b $BB 
                 dc.b $14
                 dc.b $B9 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $36 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $14
@@ -13201,10 +12771,7 @@ loc_25E08:
                 dc.b $C3 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $24 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $14
@@ -13234,10 +12801,7 @@ sub_26AA0:
 
     ; End of function sub_26AA0
 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b   8
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $14
@@ -13248,10 +12812,7 @@ sub_26AA0:
                 dc.b $A7 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E7 
-                dc.b $FA 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $14
@@ -13262,10 +12823,7 @@ sub_26AA0:
                 dc.b $9F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E7 
-                dc.b $EC 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $14
@@ -13276,22 +12834,15 @@ sub_26AA0:
                 dc.b $97 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $14
                 dc.b $8D 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $14
                 dc.b $8B 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E7 
-                dc.b $D2 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b   0
@@ -13318,34 +12869,20 @@ sub_26AA0:
                 dc.b $95 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $14
                 dc.b $69 
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b $C6 
-                dc.b $60 
-                dc.b   0
-                dc.b $FB 
-                dc.b $3C 
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $B6 
+loc_26AFE:      move.w  #$C6,d0 
+                bra.w   loc_26640
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $DC 
                 dc.b $14
                 dc.b $63 
                 dc.b $14
                 dc.b $67 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E7 
-                dc.b $9C 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b   0
@@ -13372,46 +12909,31 @@ sub_26AA0:
                 dc.b $71 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $14
                 dc.b $45 
-                dc.b $60 
-                dc.b $C8 
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $86 
+                bra.s   loc_26AFE
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $DC 
                 dc.b $14
                 dc.b $33 
                 dc.b $14
                 dc.b $49 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $14
                 dc.b $47 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $4C 
+                rts
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $28 
                 dc.b $14
                 dc.b $43 
                 dc.b $14
                 dc.b $41 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E7 
-                dc.b $5A 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b   0
@@ -13448,94 +12970,59 @@ sub_26AA0:
                 dc.b $B5 
                 dc.b   0
                 dc.b   8
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $16
+                rts
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $DB 
                 dc.b $15
                 dc.b $AD 
                 dc.b $15
                 dc.b $AB 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $32 
+                rts
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $CF 
                 dc.b $15
                 dc.b $A7 
                 dc.b $15
                 dc.b $B3 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $26 
+                rts
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $D1 
                 dc.b $15
                 dc.b $A9 
                 dc.b $15
                 dc.b $B1 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $1A
+                rts
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $D5 
                 dc.b $15
                 dc.b $A7 
                 dc.b $15
                 dc.b $A9 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b  $E
+                rts
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $DE 
                 dc.b $15
                 dc.b $9F 
                 dc.b   0
                 dc.b   8
-                dc.b $4E 
-                dc.b $75 
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b $16
-                dc.b $61 
-                dc.b   0
-                dc.b $26 
-                dc.b $8C 
-                dc.b $67 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                rts
+                move.w  #$16,d0
+                bsr.w   sub_2924C
+                beq.s   loc_26BCA
+                trap    #1
                 dc.b $15
                 dc.b $9D 
-                dc.b $60 
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
+                bra.s   return_26BCE
+loc_26BCA:      trap    #1
                 dc.b $15
                 dc.b $9B 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E6 
-                dc.b $DE 
+return_26BCE:   rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b  $A
                 dc.b $13
@@ -13546,10 +13033,7 @@ sub_26AA0:
                 dc.b $51 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E6 
-                dc.b $D0 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $14
                 dc.b $13
@@ -13564,10 +13048,7 @@ sub_26AA0:
                 dc.b $B5 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E6 
-                dc.b $BE 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $13
@@ -13582,22 +13063,15 @@ sub_26AA0:
                 dc.b $AB 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $13
                 dc.b $A1 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $13
                 dc.b $9D 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E6 
-                dc.b $A0 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $14
                 dc.b $13
@@ -13612,10 +13086,7 @@ sub_26AA0:
                 dc.b $9B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E6 
-                dc.b $8E 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $14
                 dc.b $13
@@ -13630,10 +13101,7 @@ sub_26AA0:
                 dc.b $91 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E6 
-                dc.b $7C 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $14
                 dc.b $13
@@ -13648,10 +13116,7 @@ sub_26AA0:
                 dc.b $8D 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E6 
-                dc.b $6A 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b   0
@@ -13670,40 +13135,27 @@ sub_26AA0:
                 dc.b $83 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b $3A 
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $A5 
                 dc.b $13
                 dc.b $6B 
                 dc.b $13
                 dc.b $69 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b $82 
+                rts
+                bsr.w   sub_25DEA
                 dc.b $13
                 dc.b $63 
                 dc.b $13
                 dc.b $65 
                 dc.b $13
                 dc.b $69 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $13
                 dc.b $65 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E6 
-                dc.b $36 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $14
                 dc.b $13
@@ -13714,34 +13166,23 @@ sub_26AA0:
                 dc.b $73 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b  $E
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $A4 
                 dc.b   0
                 dc.b   8
                 dc.b $13
                 dc.b $51 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F1 
-                dc.b   2
+                rts
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $D2 
                 dc.b $13
                 dc.b $49 
                 dc.b $13
                 dc.b $47 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E6 
-                dc.b $10
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $14
                 dc.b $13
@@ -13756,22 +13197,15 @@ sub_26AA0:
                 dc.b $43 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $13
                 dc.b $37 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b  $B
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E5 
-                dc.b $F2 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $14
                 dc.b $13
@@ -13782,28 +13216,19 @@ sub_26AA0:
                 dc.b  $A
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $CA 
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $D9 
                 dc.b $1C
                 dc.b $C1 
                 dc.b $13
                 dc.b $27 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $13
                 dc.b $1F
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E5 
-                dc.b $D2 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b  $F
                 dc.b $13
@@ -13830,34 +13255,23 @@ sub_26AA0:
                 dc.b $2B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $C2 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $D4 
                 dc.b $12
                 dc.b $FD 
                 dc.b $13
                 dc.b   1
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b $B6 
+                rts
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $E8 
                 dc.b $12
                 dc.b $F9 
                 dc.b $12
                 dc.b $FD 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E5 
-                dc.b $9C 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b  $F
                 dc.b $12
@@ -13880,10 +13294,7 @@ sub_26AA0:
                 dc.b   7
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E5 
-                dc.b $82 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b  $F
                 dc.b $12
@@ -13906,10 +13317,7 @@ sub_26AA0:
                 dc.b $FF
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E5 
-                dc.b $68 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -13932,10 +13340,7 @@ sub_26AA0:
                 dc.b $F1 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E5 
-                dc.b $4E 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -13958,10 +13363,7 @@ sub_26AA0:
                 dc.b $E1 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E5 
-                dc.b $34 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -13972,18 +13374,14 @@ sub_26AA0:
                 dc.b  $A
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F0 
-                dc.b  $C
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $A1 
                 dc.b $12
                 dc.b $BD 
                 dc.b $12
                 dc.b $BB 
-                dc.b $4E 
-                dc.b $75 
+                rts
                 dc.b $61 
                 dc.b   0
                 dc.b $F0 
@@ -13994,12 +13392,8 @@ sub_26AA0:
                 dc.b $B5 
                 dc.b $12
                 dc.b $BB 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E5 
-                dc.b  $E
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b   0
@@ -14020,12 +13414,8 @@ sub_26AA0:
                 dc.b $A3 
                 dc.b $12
                 dc.b $A9 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b $F4 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14050,16 +13440,11 @@ sub_26AA0:
                 dc.b $9B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $12
                 dc.b $93 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b $D2 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $10
                 dc.b   0
@@ -14070,22 +13455,15 @@ sub_26AA0:
                 dc.b $95 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EF 
-                dc.b $D2 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $CA 
                 dc.b $12
                 dc.b $7F 
                 dc.b $12
                 dc.b $85 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b $B8 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14104,10 +13482,7 @@ sub_26AA0:
                 dc.b $A1 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b $A2 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14126,10 +13501,7 @@ sub_26AA0:
                 dc.b $93 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b $8C 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14148,10 +13520,7 @@ sub_26AA0:
                 dc.b $85 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b $76 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14162,10 +13531,7 @@ sub_26AA0:
                 dc.b $73 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b $68 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14180,10 +13546,7 @@ sub_26AA0:
                 dc.b $6B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b $56 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14198,10 +13561,7 @@ sub_26AA0:
                 dc.b $5F 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b $44 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14216,10 +13576,7 @@ sub_26AA0:
                 dc.b $53 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b $32 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14234,10 +13591,7 @@ sub_26AA0:
                 dc.b $4B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b $20
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14252,10 +13606,7 @@ sub_26AA0:
                 dc.b $43 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E4 
-                dc.b  $E
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14270,10 +13621,7 @@ sub_26AA0:
                 dc.b $39 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E3 
-                dc.b $FC 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b   0
@@ -14288,22 +13636,15 @@ sub_26AA0:
                 dc.b $33 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $F8 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $CD 
                 dc.b $12
                 dc.b $19
                 dc.b $12
                 dc.b $1D
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E3 
-                dc.b $DE 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14322,10 +13663,7 @@ sub_26AA0:
                 dc.b $1F
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E3 
-                dc.b $C8 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14336,10 +13674,7 @@ sub_26AA0:
                 dc.b  $F
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E3 
-                dc.b $BA 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $12
@@ -14350,10 +13685,7 @@ sub_26AA0:
                 dc.b   7
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E3 
-                dc.b $AC 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b   0
@@ -14368,40 +13700,27 @@ sub_26AA0:
                 dc.b   5
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $80 
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $CE 
                 dc.b $11
                 dc.b $ED 
                 dc.b $11
                 dc.b $E9 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $EB 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $EB 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $E9 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E3 
-                dc.b $7C 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $11
                 dc.b $11
@@ -14416,52 +13735,35 @@ sub_26AA0:
                 dc.b $E9 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $11
                 dc.b $DD 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $D9 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $D5 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $D1 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $10
                 dc.b $C1 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $10
                 dc.b $BD 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $12
                 dc.b   3
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E3 
-                dc.b $40 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $17
                 dc.b $12
@@ -14472,22 +13774,15 @@ sub_26AA0:
                 dc.b $C1 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EE 
-                dc.b $40 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $D0 
                 dc.b $12
                 dc.b  $F
                 dc.b $12
                 dc.b $11
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E3 
-                dc.b $26 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b $12
@@ -14498,10 +13793,7 @@ sub_26AA0:
                 dc.b $4B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E3 
-                dc.b $18
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b $12
@@ -14512,10 +13804,7 @@ sub_26AA0:
                 dc.b $41 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E3 
-                dc.b  $A
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b $12
@@ -14526,10 +13815,7 @@ sub_26AA0:
                 dc.b $37 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E2 
-                dc.b $FC 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b   0
@@ -14540,22 +13826,15 @@ sub_26AA0:
                 dc.b $35 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $D4 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $35 
                 dc.b $12
                 dc.b $1F
                 dc.b $12
                 dc.b $1D
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E2 
-                dc.b $E2 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b   0
@@ -14566,22 +13845,15 @@ sub_26AA0:
                 dc.b $23 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $BA 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $35 
                 dc.b $12
                 dc.b $11
                 dc.b $12
                 dc.b  $F
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E2 
-                dc.b $C8 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b   0
@@ -14592,22 +13864,15 @@ sub_26AA0:
                 dc.b  $F
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $A0 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $35 
                 dc.b $11
                 dc.b $FF
                 dc.b $11
                 dc.b $FD 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E2 
-                dc.b $AE 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b   0
@@ -14618,22 +13883,15 @@ sub_26AA0:
                 dc.b $FD 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $86 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $36 
                 dc.b $11
                 dc.b $EB 
                 dc.b $11
                 dc.b $E9 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E2 
-                dc.b $94 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b $11
@@ -14644,10 +13902,7 @@ sub_26AA0:
                 dc.b $EB 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E2 
-                dc.b $86 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b   0
@@ -14658,22 +13913,15 @@ sub_26AA0:
                 dc.b $E5 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $5E 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $36 
                 dc.b $11
                 dc.b $D5 
                 dc.b $11
                 dc.b $D3 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E2 
-                dc.b $6C 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b   0
@@ -14684,22 +13932,15 @@ sub_26AA0:
                 dc.b $D7 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $44 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $37 
                 dc.b $11
                 dc.b $C3 
                 dc.b $11
                 dc.b $C1 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E2 
-                dc.b $52 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b   0
@@ -14710,22 +13951,15 @@ sub_26AA0:
                 dc.b $C7 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $2A 
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $37 
                 dc.b $11
                 dc.b $B7 
                 dc.b $11
                 dc.b $B5 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E2 
-                dc.b $38 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b   0
@@ -14736,34 +13970,23 @@ sub_26AA0:
                 dc.b $B5 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b $10
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $37 
                 dc.b   0
                 dc.b   8
                 dc.b $11
                 dc.b $A1 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $ED 
-                dc.b   4
+                rts
+                bsr.w   sub_25D96
                 dc.b   1
                 dc.b $3D 
                 dc.b $19
                 dc.b $2B 
                 dc.b $11
                 dc.b $97 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E2 
-                dc.b $12
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b $11
@@ -14774,10 +13997,7 @@ sub_26AA0:
                 dc.b $93 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E2 
-                dc.b   4
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1A
                 dc.b $11
@@ -14788,22 +14008,15 @@ sub_26AA0:
                 dc.b $8B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $11
                 dc.b $83 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $7F 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E1 
-                dc.b $EA 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1B
                 dc.b $11
@@ -14814,16 +14027,11 @@ sub_26AA0:
                 dc.b $83 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $11
                 dc.b $7B 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E1 
-                dc.b $D6 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1B
                 dc.b $11
@@ -14834,40 +14042,27 @@ sub_26AA0:
                 dc.b $7B 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $11
                 dc.b $73 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $6F 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $6B 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $67 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $65 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E1 
-                dc.b $AA 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1B
                 dc.b $11
@@ -14878,22 +14073,15 @@ sub_26AA0:
                 dc.b $61 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $11
                 dc.b $57 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $55 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E1 
-                dc.b $90 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $1B
                 dc.b $11
@@ -14904,190 +14092,133 @@ sub_26AA0:
                 dc.b $55 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b $11
                 dc.b $4D 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $49 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $45 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $43 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $41 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $43 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $41 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $41 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2715C:
+                
+                trap    #1
                 dc.b $11
                 dc.b $3F 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b  $A
-                dc.b $61 
-                dc.b   0
-                dc.b $22 
-                dc.b $E4 
-                dc.b $67 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                rts
+                move.w  #$A,d0
+                bsr.w   sub_2944C
+                beq.s   loc_27172
+                trap    #1
                 dc.b $1A
                 dc.b $8F 
-                dc.b $60 
-                dc.b $18
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b   8
-                dc.b $61 
-                dc.b   0
-                dc.b $22 
-                dc.b $D4 
-                dc.b $67 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                bra.s   return_2718A
+loc_27172:
+                
+                move.w  #8,d0
+                bsr.w   sub_2944C
+                beq.s   loc_27182
+                trap    #1
                 dc.b $1A
                 dc.b $71 
-                dc.b $60 
-                dc.b   8
-                dc.b $33 
-                dc.b $FC 
-                dc.b   1
-                dc.b $32 
-                dc.b   0
-                dc.b $FF
-                dc.b $19
-                dc.b $26 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b  $A
-                dc.b $61 
-                dc.b   0
-                dc.b $22 
-                dc.b $BA 
-                dc.b $67 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                bra.s   return_2718A
+loc_27182:
+                
+                move.w  #$132,(word_FF1926).l
+return_2718A:
+                
+                rts
+
+    ; End of function sub_2715C
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2718C:
+                
+                move.w  #$A,d0
+                bsr.w   sub_2944C
+                beq.s   loc_2719C
+                trap    #1
                 dc.b $1A
                 dc.b $65 
-                dc.b $60 
-                dc.b $18
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b   8
-                dc.b $61 
-                dc.b   0
-                dc.b $22 
-                dc.b $AA 
-                dc.b $67 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                bra.s   return_271B4
+loc_2719C:
+                
+                move.w  #8,d0
+                bsr.w   sub_2944C
+                beq.s   loc_271AC
+                trap    #1
                 dc.b $1A
                 dc.b $47 
-                dc.b $60 
-                dc.b   8
-                dc.b $33 
-                dc.b $FC 
-                dc.b   1
-                dc.b $59 
-                dc.b   0
-                dc.b $FF
-                dc.b $19
-                dc.b $26 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b  $A
-                dc.b $61 
-                dc.b   0
-                dc.b $22 
-                dc.b $90 
-                dc.b $67 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                bra.s   return_271B4
+loc_271AC:
+                
+                move.w  #$159,(word_FF1926).l
+return_271B4:
+                
+                rts
+
+    ; End of function sub_2718C
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_271B6:
+                
+                move.w  #$A,d0
+                bsr.w   sub_2944C
+                beq.s   loc_271C6
+                trap    #1
                 dc.b $1A
                 dc.b $3B 
-                dc.b $60 
-                dc.b $18
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b   8
-                dc.b $61 
-                dc.b   0
-                dc.b $22 
-                dc.b $80 
-                dc.b $67 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                bra.s   return_271DE
+loc_271C6:
+                
+                move.w  #8,d0
+                bsr.w   sub_2944C
+                beq.s   loc_271D6
+                trap    #1
                 dc.b $1A
                 dc.b $1D
-                dc.b $60 
-                dc.b   8
-                dc.b $33 
-                dc.b $FC 
-                dc.b   1
-                dc.b $35 
-                dc.b   0
-                dc.b $FF
-                dc.b $19
-                dc.b $26 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E0 
-                dc.b $CE 
+                bra.s   return_271DE
+loc_271D6:
+                
+                move.w  #$135,(word_FF1926).l
+return_271DE:
+                
+                rts
+
+    ; End of function sub_271B6
+
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   9
                 dc.b $1A
@@ -15098,62 +14229,44 @@ sub_26AA0:
                 dc.b  $A
                 dc.b $FF
                 dc.b $FF
-                dc.b $30 
-                dc.b $3C 
-                dc.b   1
-                dc.b $4B 
-                dc.b $61 
-                dc.b   0
-                dc.b $22 
-                dc.b $58 
-                dc.b $66 
-                dc.b  $A
-                dc.b $33 
-                dc.b $FC 
-                dc.b   1
-                dc.b $37 
-                dc.b   0
-                dc.b $FF
-                dc.b $19
-                dc.b $26 
-                dc.b $60 
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
-                dc.b $1A
-                dc.b $25 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EB 
-                dc.b $B4 
+
+; =============== S U B R O U T I N E =======================================
+
+sub_271EE:
+                
+                move.w  #$14B,d0
+                bsr.w   sub_2944C
+                bne.s   loc_27202
+                move.w  #$137,(word_FF1926).l
+                bra.s   return_27206
+loc_27202:
+                
+                trap    #1
+                move.b  -(a5),d5
+return_27206:
+                
+                rts
+
+    ; End of function sub_271EE
+
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $E5 
                 dc.b $1A
                 dc.b $B9 
                 dc.b $1A
                 dc.b $C7 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EB 
-                dc.b $A8 
+                rts
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $E6 
                 dc.b $1A
                 dc.b $BF 
                 dc.b $1A
                 dc.b $CD 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E0 
-                dc.b $8C 
+                rts
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $17
                 dc.b  $F
@@ -15164,22 +14277,15 @@ sub_26AA0:
                 dc.b  $A
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EB 
-                dc.b $8C 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $E7 
                 dc.b  $F
                 dc.b $3D 
                 dc.b  $F
                 dc.b $47 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E0 
-                dc.b $72 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $12
                 dc.b  $F
@@ -15194,10 +14300,7 @@ sub_26AA0:
                 dc.b $41 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E0 
-                dc.b $60 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $12
                 dc.b  $F
@@ -15212,16 +14315,11 @@ sub_26AA0:
                 dc.b $33 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b  $F
                 dc.b $25 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E0 
-                dc.b $48 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $10
                 dc.b   0
@@ -15240,34 +14338,23 @@ sub_26AA0:
                 dc.b $21 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EB 
-                dc.b $40 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $C9 
                 dc.b   0
                 dc.b   8
                 dc.b  $E
                 dc.b   3
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EB 
-                dc.b $60 
+                rts
+                bsr.w   sub_25DEA
                 dc.b  $D
                 dc.b $ED 
                 dc.b  $D
                 dc.b $F1 
                 dc.b  $D
                 dc.b $F3 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E0 
-                dc.b $1A
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $10
                 dc.b  $D
@@ -15282,24 +14369,16 @@ sub_26AA0:
                 dc.b $FB 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $E0 
-                dc.b   8
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $16
                 dc.b  $E
                 dc.b $EB 
                 dc.b $FF
                 dc.b $FF
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $DF 
-                dc.b $FA 
+                rts
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $18
                 dc.b  $F
@@ -15310,10 +14389,7 @@ sub_26AA0:
                 dc.b   3
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $DF 
-                dc.b $EC 
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b $18
                 dc.b  $E
@@ -15324,74 +14400,60 @@ sub_26AA0:
                 dc.b $D3 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $EC 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $DF 
                 dc.b $16
                 dc.b $71 
                 dc.b   0
                 dc.b   8
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $E0 
+                rts
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $E3 
                 dc.b $16
                 dc.b $77 
                 dc.b $16
                 dc.b $75 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b $1E
-                dc.b $61 
-                dc.b   0
-                dc.b $1F
-                dc.b $5E 
-                dc.b $67 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                rts
+
+; =============== S U B R O U T I N E =======================================
+
+sub_272E8:
+                
+                move.w  #$1E,d0
+                bsr.w   sub_2924C
+                beq.s   loc_272F8
+                trap    #1
                 dc.b  $E
                 dc.b $BF 
-                dc.b $60 
-                dc.b $14
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $C4 
+                bra.s   return_2730C
+loc_272F8:
+                
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $D7 
                 dc.b  $E
                 dc.b $9B 
                 dc.b  $E
                 dc.b $A7 
-                dc.b $61 
-                dc.b   0
-                dc.b $EA 
-                dc.b $E6 
+                bsr.w   sub_25DEA
                 dc.b $FF
                 dc.b $1A
                 dc.b  $E
                 dc.b $9F 
                 dc.b  $E
                 dc.b $A9 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+return_2730C:
+                
+                rts
+
+    ; End of function sub_272E8
+
+                trap    #1
                 dc.b  $E
                 dc.b $83 
-                dc.b $4E 
-                dc.b $75 
+                rts
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -15403,16 +14465,11 @@ sub_27314:
 
     ; End of function sub_27314
 
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b  $E
                 dc.b $AB 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $DF 
-                dc.b $8E 
+                rts
+                bsr.w   sub_252B0
                 dc.b   0
                 dc.b   5
                 dc.b  $E
@@ -15503,6 +14560,11 @@ sub_2737A:
     ; End of function sub_2737A
 
                 sndCom  SFX_DEATH
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2738A:
+                
                 trap    #1
                 dc.b $10
                 dc.b $5D 
@@ -15511,238 +14573,168 @@ sub_2737A:
                 dc.w $1079
                 bsr.w   sub_28FE8
                 rts
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b $23 
-                dc.b $61 
-                dc.b   0
-                dc.b $20
-                dc.b $AC 
-                dc.b $66 
-                dc.b  $A
-                dc.b $4E 
-                dc.b $41 
+
+    ; End of function sub_2738A
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2739A:
+                
+                move.w  #$23,d0 
+                bsr.w   sub_2944C
+                bne.s   loc_273AE
+                trap    #1
                 dc.b   8
                 dc.b $F7 
-                dc.b $4E 
-                dc.b $41 
+                trap    #1
                 dc.b   8
                 dc.b $FB 
-                dc.b $60 
-                dc.b $38 
-                dc.b $2F 
-                dc.b   0
-                dc.b $4E 
-                dc.b $41 
-                dc.b $10
-                dc.b $81 
-                dc.b $61 
-                dc.b   0
-                dc.b $1C
-                dc.b $32 
-                dc.b $64 
-                dc.b $26 
-                dc.b $20
-                dc.b $39 
-                dc.b   0
-                dc.b $FF
-                dc.b $18
-                dc.b $78 
-                dc.b $4E 
-                dc.b $B9 
-                dc.b   0
-                dc.b   1
-                dc.b   3
-                dc.b $2C 
-                dc.b $64 
-                dc.b $12
-                dc.b $4E 
-                dc.b $B9 
-                dc.b   0
-                dc.b   1
-                dc.b   3
-                dc.b $24 
-                dc.b $4E 
-                dc.b $B9 
-                dc.b   0
-                dc.b   1
-                dc.b   3
-                dc.b $2C 
-                dc.b $4E 
-                dc.b $41 
+                bra.s   return_273E6
+loc_273AE:
+                
+                move.l  d0,-(sp)
+                trap    #1
+                move.b  d1,(a0)
+                bsr.w   sub_28FE8
+                bcc.s   loc_273E0
+                move.l  (dword_FF1878).l,d0
+                jsr     sub_1032C
+                bcc.s   loc_273DA
+                jsr     j_GetGold
+                jsr     sub_1032C
+                trap    #1
                 dc.b $10
                 dc.b $71 
-                dc.b $60 
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
+                bra.s   loc_273DE
+loc_273DA:
+                
+                trap    #1
                 dc.b $10
                 dc.b $65 
-                dc.b $60 
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
+loc_273DE:
+                
+                bra.s   loc_273E4
+loc_273E0:
+                
+                trap    #1
                 dc.b $10
                 dc.b $67 
-                dc.b $20
-                dc.b $1F
-                dc.b $4E 
-                dc.b $75 
-                dc.b $2F 
-                dc.b   0
-                dc.b $4E 
-                dc.b $41 
+loc_273E4:
+                
+                move.l  (sp)+,d0
+return_273E6:
+                
+                rts
+
+    ; End of function sub_2739A
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_273E8:
+                
+                move.l  d0,-(sp)
+                trap    #1
                 dc.b $10
                 dc.b $5F 
-                dc.b $61 
-                dc.b   0
-                dc.b $1B
-                dc.b $F8 
-                dc.b $64 
-                dc.b $42 
-                dc.b $4E 
-                dc.b $41 
+                bsr.w   sub_28FE8
+                bcc.s   loc_27436
+                trap    #1
                 dc.b $10
                 dc.b $5B 
-                dc.b $61 
-                dc.b   0
-                dc.b $1B
-                dc.b $EE 
-                dc.b $64 
-                dc.b $38 
-                dc.b $20
-                dc.b $39 
-                dc.b   0
-                dc.b $FF
-                dc.b $18
-                dc.b $78 
-                dc.b $4E 
-                dc.b $B9 
-                dc.b   0
-                dc.b   1
-                dc.b   3
-                dc.b $2C 
-                dc.b $64 
-                dc.b  $C
-                dc.b $4E 
-                dc.b $41 
+                bsr.w   sub_28FE8
+                bcc.s   loc_27436
+                move.l  (dword_FF1878).l,d0
+                jsr     sub_1032C
+                bcc.s   loc_27418
+                trap    #1
                 dc.b $10
                 dc.b $47 
-                dc.b $42 
-                dc.b $39 
-                dc.b   0
-                dc.b $FF
-                dc.b $19
-                dc.b   4
-                dc.b $60 
-                dc.b $1A
-                dc.b $4E 
-                dc.b $41 
+                clr.b   (byte_FF1904).l
+                bra.s   loc_27432
+loc_27418:
+                
+                trap    #1
                 dc.b $10
                 dc.b $3F 
-                dc.b $61 
-                dc.b   0
-                dc.b $1B
-                dc.b $CA 
-                dc.b $64 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
-                dc.b $10
-                dc.b $37 
-                dc.b $60 
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
-                dc.b $10
-                dc.b $3B 
-                dc.b $50 
-                dc.b $F9 
+                bsr.w   sub_28FE8
+                bcc.s   loc_27428
+                trap    #1
+loc_27424:
+                
+                move.b  4(sp,d6.w),d0
+loc_27428:
+                
+                trap    #1
+                move.b  loc_27424+1(pc,d5.w),d0
                 dc.b   0
                 dc.b $FF
-                dc.b $19
-                dc.b   4
-                dc.b $20
-                dc.b $1F
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                move.b  d4,-(a4)
+loc_27432:
+                
+                move.l  (sp)+,d0
+                rts
+
+    ; End of function sub_273E8
+
+
+; START OF FUNCTION CHUNK FOR sub_273E8
+
+loc_27436:
+                
+                trap    #1
                 dc.b $10
                 dc.b $1F
-                dc.b $60 
-                dc.b $F6 
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b $AC 
+                bra.s   loc_27432
+                bsr.w   sub_25DEA
                 dc.b $10
                 dc.b $27 
                 dc.b $1B
                 dc.b $78 
                 dc.b $10
                 dc.b $31 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b $A0 
+                rts
+
+; END OF FUNCTION CHUNK FOR sub_273E8
+
+                bsr.w   sub_25DEA
                 dc.b $10
                 dc.b $2D 
                 dc.b $1B
                 dc.b $6C 
                 dc.b $10
                 dc.b $25 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b $94 
+                rts
+                bsr.w   sub_25DEA
                 dc.b $10
                 dc.b $2B 
                 dc.b $1B
                 dc.b $60 
                 dc.b $10
                 dc.b $19
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b $88 
+                rts
+                bsr.w   sub_25DEA
                 dc.b $10
                 dc.b $27 
                 dc.b $1B
                 dc.b $54 
                 dc.b $10
                 dc.b  $D
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E9 
-                dc.b $7C 
+                rts
+                bsr.w   sub_25DEA
                 dc.b $10
                 dc.b $23 
                 dc.b $1B
                 dc.b $48 
                 dc.b $10
                 dc.b   1
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $10
                 dc.b $39 
-                dc.b $61 
-                dc.b   0
-                dc.b $1B
-                dc.b $6A 
-                dc.b $65 
-                dc.b   6
+                bsr.w   sub_28FE8
+                bcs.s   sub_27488
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -15853,226 +14845,143 @@ return_27510:
 
     ; End of function sub_274DA
 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $82 
+                bsr.w   sub_25D96
                 dc.b   0
                 dc.b $DB 
                 dc.b $10
                 dc.b $C1 
                 dc.b $10
                 dc.b $BF 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $CA 
+                rts
+                bsr.w   sub_25DEA
                 dc.b $10
                 dc.b $BD 
                 dc.b $1A
                 dc.b $96 
                 dc.b $10
                 dc.b $D1 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+loc_2752A:      trap    #1
                 dc.b $10
                 dc.b $D7 
-                dc.b $61 
-                dc.b   0
-                dc.b $1A
-                dc.b $B8 
-                dc.b $65 
-                dc.b $F6 
-                dc.b $4E 
-                dc.b $41 
+                bsr.w   sub_28FE8
+                bcs.s   loc_2752A
+                trap    #1
                 dc.b $10
                 dc.b $E3 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $AE 
+                rts
+                bsr.w   sub_25DEA
                 dc.b $11
                 dc.b  $F
                 dc.b $1A
                 dc.b $7A 
                 dc.b $11
                 dc.b $13
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $11
                 dc.b $47 
-                dc.b $61 
-                dc.b   0
-                dc.b $1A
-                dc.b $9C 
-                dc.b $64 
-                dc.b $1A
-                dc.b $20
-                dc.b $39 
-                dc.b   0
-                dc.b $FF
-                dc.b $18
-                dc.b $78 
-                dc.b $4E 
-                dc.b $B9 
-                dc.b   0
-                dc.b   1
-                dc.b   3
-                dc.b $2C 
-                dc.b $65 
-                dc.b  $C
-                dc.b $4E 
-                dc.b $41 
+                bsr.w   sub_28FE8
+                bcc.s   loc_2756A
+                move.l  (dword_FF1878).l,d0
+                jsr     sub_1032C
+                bcs.s   loc_2756A
+                trap    #1
                 dc.b $11
                 dc.b $37 
-                dc.b $50 
-                dc.b $F9 
-                dc.b   0
-                dc.b $FF
-                dc.b $19
-                dc.b   4
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                st      (byte_FF1904).l
+return_27568:   rts
+loc_2756A:      trap    #1
                 dc.b $11
                 dc.b $29 
-                dc.b $42 
-                dc.b $39 
-                dc.b   0
-                dc.b $FF
-                dc.b $19
-                dc.b   4
-                dc.b $60 
-                dc.b $F2 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $1E
-                dc.b   1
-                dc.b $53 
-                dc.b $11
-                dc.b $27 
-                dc.b $11
-                dc.b $2B 
-                dc.b $4E 
-                dc.b $41 
-                dc.b $11
-                dc.b $27 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $62 
+                clr.b   (byte_FF1904).l
+                bra.s   return_27568
+                bsr.w   sub_25D96
+                bchg    d0,(a3)
+                move.b  -(sp),-(a0)
+                move.b  $4E41(a3),-(a0)
+                move.b  -(sp),-(a0)
+                rts
+                bsr.w   sub_25DEA
                 dc.b $11
                 dc.b $21 
                 dc.b $11
                 dc.b $27 
                 dc.b $11
                 dc.b $31 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $56 
+                rts
+                bsr.w   sub_25DEA
                 dc.b $11
                 dc.b $29 
                 dc.b $11
                 dc.b $31 
                 dc.b $11
                 dc.b $2F 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b $1F
-                dc.b $61 
-                dc.b   0
-                dc.b $1C
-                dc.b $A8 
-                dc.b $67 
-                dc.b  $C
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $40 
-                dc.b $11
-                dc.b $1F
-                dc.b $11
-                dc.b $27 
-                dc.b $11
-                dc.b $25 
-                dc.b $60 
-                dc.b  $A
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $34 
-                dc.b $11
-                dc.b $1F
-                dc.b $11
-                dc.b $27 
-                dc.b $11
-                dc.b $25 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b $1F
-                dc.b $61 
-                dc.b   0
-                dc.b $1C
-                dc.b $86 
-                dc.b $67 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                rts
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2759E:
+                
+                move.w  #$1F,d0
+                bsr.w   sub_2924C
+                beq.s   loc_275B4
+                bsr.w   sub_25DEA
+                move.b  (sp)+,-(a0)
+                move.b  -(sp),-(a0)
+                move.b  -(a5),-(a0)
+                bra.s   return_275BE
+loc_275B4:
+                
+                bsr.w   sub_25DEA
+                move.b  (sp)+,-(a0)
+                move.b  -(sp),-(a0)
+                move.b  -(a5),-(a0)
+return_275BE:
+                
+                rts
+
+    ; End of function sub_2759E
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_275C0:
+                
+                move.w  #$1F,d0
+                bsr.w   sub_2924C
+                beq.s   loc_275D0
+                trap    #1
                 dc.b $11
                 dc.b   9
-                dc.b $60 
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
+                bra.s   return_275D4
+loc_275D0:
+                
+                trap    #1
                 dc.b $11
                 dc.b  $F
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b $12
+return_275D4:
+                
+                rts
+
+    ; End of function sub_275C0
+
+                bsr.w   sub_25DEA
                 dc.b $11
                 dc.b  $F
                 dc.b $19
                 dc.b $DE 
                 dc.b $11
                 dc.b $13
-                dc.b $4E 
-                dc.b $75 
-                dc.b $61 
-                dc.b   0
-                dc.b $E8 
-                dc.b   6
+                rts
+                bsr.w   sub_25DEA
                 dc.b $11
                 dc.b  $B
                 dc.b $19
                 dc.b $D2 
                 dc.b $11
                 dc.b  $F
-                dc.b $4E 
-                dc.b $75 
+                rts
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -16101,10 +15010,18 @@ sub_275FA:
     ; End of function sub_275FA
 
                 sndCom  SFX_DEATH
+
+; =============== S U B R O U T I N E =======================================
+
+sub_2760C:
+                
                 trap    #1
                 dc.b $11
                 dc.b $97 
                 rts
+
+    ; End of function sub_2760C
+
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -16158,39 +15075,24 @@ return_27650:
 
     ; End of function sub_2763A
 
-                dc.b $48 
-                dc.b $E7 
-                dc.b $83 
-                dc.b $80 
-                dc.b $41 
-                dc.b $FA 
-                dc.b   0
-                dc.b $1A
-                dc.b $7C 
-                dc.b   4
-                dc.b $4E 
-                dc.b $B9 
-                dc.b   0
-                dc.b   0
-                dc.b   3
-                dc.b $62 
-                dc.b $DE 
-                dc.b $47 
-                dc.b $30 
-                dc.b $30 
-                dc.b $70 
-                dc.b   0
-                dc.b $61 
-                dc.b   0
-                dc.b $DD 
-                dc.b $8E 
-                dc.b $4C 
-                dc.b $DF 
-                dc.b   1
-                dc.b $C1 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $12
+
+; =============== S U B R O U T I N E =======================================
+
+sub_27652:
+                
+                movem.l d0/d6-a0,-(sp)
+                lea     unk_27672(pc), a0
+                moveq   #4,d6
+                jsr     (sub_362).l
+                add.w   d7,d7
+                move.w  (a0,d7.w),d0
+                bsr.w   sub_253F8
+                movem.l (sp)+,d0/d6-a0
+                rts
+
+    ; End of function sub_27652
+
+unk_27672:      dc.b $12
                 dc.b $29 
                 dc.b $12
                 dc.b $2D 
@@ -16299,10 +15201,22 @@ loc_276D6:
 sub_276DE:
                 
                 bsr.w   sub_25DEA
-                move.b  (sp)+,(a1)
-                move.b  -(a5),(a1)
-                move.b  $4E75(a3),(a1)
+                dc.b $12
+                dc.b $9F 
+                dc.b $12
+                dc.b $A5 
+                dc.b $12
+                dc.b $AB 
+                rts
+
+    ; End of function sub_276DE
+
                 sndCom  MUSIC_URGENT_NIGEL
+
+; =============== S U B R O U T I N E =======================================
+
+sub_276EE:
+                
                 trap    #1
                 dc.b $13
                 dc.b $A1 
@@ -16327,7 +15241,7 @@ sub_276DE:
                 dc.w $13A7
                 rts
 
-    ; End of function sub_276DE
+    ; End of function sub_276EE
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -16369,192 +15283,86 @@ sub_27732:
 
                 dc.b   0
                 dc.b $77 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $14
                 dc.b $A5 
-                dc.b $70 
-                dc.b $32 
-                dc.b $61 
-                dc.b   0
-                dc.b $18
-                dc.b $A2 
-                dc.b $64 
-                dc.b $1A
-                dc.b $4E 
-                dc.b $B9 
-                dc.b   0
-                dc.b   1
-                dc.b   3
-                dc.b $2C 
-                dc.b $65 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                moveq   #$32,d0 
+loc_27744:      bsr.w   sub_28FE8
+                bcc.s   loc_27764
+                jsr     sub_1032C
+                bcs.s   loc_27758
+                trap    #1
                 dc.b $14
                 dc.b $9B 
-                dc.b $60 
-                dc.b  $A
-                dc.b $4E 
-                dc.b $41 
+                bra.s   loc_27762
+loc_27758:      trap    #1
                 dc.b $14
                 dc.b $99 
-                dc.b $42 
-                dc.b $39 
-                dc.b   0
-                dc.b $FF
-                dc.b $19
-                dc.b   4
-                dc.b $60 
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
+                clr.b   (byte_FF1904).l
+loc_27762:      bra.s   return_27768
+loc_27764:      trap    #1
                 dc.b $14
                 dc.b $8F 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $23 
-                dc.b $FC 
-                dc.b   0
-                dc.b   0
-                dc.b   0
-                dc.b $C8 
-                dc.b   0
-                dc.b $FF
-                dc.b $18
-                dc.b $78 
-                dc.b $4E 
-                dc.b $41 
+return_27768:   rts
+                move.l  #$C8,(dword_FF1878).l 
+loc_27774:      trap    #1
                 dc.b $14
                 dc.b $81 
-                dc.b $4E 
-                dc.b $75 
-                dc.b $4E 
-                dc.b $41 
+                rts
+                trap    #1
                 dc.b $14
                 dc.b $89 
-                dc.b $70 
-                dc.b $14
-                dc.b $60 
-                dc.b $C2 
-                dc.b $4E 
-                dc.b $41 
+                moveq   #$14,d0
+                bra.s   loc_27744
+                trap    #1
                 dc.b $14
                 dc.b $91 
-                dc.b $70 
-                dc.b $32 
-                dc.b $60 
-                dc.b $BA 
-                dc.b $23 
-                dc.b $FC 
-                dc.b   0
-                dc.b   0
-                dc.b   0
-                dc.b $C8 
-                dc.b   0
-                dc.b $FF
-                dc.b $18
-                dc.b $78 
-                dc.b $60 
-                dc.b $DE 
-                dc.b $70 
-                dc.b $16
-                dc.b $61 
-                dc.b   0
-                dc.b $1A
-                dc.b $B2 
-                dc.b $67 
-                dc.b $1A
-                dc.b $4E 
-                dc.b $41 
-                dc.b $14
-                dc.b $81 
-                dc.b $61 
-                dc.b   0
-                dc.b $18
-                dc.b $44 
-                dc.b $64 
-                dc.b  $A
-                dc.b $61 
-                dc.b   0
-                dc.b $1A
-                dc.b $72 
-                dc.b $4E 
-                dc.b $41 
+                moveq   #$32,d0 
+                bra.s   loc_27744
+                move.l  #$C8,(dword_FF1878).l 
+                bra.s   loc_27774
+                moveq   #$16,d0
+                bsr.w   sub_2924C
+                beq.s   loc_277B8
+                trap    #1
+                move.b  d1,(a2)
+                bsr.w   sub_28FE8
+                bcc.s   loc_277B2
+                bsr.w   sub_2921C
+                trap    #1
                 dc.b $14
                 dc.b $7B 
-                dc.b $60 
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
+                bra.s   loc_277B6
+loc_277B2:      trap    #1
                 dc.b $14
                 dc.b $79 
-                dc.b $60 
-                dc.b  $A
-                dc.b $4E 
-                dc.b $41 
+loc_277B6:      bra.s   return_277C2
+loc_277B8:      trap    #1
                 dc.b $14
                 dc.b $77 
-                dc.b $42 
-                dc.b $39 
-                dc.b   0
-                dc.b $FF
-                dc.b $19
-                dc.b   4
-                dc.b $4E 
-                dc.b $75 
-                dc.b $42 
-                dc.b $39 
-                dc.b   0
-                dc.b $FF
-                dc.b $19
-                dc.b   4
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b $E0 
-                dc.b $61 
-                dc.b   0
-                dc.b $1C
-                dc.b $7C 
-                dc.b $67 
-                dc.b $1C
-                dc.b $30 
-                dc.b $3C 
-                dc.b   0
-                dc.b $E1 
-                dc.b $61 
-                dc.b   0
-                dc.b $1C
-                dc.b $72 
-                dc.b $67 
-                dc.b   6
-                dc.b $4E 
-                dc.b $41 
+                clr.b   (byte_FF1904).l
+return_277C2:   rts
+                clr.b   (byte_FF1904).l
+                move.w  #$E0,d0 
+                bsr.w   sub_2944C
+                beq.s   loc_277F0
+                move.w  #$E1,d0 
+                bsr.w   sub_2944C
+                beq.s   loc_277E4
+                trap    #1
                 dc.b $14
                 dc.b $63 
-                dc.b $60 
-                dc.b  $A
-                dc.b $50 
-                dc.b $F9 
-                dc.b   0
-                dc.b $FF
-                dc.b $19
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
+                bra.s   loc_277EE
+loc_277E4:      st      (byte_FF1904).l
+                trap    #1
                 dc.b $14
                 dc.b $51 
-                dc.b $60 
-                dc.b   4
-                dc.b $4E 
-                dc.b $41 
+loc_277EE:      bra.s   return_277F4
+loc_277F0:      trap    #1
                 dc.b $14
                 dc.b $45 
-                dc.b $4E 
-                dc.b $75 
+return_277F4:   rts
                 dc.b $E0 
                 dc.b   0
                 dc.b $E0 
@@ -22263,9 +21071,6 @@ byte_28EB2:     dc.b 0
 sub_28EBC:
                 
                 bsr.w   sub_28F9E
-
-    ; End of function sub_28EBC
-
                 sndCom  MUSIC_ITEM_CHEST
                 move.w  (word_FF1196).l,d0
                 bsr.w   sub_291D6
@@ -22274,6 +21079,9 @@ sub_28EBC:
                 jsr     (sub_446).l
                 move.l  (sp)+,d0
                 rts
+
+    ; End of function sub_28EBC
+
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -22289,13 +21097,13 @@ sub_28EE0:
                 jsr     (sub_446).l
                 move.l  (sp)+,d0
                 rts
-
-    ; End of function sub_28EE0
-
                 sndCom  MUSIC_HEHEH_THINK_ILL_DISRUPT_THIS_GOOD_CHEER
                 rts
                 sndCom  MUSIC_BLACK_MARKET
                 rts
+
+    ; End of function sub_28EE0
+
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -22456,10 +21264,7 @@ sub_29026:
                 bsr.w   sub_29D16
                 sndCom  MUSIC_ITEM_CHEST
                 bsr.w   sub_29060
-                dc.b   8
-                dc.b $B9 
-                ori.b   #$FF,d1
-                move.b  d2,-(a4)
+                bclr    #1,(byte_FF1902).l
 return_29044:
                 
                 rts
@@ -22489,10 +21294,7 @@ sub_29060:
                 move.l  d0,-(sp)
                 clr.w   d0
                 move.b  (MUSIC_INDEX).l,d0
-                dc.b $4E 
-                dc.b $40 
-                dc.b $FF
-                dc.b $FF
+                sndCom  SOUND_COMMAND_GET_D0_PARAMETER
                 move.l  (sp)+,d0
                 rts
 
@@ -22772,6 +21574,8 @@ sub_291D6:
                 lea     (dword_FF5400).l,a5
                 jsr     sub_10370
                 move.w  #$100,d0
+loc_291F4:
+                
                 jsr     sub_10338
                 jsr     (sub_49A).l
                 bra.s   loc_29212
@@ -25661,7 +24465,7 @@ loc_2A0AE:
 
 sub_2A0D2:
                 
-                move.w  #$FFFF,(word_FF5480).l
+                move.w  #$FFFF,(byte_FF5480).l
                 jsr     (sub_272).l
                 rts
 
@@ -26565,8 +25369,6 @@ sub_2A4D0:
                 clr.l   (dword_FF1878).l
                 move.b  byte_2A50C(pc,d1.w),(dword_FF1878+3).l
                 addq.w  #1,d0
-loc_2A4EC:
-                
                 bsr.w   sub_28FD8
                 rts
 
@@ -26579,10 +25381,7 @@ sub_2A4F2:
                 
                 clr.w   d0
                 move.b  byte_2A50C(pc,d1.w),d0
-                dc.b $4E 
-                dc.b $40 
-                dc.b $FF
-                dc.b $FF
+                sndCom  SOUND_COMMAND_GET_D0_PARAMETER
                 rts
 
     ; End of function sub_2A4F2
@@ -26695,10 +25494,7 @@ sub_2A586:
                 
                 clr.w   d0
                 move.b  byte_2A5A0(pc,d1.w),d0
-                dc.b $4E 
-                dc.b $40 
-                dc.b $FF
-                dc.b $FF
+                sndCom  SOUND_COMMAND_GET_D0_PARAMETER
                 rts
 
     ; End of function sub_2A586

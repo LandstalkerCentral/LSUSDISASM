@@ -4554,7 +4554,7 @@ loc_399C6:
 
 sub_399CC:
                 
-                link    a6,#$FFE2
+                link    a6,#-$1E
                 movea.l a6,a0
                 moveq   #$1D,d7
                 clr.b   d0

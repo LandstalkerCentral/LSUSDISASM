@@ -3,6 +3,7 @@
 #dir    data/sound
 #dir    data/scripting
 #dir    data/scripting/text
+#dir    data/scripting/text/intro
 #dir    data/graphics
 #dir    data/graphics/specialscreens
 #dir    data/graphics/tech
@@ -12,6 +13,18 @@
 /***********************Data***************************/
 
 #split	0x9242,0x95AC,data/graphics/tech/menus/statusbartileset.bin
+#split	0xC5CE,0xC5F4,data/scripting/text/intro/introtextblock00.bin
+#split	0xC5F4,0xC618,data/scripting/text/intro/introtextblock01.bin
+#split	0xC618,0xC640,data/scripting/text/intro/introtextblock02.bin
+#split	0xC640,0xC662,data/scripting/text/intro/introtextblock03.bin
+#split	0xC662,0xC67E,data/scripting/text/intro/introtextblock04.bin
+#split	0xC67E,0xC6A4,data/scripting/text/intro/introtextblock05.bin
+#split	0xC6A4,0xC6C0,data/scripting/text/intro/introtextblock06.bin
+#split	0xC6C0,0xC6DC,data/scripting/text/intro/introtextblock07.bin
+#split	0xC6DC,0xC6F8,data/scripting/text/intro/introtextblock08.bin
+#split	0xC6F8,0xC714,data/scripting/text/intro/introtextblock09.bin
+#split	0xC714,0xC732,data/scripting/text/intro/introtextblock10.bin
+#split	0xC732,0xC74E,data/scripting/text/intro/introtextblock11.bin
 #split	0xFD5C,0xFE37,data/graphics/specialscreens/savescreentileset.bin
 #split	0x2A884,0x2B27A,data/graphics/tech/fonts/mainfont.bin
 #split	0x2B27A,0x2C29B,data/scripting/text/textbank0.bin

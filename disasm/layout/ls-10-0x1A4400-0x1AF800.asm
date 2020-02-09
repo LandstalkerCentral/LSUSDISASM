@@ -92,7 +92,7 @@ loc_1A4436:
                 clr.w   (a2)+
                 dbf     d7,loc_1A4436
                 clr.w   (a1)
-                lea     (word_FF5480).l,a0
+                lea     (byte_FF5480).l,a0
                 moveq   #$E,d7
 loc_1A444A:
                 
@@ -5669,7 +5669,7 @@ sub_1A6F94:
                 jsr     (sub_362).l
                 cmpi.w  #$96,d7 
                 bhi.s   loc_1A6FDC
-                move.b  (dword_FF542C).l,d0
+                move.b  (word_FF542C).l,d0
                 andi.b  #7,d0
                 beq.s   loc_1A6FDC
                 move.b  #$22,$37(a5) 
@@ -5902,7 +5902,7 @@ sub_1A71C0:
                 jsr     (sub_362).l
                 cmpi.w  #$96,d7 
                 bhi.s   loc_1A7208
-                move.b  (dword_FF542C).l,d0
+                move.b  (word_FF542C).l,d0
                 andi.b  #7,d0
                 beq.s   loc_1A7208
                 move.b  #$22,$37(a5) 
@@ -6108,7 +6108,7 @@ sub_1A73B0:
                 move.w  #$3E8,d6
                 jsr     (sub_362).l
                 cmpi.w  #$12,d7
-                move.b  (dword_FF542C).l,d0
+                move.b  (word_FF542C).l,d0
                 andi.b  #7,d0
                 beq.s   loc_1A73F2
                 move.b  #$21,$37(a5) 
@@ -6241,7 +6241,7 @@ loc_1A7516:
 
 sub_1A751C:
                 
-                bra.s   loc_1A753E
+                bra.s   sub_1A753E
 
     ; End of function sub_1A751C
 
@@ -6268,9 +6268,9 @@ loc_1A753C:
     ; End of function sub_1A751E
 
 
-; START OF FUNCTION CHUNK FOR sub_1A75E4
+; =============== S U B R O U T I N E =======================================
 
-loc_1A753E:
+sub_1A753E:
                 
                 tst.b   $A(a5)
                 bpl.s   loc_1A7560
@@ -6291,7 +6291,7 @@ loc_1A7560:
                 clr.b   $D(a5)
                 rts
 
-; END OF FUNCTION CHUNK FOR sub_1A75E4
+    ; End of function sub_1A753E
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -6351,7 +6351,7 @@ sub_1A75E4:
                 beq.s   loc_1A75F4
                 cmpi.b  #1,d0
                 beq.s   sub_1A7642
-                bra.w   loc_1A753E
+                bra.w   sub_1A753E
 loc_1A75F4:
                 
                 move.w  #$100,$2C(a5)
@@ -6382,7 +6382,7 @@ return_1A7640:
 sub_1A7642:
                 
                 tst.b   (byte_FF1145).l
-                bne.w   loc_1A753E
+                bne.w   sub_1A753E
                 tst.b   (byte_FF1142).l
                 bne.s   loc_1A765C
                 move.b  #1,(byte_FF1142).l
@@ -6657,19 +6657,23 @@ return_1A78B2:
 loc_1A78B4:
                 
                 bsr.w   sub_1A87A6
+                bra.w   loc_1A76DA
 
 ; END OF FUNCTION CHUNK FOR sub_1A7882
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1A78B8:
-                
-                bra.w   loc_1A76DA
-loc_1A78BC:
+sub_1A78BC:
                 
                 bra.s   loc_1A78DE
-loc_1A78BE:
+
+    ; End of function sub_1A78BC
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_1A78BE:
                 
                 btst    #1,$C(a5)
                 bne.s   loc_1A78D6
@@ -6682,12 +6686,6 @@ loc_1A78D6:
                 
                 bsr.w   sub_1A8ADA
                 rts
-
-    ; End of function sub_1A78B8
-
-
-; START OF FUNCTION CHUNK FOR sub_1A78B8
-
 loc_1A78DC:
                 
                 bra.s   loc_1A78E4
@@ -6719,7 +6717,7 @@ loc_1A791C:
                 bsr.w   sub_1A8ADA
                 rts
 
-; END OF FUNCTION CHUNK FOR sub_1A78B8
+    ; End of function sub_1A78BE
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -6762,7 +6760,7 @@ loc_1A79A0:
     ; End of function sub_1A7936
 
 
-; START OF FUNCTION CHUNK FOR sub_1A78B8
+; START OF FUNCTION CHUNK FOR sub_1A78BE
 
 loc_1A79A4:
                 
@@ -6851,7 +6849,7 @@ loc_1A7AB8:
                 bsr.w   sub_1A87A6
                 bra.w   loc_1A78DE
 
-; END OF FUNCTION CHUNK FOR sub_1A78B8
+; END OF FUNCTION CHUNK FOR sub_1A78BE
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -7200,12 +7198,6 @@ loc_1A7E1A:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A7E42
                 rts
-
-; END OF FUNCTION CHUNK FOR sub_1A7DFC
-
-
-; START OF FUNCTION CHUNK FOR sub_1A8082
-
 loc_1A7E42:
                 
                 move.w  #6,$34(a5)
@@ -7214,6 +7206,12 @@ loc_1A7E42:
                 bclr    #1,$C(a5)
                 clr.b   $D(a5)
                 rts
+
+; END OF FUNCTION CHUNK FOR sub_1A7DFC
+
+
+; START OF FUNCTION CHUNK FOR sub_1A8082
+
 loc_1A7E5E:
                 
                 move.w  #0,$34(a5)
@@ -8046,8 +8044,8 @@ sub_1A84A6:
                 bra.w   sub_1A751C
                 bra.w   loc_1A76BA
                 bra.w   loc_1A76B8
-                bra.w   loc_1A78BE
-                bra.w   loc_1A78BC
+                bra.w   sub_1A78BE
+                bra.w   sub_1A78BC
                 bra.w   loc_1A7AC2
                 bra.w   sub_1A7AC0
                 bra.w   sub_1A7DFC
@@ -8224,7 +8222,7 @@ return_1A8716:
                 rts
 loc_1A8718:
                 
-                lea     (word_FF5480).l,a0
+                lea     (byte_FF5480).l,a0
 loc_1A871E:
                 
                 move.w  (a0),d0
@@ -8783,7 +8781,7 @@ sub_1A8C1E:
                 andi.b  #$C0,d1
                 cmp.b   d0,d1
                 bne.s   loc_1A8C84
-                move.b  (dword_FF542C+2).l,d0
+                move.b  (byte_FF542E).l,d0
                 andi.b  #7,d0
                 beq.w   loc_1A8C88
                 move.w  #$64,d6 
@@ -9056,7 +9054,7 @@ sub_1A8EDE:
                 andi.b  #$C0,d1
                 cmp.b   d0,d1
                 bne.s   loc_1A8F44
-                move.b  (dword_FF542C+2).l,d0
+                move.b  (byte_FF542E).l,d0
                 andi.b  #7,d0
                 beq.w   loc_1A8F48
                 move.w  #$64,d6 
@@ -9329,7 +9327,7 @@ sub_1A919E:
                 andi.b  #$C0,d1
                 cmp.b   d0,d1
                 bne.s   loc_1A9204
-                move.b  (dword_FF542C+2).l,d0
+                move.b  (byte_FF542E).l,d0
                 andi.b  #7,d0
                 beq.w   loc_1A9208
                 move.w  #$64,d6 
@@ -13630,7 +13628,7 @@ sub_1ABD4E:
                 move.w  #$10,d7
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ABD96
-                move.b  (dword_FF542C).l,d0
+                move.b  (word_FF542C).l,d0
                 andi.b  #7,d0
                 beq.s   loc_1ABD96
                 move.w  #$64,d6 
@@ -17512,7 +17510,7 @@ sub_1AE2A0:
                 move.w  #$10,d7
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AE2D8
-                move.b  (dword_FF542C).l,d0
+                move.b  (word_FF542C).l,d0
                 andi.b  #7,d0
                 beq.s   loc_1AE2D8
                 move.b  #$24,$37(a5) 
@@ -17569,13 +17567,7 @@ loc_1AE33C:
                 cmpi.b  #5,$4D(a5)
                 bcs.s   loc_1AE398
                 bne.s   loc_1AE35A
-
-; END OF FUNCTION CHUNK FOR sub_1AE13E
-
                 sndCom  SFX_SWORD_SLASH
-
-; START OF FUNCTION CHUNK FOR sub_1AE13E
-
 loc_1AE35A:
                 
                 move.w  #$200,$2C(a5)
@@ -18466,13 +18458,7 @@ loc_1AEBFC:
                 cmpi.b  #$10,$D(a5)
                 bcs.s   loc_1AEC52
                 bhi.s   loc_1AEC22
-
-; END OF FUNCTION CHUNK FOR sub_1AE87C
-
                 sndCom  SFX_SWORD_SLASH
-
-; START OF FUNCTION CHUNK FOR sub_1AE87C
-
 loc_1AEC22:
                 
                 move.w  #$21,d1 
@@ -18686,13 +18672,7 @@ loc_1AEDF0:
                 cmpi.b  #$1E,$4D(a5)
                 bcs.w   return_1AEED6
                 bne.s   loc_1AEE1E
-
-; END OF FUNCTION CHUNK FOR sub_1AEC58
-
                 sndCom  SFX_BOULDER_HIT
-
-; START OF FUNCTION CHUNK FOR sub_1AEC58
-
 loc_1AEE1E:
                 
                 move.w  #$19,d1
@@ -18704,7 +18684,7 @@ loc_1AEE1E:
                 bne.w   loc_1AEEC4
                 bsr.w   sub_1AEE66
                 move.b  (word_FF5412+1).l,d0
-                cmp.b   (byte_FF5439).l,d0
+                cmp.b   (word_FF5439).l,d0
                 bne.s   loc_1AEE62
                 tst.b   (byte_FF1142).l
                 bne.s   loc_1AEE62
@@ -19122,7 +19102,7 @@ loc_1AF236:
                 cmpi.b  #$10,$4D(a5)
                 bne.w   loc_1AF292
                 move.b  (word_FF5412+1).l,d0
-                cmp.b   (byte_FF5439).l,d0
+                cmp.b   (word_FF5439).l,d0
                 bne.s   loc_1AF26E
                 tst.b   (byte_FF1142).l
                 bne.s   loc_1AF26E

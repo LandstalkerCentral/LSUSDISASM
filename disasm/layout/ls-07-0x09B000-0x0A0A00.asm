@@ -54,7 +54,7 @@ sub_9B010:
 
 sub_9B014:
                 
-                lea     (word_FF5480).l,a5
+                lea     (byte_FF5480).l,a5
                 moveq   #$E,d7
 loc_9B01C:
                 
