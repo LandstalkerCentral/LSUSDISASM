@@ -720,7 +720,7 @@ loc_19BEC:
                 btst    #6,(byte_FF1002).l
                 beq.w   return_1A308
                 move.w  #$2119,(word_FF5500).l
-                clr.w   (byte_FF5512).l
+                clr.w   (word_FF5512).l
                 bra.w   return_1A308
 loc_19C14:
                 

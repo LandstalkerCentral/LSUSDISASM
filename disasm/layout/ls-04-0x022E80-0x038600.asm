@@ -642,7 +642,7 @@ loc_2314A:
 
 sub_23150:
                 
-                bra.w   loc_231CA
+                bra.w   sub_231CA
 
     ; End of function sub_23150
 
@@ -686,20 +686,20 @@ sub_23164:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_23168:
+j_nullsub_6:
                 
-                bra.w   sub_2320A
+                bra.w   nullsub_6
 
-    ; End of function sub_23168
+    ; End of function j_nullsub_6
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2316C:
+j_nullsub_7:
                 
-                bra.w   sub_2320C
+                bra.w   nullsub_7
 
-    ; End of function sub_2316C
+    ; End of function j_nullsub_7
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -781,11 +781,11 @@ sub_2318C:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_231A4:
+j_nullsub_8:
                 
-                bra.w   sub_2332A
+                bra.w   nullsub_8
 
-    ; End of function sub_231A4
+    ; End of function j_nullsub_8
 
                 dc.l 0
                 dc.l 0
@@ -837,9 +837,9 @@ loc_231C4:
 ; END OF FUNCTION CHUNK FOR sub_231BC
 
 
-; START OF FUNCTION CHUNK FOR sub_230CA
+; =============== S U B R O U T I N E =======================================
 
-loc_231CA:
+sub_231CA:
                 
                 bsr.w   sub_2313C
                 bcs.s   loc_231D4
@@ -849,7 +849,7 @@ loc_231D4:
                 movem.l (sp)+,d0
                 rts
 
-; END OF FUNCTION CHUNK FOR sub_230CA
+    ; End of function sub_231CA
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -891,20 +891,20 @@ sub_231EE:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2320A:
+nullsub_6:
                 
                 rts
 
-    ; End of function sub_2320A
+    ; End of function nullsub_6
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2320C:
+nullsub_7:
                 
                 rts
 
-    ; End of function sub_2320C
+    ; End of function nullsub_7
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -927,14 +927,14 @@ loc_23216:
     ; End of function sub_2320E
 
 
-; START OF FUNCTION CHUNK FOR sub_23280
+; START OF FUNCTION CHUNK FOR sub_2320E
 
 loc_23232:
                 
                 movem.w (sp)+,d0
                 rts
 
-; END OF FUNCTION CHUNK FOR sub_23280
+; END OF FUNCTION CHUNK FOR sub_2320E
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -1088,11 +1088,11 @@ sub_23314:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2332A:
+nullsub_8:
                 
                 rts
 
-    ; End of function sub_2332A
+    ; End of function nullsub_8
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -7317,13 +7317,7 @@ sub_251D0:
                 bsr.w   sub_2908E
                 bcs.s   loc_25212
                 subq.w  #1,d2
-
-    ; End of function sub_251D0
-
-
-; =============== S U B R O U T I N E =======================================
-
-sub_251EA:
+loc_251EA:
                 
                 move.w  (a0)+,d0
                 move.w  d0,d4
@@ -7333,10 +7327,10 @@ sub_251EA:
                 cmp.w   d4,d1
                 blt.s   sub_25204
                 sub.w   d4,d1
-                dbf     d2,sub_251EA
+                dbf     d2,loc_251EA
                 bra.s   loc_25218
 
-    ; End of function sub_251EA
+    ; End of function sub_251D0
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -7354,7 +7348,7 @@ loc_25212:
     ; End of function sub_25204
 
 
-; START OF FUNCTION CHUNK FOR sub_251EA
+; START OF FUNCTION CHUNK FOR sub_251D0
 
 loc_25218:
                 
@@ -7362,18 +7356,18 @@ loc_25218:
                 bne.s   loc_25222
                 trap    #1
 
-; END OF FUNCTION CHUNK FOR sub_251EA
+; END OF FUNCTION CHUNK FOR sub_251D0
 
                 dc.w $25D7
 
-; START OF FUNCTION CHUNK FOR sub_251EA
+; START OF FUNCTION CHUNK FOR sub_251D0
 
 loc_25222:
                 
                 ori     #1,ccr
                 bra.s   loc_25212
 
-; END OF FUNCTION CHUNK FOR sub_251EA
+; END OF FUNCTION CHUNK FOR sub_251D0
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -7420,7 +7414,13 @@ loc_25262:
                 tst.w   (word_210).w
                 bne.s   loc_2526C
                 trap    #1
+
+; END OF FUNCTION CHUNK FOR sub_25228
+
                 dc.w $258D
+
+; START OF FUNCTION CHUNK FOR sub_25228
+
 loc_2526C:
                 
                 ori     #1,ccr
@@ -7464,7 +7464,13 @@ loc_252A0:
                 tst.w   (word_210).w
                 bne.s   loc_252AA
                 trap    #1
+
+; END OF FUNCTION CHUNK FOR sub_25272
+
                 dc.w $254F
+
+; START OF FUNCTION CHUNK FOR sub_25272
+
 loc_252AA:
                 
                 ori     #1,ccr
@@ -7541,7 +7547,7 @@ sub_25318:
 
     ; End of function sub_25318
 
-                dc.b   1
+                dc.b 1
                 dc.b $39 
                 dc.b $1F
                 dc.b   0
@@ -7665,11 +7671,8 @@ sub_25318:
                 dc.b $FF
                 dc.b $52 
                 dc.b $88 
-                dc.b $61 
-                dc.b   0
-                dc.b   0
-                dc.b $28 
-                dc.b   1
+                bsr.w   sub_253CA
+                dc.b 1
                 dc.b $54 
                 dc.b   3
                 dc.b   0
@@ -7685,11 +7688,8 @@ sub_25318:
                 dc.b $FF
                 dc.b $52 
                 dc.b $88 
-                dc.b $61 
-                dc.b   0
-                dc.b   0
-                dc.b $14
-                dc.b   1
+                bsr.w   sub_253CA
+                dc.b 1
                 dc.b $3F 
                 dc.b   3
                 dc.b   0
@@ -7705,8 +7705,7 @@ sub_25318:
                 dc.b $FF
                 dc.b $20
                 dc.b $5F 
-                dc.b $4E 
-                dc.b $75 
+                rts
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -10333,7 +10332,7 @@ loc_25E08:
                 dc.b $1A
                 dc.b $61 
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $53 
                 dc.b $1A
                 dc.b $4B 
@@ -10344,7 +10343,7 @@ loc_25E08:
                 dc.b   0
                 dc.b $32 
                 bsr.w   sub_24F0A
-                dc.b   0
+                dc.b 0
                 dc.b $38 
                 dc.b   0
                 dc.b $44 
@@ -10353,7 +10352,7 @@ loc_25E08:
                 dc.b   0
                 dc.b $5C 
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $40 
                 dc.b $1A
                 dc.b $6B 
@@ -10361,7 +10360,7 @@ loc_25E08:
                 dc.b $51 
                 rts
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $40 
                 dc.b $1A
                 dc.b $61 
@@ -10369,7 +10368,7 @@ loc_25E08:
                 dc.b $4B 
                 rts
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $40 
                 dc.b $1A
                 dc.b $61 
@@ -10377,7 +10376,7 @@ loc_25E08:
                 dc.b $4D 
                 rts
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $40 
                 dc.b $1A
                 dc.b $4B 
@@ -10385,7 +10384,7 @@ loc_25E08:
                 dc.b $35 
                 rts
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $40 
                 dc.b $1A
                 dc.b $41 
@@ -10393,7 +10392,7 @@ loc_25E08:
                 dc.b $2B 
                 rts
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $40 
                 dc.b $1A
                 dc.b $37 
@@ -10401,7 +10400,7 @@ loc_25E08:
                 dc.b $21 
                 rts
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $40 
                 dc.b $1A
                 dc.b $2D 
@@ -10409,7 +10408,7 @@ loc_25E08:
                 dc.b $17
                 rts
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $40 
                 dc.b $1A
                 dc.b $23 
@@ -10417,7 +10416,7 @@ loc_25E08:
                 dc.b  $F
                 rts
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $40 
                 dc.b $1A
                 dc.b $1B
@@ -10425,7 +10424,7 @@ loc_25E08:
                 dc.b   7
                 rts
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $40 
                 dc.b $1A
                 dc.b $11
@@ -10521,49 +10520,49 @@ loc_25F7E:
                 dc.b $28 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $1A
                 dc.b $77 
-                dc.b   0
+                dc.b 0
                 dc.b   1
                 dc.b $1A
                 dc.b $79 
-                dc.b   0
+                dc.b 0
                 dc.b   2
                 dc.b $1A
                 dc.b $7B 
-                dc.b   0
+                dc.b 0
                 dc.b   4
                 dc.b $1A
                 dc.b $7D 
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $1A
                 dc.b $8B 
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $1A
                 dc.b $73 
-                dc.b   0
+                dc.b 0
                 dc.b   1
                 dc.b $1A
                 dc.b $75 
-                dc.b   0
+                dc.b 0
                 dc.b   2
                 dc.b $1A
                 dc.b $77 
-                dc.b   0
+                dc.b 0
                 dc.b   4
                 dc.b $1A
                 dc.b $79 
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $1A
                 dc.b $67 
@@ -10582,7 +10581,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $1A
                 dc.b $5B 
@@ -10597,7 +10596,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b   0
                 dc.b $12
@@ -10624,7 +10623,7 @@ loc_25F7E:
                 dc.b $41 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $1A
                 dc.b $41 
@@ -10647,7 +10646,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $1A
                 dc.b $47 
@@ -10662,7 +10661,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $1A
                 dc.b $3D 
@@ -10677,7 +10676,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $1A
                 dc.b $35 
@@ -10696,7 +10695,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b   0
                 dc.b $1A
@@ -10747,7 +10746,7 @@ loc_25F7E:
                 dc.b $13
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $1A
                 dc.b $15
@@ -10762,7 +10761,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b   0
                 dc.b $12
@@ -10789,7 +10788,7 @@ loc_25F7E:
                 dc.b $F5 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $19
                 dc.b $F1 
@@ -10804,7 +10803,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $19
                 dc.b $E7 
@@ -10819,7 +10818,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b   0
                 dc.b  $E
@@ -10842,7 +10841,7 @@ loc_25F7E:
                 dc.b $CF 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $19
                 dc.b $CD 
@@ -10881,7 +10880,7 @@ loc_25F7E:
                 dc.b $BD 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   0
                 dc.b $19
                 dc.b $B9 
@@ -10900,7 +10899,7 @@ loc_25F7E:
                 dc.b $AF 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   1
                 dc.b $19
                 dc.b $AD 
@@ -10911,7 +10910,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   1
                 dc.b $19
                 dc.b $A3 
@@ -10954,7 +10953,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   0
+                dc.b 0
                 dc.b $12
                 dc.b $19
                 dc.b $7B 
@@ -10962,7 +10961,7 @@ loc_25F7E:
                 dc.b $79 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   2
                 dc.b $19
                 dc.b $9B 
@@ -10973,7 +10972,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   2
                 dc.b $19
                 dc.b $91 
@@ -11004,7 +11003,7 @@ loc_25F7E:
                 dc.b $7D 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   3
                 dc.b $19
                 dc.b $77 
@@ -11019,7 +11018,7 @@ loc_25F7E:
                 dc.b $6F 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   3
                 dc.b $19
                 dc.b $69 
@@ -11030,7 +11029,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   4
                 dc.b $19
                 dc.b $5F 
@@ -11041,7 +11040,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   4
                 dc.b $19
                 dc.b $55 
@@ -11060,7 +11059,7 @@ loc_25F7E:
                 dc.b $4D 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   2
                 dc.b $19
                 dc.b $43 
@@ -11075,7 +11074,7 @@ loc_25F7E:
                 dc.b $3B 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   3
                 dc.b $19
                 dc.b $35 
@@ -11086,7 +11085,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   3
                 dc.b $19
                 dc.b $2D 
@@ -11097,7 +11096,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   4
                 dc.b $19
                 dc.b $23 
@@ -11116,7 +11115,7 @@ loc_25F7E:
                 dc.b $1B
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $19
                 dc.b $11
@@ -11143,7 +11142,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $FD 
@@ -11166,7 +11165,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $ED 
@@ -11181,7 +11180,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $E3 
@@ -11192,7 +11191,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $DB 
@@ -11215,7 +11214,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $CD 
@@ -11230,7 +11229,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $C1 
@@ -11253,7 +11252,7 @@ loc_25F7E:
                 dc.b $B9 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $B3 
@@ -11272,7 +11271,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $A5 
@@ -11295,7 +11294,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $95 
@@ -11318,7 +11317,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   8
                 dc.b $18
                 dc.b $8B 
@@ -11329,7 +11328,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $89 
@@ -11348,7 +11347,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $7D 
@@ -11371,7 +11370,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   8
                 dc.b   0
                 dc.b  $E
@@ -11394,7 +11393,7 @@ loc_25F7E:
                 dc.b $65 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $61 
@@ -11417,7 +11416,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $57 
@@ -11432,7 +11431,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $51 
@@ -11455,7 +11454,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $45 
@@ -11482,7 +11481,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $35 
@@ -11529,7 +11528,7 @@ loc_25F7E:
                 dc.b $1D
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b $17
@@ -11548,7 +11547,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $18
                 dc.b   9
@@ -11559,7 +11558,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   8
                 dc.b $17
                 dc.b $FF
@@ -11574,7 +11573,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $17
                 dc.b $F5 
@@ -11589,7 +11588,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $17
                 dc.b $E9 
@@ -11604,7 +11603,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b $17
                 dc.b $DF 
@@ -11623,7 +11622,7 @@ loc_25F7E:
                 dc.b $D7 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $D1 
@@ -11638,7 +11637,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $C5 
@@ -11669,7 +11668,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $B5 
@@ -11684,7 +11683,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $A9 
@@ -11723,7 +11722,7 @@ loc_25F7E:
                 dc.b $91 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $95 
@@ -11734,7 +11733,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $8B 
@@ -11745,7 +11744,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $81 
@@ -11753,7 +11752,7 @@ loc_25F7E:
                 dc.b $1A
                 dc.b $17
                 dc.b $83 
-                dc.b   0
+                dc.b 0
                 dc.b $1D
                 dc.b $17
                 dc.b $85 
@@ -11776,7 +11775,7 @@ loc_25F7E:
                 dc.b $73 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $6F 
@@ -11791,7 +11790,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $65 
@@ -11810,7 +11809,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $5B 
@@ -11821,7 +11820,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $53 
@@ -11844,7 +11843,7 @@ loc_25F7E:
                 dc.b $4D 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $47 
@@ -11863,7 +11862,7 @@ loc_25F7E:
                 dc.b $3D 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $17
                 dc.b $37 
@@ -11882,7 +11881,7 @@ loc_25F7E:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b $17
                 dc.b $27 
@@ -11890,7 +11889,7 @@ loc_25F7E:
                 dc.b $25 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b   0
                 dc.b $12
@@ -11918,7 +11917,7 @@ loc_26640:      bsr.w   sub_2944C
                 bsr.w   sub_29422
 return_2664E:   rts
                 bsr.w   sub_25D96
-                dc.b   0
+                dc.b 0
                 dc.b $1E
                 dc.b $16
                 dc.b $FB 
@@ -11926,7 +11925,7 @@ return_2664E:   rts
                 dc.b $F7 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $16
                 dc.b $F1 
@@ -11945,7 +11944,7 @@ return_2664E:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $16
                 dc.b $E9 
@@ -11976,7 +11975,7 @@ return_2664E:   rts
                 dc.b $DB 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b   0
                 dc.b $16
@@ -11998,7 +11997,10 @@ return_2664E:   rts
                 dc.b $5E 
                 dc.b $FF
                 dc.b $FF
-                bsr.w   sub_25DBE
+                dc.b $61 
+                dc.b   0
+                dc.b $F7 
+                dc.b  $A
                 dc.b   0
                 dc.b $C7 
                 dc.b $16
@@ -12010,8 +12012,7 @@ return_2664E:   rts
                 dc.b $16
                 dc.b $BF 
                 bsr.w   sub_28FE8
-                dc.b $65 
-                dc.b   6
+                bcs.s   loc_266CE
                 trap    #1
                 dc.b $16
                 dc.b $BB 
@@ -12035,7 +12036,8 @@ loc_266DE:      trap    #1
                 dc.b $AB 
                 bra.s   loc_266F4
 loc_266EE:      trap    #1
-                move.b  (a3)+,(a3)
+                dc.b $16
+                dc.b $9B 
                 bra.s   loc_266CE
 loc_266F4:      trap    #1
                 dc.b $16
@@ -12050,7 +12052,7 @@ return_266F8:   rts
                 dc.b $B3 
                 rts
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $52 
                 dc.b $16
                 dc.b $A9 
@@ -12058,7 +12060,7 @@ return_266F8:   rts
                 dc.b $A8 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $16
                 dc.b $A1 
@@ -12081,7 +12083,7 @@ return_266F8:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $53 
                 dc.b $16
                 dc.b $8B 
@@ -12089,7 +12091,7 @@ return_266F8:   rts
                 dc.b $8D 
                 rts
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $52 
                 dc.b $16
                 dc.b $83 
@@ -12105,7 +12107,7 @@ return_266F8:   rts
                 dc.b $79 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $16
                 dc.b $71 
@@ -12136,7 +12138,7 @@ return_266F8:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $16
                 dc.b $67 
@@ -12163,7 +12165,7 @@ return_266F8:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $16
                 dc.b $57 
@@ -12194,7 +12196,7 @@ return_266F8:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $16
                 dc.b $4B 
@@ -12217,7 +12219,7 @@ return_266F8:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $4A 
                 dc.b $24 
                 dc.b $11
@@ -12225,7 +12227,7 @@ return_266F8:   rts
                 dc.b $3F 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b   0
                 dc.b  $A
@@ -12241,14 +12243,16 @@ return_266F8:   rts
 loc_267EA:      bsr.w   sub_28FE8
                 bcc.s   loc_267F6
                 trap    #1
-                move.b  -(a5),d3
+                dc.b $16
+                dc.b $25 
                 bra.s   return_267FC
 loc_267F6:      trap    #1
-                move.b  -(sp),d3
+                dc.b $16
+                dc.b $27 
                 bra.s   loc_267EA
 return_267FC:   rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $16
                 dc.b $25 
@@ -12267,7 +12271,7 @@ return_267FC:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $16
                 dc.b $1D
@@ -12282,7 +12286,7 @@ return_267FC:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $16
                 dc.b $13
@@ -12301,7 +12305,7 @@ return_267FC:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $16
                 dc.b   9
@@ -12316,15 +12320,12 @@ return_267FC:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   1
-                dc.b $4A 
-                dc.b $23 
-                dc.b $8B 
+                movep.l $238B(a2),d0
                 dc.b $15
                 dc.b $FB 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b   0
                 dc.b  $A
@@ -12335,15 +12336,16 @@ return_267FC:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   0
+                dc.b 0
                 dc.b $28 
                 dc.b $15
                 dc.b $E5 
                 dc.b $15
                 dc.b $E3 
-                rts
+                dc.b $4E 
+                dc.b $75 
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b $DD 
@@ -12362,7 +12364,7 @@ return_267FC:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b $D7 
@@ -12401,7 +12403,7 @@ return_267FC:   rts
                 dc.b $CB 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b $C7 
@@ -12416,25 +12418,17 @@ return_267FC:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   0
+                dc.b 0
                 dc.b $A2 
                 dc.b $15
                 dc.b $BD 
                 dc.b $15
                 dc.b $B7 
                 rts
-                dc.b  $C
-                dc.b $79 
-                dc.b   6
-                dc.b $40 
-                dc.b   0
-                dc.b $FF
-                dc.b $10
-                dc.b $3C 
-                dc.b $6D 
-                dc.b  $C
+                cmpi.w  #$640,(byte_FF103C).l
+                blt.s   loc_268EC
                 bsr.w   sub_25D96
-                dc.b   0
+                dc.b 0
                 dc.b   8
                 dc.b $1B
                 dc.b $F5 
@@ -12442,8 +12436,8 @@ return_267FC:   rts
                 dc.b $F1 
                 dc.b $60 
                 dc.b  $A
-                bsr.w   sub_25D96
-                dc.b   0
+loc_268EC:      bsr.w   sub_25D96
+                dc.b 0
                 dc.b   8
                 dc.b $15
                 dc.b $A1 
@@ -12451,7 +12445,7 @@ return_267FC:   rts
                 dc.b $9F 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b $99 
@@ -12466,7 +12460,7 @@ return_267FC:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b $95 
@@ -12477,7 +12471,7 @@ return_267FC:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b $8D 
@@ -12512,13 +12506,15 @@ loc_2694A:      move.w  #$1A,d0
                 bsr.w   sub_2944C
                 bne.s   loc_2695A
                 trap    #1
-                move.b  (a1)+,$6004(a2)
+                dc.b $15
+                dc.b $59 
+                bra.s   return_2695E
 loc_2695A:      trap    #1
                 dc.b $1B
                 dc.b $A3 
 return_2695E:   rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b $4D 
@@ -12545,7 +12541,7 @@ return_2695E:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b $49 
@@ -12584,7 +12580,7 @@ return_2695E:   rts
                 dc.b $37 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b $33 
@@ -12619,7 +12615,7 @@ return_2695E:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b $21 
@@ -12638,7 +12634,7 @@ return_2695E:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b $13
@@ -12665,7 +12661,7 @@ return_2695E:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $15
                 dc.b   3
@@ -12692,7 +12688,7 @@ return_2695E:   rts
                 dc.b $F7 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $14
                 dc.b $F1 
@@ -12711,7 +12707,7 @@ return_2695E:   rts
                 dc.b $E7 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $14
                 dc.b $E1 
@@ -12722,7 +12718,7 @@ return_2695E:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b   0
                 dc.b $1A
@@ -12749,7 +12745,7 @@ return_2695E:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   0
+                dc.b 0
                 dc.b $2A 
                 dc.b $14
                 dc.b $BB 
@@ -12757,7 +12753,7 @@ return_2695E:   rts
                 dc.b $B9 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $14
                 dc.b $BD 
@@ -12772,7 +12768,7 @@ return_2695E:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $14
                 dc.b $B3 
@@ -12802,7 +12798,7 @@ sub_26AA0:
     ; End of function sub_26AA0
 
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $14
                 dc.b $A5 
@@ -12813,7 +12809,7 @@ sub_26AA0:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $14
                 dc.b $9B 
@@ -12824,7 +12820,7 @@ sub_26AA0:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $14
                 dc.b $93 
@@ -12843,7 +12839,7 @@ sub_26AA0:
                 dc.b $8B 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b   0
                 dc.b $1A
@@ -12883,7 +12879,7 @@ loc_26AFE:      move.w  #$C6,d0
                 dc.b $67 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b   0
                 dc.b $1A
@@ -12926,7 +12922,7 @@ loc_26AFE:      move.w  #$C6,d0
                 dc.b $47 
                 rts
                 bsr.w   sub_25D96
-                dc.b   0
+                dc.b 0
                 dc.b $28 
                 dc.b $14
                 dc.b $43 
@@ -12934,7 +12930,7 @@ loc_26AFE:      move.w  #$C6,d0
                 dc.b $41 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b   0
                 dc.b $1A
@@ -12960,10 +12956,7 @@ loc_26AFE:      move.w  #$C6,d0
                 dc.b $56 
                 dc.b $FF
                 dc.b $FF
-                dc.b $61 
-                dc.b   0
-                dc.b $F2 
-                dc.b $4A 
+                bsr.w   sub_25DBE
                 dc.b   0
                 dc.b $CE 
                 dc.b $15
@@ -13023,7 +13016,7 @@ loc_26BCA:      trap    #1
                 dc.b $9B 
 return_26BCE:   rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b  $A
                 dc.b $13
                 dc.b $BD 
@@ -13034,7 +13027,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $14
                 dc.b $13
                 dc.b $B1 
@@ -13049,7 +13042,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $13
                 dc.b $A5 
@@ -13072,7 +13065,7 @@ return_26BCE:   rts
                 dc.b $9D 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $14
                 dc.b $13
                 dc.b $97 
@@ -13087,7 +13080,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $14
                 dc.b $13
                 dc.b $8B 
@@ -13102,7 +13095,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $14
                 dc.b $13
                 dc.b $81 
@@ -13117,7 +13110,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b   0
                 dc.b $1E
@@ -13136,7 +13129,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   0
+                dc.b 0
                 dc.b $A5 
                 dc.b $13
                 dc.b $6B 
@@ -13156,7 +13149,7 @@ return_26BCE:   rts
                 dc.b $65 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $14
                 dc.b $13
                 dc.b $71 
@@ -13167,7 +13160,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   0
+                dc.b 0
                 dc.b $A4 
                 dc.b   0
                 dc.b   8
@@ -13183,7 +13176,7 @@ return_26BCE:   rts
                 dc.b $47 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $14
                 dc.b $13
                 dc.b $3F 
@@ -13206,7 +13199,7 @@ return_26BCE:   rts
                 dc.b  $B
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $14
                 dc.b $13
                 dc.b $33 
@@ -13229,7 +13222,7 @@ return_26BCE:   rts
                 dc.b $1F
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b  $F
                 dc.b $13
                 dc.b $19
@@ -13272,7 +13265,7 @@ return_26BCE:   rts
                 dc.b $FD 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b  $F
                 dc.b $12
                 dc.b $F9 
@@ -13295,7 +13288,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b  $F
                 dc.b $12
                 dc.b $F3 
@@ -13318,7 +13311,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $E7 
@@ -13341,7 +13334,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $D9 
@@ -13364,7 +13357,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $C9 
@@ -13375,7 +13368,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   0
+                dc.b 0
                 dc.b $A1 
                 dc.b $12
                 dc.b $BD 
@@ -13394,7 +13387,7 @@ return_26BCE:   rts
                 dc.b $BB 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b   0
                 dc.b  $A
@@ -13416,7 +13409,7 @@ return_26BCE:   rts
                 dc.b $A9 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $A3 
@@ -13445,7 +13438,7 @@ return_26BCE:   rts
                 dc.b $93 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $10
                 dc.b   0
                 dc.b  $A
@@ -13464,7 +13457,7 @@ return_26BCE:   rts
                 dc.b $85 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $9B 
@@ -13483,7 +13476,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $8D 
@@ -13502,7 +13495,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $7F 
@@ -13521,7 +13514,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $71 
@@ -13532,7 +13525,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $67 
@@ -13547,7 +13540,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $5B 
@@ -13562,7 +13555,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $4F 
@@ -13577,7 +13570,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $45 
@@ -13592,7 +13585,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $3B 
@@ -13607,7 +13600,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $33 
@@ -13622,7 +13615,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b   0
                 dc.b  $E
@@ -13645,7 +13638,7 @@ return_26BCE:   rts
                 dc.b $1D
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b $17
@@ -13664,7 +13657,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b  $B
@@ -13675,7 +13668,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $12
                 dc.b   5
@@ -13686,7 +13679,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b   0
                 dc.b  $E
@@ -13721,7 +13714,7 @@ return_26BCE:   rts
                 dc.b $E9 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $11
                 dc.b $11
                 dc.b $E3 
@@ -13764,7 +13757,7 @@ return_26BCE:   rts
                 dc.b   3
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $17
                 dc.b $12
                 dc.b $1B
@@ -13783,7 +13776,7 @@ return_26BCE:   rts
                 dc.b $11
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b $12
                 dc.b $45 
@@ -13794,7 +13787,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b $12
                 dc.b $3F 
@@ -13805,7 +13798,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b $12
                 dc.b $35 
@@ -13816,7 +13809,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b   0
                 dc.b  $A
@@ -13835,7 +13828,7 @@ return_26BCE:   rts
                 dc.b $1D
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b   0
                 dc.b  $A
@@ -13854,7 +13847,7 @@ return_26BCE:   rts
                 dc.b  $F
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b   0
                 dc.b  $A
@@ -13873,7 +13866,7 @@ return_26BCE:   rts
                 dc.b $FD 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b   0
                 dc.b  $A
@@ -13892,7 +13885,7 @@ return_26BCE:   rts
                 dc.b $E9 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b $11
                 dc.b $E9 
@@ -13903,7 +13896,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b   0
                 dc.b  $A
@@ -13922,7 +13915,7 @@ return_26BCE:   rts
                 dc.b $D3 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b   0
                 dc.b  $A
@@ -13941,7 +13934,7 @@ return_26BCE:   rts
                 dc.b $C1 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b   0
                 dc.b  $A
@@ -13960,7 +13953,7 @@ return_26BCE:   rts
                 dc.b $B5 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b   0
                 dc.b  $A
@@ -13971,7 +13964,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_25D96
-                dc.b   1
+                dc.b 1
                 dc.b $37 
                 dc.b   0
                 dc.b   8
@@ -13987,7 +13980,7 @@ return_26BCE:   rts
                 dc.b $97 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b $11
                 dc.b $91 
@@ -13998,7 +13991,7 @@ return_26BCE:   rts
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1A
                 dc.b $11
                 dc.b $89 
@@ -14017,7 +14010,7 @@ return_26BCE:   rts
                 dc.b $7F 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1B
                 dc.b $11
                 dc.b $79 
@@ -14032,7 +14025,7 @@ return_26BCE:   rts
                 dc.b $7B 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1B
                 dc.b $11
                 dc.b $75 
@@ -14063,7 +14056,7 @@ return_26BCE:   rts
                 dc.b $65 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1B
                 dc.b $11
                 dc.b $5F 
@@ -14082,7 +14075,7 @@ return_26BCE:   rts
                 dc.b $55 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $1B
                 dc.b $11
                 dc.b $51 
@@ -14219,7 +14212,7 @@ return_271DE:
     ; End of function sub_271B6
 
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   9
                 dc.b $1A
                 dc.b $3B 
@@ -14242,7 +14235,8 @@ sub_271EE:
 loc_27202:
                 
                 trap    #1
-                move.b  -(a5),d5
+                dc.b $1A
+                dc.b $25 
 return_27206:
                 
                 rts
@@ -14267,7 +14261,7 @@ return_27206:
                 rts
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $17
                 dc.b  $F
                 dc.b $49 
@@ -14286,7 +14280,7 @@ return_27206:
                 dc.b $47 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $12
                 dc.b  $F
                 dc.b $3D 
@@ -14301,7 +14295,7 @@ return_27206:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $12
                 dc.b  $F
                 dc.b $31 
@@ -14316,11 +14310,11 @@ return_27206:
                 dc.b $FF
                 dc.b $FF
                 trap    #1
-                dc.b  $F
+                dc.b $F
                 dc.b $25 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $10
                 dc.b   0
                 dc.b $12
@@ -14347,7 +14341,7 @@ return_27206:
                 dc.b   3
                 rts
                 bsr.w   sub_25DEA
-                dc.b  $D
+                dc.b $D
                 dc.b $ED 
                 dc.b  $D
                 dc.b $F1 
@@ -14355,7 +14349,7 @@ return_27206:
                 dc.b $F3 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $10
                 dc.b  $D
                 dc.b $F5 
@@ -14370,7 +14364,7 @@ return_27206:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $16
                 dc.b  $E
                 dc.b $EB 
@@ -14379,7 +14373,7 @@ return_27206:
                 rts
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $18
                 dc.b  $F
                 dc.b   1
@@ -14390,7 +14384,7 @@ return_27206:
                 dc.b $FF
                 dc.b $FF
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b $18
                 dc.b  $E
                 dc.b $F7 
@@ -14470,7 +14464,7 @@ sub_27314:
                 dc.b $AB 
                 rts
                 bsr.w   sub_252B0
-                dc.b   0
+                dc.b 0
                 dc.b   5
                 dc.b  $E
                 dc.b $A5 
@@ -14684,6 +14678,9 @@ loc_27432:
 loc_27436:
                 
                 trap    #1
+
+; END OF FUNCTION CHUNK FOR sub_273E8
+
                 dc.b $10
                 dc.b $1F
                 bra.s   loc_27432
@@ -14695,9 +14692,6 @@ loc_27436:
                 dc.b $10
                 dc.b $31 
                 rts
-
-; END OF FUNCTION CHUNK FOR sub_273E8
-
                 bsr.w   sub_25DEA
                 dc.b $10
                 dc.b $2D 
@@ -14735,17 +14729,9 @@ loc_27436:
                 dc.b $39 
                 bsr.w   sub_28FE8
                 bcs.s   sub_27488
-
-; =============== S U B R O U T I N E =======================================
-
-sub_27482:
-                
                 trap    #1
                 dc.w $103D
                 bra.s   return_274BC
-
-    ; End of function sub_27482
-
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -14786,16 +14772,19 @@ return_274BC:
 sub_274BE:
                 
                 trap    #1
-                move.b  (a3)+,d0
+                dc.b $10
+                dc.b $1B
                 bsr.w   sub_28FE8
                 bcc.s   loc_274CE
                 trap    #1
-                move.b  (sp),d0
+                dc.b $10
+                dc.b $17
                 bra.s   return_274D2
 loc_274CE:
                 
                 trap    #1
-                move.b  (sp),d0
+                dc.b $10
+                dc.b $17
 return_274D2:
                 
                 rts
@@ -14808,7 +14797,8 @@ return_274D2:
 sub_274D4:
                 
                 trap    #1
-                move.b  (a5),d0
+                dc.b $10
+                dc.b $15
                 rts
 
     ; End of function sub_274D4
@@ -14826,7 +14816,17 @@ sub_274DA:
                 dc.b $31 
                 jsr     (sub_446).l
                 trap    #1
-                move.b  $4E75(a5),d0
+                dc.b $10
+                dc.b $2D 
+                rts
+
+    ; End of function sub_274DA
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_274F2:
+                
                 moveq   #$F,d0
                 bsr.w   sub_2914E
                 beq.s   loc_27506
@@ -14843,7 +14843,7 @@ return_27510:
                 
                 rts
 
-    ; End of function sub_274DA
+    ; End of function sub_274F2
 
                 bsr.w   sub_25D96
                 dc.b   0
@@ -14897,24 +14897,25 @@ loc_2756A:      trap    #1
                 clr.b   (byte_FF1904).l
                 bra.s   return_27568
                 bsr.w   sub_25D96
-                bchg    d0,(a3)
-                move.b  -(sp),-(a0)
-                move.b  $4E41(a3),-(a0)
-                move.b  -(sp),-(a0)
-                rts
-                bsr.w   sub_25DEA
-                dc.b $11
-                dc.b $21 
+                dc.b 1
+                dc.b $53 
                 dc.b $11
                 dc.b $27 
                 dc.b $11
+                dc.b $2B 
+                dc.b $4E 
+                dc.b $41 
+                dc.b $11
+                dc.b $27 
+                rts
+                bsr.w   sub_25DEA
+                move.b  -(a1),-(a0)
+                move.b  -(sp),-(a0)
+                dc.b $11
                 dc.b $31 
                 rts
                 bsr.w   sub_25DEA
-                dc.b $11
-                dc.b $29 
-                dc.b $11
-                dc.b $31 
+                move.b  $1131(a1),-(a0)
                 dc.b $11
                 dc.b $2F 
                 rts
@@ -14988,10 +14989,12 @@ return_275D4:
 sub_275EE:
                 
                 bsr.w   sub_25DEA
-                move.b  d7,-(a0)
-                dc.w $110B              ; move.b  a3,-(a0)
-                dc.w $110F              ; move.b  sp,-(a0)
-                                        ; Illegal addressing mode from AS
+                dc.b $11
+                dc.b   7
+                dc.b $11
+                dc.b  $B
+                dc.b $11
+                dc.b  $F
                 rts
 
     ; End of function sub_275EE
@@ -15067,7 +15070,8 @@ sub_2763A:
                 bsr.w   sub_2924C
                 bne.s   return_27650
                 trap    #1
-                move.b  (sp)+,d1
+                dc.b $12
+                dc.b $1F
                 clr.b   (byte_FF1904).l
 return_27650:
                 
@@ -15233,10 +15237,7 @@ sub_276EE:
                 dc.b $AB 
                 sndCom  SOUND_COMMAND_FADE_OUT
                 rts
-                dc.b $61 
-                dc.b   0
-                dc.b $19
-                dc.b $4E 
+                bsr.w   sub_29060
                 trap    #1
                 dc.w $13A7
                 rts
@@ -15278,12 +15279,12 @@ sub_27732:
                 trap    #1
                 dc.w $141B
                 bsr.w   sub_29046
-
-    ; End of function sub_27732
-
                 dc.b   0
                 dc.b $77 
                 rts
+
+    ; End of function sub_27732
+
                 trap    #1
                 dc.b $14
                 dc.b $A5 
@@ -15326,7 +15327,8 @@ loc_27774:      trap    #1
                 bsr.w   sub_2924C
                 beq.s   loc_277B8
                 trap    #1
-                move.b  d1,(a2)
+                dc.b $14
+                dc.b $81 
                 bsr.w   sub_28FE8
                 bcc.s   loc_277B2
                 bsr.w   sub_2921C
@@ -21574,8 +21576,6 @@ sub_291D6:
                 lea     (dword_FF5400).l,a5
                 jsr     sub_10370
                 move.w  #$100,d0
-loc_291F4:
-                
                 jsr     sub_10338
                 jsr     (sub_49A).l
                 bra.s   loc_29212
