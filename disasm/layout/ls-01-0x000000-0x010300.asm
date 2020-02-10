@@ -1174,12 +1174,12 @@ loc_4B8:
 loc_4BE:
                 
                 lea     (initStack).w,sp
-
-; END OF FUNCTION CHUNK FOR sub_15530
-
                 sndCom  SOUND_COMMAND_FFFADE_OUT
                 move.w  #$B4,d0 
                 bsr.w   sub_B7A
+
+; END OF FUNCTION CHUNK FOR sub_15530
+
 
 ; START OF FUNCTION CHUNK FOR Start
 
@@ -1192,9 +1192,6 @@ loc_4CE:
 loc_4DC:
                 
                 lea     (initStack).w,sp
-
-; END OF FUNCTION CHUNK FOR Start
-
                 sndCom  SOUND_COMMAND_FFFADE_OUT
                 bsr.w   sub_9A8
                 move.w  #$B4,d0 
@@ -1203,9 +1200,6 @@ loc_4DC:
                 bsr.s   sub_516
                 bsr.s   sub_54C
                 jmp     (loc_16CA).l
-
-; START OF FUNCTION CHUNK FOR Start
-
 loc_4FE:
                 
                 bsr.s   sub_516
@@ -3609,7 +3603,7 @@ pt_FlagMap:     dc.l MAIN_FLAGS
 loc_16B6:
                 
                 lea     (initStack).w,sp
-                jsr     sub_38600
+                jsr     j_DisplaySegaLogo
                 jsr     sub_38604
                 bcc.w   loc_4B8
 loc_16CA:
@@ -4177,7 +4171,7 @@ loc_1C6C:
 
                 dc.b $D1 
                 dc.b $6D 
-                dc.l unk_18D16D
+                dc.l SpriteAnim385Frame1+$45
                 dc.b   0
                 dc.b $1A
                 dc.b $30 
@@ -22037,7 +22031,7 @@ loc_8F9E:
 
 sub_8FB4:
                 
-                lea     byte_901C(pc), a0
+                lea     plt_901C(pc), a0
                 lea     (byte_FF00C0).l,a1
                 move.w  #$F,d0
                 jsr     (sub_96A).l
@@ -22073,7 +22067,7 @@ sub_8FCC:
 
     ; End of function sub_8FCC
 
-byte_901C:      dc.b 0
+plt_901C:       dc.b 0
                 dc.b   0
                 dc.b  $C
                 dc.b $CC 
@@ -41199,11 +41193,11 @@ sub_F636:
                 lea     (byte_FF2C00).l,a1
                 lea     ($1000).w,a2
                 jsr     (sub_2F0).l     
-                lea     SaveScreenTileset(pc), a0
+                lea     SaveScreenTileset1(pc), a0
                 lea     (byte_FF2C00).l,a1
                 lea     ($2000).w,a2
                 jsr     (sub_2F0).l     
-                lea     unk_FE37(pc), a0
+                lea     SaveScreenTileset2(pc), a0
                 lea     (byte_FF2C00).l,a1
                 jsr     sub_38608
                 lea     (byte_FF2C56).l,a0
@@ -41807,7 +41801,7 @@ sub_FAF0:
 
 sub_FB1E:
                 
-                lea     byte_FB32(pc), a0
+                lea     plt_FB32(pc), a0
                 lea     (byte_FF00C0).l,a1
                 moveq   #$F,d7
 loc_FB2A:
@@ -41818,7 +41812,7 @@ loc_FB2A:
 
     ; End of function sub_FB1E
 
-byte_FB32:      dc.b 0
+plt_FB32:       dc.b 0
                 dc.b   0
                 dc.b  $C
                 dc.b $CC 
@@ -42372,227 +42366,10 @@ unk_FB52:       dc.b $87
                 dc.b $37 
                 dc.b   0
                 dc.b   0
-SaveScreenTileset:
-                incbin "data/graphics/specialscreens/savescreentileset.bin"
-unk_FE37:       dc.b $28 
-                dc.b $1C
-                dc.b   0
-                dc.b $3A 
-                dc.b  $C
-                dc.b   0
-                dc.b $15
-                dc.b  $C
-                dc.b   0
-                dc.b $26 
-                dc.b  $C
-                dc.b   0
-                dc.b $26 
-                dc.b  $C
-                dc.b   0
-                dc.b $26 
-                dc.b  $C
-                dc.b   0
-                dc.b $26 
-                dc.b  $C
-                dc.b   0
-                dc.b $26 
-                dc.b  $C
-                dc.b   0
-                dc.b  $C
-                dc.b $14
-                dc.b   0
-                dc.b $18
-                dc.b  $C
-                dc.b   0
-                dc.b $26 
-                dc.b  $C
-                dc.b   0
-                dc.b $26 
-                dc.b $10
-                dc.b $10
-                dc.b $1C
-                dc.b   1
-                dc.b $F0 
-                dc.b  $C
-                dc.b   7
-                dc.b  $C
-                dc.b   0
-                dc.b $26 
-                dc.b  $C
-                dc.b   0
-                dc.b $26 
-                dc.b $10
-                dc.b $22 
-                dc.b $1C
-                dc.b   0
-                dc.b $51 
-                dc.b   0
-                dc.b   0
-                dc.b $79 
-                dc.b   0
-                dc.b $A1 
-                dc.b $C1 
-                dc.b $79 
-                dc.b   2
-                dc.b $86 
-                dc.b   1
-                dc.b   1
-                dc.b $79 
-                dc.b   0
-                dc.b $8D 
-                dc.b $C2 
-                dc.b $79 
-                dc.b   5
-                dc.b $85 
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   0
-                dc.b $8D 
-                dc.b   1
-                dc.b   3
-                dc.b $C1 
-                dc.b $79 
-                dc.b   5
-                dc.b $85 
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   0
-                dc.b $8D 
-                dc.b   1
-                dc.b   3
-                dc.b $51 
-                dc.b   5
-                dc.b $C1 
-                dc.b $81 
-                dc.b $C0 
-                dc.b $86 
-                dc.b $C0 
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   0
-                dc.b $8D 
-                dc.b   1
-                dc.b   3
-                dc.b $51 
-                dc.b   5
-                dc.b $C1 
-                dc.b $81 
-                dc.b $C0 
-                dc.b $86 
-                dc.b $C0 
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   0
-                dc.b $8D 
-                dc.b   1
-                dc.b   3
-                dc.b $69 
-                dc.b   5
-                dc.b $C2 
-                dc.b $83 
-                dc.b $C0 
-                dc.b $81 
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   0
-                dc.b $8D 
-                dc.b   1
-                dc.b   3
-                dc.b $69 
-                dc.b   5
-                dc.b $C2 
-                dc.b $83 
-                dc.b   1
-                dc.b $13
-                dc.b $81 
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   0
-                dc.b $8D 
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   5
-                dc.b $87 
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   0
-                dc.b $8D 
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   5
-                dc.b $87 
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   0
-                dc.b $8D 
-                dc.b   1
-                dc.b   1
-                dc.b $79 
-                dc.b   2
-                dc.b $87 
-                dc.b   1
-                dc.b   1
-                dc.b $79 
-                dc.b   0
-                dc.b $BF 
-                dc.b $BF 
-                dc.b $BF 
-                dc.b $BF 
-                dc.b $BF 
-                dc.b $BF 
-                dc.b $BF 
-                dc.b $85 
-                dc.b   1
-                dc.b   1
-                dc.b $79 
-                dc.b   2
-                dc.b $99 
-                dc.b   1
-                dc.b   1
-                dc.b $59 
-                dc.b   0
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   5
-                dc.b $99 
-                dc.b   1
-                dc.b   3
-                dc.b $59 
-                dc.b   0
-                dc.b   1
-                dc.b   3
-                dc.b $79 
-                dc.b   5
-                dc.b $99 
-                dc.b   1
-                dc.b   3
-                dc.b $59 
-                dc.b   0
-                dc.b   1
-                dc.b   1
-                dc.b $79 
-                dc.b   2
-                dc.b $99 
-                dc.b   1
-                dc.b   1
-                dc.b $79 
-                dc.b   0
-                dc.b $BF 
-unk_FF0E:       dc.b $89 
-                dc.b   7
-                dc.b $FF
-                dc.b $FF
+SaveScreenTileset1:
+                incbin "data/graphics/specialscreens/savescreentileset1.bin"
+SaveScreenTileset2:
+                incbin "data/graphics/specialscreens/savescreentileset2.bin"
 
 ; =============== S U B R O U T I N E =======================================
 

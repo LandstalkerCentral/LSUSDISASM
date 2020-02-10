@@ -118,7 +118,7 @@ return_1A4466:
 
 sub_1A4468:
                 
-                lea     dword_1A453A(pc), a1
+                lea     PaletteMasterTable(pc), a1
 loc_1A446C:
                 
                 move.b  (a1),d1
@@ -139,7 +139,7 @@ loc_1A447C:
                 btst    #6,6(a0)
                 beq.s   loc_1A44BE
                 lea     (word_FF00E4).l,a2
-                lea     unk_1A47E0(pc), a3
+                lea     SpritePalette000(pc), a3
                 moveq   #5,d6
                 bra.s   loc_1A44CA
 loc_1A44A0:
@@ -147,7 +147,7 @@ loc_1A44A0:
                 btst    #6,6(a0)
                 bne.s   loc_1A450A
                 lea     (byte_FF00B0).l,a2
-                lea     unk_1A4BA0(pc), a3
+                lea     SpritePalette128(pc), a3
                 moveq   #6,d6
                 andi.w  #$7F,d2 
                 mulu.w  #$E,d2
@@ -155,7 +155,7 @@ loc_1A44A0:
 loc_1A44BE:
                 
                 lea     (byte_FF00A4).l,a2
-                lea     unk_1A47E0(pc), a3
+                lea     SpritePalette000(pc), a3
                 moveq   #5,d6
 loc_1A44CA:
                 
@@ -202,7 +202,11 @@ loc_1A4518:
 
     ; End of function sub_1A4468
 
-dword_1A453A:   dc.l $80
+PaletteMasterTable:
+                dc.b 0
+                dc.b   0
+                dc.b   0
+                dc.b $80 
                 dc.b   1
                 dc.b   1
                 dc.b   2
@@ -877,1213 +881,202 @@ dword_1A453A:   dc.l $80
                 dc.b $4F 
                 dc.b $FF
                 dc.b $FF
-unk_1A47E0:     dc.b  $A
-                dc.b   0
-                dc.b   4
-                dc.b $AE 
-                dc.b   0
-                dc.b $48 
-                dc.b   0
-                dc.b $24 
-                dc.b   8
-                dc.b $88 
-                dc.b   4
-                dc.b $44 
-                dc.b   6
-                dc.b $8C 
-                dc.b   2
-                dc.b $40 
-                dc.b   6
-                dc.b $64 
-                dc.b   0
-                dc.b $6A 
-                dc.b   0
-                dc.b $24 
-                dc.b   2
-                dc.b $28 
-                dc.b  $A
-                dc.b $CE 
-                dc.b  $A
-                dc.b $24 
-                dc.b   6
-                dc.b $64 
-                dc.b   8
-                dc.b $6E 
-                dc.b   0
-                dc.b $48 
-                dc.b   0
-                dc.b $8C 
-                dc.b   6
-                dc.b $AE 
-                dc.b   8
-                dc.b $62 
-                dc.b  $E
-                dc.b $A6 
-                dc.b   2
-                dc.b $8C 
-                dc.b   2
+SpritePalette000:
+                incbin "data/graphics/sprites/palettes/spritepalette000.bin"
+SpritePalette001:
+                incbin "data/graphics/sprites/palettes/spritepalette001.bin"
+SpritePalette002:
+                incbin "data/graphics/sprites/palettes/spritepalette002.bin"
+SpritePalette003:
+                incbin "data/graphics/sprites/palettes/spritepalette003.bin"
+SpritePalette004:
+                incbin "data/graphics/sprites/palettes/spritepalette004.bin"
+SpritePalette005:
+                incbin "data/graphics/sprites/palettes/spritepalette005.bin"
+SpritePalette006:
+                incbin "data/graphics/sprites/palettes/spritepalette006.bin"
+SpritePalette007:
+                incbin "data/graphics/sprites/palettes/spritepalette007.bin"
+SpritePalette008:
+                incbin "data/graphics/sprites/palettes/spritepalette008.bin"
+SpritePalette009:
+                incbin "data/graphics/sprites/palettes/spritepalette009.bin"
+SpritePalette010:
+                incbin "data/graphics/sprites/palettes/spritepalette010.bin"
+SpritePalette011:
+                incbin "data/graphics/sprites/palettes/spritepalette011.bin"
+SpritePalette012:
+                incbin "data/graphics/sprites/palettes/spritepalette012.bin"
+SpritePalette013:
+                incbin "data/graphics/sprites/palettes/spritepalette013.bin"
+SpritePalette014:
+                incbin "data/graphics/sprites/palettes/spritepalette014.bin"
+SpritePalette015:
+                incbin "data/graphics/sprites/palettes/spritepalette015.bin"
+SpritePalette016:
+                incbin "data/graphics/sprites/palettes/spritepalette016.bin"
+SpritePalette017:
+                incbin "data/graphics/sprites/palettes/spritepalette017.bin"
+SpritePalette018:
+                incbin "data/graphics/sprites/palettes/spritepalette018.bin"
+SpritePalette019:
+                incbin "data/graphics/sprites/palettes/spritepalette019.bin"
+SpritePalette020:
+                incbin "data/graphics/sprites/palettes/spritepalette020.bin"
+SpritePalette021:
+                incbin "data/graphics/sprites/palettes/spritepalette021.bin"
+SpritePalette022:
+                incbin "data/graphics/sprites/palettes/spritepalette022.bin"
+SpritePalette023:
+                incbin "data/graphics/sprites/palettes/spritepalette023.bin"
+SpritePalette024:
+                incbin "data/graphics/sprites/palettes/spritepalette024.bin"
+SpritePalette025:
+                incbin "data/graphics/sprites/palettes/spritepalette025.bin"
+SpritePalette026:
+                incbin "data/graphics/sprites/palettes/spritepalette026.bin"
+SpritePalette027:
+                incbin "data/graphics/sprites/palettes/spritepalette027.bin"
+SpritePalette028:
+                incbin "data/graphics/sprites/palettes/spritepalette028.bin"
+SpritePalette029:
+                incbin "data/graphics/sprites/palettes/spritepalette029.bin"
+SpritePalette030:
+                incbin "data/graphics/sprites/palettes/spritepalette030.bin"
+SpritePalette031:
+                incbin "data/graphics/sprites/palettes/spritepalette031.bin"
+SpritePalette032:
+                incbin "data/graphics/sprites/palettes/spritepalette032.bin"
+SpritePalette033:
+                incbin "data/graphics/sprites/palettes/spritepalette033.bin"
+SpritePalette034:
+                incbin "data/graphics/sprites/palettes/spritepalette034.bin"
+SpritePalette035:
+                incbin "data/graphics/sprites/palettes/spritepalette035.bin"
+SpritePalette036:
+                incbin "data/graphics/sprites/palettes/spritepalette036.bin"
+SpritePalette037:
+                incbin "data/graphics/sprites/palettes/spritepalette037.bin"
+SpritePalette038:
+                incbin "data/graphics/sprites/palettes/spritepalette038.bin"
+SpritePalette039:
+                incbin "data/graphics/sprites/palettes/spritepalette039.bin"
+SpritePalette040:
+                incbin "data/graphics/sprites/palettes/spritepalette040.bin"
+SpritePalette041:
+                incbin "data/graphics/sprites/palettes/spritepalette041.bin"
+SpritePalette042:
+                incbin "data/graphics/sprites/palettes/spritepalette042.bin"
+SpritePalette043:
+                incbin "data/graphics/sprites/palettes/spritepalette043.bin"
+SpritePalette044:
+                incbin "data/graphics/sprites/palettes/spritepalette044.bin"
+SpritePalette045:
+                incbin "data/graphics/sprites/palettes/spritepalette045.bin"
+SpritePalette046:
+                incbin "data/graphics/sprites/palettes/spritepalette046.bin"
+SpritePalette047:
+                incbin "data/graphics/sprites/palettes/spritepalette047.bin"
+SpritePalette048:
+                incbin "data/graphics/sprites/palettes/spritepalette048.bin"
+SpritePalette049:
+                incbin "data/graphics/sprites/palettes/spritepalette049.bin"
+SpritePalette050:
+                incbin "data/graphics/sprites/palettes/spritepalette050.bin"
+SpritePalette051:
+                incbin "data/graphics/sprites/palettes/spritepalette051.bin"
+SpritePalette052:
+                incbin "data/graphics/sprites/palettes/spritepalette052.bin"
+SpritePalette053:
+                incbin "data/graphics/sprites/palettes/spritepalette053.bin"
+SpritePalette054:
+                incbin "data/graphics/sprites/palettes/spritepalette054.bin"
+SpritePalette055:
+                incbin "data/graphics/sprites/palettes/spritepalette055.bin"
+SpritePalette056:
+                incbin "data/graphics/sprites/palettes/spritepalette056.bin"
+SpritePalette057:
+                incbin "data/graphics/sprites/palettes/spritepalette057.bin"
+SpritePalette058:
+                incbin "data/graphics/sprites/palettes/spritepalette058.bin"
+SpritePalette059:
+                incbin "data/graphics/sprites/palettes/spritepalette059.bin"
+SpritePalette060:
+                incbin "data/graphics/sprites/palettes/spritepalette060.bin"
+SpritePalette061:
+                incbin "data/graphics/sprites/palettes/spritepalette061.bin"
+SpritePalette062:
+                incbin "data/graphics/sprites/palettes/spritepalette062.bin"
+SpritePalette063:
+                incbin "data/graphics/sprites/palettes/spritepalette063.bin"
+SpritePalette064:
+                incbin "data/graphics/sprites/palettes/spritepalette064.bin"
+SpritePalette065:
+                incbin "data/graphics/sprites/palettes/spritepalette065.bin"
+SpritePalette066:
+                incbin "data/graphics/sprites/palettes/spritepalette066.bin"
+SpritePalette067:
+                incbin "data/graphics/sprites/palettes/spritepalette067.bin"
+SpritePalette068:
+                incbin "data/graphics/sprites/palettes/spritepalette068.bin"
+SpritePalette069:
+                incbin "data/graphics/sprites/palettes/spritepalette069.bin"
+SpritePalette070:
+                incbin "data/graphics/sprites/palettes/spritepalette070.bin"
+SpritePalette071:
+                incbin "data/graphics/sprites/palettes/spritepalette071.bin"
+SpritePalette072:
+                incbin "data/graphics/sprites/palettes/spritepalette072.bin"
+SpritePalette073:
+                incbin "data/graphics/sprites/palettes/spritepalette073.bin"
+SpritePalette074:
+                incbin "data/graphics/sprites/palettes/spritepalette074.bin"
+SpritePalette075:
+                incbin "data/graphics/sprites/palettes/spritepalette075.bin"
+SpritePalette076:
+                incbin "data/graphics/sprites/palettes/spritepalette076.bin"
+SpritePalette077:
+                incbin "data/graphics/sprites/palettes/spritepalette077.bin"
+SpritePalette078:
+                incbin "data/graphics/sprites/palettes/spritepalette078.bin"
+SpritePalette079:
+                incbin "data/graphics/sprites/palettes/spritepalette079.bin"
+SpritePalette128:
+                incbin "data/graphics/sprites/palettes/spritepalette128.bin"
+SpritePalette129:
+                incbin "data/graphics/sprites/palettes/spritepalette129.bin"
+SpritePalette130:
+                incbin "data/graphics/sprites/palettes/spritepalette130.bin"
+SpritePalette131:
+                incbin "data/graphics/sprites/palettes/spritepalette131.bin"
+SpritePalette132:
+                incbin "data/graphics/sprites/palettes/spritepalette132.bin"
+SpritePalette133:
+                incbin "data/graphics/sprites/palettes/spritepalette133.bin"
+SpritePalette134:
+                incbin "data/graphics/sprites/palettes/spritepalette134.bin"
+SpritePalette135:
+                incbin "data/graphics/sprites/palettes/spritepalette135.bin"
+SpritePalette136:
+                incbin "data/graphics/sprites/palettes/spritepalette136.bin"
+SpritePalette137:
+                incbin "data/graphics/sprites/palettes/spritepalette137.bin"
+SpritePalette138:
+                incbin "data/graphics/sprites/palettes/spritepalette138.bin"
+SpritePalette139:
+                incbin "data/graphics/sprites/palettes/spritepalette139.bin"
+SpritePalette140:
+                incbin "data/graphics/sprites/palettes/spritepalette140.bin"
+SpritePalette141:
+                incbin "data/graphics/sprites/palettes/spritepalette141.bin"
+SpritePalette142:
+                incbin "data/graphics/sprites/palettes/spritepalette142.bin"
+SpritePalette143:
+                incbin "data/graphics/sprites/palettes/spritepalette143.bin"
+SpritePalette144:
+                incbin "data/graphics/sprites/palettes/spritepalette144.bin"
+unk_1A4C8E:     dc.b $60 
                 dc.b $46 
-                dc.b   2
-                dc.b $4C 
-                dc.b   6
-                dc.b $CE 
-                dc.b   4
-                dc.b $8A 
-                dc.b   0
-                dc.b $46 
-                dc.b   4
-                dc.b $84 
-                dc.b   2
-                dc.b $68 
-                dc.b   8
-                dc.b $4A 
-                dc.b   6
-                dc.b $CE 
-                dc.b   4
-                dc.b $8A 
-                dc.b   0
-                dc.b $46 
-                dc.b   2
-                dc.b  $E
-                dc.b   2
-                dc.b $68 
-                dc.b   8
-                dc.b $4A 
-                dc.b   6
-                dc.b $CE 
-                dc.b   4
-                dc.b $8A 
-                dc.b   0
-                dc.b $46 
-                dc.b  $E
-                dc.b $48 
-                dc.b   2
-                dc.b $68 
-                dc.b   8
-                dc.b $4A 
-                dc.b  $E
-                dc.b  $E
-                dc.b   6
-                dc.b $22 
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b   4
-                dc.b $42 
-                dc.b   0
-                dc.b $40 
-                dc.b   2
-                dc.b $20
-                dc.b   6
-                dc.b $8A 
-                dc.b   4
-                dc.b $68 
-                dc.b   6
-                dc.b $66 
-                dc.b   2
-                dc.b  $C
-                dc.b  $A
-                dc.b $60 
-                dc.b   0
-                dc.b $24 
-                dc.b   8
-                dc.b $88 
-                dc.b   4
-                dc.b $44 
-                dc.b   6
-                dc.b $66 
-                dc.b  $E
-                dc.b $48 
-                dc.b   0
-                dc.b $48 
-                dc.b   8
-                dc.b $24 
-                dc.b  $A
-                dc.b $8E 
-                dc.b   2
-                dc.b  $A
-                dc.b   6
-                dc.b $66 
-                dc.b  $A
-                dc.b $AA 
-                dc.b   4
-                dc.b $84 
-                dc.b   2
-                dc.b $44 
-                dc.b   4
-                dc.b $8A 
-                dc.b   2
-                dc.b $46 
-                dc.b   0
-                dc.b $24 
-                dc.b  $A
-                dc.b $AA 
-                dc.b   4
-                dc.b $4A 
-                dc.b   0
-                dc.b $28 
-                dc.b   8
-                dc.b $88 
-                dc.b   4
-                dc.b $44 
-                dc.b   2
-                dc.b $22 
-                dc.b  $A
-                dc.b $AA 
-                dc.b  $A
-                dc.b $66 
-                dc.b   6
-                dc.b $44 
-                dc.b   4
-                dc.b $68 
-                dc.b   0
-                dc.b $46 
-                dc.b   0
-                dc.b $26 
-                dc.b   2
-                dc.b $20
-                dc.b   4
-                dc.b $62 
-                dc.b   8
-                dc.b $A4 
-                dc.b   6
-                dc.b $CE 
-                dc.b   4
-                dc.b $66 
-                dc.b   2
-                dc.b $8C 
-                dc.b   4
-                dc.b $44 
-                dc.b   6
-                dc.b $66 
-                dc.b  $A
-                dc.b $AA 
-                dc.b   4
-                dc.b $4C 
-                dc.b   0
-                dc.b   8
-                dc.b   2
-                dc.b $6C 
-                dc.b   0
-                dc.b $24 
-                dc.b   2
-                dc.b $68 
-                dc.b   8
-                dc.b $CE 
-                dc.b  $E
-                dc.b $88 
-                dc.b  $A
-                dc.b $42 
-                dc.b  $A
-                dc.b $A2 
-                dc.b   4
-                dc.b $44 
-                dc.b   8
-                dc.b $88 
-                dc.b   2
-                dc.b $22 
-                dc.b   6
-                dc.b $66 
-                dc.b  $A
-                dc.b $AA 
-                dc.b   0
-                dc.b  $E
-                dc.b   2
-                dc.b $46 
-                dc.b   6
-                dc.b $8A 
-                dc.b   0
-                dc.b $22 
-                dc.b   4
-                dc.b $66 
-                dc.b   8
-                dc.b $AA 
-                dc.b   0
-                dc.b  $E
-                dc.b   6
-                dc.b $42 
-                dc.b   8
-                dc.b $A8 
-                dc.b   2
-                dc.b $20
-                dc.b   6
-                dc.b $86 
-                dc.b  $A
-                dc.b $CA 
-                dc.b   0
-                dc.b  $E
-                dc.b  $A
-                dc.b $AA 
-                dc.b   8
-                dc.b $88 
-                dc.b   6
-                dc.b $66 
-                dc.b   6
-                dc.b $86 
-                dc.b   2
-                dc.b $42 
-                dc.b   6
-                dc.b $4E 
-                dc.b   8
-                dc.b $C8 
-                dc.b   4
-                dc.b $60 
-                dc.b   2
-                dc.b $42 
-                dc.b   0
-                dc.b $48 
-                dc.b   0
-                dc.b $22 
-                dc.b   2
-                dc.b $EE 
-                dc.b   4
-                dc.b $AE 
-                dc.b   0
-                dc.b $2A 
-                dc.b   0
-                dc.b $26 
-                dc.b  $C
-                dc.b $48 
-                dc.b   6
-                dc.b $22 
-                dc.b  $E
-                dc.b $A0 
-                dc.b  $C
-                dc.b $86 
-                dc.b   4
-                dc.b $44 
-                dc.b   8
-                dc.b $88 
-                dc.b   2
-                dc.b $8A 
-                dc.b   2
-                dc.b $48 
-                dc.b   6
-                dc.b $2E 
-                dc.b   0
-                dc.b $2E 
-                dc.b   0
-                dc.b $26 
-                dc.b   4
-                dc.b $8E 
-                dc.b   6
-                dc.b $A6 
-                dc.b   4
-                dc.b $62 
-                dc.b   0
-                dc.b $EE 
-                dc.b   4
-                dc.b $C8 
-                dc.b   2
-                dc.b $66 
-                dc.b   2
-                dc.b $6C 
-                dc.b   2
-                dc.b $48 
-                dc.b   0
-                dc.b $26 
-                dc.b   6
-                dc.b $2E 
-                dc.b  $E
-                dc.b  $E
-                dc.b   4
-                dc.b $6C 
-                dc.b   2
-                dc.b $28 
-                dc.b   0
-                dc.b   6
-                dc.b  $C
-                dc.b $68 
-                dc.b   8
-                dc.b $26 
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b $A4 
-                dc.b  $A
-                dc.b $64 
-                dc.b   8
-                dc.b $40 
-                dc.b   6
-                dc.b $84 
-                dc.b   4
-                dc.b $40 
-                dc.b   4
-                dc.b $44 
-                dc.b   0
-                dc.b $48 
-                dc.b   0
-                dc.b $24 
-                dc.b   8
-                dc.b $88 
-                dc.b   2
-                dc.b $42 
-                dc.b   4
-                dc.b $AE 
-                dc.b   4
-                dc.b $44 
-                dc.b   0
-                dc.b $48 
-                dc.b   0
-                dc.b $24 
-                dc.b   8
-                dc.b $88 
-                dc.b   2
-                dc.b $46 
-                dc.b   4
-                dc.b $AE 
-                dc.b   4
-                dc.b $44 
-                dc.b   0
-                dc.b $48 
-                dc.b   0
-                dc.b $24 
-                dc.b   8
-                dc.b $88 
-                dc.b   8
-                dc.b $42 
-                dc.b   4
-                dc.b $AE 
-                dc.b   6
-                dc.b $CE 
-                dc.b   4
-                dc.b $8A 
-                dc.b   4
-                dc.b $86 
-                dc.b   2
-                dc.b $42 
-                dc.b   0
-                dc.b $46 
-                dc.b   8
-                dc.b $6E 
-                dc.b  $A
-                dc.b $AE 
-                dc.b   4
-                dc.b $6E 
-                dc.b   2
-                dc.b  $E
-                dc.b   2
-                dc.b   6
-                dc.b   0
-                dc.b $28 
-                dc.b  $C
-                dc.b $66 
-                dc.b  $A
-                dc.b $AA 
-                dc.b   4
-                dc.b $68 
-                dc.b   6
-                dc.b $66 
-                dc.b   2
-                dc.b $22 
-                dc.b   4
-                dc.b $44 
-                dc.b  $E
-                dc.b $86 
-                dc.b  $A
-                dc.b $28 
-                dc.b   8
-                dc.b   4
-                dc.b   4
-                dc.b $42 
-                dc.b   6
-                dc.b $84 
-                dc.b   2
-                dc.b $8C 
-                dc.b  $C
-                dc.b $6A 
-                dc.b   2
-                dc.b $46 
-                dc.b   0
-                dc.b $22 
-                dc.b   2
-                dc.b $44 
-                dc.b   4
-                dc.b $66 
-                dc.b   4
-                dc.b $88 
-                dc.b   4
-                dc.b $6A 
-                dc.b   4
-                dc.b $44 
-                dc.b   2
-                dc.b $22 
-                dc.b   2
-                dc.b   8
-                dc.b   6
-                dc.b $4E 
-                dc.b   0
-                dc.b $8C 
-                dc.b   8
-                dc.b $88 
-                dc.b   8
-                dc.b $88 
-                dc.b   4
-                dc.b $44 
-                dc.b   0
-                dc.b $28 
-                dc.b   8
-                dc.b $88 
-                dc.b   4
-                dc.b $44 
-                dc.b   2
-                dc.b $22 
-                dc.b  $C
-                dc.b $84 
-                dc.b  $A
-                dc.b $42 
-                dc.b   2
-                dc.b $28 
-                dc.b   2
-                dc.b $24 
-                dc.b   0
-                dc.b   2
-                dc.b   0
-                dc.b $40 
-                dc.b   4
-                dc.b $8A 
-                dc.b   0
-                dc.b $48 
-                dc.b   6
-                dc.b $44 
-                dc.b   4
-                dc.b $68 
-                dc.b   0
-                dc.b $46 
-                dc.b   0
-                dc.b $26 
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b   8
-                dc.b $AE 
-                dc.b   4
-                dc.b $6C 
-                dc.b   8
-                dc.b $24 
-                dc.b   8
-                dc.b $88 
-                dc.b   2
-                dc.b $AE 
-                dc.b   4
-                dc.b $44 
-                dc.b   0
-                dc.b $44 
-                dc.b   2
-                dc.b $6A 
-                dc.b   2
-                dc.b $AC 
-                dc.b   2
-                dc.b $40 
-                dc.b   0
-                dc.b $84 
-                dc.b   4
-                dc.b $C0 
-                dc.b  $A
-                dc.b $CE 
-                dc.b  $A
-                dc.b $24 
-                dc.b  $A
-                dc.b $64 
-                dc.b   8
-                dc.b $6E 
-                dc.b   0
-                dc.b $48 
-                dc.b   0
-                dc.b $8C 
-                dc.b   2
-                dc.b $66 
-                dc.b   6
-                dc.b $AA 
-                dc.b   0
-                dc.b $24 
-                dc.b   2
-                dc.b $22 
-                dc.b   4
-                dc.b $44 
-                dc.b   4
-                dc.b $CE 
-                dc.b   0
-                dc.b $A8 
-                dc.b   0
-                dc.b   6
-                dc.b   2
-                dc.b $2A 
-                dc.b   4
-                dc.b $A0 
-                dc.b   0
-                dc.b $40 
-                dc.b   4
-                dc.b $80 
-                dc.b   4
-                dc.b $8C 
-                dc.b   0
-                dc.b $4A 
-                dc.b   2
-                dc.b $AE 
-                dc.b   0
-                dc.b $48 
-                dc.b   0
-                dc.b $24 
-                dc.b   2
-                dc.b   8
-                dc.b   6
-                dc.b $8C 
-                dc.b   8
-                dc.b $88 
-                dc.b  $E
-                dc.b $EE 
-                dc.b  $C
-                dc.b $CC 
-                dc.b   0
-                dc.b   4
-                dc.b   0
-                dc.b $46 
-                dc.b   6
-                dc.b $AE 
-                dc.b   0
-                dc.b $48 
-                dc.b  $E
-                dc.b $A6 
-                dc.b   0
-                dc.b $24 
-                dc.b   4
-                dc.b $20
-                dc.b   4
-                dc.b $44 
-                dc.b   2
-                dc.b   0
-                dc.b   4
-                dc.b   0
-                dc.b   2
-                dc.b $40 
-                dc.b   6
-                dc.b $80 
-                dc.b   0
-                dc.b   6
-                dc.b   0
-                dc.b  $E
-                dc.b   2
-                dc.b $6A 
-                dc.b   4
-                dc.b $22 
-                dc.b  $C
-                dc.b $66 
-                dc.b   0
-                dc.b $48 
-                dc.b   0
-                dc.b $26 
-                dc.b   0
-                dc.b $48 
-                dc.b   6
-                dc.b $64 
-                dc.b   2
-                dc.b $20
-                dc.b   4
-                dc.b $42 
-                dc.b   2
-                dc.b $46 
-                dc.b   6
-                dc.b $AE 
-                dc.b   6
-                dc.b $66 
-                dc.b  $A
-                dc.b $CE 
-                dc.b   4
-                dc.b $8E 
-                dc.b   2
-                dc.b $48 
-                dc.b  $E
-                dc.b $A6 
-                dc.b   2
-                dc.b $24 
-                dc.b   0
-                dc.b $8C 
-                dc.b   0
-                dc.b  $E
-                dc.b   0
-                dc.b  $C
-                dc.b   2
-                dc.b $4E 
-                dc.b   4
-                dc.b $6E 
-                dc.b  $C
-                dc.b $88 
-                dc.b   8
-                dc.b $86 
-                dc.b   8
-                dc.b $88 
-                dc.b   4
-                dc.b $44 
-                dc.b   2
-                dc.b $60 
-                dc.b   6
-                dc.b $C0 
-                dc.b  $C
-                dc.b $68 
-                dc.b   2
-                dc.b $6A 
-                dc.b   4
-                dc.b $EE 
-                dc.b   0
-                dc.b $8E 
-                dc.b   2
-                dc.b $28 
-                dc.b   2
-                dc.b $24 
-                dc.b   0
-                dc.b   2
-                dc.b   0
-                dc.b $40 
-                dc.b   6
-                dc.b $A2 
-                dc.b   0
-                dc.b $62 
-                dc.b   2
-                dc.b $28 
-                dc.b   2
-                dc.b $24 
-                dc.b   0
-                dc.b   2
-                dc.b   0
-                dc.b $40 
-                dc.b  $E
-                dc.b   8
-                dc.b  $A
-                dc.b   4
-                dc.b   2
-                dc.b $28 
-                dc.b   2
-                dc.b $24 
-                dc.b   0
-                dc.b   2
-                dc.b   0
-                dc.b $40 
-                dc.b   2
-                dc.b $6C 
-                dc.b   0
-                dc.b $26 
-                dc.b   0
-                dc.b $6C 
-                dc.b   0
-                dc.b $28 
-                dc.b   2
-                dc.b $22 
-                dc.b  $A
-                dc.b $60 
-                dc.b   2
-                dc.b   0
-                dc.b   4
-                dc.b $20
-                dc.b   6
-                dc.b $42 
-                dc.b   8
-                dc.b $64 
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b   0
-                dc.b $20
-                dc.b   2
-                dc.b $6A 
-                dc.b  $C
-                dc.b $68 
-                dc.b   2
-                dc.b $42 
-                dc.b   0
-                dc.b $48 
-                dc.b   2
-                dc.b $24 
-                dc.b   0
-                dc.b $48 
-                dc.b  $A
-                dc.b $42 
-                dc.b   6
-                dc.b $66 
-                dc.b   0
-                dc.b $AE 
-                dc.b   6
-                dc.b $66 
-                dc.b   4
-                dc.b $22 
-                dc.b   0
-                dc.b   6
-                dc.b   2
-                dc.b $86 
-                dc.b   8
-                dc.b $6E 
-                dc.b   2
-                dc.b  $C
-                dc.b   0
-                dc.b $88 
-                dc.b   0
-                dc.b $42 
-                dc.b   4
-                dc.b $44 
-                dc.b   8
-                dc.b $AA 
-                dc.b   6
-                dc.b $66 
-                dc.b   0
-                dc.b $22 
-                dc.b   2
-                dc.b $46 
-                dc.b   2
-                dc.b $24 
-                dc.b   2
-                dc.b $42 
-                dc.b   8
-                dc.b $A8 
-                dc.b   4
-                dc.b $64 
-                dc.b   0
-                dc.b $22 
-                dc.b   2
-                dc.b $46 
-                dc.b   2
-                dc.b $24 
-                dc.b   2
-                dc.b   2
-                dc.b  $C
-                dc.b $8A 
-                dc.b   6
-                dc.b $46 
-                dc.b   4
-                dc.b   4
-                dc.b   2
-                dc.b $46 
-                dc.b   2
-                dc.b $24 
-                dc.b   2
-                dc.b   0
-                dc.b   2
-                dc.b $22 
-                dc.b   4
-                dc.b $44 
-                dc.b   8
-                dc.b $8A 
-                dc.b   2
-                dc.b $26 
-                dc.b   0
-                dc.b $4E 
-                dc.b   0
-                dc.b   2
-                dc.b   0
-                dc.b $24 
-                dc.b   0
-                dc.b $46 
-                dc.b   2
-                dc.b $8C 
-                dc.b   0
-                dc.b   6
-                dc.b   0
-                dc.b  $E
-                dc.b   2
-                dc.b $44 
-                dc.b   6
-                dc.b $66 
-                dc.b  $A
-                dc.b $AA 
-                dc.b   4
-                dc.b $44 
-                dc.b   0
-                dc.b   0
-                dc.b   0
-                dc.b   0
-                dc.b   0
-                dc.b $48 
-                dc.b   2
-                dc.b $6A 
-                dc.b   6
-                dc.b $AE 
-                dc.b   0
-                dc.b   2
-                dc.b   2
-                dc.b  $C
-                dc.b   4
-                dc.b $44 
-                dc.b   6
-                dc.b $26 
-                dc.b  $A
-                dc.b $6A 
-                dc.b  $C
-                dc.b $8C 
-                dc.b   4
-                dc.b $24 
-                dc.b   2
-                dc.b  $C
-                dc.b   4
-                dc.b $44 
-                dc.b   6
-                dc.b $8C 
-                dc.b   2
-                dc.b $48 
-                dc.b   2
-                dc.b $24 
-                dc.b  $A
-                dc.b $AA 
-                dc.b   8
-                dc.b $48 
-                dc.b  $A
-                dc.b $EC 
-                dc.b   4
-                dc.b $44 
-                dc.b   6
-                dc.b $66 
-                dc.b   8
-                dc.b $88 
-                dc.b  $A
-                dc.b $AA 
-                dc.b   4
-                dc.b $64 
-                dc.b   8
-                dc.b $AE 
-                dc.b   0
-                dc.b  $E
-                dc.b   6
-                dc.b $AE 
-                dc.b   0
-                dc.b $2A 
-                dc.b   2
-                dc.b $26 
-                dc.b   2
-                dc.b $6E 
-                dc.b  $A
-                dc.b $EE 
-                dc.b   2
-                dc.b $44 
-                dc.b   2
-                dc.b $68 
-                dc.b  $A
-                dc.b $AC 
-                dc.b  $A
-                dc.b $68 
-                dc.b  $A
-                dc.b $46 
-                dc.b   8
-                dc.b $24 
-                dc.b   4
-                dc.b $AE 
-                dc.b  $C
-                dc.b $EE 
-                dc.b   2
-                dc.b $68 
-                dc.b   4
-                dc.b $20
-                dc.b   6
-                dc.b $66 
-                dc.b  $A
-                dc.b $AA 
-                dc.b   2
-                dc.b $22 
-                dc.b   4
-                dc.b $44 
-                dc.b   6
-                dc.b $66 
-                dc.b   8
-                dc.b $88 
-                dc.b  $A
-                dc.b $AA 
-                dc.b  $C
-                dc.b $CC 
-                dc.b   2
-                dc.b   4
-                dc.b   4
-                dc.b $2A 
-                dc.b   6
-                dc.b $4E 
-                dc.b  $A
-                dc.b $8E 
-                dc.b  $C
-                dc.b $28 
-                dc.b   2
-                dc.b $C8 
-                dc.b   0
-                dc.b $24 
-                dc.b   2
-                dc.b $46 
-                dc.b   4
-                dc.b $6A 
-                dc.b   4
-                dc.b $8C 
-                dc.b   8
-                dc.b $CE 
-                dc.b  $C
-                dc.b $EE 
-                dc.b   0
-                dc.b $CE 
-                dc.b   0
-                dc.b $8C 
-                dc.b   0
-                dc.b $4C 
-                dc.b   0
-                dc.b  $C
-                dc.b   8
-                dc.b $88 
-                dc.b   4
-                dc.b $44 
-unk_1A4BA0:     dc.b  $A
-                dc.b $CE 
-                dc.b   8
-                dc.b $A0 
-                dc.b   2
-                dc.b $40 
-                dc.b   2
-                dc.b $6A 
-                dc.b   0
-                dc.b $24 
-                dc.b  $A
-                dc.b $AA 
-                dc.b   6
-                dc.b $66 
-                dc.b   0
-                dc.b $46 
-                dc.b   4
-                dc.b   2
-                dc.b   0
-                dc.b $AC 
-                dc.b   0
-                dc.b $A2 
-                dc.b   8
-                dc.b $88 
-                dc.b   0
-                dc.b $2E 
-                dc.b  $E
-                dc.b $66 
-                dc.b   6
-                dc.b $66 
-                dc.b   4
-                dc.b $44 
-                dc.b   2
-                dc.b $22 
-                dc.b   0
-                dc.b $24 
-                dc.b   4
-                dc.b $68 
-                dc.b   0
-                dc.b $2E 
-                dc.b  $E
-                dc.b  $E
-                dc.b   0
-                dc.b $44 
-                dc.b   2
-                dc.b $6A 
-                dc.b   2
-                dc.b $AC 
-                dc.b   4
-                dc.b $40 
-                dc.b   2
-                dc.b $62 
-                dc.b   8
-                dc.b $A0 
-                dc.b  $E
-                dc.b  $E
-                dc.b   6
-                dc.b $66 
-                dc.b   6
-                dc.b $A4 
-                dc.b   2
-                dc.b $48 
-                dc.b   2
-                dc.b $40 
-                dc.b   2
-                dc.b $22 
-                dc.b   4
-                dc.b $2C 
-                dc.b  $C
-                dc.b $CC 
-                dc.b  $A
-                dc.b $CE 
-                dc.b   8
-                dc.b $A0 
-                dc.b   2
-                dc.b $40 
-                dc.b  $E
-                dc.b $8E 
-                dc.b  $A
-                dc.b  $A
-                dc.b  $E
-                dc.b $EE 
-                dc.b  $E
-                dc.b $EE 
-                dc.b   0
-                dc.b $2E 
-                dc.b   8
-                dc.b $88 
-                dc.b   4
-                dc.b $8C 
-                dc.b   0
-                dc.b $48 
-                dc.b   8
-                dc.b   0
-                dc.b  $C
-                dc.b $42 
-                dc.b   2
-                dc.b $80 
-                dc.b   2
-                dc.b $22 
-                dc.b   2
-                dc.b $6A 
-                dc.b  $A
-                dc.b $AA 
-                dc.b   0
-                dc.b $24 
-                dc.b  $A
-                dc.b $2E 
-                dc.b   0
-                dc.b  $E
-                dc.b  $C
-                dc.b $A6 
-                dc.b   0
-                dc.b $8C 
-                dc.b   0
-                dc.b $2C 
-                dc.b   0
-                dc.b  $A
-                dc.b   4
-                dc.b $AE 
-                dc.b   0
-                dc.b $48 
-                dc.b   6
-                dc.b $40 
-                dc.b  $E
-                dc.b $84 
-                dc.b  $E
-                dc.b $82 
-                dc.b   8
-                dc.b $40 
-                dc.b   4
-                dc.b $20
-                dc.b   0
-                dc.b $24 
-                dc.b   4
-                dc.b $68 
-                dc.b   0
-                dc.b $2E 
-                dc.b  $E
-                dc.b  $E
-                dc.b   2
-                dc.b $4C 
-                dc.b   0
-                dc.b   8
-                dc.b   0
-                dc.b   4
-                dc.b   0
-                dc.b $24 
-                dc.b   4
-                dc.b $68 
-                dc.b   0
-                dc.b $2E 
-                dc.b  $E
-                dc.b  $E
-                dc.b   4
-                dc.b $24 
-                dc.b   0
-                dc.b $CA 
-                dc.b  $A
-                dc.b $44 
-                dc.b   4
-                dc.b $44 
-                dc.b  $A
-                dc.b $6A 
-                dc.b   8
-                dc.b $6E 
-                dc.b  $E
-                dc.b $CA 
-                dc.b   0
-                dc.b $28 
-                dc.b   4
-                dc.b $6C 
-                dc.b   2
-                dc.b $42 
-                dc.b   2
-                dc.b $22 
-                dc.b   2
-                dc.b $24 
-                dc.b   0
-                dc.b  $E
-                dc.b  $C
-                dc.b $A6 
-                dc.b   4
-                dc.b $4E 
-                dc.b   0
-                dc.b  $A
-                dc.b   0
-                dc.b  $E
-                dc.b   0
-                dc.b  $E
-                dc.b   0
-                dc.b  $E
-                dc.b   0
-                dc.b  $E
-                dc.b  $E
-                dc.b $EE 
-                dc.b   4
-                dc.b $20
-                dc.b   8
-                dc.b $40 
-                dc.b  $E
-                dc.b $22 
-                dc.b  $C
-                dc.b $62 
-                dc.b  $C
-                dc.b $A4 
-                dc.b   4
-                dc.b $22 
-                dc.b   0
-                dc.b $EE 
-                dc.b   8
-                dc.b $64 
-                dc.b   2
-                dc.b $46 
-                dc.b   2
-                dc.b $22 
-                dc.b   8
-                dc.b $CE 
-                dc.b   2
-                dc.b $8C 
-                dc.b   0
-                dc.b  $E
-                dc.b   6
-                dc.b $64 
-                dc.b   0
-                dc.b $42 
-                dc.b   2
-                dc.b $86 
-                dc.b   6
-                dc.b   0
-                dc.b   0
-                dc.b   2
-                dc.b   0
-                dc.b $20
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-                dc.b  $E
-
-; =============== S U B R O U T I N E =======================================
-
-sub_1A4C8E:
-                
-                bra.s   loc_1A4CD6
-
-    ; End of function sub_1A4C8E
-
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -8047,7 +7040,7 @@ byte_1A8418:    dc.b 0
 sub_1A84A6:
                 
                 bra.w   sub_1A4C90
-                bra.w   sub_1A4C8E
+                bra.w   unk_1A4C8E
                 bra.w   sub_1A4EB6
                 bra.w   sub_1A4EB4
                 bra.w   sub_1A511C
