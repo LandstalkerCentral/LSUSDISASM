@@ -109,96 +109,97 @@ word_200:       dc.w 0
                 dc.b $3A 
                 dc.b $30 
                 dc.b $33 
-word_210:       dc.w $FFFF
+DebugModeAccessWord:
+                dc.w $FFFF
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_212:
+j_EnableDisplayOnVDP:
                 
-                jmp     (sub_8D2).l
+                jmp     (EnableDisplayOnVDP).l
 
-    ; End of function sub_212
-
-
-; =============== S U B R O U T I N E =======================================
-
-sub_218:
-                
-                jmp     (sub_8DC).l
-
-    ; End of function sub_218
+    ; End of function j_EnableDisplayOnVDP
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_21E:
+j_DisableDisplayOnVDP:
                 
-                jmp     (sub_8E6).l
+                jmp     (DisableDisplayOnVDP).l
 
-    ; End of function sub_21E
+    ; End of function j_DisableDisplayOnVDP
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_224:
+j_EnableInterrupts:
                 
-                jmp     (sub_8EC).l
+                jmp     (EnableInterrupts).l
 
-    ; End of function sub_224
+    ; End of function j_EnableInterrupts
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_22A:
+j_DisableInterrupts:
                 
-                jmp     (sub_8F2).l
+                jmp     (DisableInterrupts).l
 
-    ; End of function sub_22A
+    ; End of function j_DisableInterrupts
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_230:
+j_EnableDisplayAndInterrupts:
                 
-                jmp     (sub_8F6).l
+                jmp     (EnableDisplayAndInterrupts).l
 
-    ; End of function sub_230
+    ; End of function j_EnableDisplayAndInterrupts
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_236:
+j_DisableDisplayAndInterrupts:
                 
-                jmp     (sub_8FA).l
+                jmp     (DisableDisplayAndInterrupts).l
 
-    ; End of function sub_236
+    ; End of function j_DisableDisplayAndInterrupts
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_23C:
+j_ActivateIntDMAQueueProcessing:
                 
-                jmp     (sub_904).l
+                jmp     (ActivateIntDMAQueueProcessing).l
 
-    ; End of function sub_23C
+    ; End of function j_ActivateIntDMAQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_242:
+j_DeactivateIntDMAQueueProcessing:
                 
-                jmp     (sub_90E).l
+                jmp     (DeactivateIntDMAQueueProcessing).l
 
-    ; End of function sub_242
+    ; End of function j_DeactivateIntDMAQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_248:
+j_DuplicatePalettes:
                 
-                jmp     (sub_92C).l
+                jmp     (DuplicatePalettes).l
 
-    ; End of function sub_248
+    ; End of function j_DuplicatePalettes
+
+
+; =============== S U B R O U T I N E =======================================
+
+j_AppyCRAMDMA:
+                
+                jmp     (AppyDMAForCRAM).l
+
+    ; End of function j_AppyCRAMDMA
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -221,56 +222,56 @@ sub_254:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_25A:
+j_ClearVsramAndSprites:
                 
-                jmp     (sub_AE0).l
+                jmp     (ClearVsramAndSprites).l
 
-    ; End of function sub_25A
+    ; End of function j_ClearVsramAndSprites
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_260:
+j_ClearScrollTableData:
                 
-                jmp     (sub_B38).l
+                jmp     (ClearScrollTableData).l
 
-    ; End of function sub_260
+    ; End of function j_ClearScrollTableData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_266:
+j_ClearSpriteTable:
                 
-                jmp     (sub_B16).l
+                jmp     (ClearSpriteTable).l
 
-    ; End of function sub_266
+    ; End of function j_ClearSpriteTable
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_26C:
+j_UpdateVDPSpriteTable:
                 
-                jmp     (sub_AE4).l
+                jmp     (UpdateVDPSpriteTable).l
 
-    ; End of function sub_26C
+    ; End of function j_UpdateVDPSpriteTable
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_272:
+j_WaitForVInt:
                 
-                jmp     (sub_B5E).l
+                jmp     (WaitForVInt).l
 
-    ; End of function sub_272
+    ; End of function j_WaitForVInt
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_278:
+j_Sleep:
                 
-                jmp     (sub_B7A).l
+                jmp     (Sleep).l       
 
-    ; End of function sub_278
+    ; End of function j_Sleep
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -311,38 +312,38 @@ sub_290:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_296:
+j_RequestVDPCommandQueueProcessing:
                 
-                jmp     (sub_B8A).l
+                jmp     (RequestVDPCommandQueueProcessing).l
 
-    ; End of function sub_296
+    ; End of function j_RequestVDPCommandQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_29C:
+j_WaitForVDPCommandQueueProcessing:
                 
-                jmp     (sub_B94).l
+                jmp     (WaitForVDPCommandQueueProcessing).l
 
-    ; End of function sub_29C
+    ; End of function j_WaitForVDPCommandQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2A2:
+j_EnableDMAQueueProcessing:
                 
-                jmp     (sub_B9A).l
+                jmp     (EnableDMAQueueProcessing).l
 
-    ; End of function sub_2A2
+    ; End of function j_EnableDMAQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2A8:
+j_WaitForDMAQueueProcessing:
                 
-                jmp     (sub_BA4).l
+                jmp     (WaitForDMAQueueProcessing).l
 
-    ; End of function sub_2A8
+    ; End of function j_WaitForDMAQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -374,74 +375,74 @@ sub_2BA:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2C0:
+j_ApplyImmediateVramDMA:
                 
-                jmp     (sub_D22).l
+                jmp     (ApplyImmediateVramDMA).l
 
-    ; End of function sub_2C0
+    ; End of function j_ApplyImmediateVramDMA
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2C6:
+j_ApplyVIntVramDMA:
                 
-                jmp     (sub_DD6).l
+                jmp     (ApplyVIntVramDMA).l
 
-    ; End of function sub_2C6
+    ; End of function j_ApplyVIntVramDMA
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2CC:
+j_UpdateVDPHScrollData:
                 
-                jmp     (sub_E8A).l
+                jmp     (UpdateVDPHScrollData).l
 
-    ; End of function sub_2CC
+    ; End of function j_UpdateVDPHScrollData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2D2:
+j_UpdateForegroundHScrollData:
                 
-                jmp     (sub_EBE).l
+                jmp     (UpdateForegroundHScrollData).l
 
-    ; End of function sub_2D2
+    ; End of function j_UpdateForegroundHScrollData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2D8:
+j_UpdateBackgroundHScrollData:
                 
-                jmp     (sub_EDA).l
+                jmp     (UpdateBackgroundHScrollData).l
 
-    ; End of function sub_2D8
+    ; End of function j_UpdateBackgroundHScrollData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2DE:
+j_UpdateVDPVScrollData:
                 
-                jmp     (sub_EE6).l
+                jmp     (UpdateVDPVScrollData).l
 
-    ; End of function sub_2DE
+    ; End of function j_UpdateVDPVScrollData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2E4:
+j_UpdateForegroundVScrolData:
                 
-                jmp     (sub_F1A).l
+                jmp     (UpdateForegroundVScrolData).l
 
-    ; End of function sub_2E4
+    ; End of function j_UpdateForegroundVScrolData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2EA:
+j_UpdateBackgroundVScrollData:
                 
-                jmp     (sub_F36).l
+                jmp     (UpdateBackgroundVScrollData).l
 
-    ; End of function sub_2EA
+    ; End of function j_UpdateBackgroundVScrollData
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -486,63 +487,63 @@ sub_302:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_308:
+j_GetVDPRegisterStatus:
                 
-                jmp     (sub_868).l
+                jmp     (GetVDPRegisterStatus).l
 
-    ; End of function sub_308
+    ; End of function j_GetVDPRegisterStatus
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_30E:
+j_SetVDPRegister:
                 
-                jmp     (sub_87E).l
+                jmp     (SetVDPRegister).l
 
-    ; End of function sub_30E
+    ; End of function j_SetVDPRegister
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_314:
+j_ApplyLogicalOrOnVDPRegister:
                 
-                jmp     (sub_8A0).l
+                jmp     (ApplyLogicalOrOnVDPRegister).l
 
-    ; End of function sub_314
+    ; End of function j_ApplyLogicalOrOnVDPRegister
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_31A:
+j_ApplyLogicalAndOnVDPRegister:
                 
-                jmp     (sub_8B2).l
+                jmp     (ApplyLogicalAndOnVDPRegister).l
 
-    ; End of function sub_31A
+    ; End of function j_ApplyLogicalAndOnVDPRegister
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_320:
+j_ApplyVramDMAFill:
                 
-                jmp     (sub_F42).l
+                jmp     (ApplyVramDMAFill).l
 
-    ; End of function sub_320
+    ; End of function j_ApplyVramDMAFill
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_326:
+j_CopyPalette:
                 
-                jmp     (sub_960).l
+                jmp     (CopyPalette).l
 
-    ; End of function sub_326
+    ; End of function j_CopyPalette
 
 
 ; =============== S U B R O U T I N E =======================================
 
 sub_32C:
                 
-                jmp     (sub_966).l
+                jmp     (loc_966).l
 
     ; End of function sub_32C
 
@@ -551,7 +552,7 @@ sub_32C:
 
 sub_332:
                 
-                jmp     (sub_96A).l
+                jmp     (loc_96A).l
 
     ; End of function sub_332
 
@@ -567,29 +568,29 @@ sub_338:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_33E:
+j_RefreshPlayerInput:
                 
-                jmp     (sub_1040).l
+                jmp     (RefreshPlayerInput).l
 
-    ; End of function sub_33E
+    ; End of function j_RefreshPlayerInput
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_344:
+j_WaitForPlayerInput:
                 
-                jmp     (sub_10B2).l
+                jmp     (WaitForPlayer1Input).l
 
-    ; End of function sub_344
+    ; End of function j_WaitForPlayerInput
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_34A:
+j_WaitForPlayer1NewButtonPush:
                 
-                jmp     (sub_10C6).l
+                jmp     (WaitForPlayer1NewButtonPush).l
 
-    ; End of function sub_34A
+    ; End of function j_WaitForPlayer1NewButtonPush
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -603,29 +604,31 @@ sub_350:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_356:
+j_WaitForPlayer1InputFor1Second:
                 
-                jmp     (sub_1136).l
+                jmp     (WaitForPlayer1InputFor1Second).l
 
-    ; End of function sub_356
+    ; End of function j_WaitForPlayer1InputFor1Second
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_35C:
+j_WaitForPlayer1InputFor3Seconds:
                 
-                jmp     (sub_1158).l
+                jmp     (WaitForPlayer1InputFor3Seconds).l
 
-    ; End of function sub_35C
+    ; End of function j_WaitForPlayer1InputFor3Seconds
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_362:
-                
-                jmp     (sub_1164).l
+; d6=range
 
-    ; End of function sub_362
+j_GenerateRandomNumber:
+                
+                jmp     (GenerateRandomNumber).l
+
+    ; End of function j_GenerateRandomNumber
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -783,11 +786,11 @@ sub_3C8:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_3CE:
+j_SaveGame:
                 
-                jmp     (sub_1592).l
+                jmp     (WriteSave).l
 
-    ; End of function sub_3CE
+    ; End of function j_SaveGame
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -963,11 +966,11 @@ sub_440:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_446:
+j_PlayMusicAfterCurrentOne:
                 
-                jmp     sub_852(pc)
+                jmp     PlayMusicAfterCurrentOne(pc)
 
-    ; End of function sub_446
+    ; End of function j_PlayMusicAfterCurrentOne
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -1035,11 +1038,11 @@ sub_46A:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_470:
+j_WaitForMusicEnd:
                 
-                jmp     sub_820(pc)
+                jmp     WaitForMusicEnd(pc)
 
-    ; End of function sub_470
+    ; End of function j_WaitForMusicEnd
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -1176,7 +1179,7 @@ loc_4BE:
                 lea     (initStack).w,sp
                 sndCom  SOUND_COMMAND_FFFADE_OUT
                 move.w  #$B4,d0 
-                bsr.w   sub_B7A
+                bsr.w   Sleep           
 
 ; END OF FUNCTION CHUNK FOR sub_15530
 
@@ -1185,9 +1188,9 @@ loc_4BE:
 
 loc_4CE:
                 
-                bsr.w   sub_8F6
-                bsr.s   sub_516
-                bsr.s   sub_54C
+                bsr.w   DisableDisplayAndInterrupts
+                bsr.s   InitializeVDP
+                bsr.s   InitializeVDPData
                 jmp     (loc_16B6).l
 loc_4DC:
                 
@@ -1195,32 +1198,38 @@ loc_4DC:
                 sndCom  SOUND_COMMAND_FFFADE_OUT
                 bsr.w   sub_9A8
                 move.w  #$B4,d0 
-                bsr.w   sub_B7A
-                bsr.w   sub_8F6
-                bsr.s   sub_516
-                bsr.s   sub_54C
+                bsr.w   Sleep           
+                bsr.w   DisableDisplayAndInterrupts
+                bsr.s   InitializeVDP
+                bsr.s   InitializeVDPData
                 jmp     (loc_16CA).l
-loc_4FE:
-                
-                bsr.s   sub_516
-                bsr.w   InitializeZ80
-                bsr.s   sub_54C
-                jsr     j_CheckRegion
-                bsr.w   sub_14F2
-                jmp     (loc_16B6).l
 
 ; END OF FUNCTION CHUNK FOR Start
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_516:
+InitializeSystem:
+                
+                bsr.s   InitializeVDP
+                bsr.w   InitializeZ80
+                bsr.s   InitializeVDPData
+                jsr     j_CheckRegion
+                bsr.w   CheckSRAM
+                jmp     (loc_16B6).l
+
+    ; End of function InitializeSystem
+
+
+; =============== S U B R O U T I N E =======================================
+
+InitializeVDP:
                 
                 move.w     word_5C6(pc), d0
                 nop
-                bsr.w   sub_87E
+                bsr.w   SetVDPRegister
                 move.w  #$3FDE,d0
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
 loc_52A:
                 
                 clr.l   (a0)+
@@ -1230,55 +1239,55 @@ loc_52A:
 loc_536:
                 
                 move.w  (a0)+,d0
-                bsr.w   sub_87E
+                bsr.w   SetVDPRegister
                 dbf     d1,loc_536
                 clr.w   d0
                 clr.w   d1
                 clr.w   d2
-                bsr.w   sub_F42
+                bsr.w   ApplyVramDMAFill
                 rts
 
-    ; End of function sub_516
+    ; End of function InitializeVDP
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_54C:
+InitializeVDPData:
                 
-                move.l  #byte_FF0CD0,(dword_FF0FD6).l
-                move.l  #byte_FF07D0,(dword_FF0FDA).l
+                move.l  #VDP_COMMAND_QUEUE,(VDP_COMMAND_QUEUE_POINTER).l
+                move.l  #DMA_QUEUE,(DMA_QUEUE_POINTER).l
                 moveq   #$40,d0 
                 move.b  d0,(CTRL1_BIS).l
                 move.b  d0,(CTRL2).l
                 move.b  d0,(CTRL3_BIS).l
-                lea     (dword_FF0100).l,a0
+                lea     (HORIZONTAL_SCROLL_DATA).l,a0
                 move.w  #$FF,d0
 loc_57E:
                 
                 move.w  #0,(a0)+
                 move.w  #0,(a0)+
                 dbf     d0,loc_57E
-                lea     (dword_FF0500).l,a0
+                lea     (VERTICAL_SCROLL_DATA).l,a0
                 move.w  #$13,d0
 loc_594:
                 
                 move.w  #0,(a0)+
                 move.w  #0,(a0)+
                 dbf     d0,loc_594
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 moveq   #$7F,d1 
 loc_5A8:
                 
                 clr.w   (a0)+
                 dbf     d1,loc_5A8
-                bsr.w   sub_B16
-                bsr.w   sub_E8A
-                bsr.w   sub_EE6
-                bsr.w   sub_90E
-                bsr.w   sub_B9A
+                bsr.w   ClearSpriteTable
+                bsr.w   UpdateVDPHScrollData
+                bsr.w   UpdateVDPVScrollData
+                bsr.w   DuplicatePalettes
+                bsr.w   EnableDMAQueueProcessing
                 rts
 
-    ; End of function sub_54C
+    ; End of function InitializeVDPData
 
 VDPInitParams:  dc.w $8004
 word_5C6:       dc.w $8124
@@ -1474,7 +1483,7 @@ loc_6EA:
                 move.w  (VDP_Control).l,d0
                 andi.w  #2,d0
                 bne.s   loc_6EA
-                bra.w   loc_4FE
+                bra.w   InitializeSystem
 
     ; End of function Start
 
@@ -1656,12 +1665,12 @@ Trap2_:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_820:
+WaitForMusicEnd:
                 
                 movem.w d0,-(sp)
 loc_824:
                 
-                bsr.w   sub_B5E
+                bsr.w   WaitForVInt
                 move.w  #$100,(Z80BusReq).l
 loc_830:
                 
@@ -1674,43 +1683,43 @@ loc_830:
                 movem.w (sp)+,d0
                 rts
 
-    ; End of function sub_820
+    ; End of function WaitForMusicEnd
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_852:
+PlayMusicAfterCurrentOne:
                 
                 movem.w d0,-(sp)
-                bsr.s   sub_820
+                bsr.s   WaitForMusicEnd
                 move.b  (MUSIC_INDEX).l,d0
                 sndCom  SOUND_COMMAND_GET_D0_PARAMETER
                 movem.w (sp)+,d0
                 rts
 
-    ; End of function sub_852
+    ; End of function PlayMusicAfterCurrentOne
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_868:
+GetVDPRegisterStatus:
                 
                 movem.l a0,-(sp)
-                lea     (byte_FF0FB0).l,a0
+                lea     (VDP_REG00_STATUS).l,a0
                 add.w   d0,d0
                 move.w  (a0,d0.w),d0
                 movem.l (sp)+,a0
                 rts
 
-    ; End of function sub_868
+    ; End of function GetVDPRegisterStatus
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_87E:
+SetVDPRegister:
                 
                 movem.l d0-d1/a0,-(sp)
-                lea     (byte_FF0FB0).l,a0
+                lea     (VDP_REG00_STATUS).l,a0
                 move.w  d0,(VDP_Control).l
                 move.w  d0,d1
                 andi.w  #$7F00,d0
@@ -1719,129 +1728,135 @@ sub_87E:
                 movem.l (sp)+,d0-d1/a0
                 rts
 
-    ; End of function sub_87E
+    ; End of function SetVDPRegister
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_8A0:
+ApplyLogicalOrOnVDPRegister:
                 
                 movem.l d0-d1/a0,-(sp)
-                lea     (byte_FF0FB0).l,a0
+                lea     (VDP_REG00_STATUS).l,a0
                 add.w   d0,d0
                 or.b    d1,1(a0,d0.w)
-                bra.s   loc_8C2
+                bra.s   SendVDPCommand
 
-    ; End of function sub_8A0
+    ; End of function ApplyLogicalOrOnVDPRegister
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_8B2:
+ApplyLogicalAndOnVDPRegister:
                 
                 movem.l d0-d1/a0,-(sp)
-                lea     (byte_FF0FB0).l,a0
+                lea     (VDP_REG00_STATUS).l,a0
                 add.w   d0,d0
                 and.b   d1,1(a0,d0.w)
-loc_8C2:
+
+    ; End of function ApplyLogicalAndOnVDPRegister
+
+
+; =============== S U B R O U T I N E =======================================
+
+SendVDPCommand:
                 
                 move.w  (a0,d0.w),d1
                 move.w  d1,(VDP_Control).l
                 movem.l (sp)+,d0-d1/a0
                 rts
 
-    ; End of function sub_8B2
+    ; End of function SendVDPCommand
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_8D2:
+EnableDisplayOnVDP:
                 
                 move.w  #1,d0
                 move.w  #$40,d1 
-                bra.s   sub_8A0
+                bra.s   ApplyLogicalOrOnVDPRegister
 
-    ; End of function sub_8D2
+    ; End of function EnableDisplayOnVDP
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_8DC:
+DisableDisplayOnVDP:
                 
                 move.w  #1,d0
                 move.w  #$BF,d1 
-                bra.s   sub_8B2
+                bra.s   ApplyLogicalAndOnVDPRegister
 
-    ; End of function sub_8DC
+    ; End of function DisableDisplayOnVDP
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_8E6:
+EnableInterrupts:
                 
                 move    #$2300,sr
                 rts
 
-    ; End of function sub_8E6
+    ; End of function EnableInterrupts
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_8EC:
+DisableInterrupts:
                 
                 move    #$2700,sr
                 rts
 
-    ; End of function sub_8EC
+    ; End of function DisableInterrupts
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_8F2:
+EnableDisplayAndInterrupts:
                 
-                bsr.s   sub_8D2
-                bra.s   sub_8E6
+                bsr.s   EnableDisplayOnVDP
+                bra.s   EnableInterrupts
 
-    ; End of function sub_8F2
+    ; End of function EnableDisplayAndInterrupts
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_8F6:
+DisableDisplayAndInterrupts:
                 
-                bsr.s   sub_8EC
-                bra.s   sub_8DC
+                bsr.s   DisableInterrupts
+                bra.s   DisableDisplayOnVDP
 
-    ; End of function sub_8F6
+    ; End of function DisableDisplayAndInterrupts
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_8FA:
+ActivateIntDMAQueueProcessing:
                 
-                bclr    #1,(byte_FF0F8B).l
+                bclr    #DEACTIVATE_DMA,(INTERRUPT_PARAMETERS).l
                 rts
 
-    ; End of function sub_8FA
+    ; End of function ActivateIntDMAQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_904:
+DeactivateIntDMAQueueProcessing:
                 
-                bset    #1,(byte_FF0F8B).l
+                bset    #DEACTIVATE_DMA,(INTERRUPT_PARAMETERS).l
                 rts
 
-    ; End of function sub_904
+    ; End of function DeactivateIntDMAQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_90E:
+DuplicatePalettes:
                 
                 movem.l d7/a5-a6,-(sp)
-                lea     (word_FF0080).l,a5
-                lea     (word_FF0ED0).l,a6
+                lea     (PALETTE_1_BASE).l,a5
+                lea     (PALETTE_1_CURRENT).l,a6
                 move.w  #$3F,d7 
 loc_922:
                 
@@ -1849,54 +1864,42 @@ loc_922:
                 dbf     d7,loc_922
                 movem.l (sp)+,d7/a5-a6
 
-    ; End of function sub_90E
+    ; End of function DuplicatePalettes
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_92C:
+AppyDMAForCRAM:
                 
                 movem.l a6,-(sp)
-                movea.l (dword_FF0FDA).l,a6
+                movea.l (DMA_QUEUE_POINTER).l,a6
                 move.l  #$8F029400,(a6)+
                 move.l  #$93409687,(a6)+
                 move.l  #$9568977F,(a6)+
                 move.l  #$C0000080,(a6)+
-                move.l  a6,(dword_FF0FDA).l
-                addq.b  #1,(byte_FF0F8D).l
+                move.l  a6,(DMA_QUEUE_POINTER).l
+                addq.b  #1,(DMA_QUEUE_SIZE).l
                 movem.l (sp)+,a6
                 rts
 
-    ; End of function sub_92C
+    ; End of function AppyDMAForCRAM
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_960:
+CopyPalette:
                 
-                lea     (word_FF0080).l,a1
-
-    ; End of function sub_960
-
-
-; =============== S U B R O U T I N E =======================================
-
-sub_966:
+                lea     (PALETTE_1_BASE).l,a1
+loc_966:
                 
                 move.w  #$F,d0
-
-    ; End of function sub_966
-
-
-; =============== S U B R O U T I N E =======================================
-
-sub_96A:
+loc_96A:
                 
                 move.w  (a0)+,(a1)+
-                dbf     d0,sub_96A
+                dbf     d0,loc_96A
                 rts
 
-    ; End of function sub_96A
+    ; End of function CopyPalette
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -1945,7 +1948,7 @@ loc_9AE:
                 
                 bsr.s   sub_9BE
                 move.w  #1,d0
-                bsr.w   sub_B7A
+                bsr.w   Sleep           
                 dbf     d6,loc_9AE
                 rts
 
@@ -1956,8 +1959,8 @@ loc_9AE:
 
 sub_9BE:
                 
-                lea     (word_FF0080).l,a0
-                lea     (word_FF0ED0).l,a1
+                lea     (PALETTE_1_BASE).l,a0
+                lea     (PALETTE_1_CURRENT).l,a1
                 move.w  #$3F,d5 
 
     ; End of function sub_9BE
@@ -1976,8 +1979,8 @@ loc_9E0:
                 bsr.s   sub_9FC
                 move.w  d0,(a1)+
                 dbf     d5,loc_9E0
-                bsr.w   sub_92C
-                bsr.w   sub_B9A
+                bsr.w   AppyDMAForCRAM
+                bsr.w   EnableDMAQueueProcessing
                 add.w   d4,d3
                 move.w  d3,(word_FF0F50).l
                 rts
@@ -2055,8 +2058,8 @@ loc_A5E:
                 move.w  #6,d6
 loc_A62:
                 
-                lea     (word_FF0080).l,a0
-                lea     (word_FF0ED0).l,a1
+                lea     (PALETTE_1_BASE).l,a0
+                lea     (PALETTE_1_CURRENT).l,a1
                 move.w  #$3F,d5 
 loc_A72:
                 
@@ -2064,10 +2067,10 @@ loc_A72:
                 bsr.s   sub_A94
                 move.w  d0,(a1)+
                 dbf     d5,loc_A72
-                bsr.w   sub_92C
-                bsr.w   sub_B9A
+                bsr.w   AppyDMAForCRAM
+                bsr.w   EnableDMAQueueProcessing
                 move.w  #4,d0
-                bsr.w   sub_B7A
+                bsr.w   Sleep           
                 add.w   d4,d3
                 dbf     d6,loc_A62
                 rts
@@ -2120,37 +2123,37 @@ loc_AD6:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_AE0:
+ClearVsramAndSprites:
                 
-                bsr.s   sub_B38
-                bsr.s   sub_B16
+                bsr.s   ClearScrollTableData
+                bsr.s   ClearSpriteTable
 
-    ; End of function sub_AE0
+    ; End of function ClearVsramAndSprites
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_AE4:
+UpdateVDPSpriteTable:
                 
                 lea     (VDP_Control).l,a6
                 move.w  #$8134,(a6)
                 move.l  #$94019340,(a6)
                 move.l  #$968295A8,(a6)
                 move.l  #$977F5400,(a6)
-                move.w  #$83,(word_FF0FA8).l 
-                move.w  (word_FF0FA8).l,(a6)
-                move.w  (unk_FF0FB2).l,(a6)
+                move.w  #$83,(DMA_ADDR_MSBYTE).l 
+                move.w  (DMA_ADDR_MSBYTE).l,(a6)
+                move.w  (VDP_REG01_STATUS).l,(a6)
                 rts
 
-    ; End of function sub_AE4
+    ; End of function UpdateVDPSpriteTable
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_B16:
+ClearSpriteTable:
                 
                 movem.l d0-d1/a0,-(sp)
-                lea     (word_FF0550).l,a0
+                lea     (SPRITE_TABLE).l,a0
                 moveq   #$4F,d1 
                 moveq   #1,d0
 loc_B24:
@@ -2163,97 +2166,99 @@ loc_B24:
                 movem.l (sp)+,d0-d1/a0
                 rts
 
-    ; End of function sub_B16
+    ; End of function ClearSpriteTable
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_B38:
+ClearScrollTableData:
                 
                 movem.l d7/a6,-(sp)
                 move.w  #$C000,d0
                 move.w  #$FFF,d1
                 clr.w   d2
-                bsr.w   sub_F42
+                bsr.w   ApplyVramDMAFill
                 move.w  #$E000,d0
                 move.w  #$FFF,d1
                 clr.w   d2
-                bsr.w   sub_F42
+                bsr.w   ApplyVramDMAFill
                 movem.l (sp)+,d7/a6
                 rts
 
-    ; End of function sub_B38
+    ; End of function ClearScrollTableData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_B5E:
+WaitForVInt:
                 
                 bsr.w   nullsub_1
                 bsr.w   sub_354E
-                bset    #7,(byte_FF0F8B).l
+                bset    #ENABLE_INT,(INTERRUPT_PARAMETERS).l
 loc_B6E:
                 
-                btst    #7,(byte_FF0F8B).l
+                btst    #ENABLE_INT,(INTERRUPT_PARAMETERS).l
                 bne.s   loc_B6E
                 rts
 
-    ; End of function sub_B5E
+    ; End of function WaitForVInt
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_B7A:
+; d0=frames
+
+Sleep:
                 
                 movem.w d0,-(sp)
 loc_B7E:
                 
-                bsr.s   sub_B5E
+                bsr.s   WaitForVInt
                 dbf     d0,loc_B7E
                 movem.w (sp)+,d0
                 rts
 
-    ; End of function sub_B7A
+    ; End of function Sleep
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_B8A:
+RequestVDPCommandQueueProcessing:
                 
-                bset    #0,(byte_FF0F8B).l
+                bset    #VDP_COMMAND_REQUEST,(INTERRUPT_PARAMETERS).l
                 rts
 
-    ; End of function sub_B8A
+    ; End of function RequestVDPCommandQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_B94:
+WaitForVDPCommandQueueProcessing:
                 
-                bsr.s   sub_B8A
-                bra.w   sub_B5E
+                bsr.s   RequestVDPCommandQueueProcessing
+                bra.w   WaitForVInt
 
-    ; End of function sub_B94
+    ; End of function WaitForVDPCommandQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_B9A:
+EnableDMAQueueProcessing:
                 
-                bset    #3,(byte_FF0F8B).l
+                bset    #DMA_REQUEST,(INTERRUPT_PARAMETERS).l
                 rts
 
-    ; End of function sub_B9A
+    ; End of function EnableDMAQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_BA4:
+WaitForDMAQueueProcessing:
                 
-                bsr.s   sub_B9A
-                bra.w   sub_B5E
+                bsr.s   EnableDMAQueueProcessing
+                bra.w   WaitForVInt
 
-    ; End of function sub_BA4
+    ; End of function WaitForDMAQueueProcessing
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -2261,7 +2266,7 @@ sub_BA4:
 sub_BAA:
                 
                 movem.l d7/a4-a5,-(sp)
-                movea.l (dword_FF0FD6).l,a4
+                movea.l (VDP_COMMAND_QUEUE_POINTER).l,a4
                 moveq   #0,d7
                 move.w  d7,(a4)+
                 bsr.s   sub_BF6
@@ -2269,8 +2274,8 @@ sub_BAA:
 loc_BBC:
                 
                 move.w  d0,(a4)+
-                move.l  a4,(dword_FF0FD6).l
-                move.b  #1,(byte_FF0F8C).l
+                move.l  a4,(VDP_COMMAND_QUEUE_POINTER).l
+                move.b  #1,(VDP_COMMAND_COUNTER).l
                 clr.l   d7
                 move.w  a6,d7
                 ori.l   #byte_FF0000,d7
@@ -2281,11 +2286,11 @@ loc_BBC:
 loc_BE0:
                 
                 movem.l d7/a4-a5,-(sp)
-                movea.l (dword_FF0FD6).l,a4
+                movea.l (VDP_COMMAND_QUEUE_POINTER).l,a4
                 moveq   #0,d7
                 move.w  d7,(a4)+
                 bsr.s   sub_BF6
-                bsr.s   sub_C66
+                bsr.s   SwapA6
                 move.w  a6,(a4)+
                 bra.s   loc_BBC
 
@@ -2299,28 +2304,28 @@ sub_BF6:
                 movem.l d5-d7,-(sp)
                 lea     (unk_E000).l,a6
                 lsl.w   #1,d5
-                move.w  (dword_FF0100+2).l,d7
+                move.w  (HORIZONTAL_SCROLL_DATA+2).l,d7
                 lsr.w   #2,d7
                 add.w   d7,d5
                 andi.w  #$3E,d5 
                 lsl.w   #6,d6
-                move.w  (dword_FF0500+2).l,d7
+                move.w  (VERTICAL_SCROLL_DATA+2).l,d7
                 lsl.w   #3,d7
                 add.w   d7,d6
                 andi.w  #$7C0,d6
                 or.w    d6,d5
                 adda.w  d5,a6
-                bsr.s   sub_C66
+                bsr.s   SwapA6
                 movem.l (sp)+,d5-d6
                 movem.l d5-d6,-(sp)
                 adda.l  #$C000,a6
                 lsl.w   #1,d5
-                move.w  (dword_FF0100).l,d7
+                move.w  (HORIZONTAL_SCROLL_DATA).l,d7
                 lsr.w   #2,d7
                 add.w   d7,d5
                 andi.w  #$3E,d5 
                 lsl.w   #6,d6
-                move.w  (dword_FF0500).l,d7
+                move.w  (VERTICAL_SCROLL_DATA).l,d7
                 lsl.w   #3,d7
                 add.w   d7,d6
                 andi.w  #$7C0,d6
@@ -2336,7 +2341,7 @@ sub_BF6:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_C66:
+SwapA6:
                 
                 movem.l d7,-(sp)
                 move.l  a6,d7
@@ -2345,7 +2350,7 @@ sub_C66:
                 movem.l (sp)+,d7
                 rts
 
-    ; End of function sub_C66
+    ; End of function SwapA6
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -2369,10 +2374,10 @@ loc_C9A:
                 move.w  a6,d3
                 ori.l   #byte_FF0000,d3
                 movea.l d3,a3
-                movea.l (dword_FF0FD6).l,a5
+                movea.l (VDP_COMMAND_QUEUE_POINTER).l,a5
                 move.w  (word_FF0FAE).l,d3
                 andi.l  #$FF,d3
-                move.b  d3,(byte_FF0F8C).l
+                move.b  d3,(VDP_COMMAND_COUNTER).l
                 subq.w  #1,d3
 loc_CC4:
                 
@@ -2393,7 +2398,7 @@ loc_CDC:
                 adda.w  #$40,a3 
                 dbf     d3,loc_CC4
                 movem.l (sp)+,d3-d4/a3-a6
-                bra.w   sub_B94
+                bra.w   WaitForVDPCommandQueueProcessing
 loc_CFC:
                 
                 movem.l d5-d6,-(sp)
@@ -2403,7 +2408,7 @@ loc_CFC:
                 andi.w  #$FF,d6
                 bsr.w   sub_BF6
                 movem.l (sp)+,d5-d6
-                bsr.w   sub_C66
+                bsr.w   SwapA6
                 bra.w   loc_C9A
 
     ; End of function sub_C76
@@ -2411,7 +2416,9 @@ loc_CFC:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_D22:
+; A0=Source, A1=Destination, D0=Length, D1=Auto-increment
+
+ApplyImmediateVramDMA:
                 
                 movem.l d2/d7,-(sp)
                 move    sr,-(sp)
@@ -2420,7 +2427,7 @@ loc_D2C:
                 
                 movem.l d0/a0-a1/a6,-(sp)
                 lea     (VDP_Control).l,a6
-                move.w  (unk_FF0FB2).l,d7
+                move.w  (VDP_REG01_STATUS).l,d7
                 ori.b   #$10,d7
                 move.w  d7,(a6)
                 move.l  #$94009300,d2
@@ -2450,9 +2457,9 @@ loc_D2C:
                 rol.w   #2,d0
                 andi.w  #3,d0
                 ori.b   #$80,d0
-                move.w  d0,(word_FF0FA8).l
-                move.w  (word_FF0FA8).l,(a6)
-                move.w  (unk_FF0FB2).l,(a6)
+                move.w  d0,(DMA_ADDR_MSBYTE).l
+                move.w  (DMA_ADDR_MSBYTE).l,(a6)
+                move.w  (VDP_REG01_STATUS).l,(a6)
                 movem.l (sp)+,d0/a0-a1/a6
                 clr.l   d2
                 move.w  d0,d2
@@ -2478,18 +2485,20 @@ loc_DCE:
                 movem.l (sp)+,d2/d7
                 rts
 
-    ; End of function sub_D22
+    ; End of function ApplyImmediateVramDMA
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_DD6:
+; A0=Source, A1=Destination, D0=Length, D1=Auto-increment
+
+ApplyVIntVramDMA:
                 
                 movem.l d2/d7,-(sp)
 loc_DDA:
                 
                 movem.l d0/a0-a1/a6,-(sp)
-                movea.l (dword_FF0FDA).l,a6
+                movea.l (DMA_QUEUE_POINTER).l,a6
                 move.w  #$8F02,(a6)+
                 move.l  #$94009300,(a6)+
                 movep.w d0,-3(a6)
@@ -2511,8 +2520,8 @@ loc_DDA:
                 andi.w  #3,d0
                 ori.b   #$80,d0
                 move.w  d0,(a6)+
-                move.l  a6,(dword_FF0FDA).l
-                addq.b  #1,(byte_FF0F8D).l
+                move.l  a6,(DMA_QUEUE_POINTER).l
+                addq.b  #1,(DMA_QUEUE_SIZE).l
                 movem.l (sp)+,d0/a0-a1/a6
                 moveq   #0,d2
                 move.w  d0,d2
@@ -2538,7 +2547,7 @@ loc_E5E:
                 movem.l (sp)+,d2/d7
                 rts
 
-    ; End of function sub_DD6
+    ; End of function ApplyVIntVramDMA
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -2562,28 +2571,28 @@ sub_E64:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_E8A:
+UpdateVDPHScrollData:
                 
                 movem.l a6,-(sp)
-                movea.l (dword_FF0FDA).l,a6
+                movea.l (DMA_QUEUE_POINTER).l,a6
                 move.l  #$8F029402,(a6)+
                 move.l  #$93009680,(a6)+
                 move.l  #$9580977F,(a6)+
                 move.l  #$50000083,(a6)+
-                move.l  a6,(dword_FF0FDA).l
-                addq.b  #1,(byte_FF0F8D).l
+                move.l  a6,(DMA_QUEUE_POINTER).l
+                addq.b  #1,(DMA_QUEUE_SIZE).l
                 movem.l (sp)+,a6
                 rts
 
-    ; End of function sub_E8A
+    ; End of function UpdateVDPHScrollData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_EBE:
+UpdateForegroundHScrollData:
                 
                 movem.l d7/a6,-(sp)
-                lea     (dword_FF0100).l,a6
+                lea     (HORIZONTAL_SCROLL_DATA).l,a6
 loc_EC8:
                 
                 move.w  #$FF,d7
@@ -2593,46 +2602,46 @@ loc_ECC:
                 addq.w  #2,a6
                 dbf     d7,loc_ECC
                 movem.l (sp)+,d7/a6
-                bra.s   sub_E8A
+                bra.s   UpdateVDPHScrollData
 
-    ; End of function sub_EBE
+    ; End of function UpdateForegroundHScrollData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_EDA:
+UpdateBackgroundHScrollData:
                 
                 movem.l d7/a6,-(sp)
-                lea     ($FF0102).l,a6
+                lea     ((HORIZONTAL_SCROLL_DATA+2)).l,a6
                 bra.s   loc_EC8
 
-    ; End of function sub_EDA
+    ; End of function UpdateBackgroundHScrollData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_EE6:
+UpdateVDPVScrollData:
                 
                 movem.l a6,-(sp)
-                movea.l (dword_FF0FDA).l,a6
+                movea.l (DMA_QUEUE_POINTER).l,a6
                 move.l  #$8F029400,(a6)+
                 move.l  #$93289682,(a6)+
                 move.l  #$9580977F,(a6)+
                 move.l  #$40000090,(a6)+
-                move.l  a6,(dword_FF0FDA).l
-                addq.b  #1,(byte_FF0F8D).l
+                move.l  a6,(DMA_QUEUE_POINTER).l
+                addq.b  #1,(DMA_QUEUE_SIZE).l
                 movem.l (sp)+,a6
                 rts
 
-    ; End of function sub_EE6
+    ; End of function UpdateVDPVScrollData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_F1A:
+UpdateForegroundVScrolData:
                 
                 movem.l d7/a6,-(sp)
-                lea     (dword_FF0500).l,a6
+                lea     (VERTICAL_SCROLL_DATA).l,a6
 loc_F24:
                 
                 move.w  #$13,d7
@@ -2642,28 +2651,30 @@ loc_F28:
                 addq.w  #2,a6
                 dbf     d7,loc_F28
                 movem.l (sp)+,d7/a6
-                bra.s   sub_EE6
+                bra.s   UpdateVDPVScrollData
 
-    ; End of function sub_F1A
+    ; End of function UpdateForegroundVScrolData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_F36:
+UpdateBackgroundVScrollData:
                 
                 movem.l d7/a6,-(sp)
-                lea     ((dword_FF0500+2)).l,a6
+                lea     ((VERTICAL_SCROLL_DATA+2)).l,a6
                 bra.s   loc_F24
 
-    ; End of function sub_F36
+    ; End of function UpdateBackgroundVScrollData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_F42:
+; D0=Destination, D1=Length, D2=Filler value
+
+ApplyVramDMAFill:
                 
                 movem.l d0-d3,-(sp)
-                move.w  (unk_FF0FB2).l,d3
+                move.w  (VDP_REG01_STATUS).l,d3
                 ori.b   #$10,d3
                 move.w  d3,(VDP_Control).l
                 move.w  #$8F01,(VDP_Control).l
@@ -2691,13 +2702,13 @@ loc_FB4:
                 move.w  (VDP_Control).l,d0
                 andi.w  #2,d0
                 bne.s   loc_FB4
-                move.w  (unk_FF0FB2).l,d3
+                move.w  (VDP_REG01_STATUS).l,d3
                 move.w  d3,(VDP_Control).l
                 move.w  #$8F02,(VDP_Control).l
                 movem.l (sp)+,d0-d3
                 rts
 
-    ; End of function sub_F42
+    ; End of function ApplyVramDMAFill
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -2778,42 +2789,36 @@ unk_1018:       dc.b $3B
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1040:
+RefreshPlayerInput:
                 
                 movem.l d5-d7/a5-a6,-(sp)
                 move    sr,d5
-                bsr.w   sub_8EC
+                bsr.w   DisableInterrupts
                 move.w  #$100,(Z80BusReq).l
 loc_1052:
                 
                 btst    #0,(Z80BusReq).l
                 bne.s   loc_1052
-                bsr.s   sub_106E
+                bsr.s   UpdatePlayerInputs
                 move.w  #0,(Z80BusReq).l
                 move    d5,sr
                 movem.l (sp)+,d5-d7/a5-a6
                 rts
 
-    ; End of function sub_1040
+    ; End of function RefreshPlayerInput
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_106E:
+UpdatePlayerInputs:
                 
-                lea     (byte_FF0F8E).l,a5
+                lea     (P1_INPUT).l,a5 
                 lea     (DATA1).l,a6    
-                bsr.s   sub_1086
+                bsr.s   loc_1086
                 neg.b   d6
-                add.w   d6,(word_FF0FAA).l
+                add.w   d6,(RNG_SEED).l 
                 addq.w  #2,a6
-
-    ; End of function sub_106E
-
-
-; =============== S U B R O U T I N E =======================================
-
-sub_1086:
+loc_1086:
                 
                 move.b  #0,(a6)
                 nop
@@ -2827,51 +2832,51 @@ sub_1086:
                 move.b  (a6),d7
                 andi.b  #$3F,d7 
                 or.b    d7,d6
-                add.w   d6,(word_FF0FAA).l
+                add.w   d6,(RNG_SEED).l 
                 not.b   d6
                 move.b  d6,(a5)+
                 rts
 
-    ; End of function sub_1086
+    ; End of function UpdatePlayerInputs
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_10B2:
+WaitForPlayer1Input:
                 
-                bsr.s   sub_1040
-                andi.b  #$FF,(byte_FF0F8E).l
+                bsr.s   RefreshPlayerInput
+                andi.b  #$FF,(P1_INPUT).l
                 bne.s   return_10C4
-                bsr.w   sub_B5E
-                bra.s   sub_10B2
+                bsr.w   WaitForVInt
+                bra.s   WaitForPlayer1Input
 return_10C4:
                 
                 rts
 
-    ; End of function sub_10B2
+    ; End of function WaitForPlayer1Input
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_10C6:
+WaitForPlayer1NewButtonPush:
                 
-                bsr.w   sub_1040
-                andi.b  #$FF,(byte_FF0F8E).l
+                bsr.w   RefreshPlayerInput
+                andi.b  #$FF,(P1_INPUT).l
                 beq.s   loc_10DA
-                bsr.w   sub_B5E
-                bra.s   sub_10C6
+                bsr.w   WaitForVInt
+                bra.s   WaitForPlayer1NewButtonPush
 loc_10DA:
                 
-                bsr.w   sub_1040
-                andi.b  #$FF,(byte_FF0F8E).l
+                bsr.w   RefreshPlayerInput
+                andi.b  #$FF,(P1_INPUT).l
                 bne.s   return_10EE
-                bsr.w   sub_B5E
+                bsr.w   WaitForVInt
                 bra.s   loc_10DA
 return_10EE:
                 
                 rts
 
-    ; End of function sub_10C6
+    ; End of function WaitForPlayer1NewButtonPush
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -2879,15 +2884,15 @@ return_10EE:
 sub_10F0:
                 
                 movem.l d7,-(sp)
-                bsr.w   sub_1040
-                move.b  (byte_FF0F8E).l,d7
+                bsr.w   RefreshPlayerInput
+                move.b  (P1_INPUT).l,d7 
                 and.b   (byte_FF0F90).l,d7
                 beq.s   loc_1124
                 addq.b  #1,(byte_FF0F91).l
                 move.b  (byte_FF0F91).l,d7
                 cmpi.b  #$A,d7
                 bcc.s   loc_1124
-                clr.b   (byte_FF0F8E).l
+                clr.b   (P1_INPUT).l    
                 movem.l (sp)+,d7
                 rts
 
@@ -2908,58 +2913,60 @@ loc_1124:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1136:
+WaitForPlayer1InputFor1Second:
                 
                 movem.l d5,-(sp)
                 moveq   #$3B,d5 
 loc_113C:
                 
-                bsr.w   sub_1040
-                andi.b  #$FF,(byte_FF0F8E).l
+                bsr.w   RefreshPlayerInput
+                andi.b  #$FF,(P1_INPUT).l
                 bne.s   loc_1152
-                bsr.w   sub_B5E
+                bsr.w   WaitForVInt
                 dbf     d5,loc_113C
 loc_1152:
                 
                 movem.l (sp)+,d5
                 rts
 
-    ; End of function sub_1136
+    ; End of function WaitForPlayer1InputFor1Second
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1158:
+WaitForPlayer1InputFor3Seconds:
                 
                 movem.l d5,-(sp)
                 move.l  #$B3,d5 
                 bra.s   loc_113C
 
-    ; End of function sub_1158
+    ; End of function WaitForPlayer1InputFor3Seconds
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1164:
+; d6=range
+
+GenerateRandomNumber:
                 
-                move.w  (word_FF0FAA).l,d7
+                move.w  (RNG_SEED).l,d7 
                 mulu.w  #$D,d7
                 addi.w  #7,d7
                 andi.l  #$FFFF,d7
-                move.w  d7,(word_FF0FAA).l
+                move.w  d7,(RNG_SEED).l 
                 mulu.w  d6,d7
                 swap    d7
                 rts
 
-    ; End of function sub_1164
+    ; End of function GenerateRandomNumber
 
 
 ; =============== S U B R O U T I N E =======================================
 
 HInt:
                 
-                bsr.w   sub_8EC
-                cmpi.w  #$8AA0,(word_FF0FC4).l
+                bsr.w   DisableInterrupts
+                cmpi.w  #$8AA0,(VDP_REG0A_STATUS).l
                 beq.s   loc_11D0
                 movem.l d0-a6,-(sp)
                 move.b  (HV_Counter).l,d0
@@ -2968,16 +2975,16 @@ loc_119C:
                 cmp.b   (HV_Counter).l,d0
                 beq.s   loc_119C
                 move.w  #$8124,(VDP_Control).l
-                move.w  #$8124,(unk_FF0FB2).l
+                move.w  #$8124,(VDP_REG01_STATUS).l
                 bsr.w   sub_2686
 loc_11B8:
                 
-                btst    #7,(byte_FF0F8B).l
+                btst    #ENABLE_INT,(INTERRUPT_PARAMETERS).l
                 beq.s   loc_11C6
-                bsr.w   sub_1260
+                bsr.w   ProcessVDPQueues
 loc_11C6:
                 
-                bsr.w   sub_8E6
+                bsr.w   EnableInterrupts
                 movem.l (sp)+,d0-a6
                 rte
 loc_11D0:
@@ -2994,27 +3001,27 @@ loc_11D0:
 VInt:
                 
                 movem.l d0-a6,-(sp)
-                bclr    #7,(byte_FF0F8B).l
+                bclr    #ENABLE_INT,(INTERRUPT_PARAMETERS).l
                 beq.s   loc_11F6
-                bsr.w   sub_124C
-                bsr.w   sub_1330
-                bsr.s   sub_1260
+                bsr.w   DisableDisplay
+                bsr.w   UpdateSprites
+                bsr.s   ProcessVDPQueues
 loc_11F6:
                 
-                bsr.w   sub_8D2
-                addq.w  #1,(word_FF0F9C).l
-                addq.w  #1,(word_FF0FAA).l
-                move.w  (word_FF0FD4).l,(VDP_Control).l
+                bsr.w   EnableDisplayOnVDP
+                addq.w  #1,(byte_FF0F9C).l
+                addq.w  #1,(RNG_SEED).l 
+                move.w  (VDP_REG12_STATUS).l,(VDP_Control).l
                 bsr.w   ApplyZ80Updates
-                addq.w  #1,(word_FF0FDE).l
-                cmpi.w  #$E10,(word_FF0FDE).l
+                addq.w  #1,(FRAME_COUNTER).l
+                cmpi.w  #$E10,(FRAME_COUNTER).l
                 bcs.s   loc_1246
-                clr.w   (word_FF0FDE).l
-                addq.w  #1,(word_FF0FE0).l
-                cmpi.w  #$3C,(word_FF0FE0).l 
+                clr.w   (FRAME_COUNTER).l
+                addq.w  #1,(MINUTE_COUNTER).l
+                cmpi.w  #$3C,(MINUTE_COUNTER).l 
                 bcs.s   loc_1246
-                clr.w   (word_FF0FE0).l
-                addq.w  #1,(word_FF0FE2).l
+                clr.w   (MINUTE_COUNTER).l
+                addq.w  #1,(HOUR_COUNTER).l
 loc_1246:
                 
                 movem.l (sp)+,d0-a6
@@ -3025,36 +3032,36 @@ loc_1246:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_124C:
+DisableDisplay:
                 
-                andi.b  #$BF,(byte_FF0FB3).l
-                move.w  (unk_FF0FB2).l,(VDP_Control).l
+                andi.b  #$BF,(VDP_REG01_VALUE).l
+                move.w  (VDP_REG01_STATUS).l,(VDP_Control).l
                 rts
 
-    ; End of function sub_124C
+    ; End of function DisableDisplay
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1260:
+ProcessVDPQueues:
                 
-                bsr.s   sub_126C
-                bsr.w   sub_12F0
-                bsr.w   sub_1340
+                bsr.s   ProcessVdpCommandQueue
+                bsr.w   ProcessVramRead
+                bsr.w   ProcessDMAQueue
                 rts
 
-    ; End of function sub_1260
+    ; End of function ProcessVDPQueues
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_126C:
+ProcessVdpCommandQueue:
                 
-                bclr    #0,(byte_FF0F8B).l
+                bclr    #VDP_COMMAND_REQUEST,(INTERRUPT_PARAMETERS).l
                 beq.w   return_12EE
-                tst.b   (byte_FF0F8C).l
+                tst.b   (VDP_COMMAND_COUNTER).l
                 beq.w   return_12EE
-                lea     (byte_FF0CD0).l,a0
+                lea     (VDP_COMMAND_QUEUE).l,a0
 loc_1288:
                 
                 move.w  (a0)+,d0
@@ -3083,24 +3090,24 @@ loc_12CA:
                 
                 move.w  (a0)+,(VDP_Data).l
                 dbf     d0,loc_12CA
-                subq.b  #1,(byte_FF0F8C).l
+                subq.b  #1,(VDP_COMMAND_COUNTER).l
                 bne.s   loc_1288
                 move.w  #$8F02,(VDP_Control).l
-                move.l  #byte_FF0CD0,(dword_FF0FD6).l
+                move.l  #VDP_COMMAND_QUEUE,(VDP_COMMAND_QUEUE_POINTER).l
 return_12EE:
                 
                 rts
 
-    ; End of function sub_126C
+    ; End of function ProcessVdpCommandQueue
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_12F0:
+ProcessVramRead:
                 
-                bclr    #4,(byte_FF0F8B).l
+                bclr    #VRAM_READ_REQUEST,(INTERRUPT_PARAMETERS).l
                 beq.s   return_132E
-                lea     (byte_FF0CD0).l,a0
+                lea     (VDP_COMMAND_QUEUE).l,a0
                 move.w  #$8F02,(VDP_Control).l
                 move.w  (a0),d7
                 andi.w  #$3FFF,d7
@@ -3118,39 +3125,39 @@ return_132E:
                 
                 rts
 
-    ; End of function sub_12F0
+    ; End of function ProcessVramRead
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1330:
+UpdateSprites:
                 
-                btst    #1,(byte_FF0F8B).l
+                btst    #DEACTIVATE_DMA,(INTERRUPT_PARAMETERS).l
                 bne.s   return_133E
-                bsr.w   sub_AE4
+                bsr.w   UpdateVDPSpriteTable
 return_133E:
                 
                 rts
 
-    ; End of function sub_1330
+    ; End of function UpdateSprites
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1340:
+ProcessDMAQueue:
                 
-                bclr    #3,(byte_FF0F8B).l
+                bclr    #DMA_REQUEST,(INTERRUPT_PARAMETERS).l
                 beq.s   return_13B4
-                tst.b   (byte_FF0F8D).l
+                tst.b   (DMA_QUEUE_SIZE).l
                 beq.s   return_13B4
                 move.w  #$100,(Z80BusReq).l
 loc_135A:
                 
                 btst    #0,(Z80BusReq).l
                 bne.s   loc_135A
-                lea     (byte_FF07D0).l,a0
+                lea     (DMA_QUEUE).l,a0
                 lea     (VDP_Control).l,a6
-                move.w  (unk_FF0FB2).l,d7
+                move.w  (VDP_REG01_STATUS).l,d7
                 ori.b   #$10,d7
                 move.w  d7,(a6)
 loc_137C:
@@ -3159,19 +3166,19 @@ loc_137C:
                 move.l  (a0)+,(a6)
                 move.l  (a0)+,(a6)
                 move.w  (a0)+,(a6)
-                move.w  (a0)+,(word_FF0FA8).l
-                move.w  (word_FF0FA8).l,(a6)
-                subq.b  #1,(byte_FF0F8D).l
+                move.w  (a0)+,(DMA_ADDR_MSBYTE).l
+                move.w  (DMA_ADDR_MSBYTE).l,(a6)
+                subq.b  #1,(DMA_QUEUE_SIZE).l
                 bne.s   loc_137C
-                move.w  (unk_FF0FB2).l,(a6)
+                move.w  (VDP_REG01_STATUS).l,(a6)
                 move.w  #$8F02,(a6)
                 move.w  #0,(Z80BusReq).l
-                move.l  #byte_FF07D0,(dword_FF0FDA).l
+                move.l  #DMA_QUEUE,(DMA_QUEUE_POINTER).l
 return_13B4:
                 
                 rts
 
-    ; End of function sub_1340
+    ; End of function ProcessDMAQueue
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -3183,15 +3190,15 @@ loc_13BE:
                 
                 btst    #0,(Z80BusReq).l
                 bne.s   loc_13BE
-                tst.b   (byte_FF0F7F).l
+                tst.b   (WAIT_FOR_MUSIC_END).l
                 beq.w   loc_13E2
-                tst.b   (Z80_UNKNOWN).l
+                tst.b   (Z80_UNKNOWN).l 
                 beq.w   loc_14E6
-                clr.b   (byte_FF0F7F).l
+                clr.b   (WAIT_FOR_MUSIC_END).l
 loc_13E2:
                 
-                lea     ($FF0FA0).l,a0
-                move.l  dword_FF0FA4-SOUND_COMMAND_QUEUE(a0),d0
+                lea     (SOUND_COMMAND_QUEUE).l,a0
+                move.l  4(a0),d0
                 or.l    (a0),d0
                 beq.w   loc_14E6
                 move.b  (a0),d1
@@ -3202,20 +3209,20 @@ loc_13E2:
                 clr.w   (a0)
                 cmpi.b  #$FB,d0
                 bne.s   loc_1440
-                tst.b   (byte_FF0F80).l
+                tst.b   (MUSIC_STACK_LENGTH).l
                 beq.s   loc_1432
                 movem.l d7-a0,-(sp)
-                lea     (byte_FF0F81).l,a0
+                lea     (MUSIC_STACK).l,a0
                 moveq   #8,d7
 loc_1420:
                 
                 move.b  1(a0),(a0)+
                 dbf     d7,loc_1420
                 movem.l (sp)+,d7-a0
-                subq.b  #1,(byte_FF0F80).l
+                subq.b  #1,(MUSIC_STACK_LENGTH).l
 loc_1432:
                 
-                move.b  (byte_FF0F81).l,(Z80_SOUND_COMMAND).l
+                move.b  (MUSIC_STACK).l,(Z80_SOUND_COMMAND).l
                 bra.w   loc_14E6
 loc_1440:
                 
@@ -3227,7 +3234,7 @@ loc_1450:
                 
                 cmpi.b  #$F0,d0
                 bne.s   loc_1462
-                move.b  #1,(byte_FF0F7F).l
+                move.b  #1,(WAIT_FOR_MUSIC_END).l
                 bra.w   loc_14E6
 loc_1462:
                 
@@ -3241,7 +3248,7 @@ loc_147C:
                 
                 movem.l d0,-(sp)
                 andi.b  #$7F,d0 
-                cmp.b   (byte_FF0F81).l,d0
+                cmp.b   (MUSIC_STACK).l,d0
                 movem.l (sp)+,d0
                 bne.s   loc_1494
                 bra.w   loc_14E6
@@ -3262,7 +3269,7 @@ loc_14B0:
                 cmpi.b  #$40,d0 
                 bge.s   loc_14E6
                 movem.l d7-a0,-(sp)
-                lea     (byte_FF0F8B).l,a0
+                lea     (INTERRUPT_PARAMETERS).l,a0
                 moveq   #8,d7
 loc_14C8:
                 
@@ -3270,9 +3277,9 @@ loc_14C8:
                 dbf     d7,loc_14C8
                 move.b  d0,-(a0)
                 movem.l (sp)+,d7-a0
-                cmpi.b  #$A,(byte_FF0F80).l
+                cmpi.b  #$A,(MUSIC_STACK_LENGTH).l
                 bge.s   loc_14E6
-                addq.b  #1,(byte_FF0F80).l
+                addq.b  #1,(MUSIC_STACK_LENGTH).l
 loc_14E6:
                 
                 move.w  #0,(Z80BusReq).l
@@ -3292,10 +3299,10 @@ nullsub_5:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_14F2:
+CheckSRAM:
                 
-                lea     (byte_200011).l,a0
-                lea     unk_1562(pc), a1
+                lea     (SRAM_STRING).l,a0
+                lea     SramCheckString(pc), a1
                 moveq   #9,d7
 loc_14FE:
                 
@@ -3303,40 +3310,40 @@ loc_14FE:
 loc_1500:
                 
                 cmp.b   (a0),d0
-                bne.s   loc_1520
+                bne.s   InitializeSRAM
                 addq.w  #2,a0
                 dbf     d7,loc_14FE
                 clr.b   d0
-                bsr.s   sub_1516
-                bsr.s   sub_1516
-                bsr.s   sub_1516
-                bsr.s   sub_1516
+                bsr.s   VerifySave
+                bsr.s   VerifySave
+                bsr.s   VerifySave
+                bsr.s   VerifySave
                 rts
 
-    ; End of function sub_14F2
+    ; End of function CheckSRAM
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1516:
+VerifySave:
                 
-                bsr.s   sub_156C
+                bsr.s   VerifyChecksum
                 beq.s   loc_151C
-                bsr.s   sub_1552
+                bsr.s   EraseSave
 loc_151C:
                 
                 addq.b  #1,d0
                 rts
 
-    ; End of function sub_1516
+    ; End of function VerifySave
 
 
-; START OF FUNCTION CHUNK FOR sub_14F2
+; =============== S U B R O U T I N E =======================================
 
-loc_1520:
+InitializeSRAM:
                 
-                lea     (byte_200011).l,a0
-                lea     unk_1562(pc), a1
+                lea     (SRAM_STRING).l,a0
+                lea     SramCheckString(pc), a1
                 moveq   #9,d7
 loc_152C:
                 
@@ -3344,32 +3351,32 @@ loc_152C:
                 addq.w  #2,a0
                 dbf     d7,loc_152C
                 clr.b   d0
-                bsr.s   sub_1552
+                bsr.s   EraseSave
                 move.b  #1,d0
-                bsr.s   sub_1552
+                bsr.s   EraseSave
                 move.b  #2,d0
-                bsr.s   sub_1552
+                bsr.s   EraseSave
                 move.b  #3,d0
-                bsr.s   sub_1552
+                bsr.s   EraseSave
                 rts
 
-; END OF FUNCTION CHUNK FOR sub_14F2
+    ; End of function InitializeSRAM
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_154C:
+GetSaveSlot:
                 
-                move.b  (byte_FF0010).l,d0
+                move.b  (SAVE_SLOT).l,d0
 
-    ; End of function sub_154C
+    ; End of function GetSaveSlot
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1552:
+EraseSave:
                 
-                bsr.s   sub_1580
+                bsr.s   GetSave
                 move.w  #$3FF,d7
 loc_1558:
                 
@@ -3378,24 +3385,15 @@ loc_1558:
                 dbf     d7,loc_1558
                 rts
 
-    ; End of function sub_1552
+    ; End of function EraseSave
 
-unk_1562:       dc.b $4B 
-                dc.b $41 
-                dc.b $4E 
-                dc.b $26 
-                dc.b $4D 
-                dc.b $41 
-                dc.b $4B 
-                dc.b $49 
-                dc.b $4B 
-                dc.b $4F 
+SramCheckString:dc.b 'KAN&MAKIKO'       ; <3
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_156C:
+VerifyChecksum:
                 
-                bsr.s   sub_1580
+                bsr.s   GetSave
                 clr.w   d1
                 move.w  #$3FE,d7
 loc_1574:
@@ -3406,30 +3404,30 @@ loc_1574:
                 cmp.b   (a0),d1
                 rts
 
-    ; End of function sub_156C
+    ; End of function VerifyChecksum
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1580:
+GetSave:
                 
                 clr.w   d1
                 move.b  d0,d1
                 mulu.w  #$800,d1
-                lea     (byte_200031).l,a0
+                lea     (SRAM_SAVES).l,a0
                 adda.w  d1,a0
                 rts
 
-    ; End of function sub_1580
+    ; End of function GetSave
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_1592:
+WriteSave:
                 
                 movem.l d0-d1/d7-a2,-(sp)
-                move.b  (byte_FF0010).l,d0
-                bsr.s   sub_1580
+                move.b  (SAVE_SLOT).l,d0
+                bsr.s   GetSave
                 lea     pt_FlagMap(pc), a1
 loc_15A2:
                 
@@ -3445,20 +3443,20 @@ loc_15AE:
                 bra.s   loc_15A2
 loc_15B8:
                 
-                bsr.s   sub_156C
+                bsr.s   VerifyChecksum
                 move.b  d1,(a0)
                 movem.l (sp)+,d0-d1/d7-a2
                 rts
 
-    ; End of function sub_1592
+    ; End of function WriteSave
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_15C2:
+LoadSave:
                 
-                move.b  (byte_FF0010).l,d0
-                bsr.s   sub_1580
+                move.b  (SAVE_SLOT).l,d0
+                bsr.s   GetSave
                 lea     pt_FlagMap(pc), a1
 loc_15CE:
                 
@@ -3476,18 +3474,18 @@ return_15E4:
                 
                 rts
 
-    ; End of function sub_15C2
+    ; End of function LoadSave
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_15E6:
+CopySave:
                 
                 movem.w d1,-(sp)
-                bsr.s   sub_1580
+                bsr.s   GetSave
                 movea.l a0,a1
                 movem.w (sp)+,d0
-                bsr.s   sub_1580
+                bsr.s   GetSave
                 move.w  #$3FF,d7
 loc_15F8:
                 
@@ -3497,7 +3495,7 @@ loc_15F8:
                 dbf     d7,loc_15F8
                 rts
 
-    ; End of function sub_15E6
+    ; End of function CopySave
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -3516,8 +3514,8 @@ loc_160A:
                 bra.s   loc_160A
 loc_1618:
                 
-                move.b  (byte_FF0010).l,d0
-                bsr.w   sub_1580
+                move.b  (SAVE_SLOT).l,d0
+                bsr.w   GetSave
                 add.w   d2,d2
                 adda.w  d2,a0
                 rts
@@ -3539,7 +3537,7 @@ pt_FlagMap:     dc.l MAIN_FLAGS
                 dc.l byte_FF5404
                 dc.b   0
                 dc.b   0
-                dc.l word_FF1204
+                dc.l CURRENT_MAP
                 dc.b   0
                 dc.b   1
                 dc.l GOLD
@@ -3575,13 +3573,13 @@ pt_FlagMap:     dc.l MAIN_FLAGS
                 dc.l byte_FF1151
                 dc.b   0
                 dc.b   0
-                dc.l word_FF0FDE
+                dc.l FRAME_COUNTER
                 dc.b   0
                 dc.b   1
-                dc.l word_FF0FE0
+                dc.l MINUTE_COUNTER
                 dc.b   0
                 dc.b   1
-                dc.l word_FF0FE2
+                dc.l HOUR_COUNTER
                 dc.b   0
                 dc.b   1
                 dc.l dword_FF1020
@@ -3590,7 +3588,7 @@ pt_FlagMap:     dc.l MAIN_FLAGS
                 dc.l byte_FF1146
                 dc.b   0
                 dc.b   0
-                dc.l word_FF1206
+                dc.l word_FF1206        
                 dc.b   0
                 dc.b   1
                 dc.b   0
@@ -3604,7 +3602,7 @@ loc_16B6:
                 
                 lea     (initStack).w,sp
                 jsr     j_DisplaySegaLogo
-                jsr     sub_38604
+                jsr     j_ExecuteIntroLoop
                 bcc.w   loc_4B8
 loc_16CA:
                 
@@ -3627,8 +3625,8 @@ sub_16DC:
                 andi.w  #$1000,(dword_FF542C).l
                 bsr.w   sub_1788
                 bsr.w   sub_7624
-                bsr.w   sub_2E2E
-                bsr.w   sub_2F0C
+                bsr.w   LoadNextMapInDebugMode
+                bsr.w   SaveInDebugMode
                 bsr.w   sub_2178
                 bsr.w   sub_66AC
                 bsr.w   sub_18C4
@@ -3653,10 +3651,10 @@ sub_16DC:
                 jsr     sub_C46A        
                 jsr     sub_10340
                 bsr.w   sub_249A
-                bsr.w   sub_B8A
-                bsr.w   sub_B9A
+                bsr.w   RequestVDPCommandQueueProcessing
+                bsr.w   EnableDMAQueueProcessing
                 move.w  (word_200).w,d0
-                bsr.w   sub_B7A
+                bsr.w   Sleep           
                 jsr     sub_10384
                 tst.b   d0
                 rts
@@ -3668,9 +3666,9 @@ sub_16DC:
 
 sub_1788:
                 
-                move.w  (word_FF12DE).l,d0
+                move.w  (byte_FF12DE).l,d0
                 beq.s   loc_17C6
-                move.b  (word_FF12DE).l,(byte_FF0F8E).l
+                move.b  (byte_FF12DE).l,(P1_INPUT).l
                 cmpi.b  #$FE,d0
                 beq.s   return_17BE
                 subq.b  #1,d0
@@ -3683,27 +3681,27 @@ sub_1788:
                 move.l  a0,(dword_FF1870).l
 loc_17B8:
                 
-                move.w  d0,(word_FF12DE).l
+                move.w  d0,(byte_FF12DE).l
 return_17BE:
                 
                 rts
 loc_17C0:
                 
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
 loc_17C6:
                 
                 tst.b   (byte_FF1145).l
                 bne.s   loc_17E6
-                bsr.w   sub_1040
+                bsr.w   RefreshPlayerInput
                 btst    #2,(byte_FF1146).l
                 beq.s   return_17E4
-                andi.b  #$80,(byte_FF0F8E).l
+                andi.b  #$80,(P1_INPUT).l
 return_17E4:
                 
                 rts
 loc_17E6:
                 
-                clr.b   (byte_FF0F8E).l
+                clr.b   (P1_INPUT).l    
                 rts
 
     ; End of function sub_1788
@@ -3795,20 +3793,20 @@ sub_18C4:
                 bset    #6,(byte_FF1146).l
 loc_18DC:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bmi.s   loc_18F4
                 move.w  #8,(word_FF1182).l
-                btst    #5,(byte_FF0F8F).l
+                btst    #INPUT_C,(P2_INPUT).l
                 bne.s   loc_18FC
 loc_18F4:
                 
                 move.w  #2,(word_FF1182).l
 loc_18FC:
                 
-                move.b  (byte_FF0F8E).l,d0
+                move.b  (P1_INPUT).l,d0 
                 lea     (dword_FF5400).l,a5
                 andi.b  #$F,d0
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   loc_1922
                 move.b  (byte_FF1146).l,d1
                 andi.b  #2,d1
@@ -3977,7 +3975,7 @@ loc_1A3A:
 
 loc_1A48:
                 
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   loc_1A58
                 bclr    #7,(byte_FF1146).l
 loc_1A58:
@@ -4027,7 +4025,7 @@ loc_1AE6:
                 andi.b  #$3F,4(a5) 
                 addq.b  #1,$D(a5)
                 clr.b   $20(a5)
-                move.b  (word_FF0F9C+1).l,d7
+                move.b  (byte_FF0F9D).l,d7
                 andi.b  #3,d7
                 bne.s   loc_1B04
 
@@ -4121,10 +4119,10 @@ loc_1B8E:
                 move.w  (a6),$22(a5)
 loc_1BD0:
                 
-                move.w  (word_FF1202).l,d0
+                move.w  (PLAYER_Y).l,d0
                 move.b  d0,d1
                 sub.w   (word_FF1182).l,d0
-                move.w  d0,(word_FF1202).l
+                move.w  d0,(PLAYER_Y).l
                 andi.b  #$F,d0
                 move.b  d0,(word_FF1126+1).l
                 andi.b  #8,d0
@@ -4158,7 +4156,7 @@ return_1C5A:
                 rts
 loc_1C5C:
                 
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   loc_1C6C
                 bclr    #7,(byte_FF1146).l
 loc_1C6C:
@@ -4166,108 +4164,58 @@ loc_1C6C:
                 bclr    #4,(dword_FF542C).l
                 move.w  $1A(a5),d1
                 move.w  (word_FF1182).l,d0
-
-; END OF FUNCTION CHUNK FOR sub_1936
-
-                dc.b $D1 
-                dc.b $6D 
-                dc.l SpriteAnim385Frame1+$45
-                dc.b   0
-                dc.b $1A
-                dc.b $30 
-                dc.b $2D 
-                dc.b   0
-                dc.b $1A
-                dc.b   2
-                dc.b   0
-                dc.b   0
-                dc.b   8
-                dc.b   2
-                dc.b   1
-                dc.b   0
-                dc.b   8
-                dc.b $B2 
-                dc.b   0
-                dc.b $63 
-                dc.b $40 
-                dc.b $61 
-                dc.b   0
-                dc.b $14
-                dc.b $AE 
-                dc.b $64 
-                dc.b $3A 
-                dc.b   8
-                dc.b $39 
-                dc.b   0
-                dc.b   3
-                dc.b   0
-                dc.b $FF
-                dc.b $54 
-                dc.b $2C 
-                dc.b $67 
-                dc.b  $A
-                dc.b   8
-                dc.b $28 
-                dc.b   0
-                dc.b   4
-                dc.b   0
-                dc.b $22 
-                dc.b $66 
-                dc.b   0
-                dc.b   0
-                dc.b $28 
-                dc.b $61 
-                dc.b $54 
-                dc.b $33 
-                dc.b $FC 
-                dc.b   0
-                dc.b   1
-                dc.b   0
-                dc.b $FF
-                dc.b $11
-                dc.b $82 
-                dc.b   2
-                dc.b   5
-                dc.b   0
-                dc.b $3F 
-                dc.b  $C
-                dc.b   5
-                dc.b   0
-                dc.b  $E
-                dc.b $67 
-                dc.b   0
-                dc.b   1
-                dc.b   2
-                dc.b $B6 
-                dc.b   0
-                dc.b $64 
-                dc.b   0
-                dc.b $FD 
-                dc.b $7E 
-                dc.b $B6 
-                dc.b   1
-                dc.b $64 
-                dc.b   0
-                dc.b   1
-                dc.b $22 
-                dc.b $60 
-                dc.b   0
-                dc.b   0
-                dc.b $F2 
+                add.w   d0,$18(a5)
+                add.w   d0,$1A(a5)
+                move.w  $1A(a5),d0
+                andi.b  #8,d0
+                andi.b  #8,d1
+                cmp.b   d0,d1
+                bls.s   loc_1CD6
+                bsr.w   loc_3146
+                bcc.s   loc_1CD6
+                btst    #3,(dword_FF542C).l
+                beq.s   loc_1CB0
+                btst    #4,$22(a0)
+                bne.w   loc_1CD6
+loc_1CB0:
+                
+                bsr.s   sub_1D06
+                move.w  #1,(word_FF1182).l
+                andi.b  #$3F,d5 
+                cmpi.b  #$E,d5
+                beq.w   loc_1DC6
+                cmp.b   d0,d3
+                bcc.w   loc_1A48
+                cmp.b   d1,d3
+                bcc.w   loc_1DF2
+                bra.w   loc_1DC6
+loc_1CD6:
+                
                 clr.w   d0
                 tst.b   (byte_FF1142).l
                 beq.s   loc_1CE6
-loc_1CE0:       bsr.w   sub_3058
+loc_1CE0:
+                
+                bsr.w   sub_3058
                 bra.s   loc_1CF4
-loc_1CE6:       btst    #6,(byte_FF1146).l
+loc_1CE6:
+                
+                btst    #6,(byte_FF1146).l
                 bne.s   loc_1CE0
                 bsr.w   sub_2F76
-loc_1CF4:       bcc.s   loc_1D16
+loc_1CF4:
+                
+                bcc.s   loc_1D16
                 tst.b   $C(a0)
                 bpl.s   loc_1D00
                 bsr.w   sub_25B2
-loc_1D00:       bsr.s   sub_1D06
+loc_1D00:
+                
+                bsr.s   sub_1D06
                 bra.w   loc_1DC6
+
+; END OF FUNCTION CHUNK FOR sub_1936
+
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -4280,11 +4228,18 @@ sub_1D06:
 
     ; End of function sub_1D06
 
-loc_1D16:       btst    #4,8(a5)
+
+; START OF FUNCTION CHUNK FOR sub_1936
+
+loc_1D16:
+                
+                btst    #4,8(a5)
                 beq.s   loc_1D26
                 lsr     (word_FF1182).l
                 bsr.s   sub_1D06
-loc_1D26:       move.w  $14(a5),d0
+loc_1D26:
+                
+                move.w  $14(a5),d0
                 move.b  d0,d1
                 add.w   (word_FF1182).l,d0
                 move.w  d0,$14(a5)
@@ -4299,10 +4254,12 @@ loc_1D26:       move.w  $14(a5),d0
                 movea.w $28(a5),a6
                 move.w  $22(a5),(unk_FF1208).l
                 move.w  (a6),$22(a5)
-loc_1D66:       move.w  (word_FF1200).l,d0
+loc_1D66:
+                
+                move.w  (PLAYER_X).l,d0
                 move.b  d0,d1
                 add.w   (word_FF1182).l,d0
-                move.w  d0,(word_FF1200).l
+                move.w  d0,(PLAYER_X).l
                 andi.b  #$F,d0
                 move.b  d0,(word_FF1126).l
                 andi.b  #8,d0
@@ -4316,23 +4273,28 @@ loc_1D66:       move.w  (word_FF1200).l,d0
                 andi.w  #$1F,d0
                 bne.s   loc_1DB2
                 subi.w  #$20,(word_FF1184).l 
-loc_1DB2:       jsr     sub_A730
+loc_1DB2:
+                
+                jsr     sub_A730
                 jsr     sub_A698
-loc_1DBE:       bsr.w   sub_2452
+loc_1DBE:
+                
+                bsr.w   sub_2452
                 bsr.w   sub_2436
-loc_1DC6:       bclr    #3,(dword_FF542C).l
+loc_1DC6:
+                
+                bclr    #3,(dword_FF542C).l
                 bne.s   return_1DF0
                 andi.b  #$3F,(byte_FF5404).l 
                 ori.b   #$40,(byte_FF5404).l 
                 bset    #3,(dword_FF542C+1).l
                 bset    #3,(word_FF546D).l
-return_1DF0:    rts
-
-; START OF FUNCTION CHUNK FOR sub_1936
-
+return_1DF0:
+                
+                rts
 loc_1DF2:
                 
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   loc_1E02
                 bclr    #7,(byte_FF1146).l
 loc_1E02:
@@ -4426,10 +4388,10 @@ loc_1EA8:
                 move.w  (a6),$22(a5)
 loc_1EE8:
                 
-                move.w  (word_FF1202).l,d0
+                move.w  (PLAYER_Y).l,d0
                 move.b  d0,d1
                 add.w   (word_FF1182).l,d0
-                move.w  d0,(word_FF1202).l
+                move.w  d0,(PLAYER_Y).l
                 andi.b  #$F,d0
                 move.b  d0,(word_FF1126+1).l
                 andi.b  #8,d0
@@ -4464,7 +4426,7 @@ return_1F7A:
                 rts
 loc_1F7C:
                 
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   loc_1F8C
                 bclr    #7,(byte_FF1146).l
 loc_1F8C:
@@ -4508,16 +4470,10 @@ loc_2006:
                 ori.b   #$C0,4(a5)
                 addq.b  #1,$D(a5)
                 clr.b   $20(a5)
-                move.b  (word_FF0F9C+1).l,d7
+                move.b  (byte_FF0F9D).l,d7
                 andi.b  #3,d7
                 bne.s   loc_2024
-
-; END OF FUNCTION CHUNK FOR sub_1936
-
                 sndCom  SFX_STEP
-
-; START OF FUNCTION CHUNK FOR sub_1936
-
 loc_2024:
                 
                 moveq   #1,d7
@@ -4602,10 +4558,10 @@ loc_20B0:
                 move.w  (a6),$22(a5)
 loc_20F0:
                 
-                move.w  (word_FF1200).l,d0
+                move.w  (PLAYER_X).l,d0
                 move.b  d0,d1
                 sub.w   (word_FF1182).l,d0
-                move.w  d0,(word_FF1200).l
+                move.w  d0,(PLAYER_X).l
                 andi.b  #$F,d0
                 move.b  d0,(word_FF1126).l
                 andi.b  #8,d0
@@ -4646,7 +4602,7 @@ return_2176:
 
 sub_2178:
                 
-                move.b  (byte_FF0F8E).l,d1
+                move.b  (P1_INPUT).l,d1 
                 and.b   d1,(byte_FF113E).l
                 btst    #4,(dword_FF542C).l
                 bne.s   return_21AC
@@ -4770,10 +4726,10 @@ sub_223A:
 loc_2242:
                 
                 clr.b   d1
-                move.w  (word_FF1200).l,d2
+                move.w  (PLAYER_X).l,d2
                 move.b  d2,d3
                 add.w   d7,d2
-                move.w  d2,(word_FF1200).l
+                move.w  d2,(PLAYER_X).l
                 andi.b  #$F,d2
                 move.b  d2,(word_FF1126).l
                 andi.b  #8,d2
@@ -4795,10 +4751,10 @@ loc_228C:
                 moveq   #1,d1
 loc_229C:
                 
-                move.w  (word_FF1202).l,d2
+                move.w  (PLAYER_Y).l,d2
                 move.b  d2,d3
                 add.w   d7,d2
-                move.w  d2,(word_FF1202).l
+                move.w  d2,(PLAYER_Y).l
                 andi.b  #$F,d2
                 move.b  d2,(word_FF1126+1).l
                 andi.b  #8,d2
@@ -4840,10 +4796,10 @@ loc_231E:
 loc_2326:
                 
                 clr.b   d1
-                move.w  (word_FF1200).l,d2
+                move.w  (PLAYER_X).l,d2
                 move.b  d2,d3
                 sub.w   d7,d2
-                move.w  d2,(word_FF1200).l
+                move.w  d2,(PLAYER_X).l
                 andi.b  #$F,d2
                 move.b  d2,(word_FF1126).l
                 andi.b  #8,d2
@@ -4866,10 +4822,10 @@ loc_2374:
                 moveq   #1,d1
 loc_2384:
                 
-                move.w  (word_FF1202).l,d2
+                move.w  (PLAYER_Y).l,d2
                 move.w  d2,d3
                 sub.w   d7,d2
-                move.w  d2,(word_FF1202).l
+                move.w  d2,(PLAYER_Y).l
                 andi.b  #$F,d2
                 move.b  d2,(word_FF1126+1).l
                 andi.b  #8,d2
@@ -4930,8 +4886,8 @@ loc_2412:
                 
                 eori.w  #1,(word_FF1180).l
                 bne.s   loc_2428
-                subq.w  #1,(dword_FF0500).l
-                subq.w  #1,(dword_FF0500+2).l
+                subq.w  #1,(VERTICAL_SCROLL_DATA).l
+                subq.w  #1,(VERTICAL_SCROLL_DATA+2).l
 loc_2428:
                 
                 dbf     d7,loc_2412
@@ -4946,8 +4902,8 @@ loc_2428:
 sub_2436:
                 
                 move.w  (word_FF1182).l,d7
-                sub.w   d7,(dword_FF0100).l
-                sub.w   d7,(dword_FF0100+2).l
+                sub.w   d7,(HORIZONTAL_SCROLL_DATA).l
+                sub.w   d7,(HORIZONTAL_SCROLL_DATA+2).l
                 move.b  #1,(byte_FF113C).l
                 rts
 
@@ -4972,8 +4928,8 @@ loc_245A:
                 
                 eori.w  #1,(word_FF1180).l
                 beq.s   loc_2470
-                addq.w  #1,(dword_FF0500).l
-                addq.w  #1,(dword_FF0500+2).l
+                addq.w  #1,(VERTICAL_SCROLL_DATA).l
+                addq.w  #1,(VERTICAL_SCROLL_DATA+2).l
 loc_2470:
                 
                 dbf     d7,loc_245A
@@ -4988,8 +4944,8 @@ loc_2470:
 sub_247E:
                 
                 move.w  (word_FF1182).l,d7
-                add.w   d7,(dword_FF0100).l
-                add.w   d7,(dword_FF0100+2).l
+                add.w   d7,(HORIZONTAL_SCROLL_DATA).l
+                add.w   d7,(HORIZONTAL_SCROLL_DATA+2).l
                 move.b  #1,(byte_FF113C).l
                 rts
 
@@ -5003,19 +4959,19 @@ sub_249A:
                 tst.b   (byte_FF113C).l
                 beq.s   return_24F2
                 clr.b   (byte_FF113C).l
-                movea.l (dword_FF0FD6).l,a0
+                movea.l (VDP_COMMAND_QUEUE_POINTER).l,a0
                 move.w  #1,(a0)+
                 move.w  #$D000,(a0)+
-                move.l  (dword_FF0100).l,(a0)+
-                move.l  a0,(dword_FF0FD6).l
-                addq.b  #1,(byte_FF0F8C).l
-                movea.l (dword_FF0FDA).l,a6
+                move.l  (HORIZONTAL_SCROLL_DATA).l,(a0)+
+                move.l  a0,(VDP_COMMAND_QUEUE_POINTER).l
+                addq.b  #1,(VDP_COMMAND_COUNTER).l
+                movea.l (DMA_QUEUE_POINTER).l,a6
                 move.l  #$8F029400,(a6)+
                 move.l  #$93029682,(a6)+
                 move.l  #$9580977F,(a6)+
                 move.l  #$40000090,(a6)+
-                move.l  a6,(dword_FF0FDA).l
-                addq.b  #1,(byte_FF0F8D).l
+                move.l  a6,(DMA_QUEUE_POINTER).l
+                addq.b  #1,(DMA_QUEUE_SIZE).l
 return_24F2:
                 
                 rts
@@ -5133,12 +5089,12 @@ return_25C4:
 
 sub_25C6:
                 
-                cmpi.w  #$20C,(word_FF1204).l
+                cmpi.w  #$20C,(CURRENT_MAP).l
                 bne.s   return_260C
-                move.b  (word_FF0F9C+1).l,d0
+                move.b  (byte_FF0F9D).l,d0
                 andi.b  #$F,d0
                 bne.s   return_260C
-                move.b  (word_FF0F9C+1).l,d0
+                move.b  (byte_FF0F9D).l,d0
                 andi.w  #$70,d0 
                 lsr.b   #2,d0
                 move.l  #$C0100000,(VDP_Control).l
@@ -5212,7 +5168,7 @@ loc_2658:
                 move.w  #$C000,(VDP_Control).l
                 move.w  #0,(VDP_Control).l
                 move.w  #$F,d0
-                lea     (word_FF0ED0).l,a0
+                lea     (PALETTE_1_CURRENT).l,a0
 loc_2676:
                 
                 move.w  (a0)+,(VDP_Data).l
@@ -5266,7 +5222,7 @@ sub_26E8:
                 bsr.s   sub_2726
                 jsr     sub_22EC0
                 bsr.w   sub_2F26
-                bsr.w   sub_AE0
+                bsr.w   ClearVsramAndSprites
                 tst.w   (dword_FF5400).l
                 bne.s   loc_271A
                 bset    #3,(byte_FF1027).l
@@ -5290,9 +5246,9 @@ sub_2726:
                 
                 move.w  #0,d0
                 move.b  #$EF,d1
-                bsr.w   sub_8B2
+                bsr.w   ApplyLogicalAndOnVDPRegister
                 move.w  #$9200,d0
-                bsr.w   sub_87E
+                bsr.w   SetVDPRegister
                 lea     (dword_FF5400).l,a0
                 move.w  #$7F,d7 
 loc_2744:
@@ -5303,8 +5259,8 @@ loc_2744:
                 clr.b   (byte_FF1142).l
                 clr.b   (byte_FF1145).l
                 clr.b   (byte_FF1128).l
-                clr.b   (word_FF12DE).l
-                clr.b   (word_FF12DE+1).l
+                clr.b   (byte_FF12DE).l
+                clr.b   (byte_FF12DF).l
                 move.l  #byte_FF3900,(dword_FF1840).l
                 move.b  #$FF,(byte_FF112C).l
                 move.b  #$FF,(byte_FF112D).l
@@ -5326,21 +5282,21 @@ sub_27B2:
                 move.w  #$3FF,(word_FF547E).l
                 move.w  #$100,(word_FF547C).l
                 clr.w   (word_FF1BF0).l
-                clr.w   (word_FF0FDE).l
-                clr.w   (word_FF0FE0).l
-                clr.w   (word_FF0FE2).l
+                clr.w   (FRAME_COUNTER).l
+                clr.w   (MINUTE_COUNTER).l
+                clr.w   (HOUR_COUNTER).l
                 lea     (CHEST_FLAGS).l,a0
                 move.w  #$3F,d7 
 loc_27EC:
                 
                 clr.b   (a0)+
                 dbf     d7,loc_27EC
-                move.w  #$8B,(word_FF1204).l 
+                move.w  #$8B,(CURRENT_MAP).l 
                 move.b  #$3E,(dword_FF5400).l 
                 move.b  #$18,(dword_FF5400+1).l
                 move.b  #$90,(word_FF5439).l
                 move.w  #$90,(word_FF5412).l 
-                move.w  #$FE,(word_FF12DE).l 
+                move.w  #$FE,(byte_FF12DE).l 
                 rts
 
     ; End of function sub_27B2
@@ -5355,9 +5311,9 @@ sub_2824:
                 movem.w d0-d1,-(sp)
                 clr.b   (byte_FF1001).l
                 bsr.w   sub_295E
-                move.w  (word_FF1204).l,d0
-                bsr.w   sub_293C
-                bsr.w   sub_2B4E
+                move.w  (CURRENT_MAP).l,d0
+                bsr.w   SetVisitedMapFlag
+                bsr.w   LoadMap
                 bsr.w   sub_2A46
                 lea     (dword_FF5400).l,a1
                 jsr     sub_1038E
@@ -5368,13 +5324,13 @@ sub_2824:
                 bsr.w   sub_9EF8
                 bsr.w   sub_A114
                 bsr.w   sub_7274
-                bsr.w   sub_BA4
+                bsr.w   WaitForDMAQueueProcessing
                 bsr.w   sub_4042
-                bsr.w   sub_BA4
+                bsr.w   WaitForDMAQueueProcessing
                 bsr.w   sub_401C
                 bsr.w   sub_9D36
                 bsr.w   loc_29E8
-                bsr.w   sub_BA4
+                bsr.w   WaitForDMAQueueProcessing
                 bsr.w   sub_76EC
                 rts
 
@@ -5440,11 +5396,11 @@ loc_2920:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_293C:
+SetVisitedMapFlag:
                 
                 move.w  d0,d1
                 add.w   d1,d1
-                lea     (byte_C74E).l,a0
+                lea     (VisitedMapFlagmap).l,a0
                 move.w  (a0,d1.w),d1
                 move.w  d1,d2
                 andi.b  #7,d1
@@ -5453,7 +5409,7 @@ sub_293C:
                 bset    d1,(a0,d2.w)
                 rts
 
-    ; End of function sub_293C
+    ; End of function SetVisitedMapFlag
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -5479,20 +5435,20 @@ return_2994:
 
 sub_2996:
                 
-                move.w  #$8A18,(word_FF0FC4).l
+                move.w  #$8A18,(VDP_REG0A_STATUS).l
                 move.w  #$8A18,(VDP_Control).l
                 move.b  #$FF,(byte_FF112C).l
                 move.b  #$FF,(byte_FF112D).l
                 move.b  #$FF,(byte_FF112E).l
                 move.b  #$FF,(byte_FF112F).l
-                move.w  (word_FF1204).l,d0
-                bsr.w   sub_2B4E
-                bsr.w   sub_BA4
-                bsr.w   sub_B16
+                move.w  (CURRENT_MAP).l,d0
+                bsr.w   LoadMap
+                bsr.w   WaitForDMAQueueProcessing
+                bsr.w   ClearSpriteTable
                 bsr.w   sub_9046
                 bsr.w   sub_4042
                 bsr.w   sub_401C
-                bra.w   sub_B9A
+                bra.w   EnableDMAQueueProcessing
 loc_29E8:
                 
                 btst    #3,(byte_FF1027).l
@@ -5604,7 +5560,7 @@ sub_2AF2:
                 btst    #4,(byte_FF1003).l
                 beq.s   return_2B46
                 lea     unk_2B48(pc), a0
-                move.w  (word_FF1204).l,d0
+                move.w  (CURRENT_MAP).l,d0
                 moveq   #2,d7
 loc_2B08:
                 
@@ -5636,10 +5592,10 @@ unk_2B48:       dc.b   2
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2B4E:
+LoadMap:
                 
                 mulu.w  #8,d0
-                movea.l (off_A0A00).l,a0
+                movea.l (p_pt_Maps).l,a0
                 movea.l (a0,d0.w),a2
                 move.b  4(a0,d0.w),d3
                 ext.w   d3
@@ -5672,7 +5628,7 @@ loc_2BA4:
                 bsr.w   sub_4DF6
                 rts
 
-    ; End of function sub_2B4E
+    ; End of function LoadMap
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -5833,7 +5789,7 @@ sub_2CF6:
                 movea.l (a0,d3.w),a0
                 movem.w d2-d4,-(sp)
                 lea     (byte_FF7C02).l,a1
-                lea     (initStack).w,a2
+                lea     (0).w,a2
                 movem.l a2,-(sp)
                 movea.l a1,a2
                 bsr.w   sub_4AB2
@@ -5843,10 +5799,10 @@ sub_2CF6:
                 movea.l a2,a0
                 movem.l (sp)+,a1
                 lea     (byte_FF7C02).l,a0
-                lea     (initStack).w,a1
+                lea     (0).w,a1
                 move.w  #$3A80,d0
-                bsr.w   sub_BA4
-                bsr.w   sub_D22
+                bsr.w   WaitForDMAQueueProcessing
+                bsr.w   ApplyImmediateVramDMA
                 movem.w (sp)+,d2-d4
                 moveq   #1,d7
 loc_2D5C:
@@ -5879,8 +5835,8 @@ loc_2D90:
                 
                 lea     (byte_FF0084).l,a1
                 move.w  #$C,d0
-                bsr.w   sub_96A
-                clr.w   (word_FF0080).l
+                bsr.w   loc_96A
+                clr.w   (PALETTE_1_BASE).l
                 move.w  #$CCC,(word_FF0082).l
                 clr.w   (word_FF009E).l
 return_2DB2:
@@ -5926,7 +5882,7 @@ sub_2DCE:
                 add.b   (word_FF1126).l,d0
                 move.w  (word_FF5412).l,d1
                 sub.w   d1,d0
-                move.w  d0,(word_FF1200).l
+                move.w  d0,(PLAYER_X).l
                 move.w  d0,d2
                 andi.b  #$F,d0
                 move.b  d0,(word_FF1126).l
@@ -5937,7 +5893,7 @@ sub_2DCE:
                 lsl.w   #4,d0
                 add.b   (word_FF1126+1).l,d0
                 sub.w   d1,d0
-                move.w  d0,(word_FF1202).l
+                move.w  d0,(PLAYER_Y).l
                 move.w  d0,d2
                 andi.b  #$F,d0
                 move.b  d0,(word_FF1126+1).l
@@ -5950,9 +5906,9 @@ sub_2DCE:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2E2E:
+LoadNextMapInDebugMode:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bmi.w   return_2F24
                 tst.b   (byte_FF1008).l
                 beq.s   loc_2E4C
@@ -5960,18 +5916,18 @@ byte_2E3E:
                 
                 sndCom  SFX_MONSTER_SKREECH
                 move.w  #$3C,d0 
-                bsr.w   sub_B7A
+                bsr.w   Sleep           
                 bra.s   byte_2E3E
 loc_2E4C:
                 
-                tst.b   (byte_FF0F8F).l
+                tst.b   (P2_INPUT).l    
                 bpl.w   loc_2EB8
                 bsr.w   sub_8EF4
 loc_2E5A:
                 
-                addq.w  #1,(word_FF1204).l
-                move.w  (word_FF1204).l,d0
-                bsr.w   sub_2B4E
+                addq.w  #1,(CURRENT_MAP).l
+                move.w  (CURRENT_MAP).l,d0
+                bsr.w   LoadMap
                 lea     (byte_FFD192).l,a0
 loc_2E70:
                 
@@ -5993,37 +5949,31 @@ loc_2E70:
                 clr.b   d0
                 bsr.w   sub_2824
                 bra.w   sub_8E9C
-
-    ; End of function sub_2E2E
-
-
-; START OF FUNCTION CHUNK FOR sub_2E2E
-
 loc_2EB8:
                 
-                btst    #4,(byte_FF0F8F).l
+                btst    #INPUT_B,(P2_INPUT).l
                 beq.s   loc_2EF8
 loc_2EC2:
                 
-                bsr.w   sub_B5E
-                bsr.w   sub_1040
-                btst    #4,(byte_FF0F8F).l
+                bsr.w   WaitForVInt
+                bsr.w   RefreshPlayerInput
+                btst    #INPUT_B,(P2_INPUT).l
                 bne.s   loc_2EC2
 loc_2ED4:
                 
-                bsr.w   sub_B5E
-                bsr.w   sub_1040
-                btst    #4,(byte_FF0F8F).l
+                bsr.w   WaitForVInt
+                bsr.w   RefreshPlayerInput
+                btst    #INPUT_B,(P2_INPUT).l
                 beq.s   loc_2ED4
 loc_2EE6:
                 
-                bsr.w   sub_B5E
-                bsr.w   sub_1040
-                btst    #4,(byte_FF0F8F).l
+                bsr.w   WaitForVInt
+                bsr.w   RefreshPlayerInput
+                btst    #INPUT_B,(P2_INPUT).l
                 bne.s   loc_2EE6
 loc_2EF8:
                 
-                btst    #0,(byte_FF0F8F).l
+                btst    #INPUT_UP,(P2_INPUT).l
                 beq.s   return_2F0A
                 jsr     sub_22F00
                 rts
@@ -6031,23 +5981,23 @@ return_2F0A:
                 
                 rts
 
-; END OF FUNCTION CHUNK FOR sub_2E2E
+    ; End of function LoadNextMapInDebugMode
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2F0C:
+SaveInDebugMode:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bmi.w   return_2F24
-                btst    #6,(byte_FF0F8F).l
+                btst    #INPUT_A,(P2_INPUT).l
                 beq.w   loc_2EB8
-                bsr.w   sub_1592
+                bsr.w   WriteSave
 return_2F24:
                 
                 rts
 
-    ; End of function sub_2F0C
+    ; End of function SaveInDebugMode
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -6055,7 +6005,7 @@ return_2F24:
 sub_2F26:
                 
                 bsr.s   sub_2F3C
-                move.b  (byte_FF0010).l,d0
+                move.b  (SAVE_SLOT).l,d0
                 jsr     sub_EE84
                 jsr     sub_22EA0
                 rts
@@ -6085,7 +6035,7 @@ loc_2F5E:
                 
                 move.b  (a1)+,(a0)+
                 dbf     d7,loc_2F5E
-                clr.b   (byte_FF0010).l
+                clr.b   (SAVE_SLOT).l
                 rts
 
     ; End of function sub_2F3C
@@ -6158,7 +6108,7 @@ loc_2FE6:
 sub_2FEA:
                 
                 lea     (dword_FF5400).l,a0
-                move.w  dword_FF5418-dword_FF5400(a0,d0.w),d1
+                move.w  $18(a0,d0.w),d1
                 move.w  $1A(a0,d0.w),d2
                 move.w  $1C(a0,d0.w),d3
                 move.w  $1E(a0,d0.w),d4
@@ -6320,6 +6270,8 @@ sub_313E:
                 
                 move.w  (dword_FF5418).l,d2
                 bra.s   loc_314C
+loc_3146:
+                
                 move.w  (dword_FF5418+2).l,d2
 loc_314C:
                 
@@ -6846,9 +6798,9 @@ sub_354E:
                 movem.l d0-a6,-(sp)
                 move.b  (byte_FF114B).l,d0
                 beq.w   loc_3632
-                cmpi.w  #$8A18,(word_FF0FC4).l
+                cmpi.w  #$8A18,(VDP_REG0A_STATUS).l
                 beq.w   loc_3632
-                cmpi.w  #$921C,(word_FF0FD4).l
+                cmpi.w  #$921C,(VDP_REG12_STATUS).l
                 beq.w   loc_3632
                 cmpi.b  #$10,d0
                 bls.w   loc_3638
@@ -7152,7 +7104,7 @@ sub_3890:
                 move.l  #$63,d0 
                 move.w  #$7F0,d1
                 bsr.w   sub_46DC
-                bra.w   sub_B9A
+                bra.w   EnableDMAQueueProcessing
 
     ; End of function sub_3890
 
@@ -8743,7 +8695,7 @@ loc_3FAC:
                 
                 tst.b   (byte_FF113E).l
                 bne.w   return_400A
-                move.b  (byte_FF0F8E).l,d2
+                move.b  (P1_INPUT).l,d2 
                 andi.b  #$10,d2
                 beq.s   return_400A
                 move.b  #$10,(byte_FF113E).l
@@ -8931,8 +8883,8 @@ sub_4144:
                 sub.w   d2,d0
                 move.w  $16(a6),d1
                 sub.w   d2,d1
-                sub.w   (word_FF1200).l,d0
-                sub.w   (word_FF1202).l,d1
+                sub.w   (PLAYER_X).l,d0
+                sub.w   (PLAYER_Y).l,d1
                 move.w  d0,d2
                 move.w  d1,d3
                 add.w   d1,d0
@@ -9158,7 +9110,7 @@ loc_42DC:
                 bcs.s   loc_4318
                 bset    #3,d6
                 bne.s   loc_42F6
-                bsr.w   sub_BA4
+                bsr.w   WaitForDMAQueueProcessing
                 bra.s   loc_4318
 loc_42F6:
                 
@@ -9166,7 +9118,7 @@ loc_42F6:
                 bcs.s   loc_4318
                 bset    #1,d6
                 bne.s   loc_4308
-                bsr.w   sub_BA4
+                bsr.w   WaitForDMAQueueProcessing
                 bra.s   loc_4318
 loc_4308:
                 
@@ -9174,10 +9126,10 @@ loc_4308:
                 bcs.s   loc_4318
                 bset    #2,d6
                 bne.s   loc_4318
-                bsr.w   sub_BA4
+                bsr.w   WaitForDMAQueueProcessing
 loc_4318:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bmi.s   return_4336
                 cmpi.w  #$4F4,d2
                 bcs.s   return_4336
@@ -9186,7 +9138,7 @@ byte_4326:
                 
                 sndCom  SFX_BLOB
                 move.w  #3,d0
-                bsr.w   sub_B7A
+                bsr.w   Sleep           
                 dbf     d7,byte_4326
 return_4336:
                 
@@ -9308,7 +9260,7 @@ loc_4420:
                 move.w  #$478C,d3
 loc_4442:
                 
-                btst    #0,(word_FF0F9C+1).l
+                btst    #0,(byte_FF0F9D).l
                 beq.s   loc_4450
                 addi.w  #$18,d3
 loc_4450:
@@ -10378,7 +10330,7 @@ sub_4A7A:
                 lsr.w   #1,d0
                 movea.l a2,a0
                 movem.l (sp)+,a1
-                bra.w   sub_DD6
+                bra.w   ApplyVIntVramDMA
 
     ; End of function sub_4A7A
 
@@ -10396,7 +10348,7 @@ sub_4A94:
                 move.w  #2,d1
                 movea.l a2,a0
                 movem.l (sp)+,a1
-                bra.w   sub_D22
+                bra.w   ApplyImmediateVramDMA
 
     ; End of function sub_4A94
 
@@ -10850,7 +10802,7 @@ sub_4E0C:
                 
                 move.w  (a0),d0
                 bmi.s   return_4E44
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 bne.s   loc_4E40
                 move.b  2(a0),d0
                 bmi.s   loc_4E2E
@@ -10888,7 +10840,7 @@ loc_4E54:
                 
                 move.w  (a0),d0
                 bmi.s   return_4E8E
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 bne.s   loc_4E8A
                 move.b  2(a0),d0
                 ext.w   d0
@@ -10970,7 +10922,7 @@ loc_4ECE:
                 
                 move.w  word_5138-unk_512C(a0),d1
                 bmi.s   byte_4EE8
-                cmp.w   (word_FF1204).l,d1
+                cmp.w   (CURRENT_MAP).l,d1
                 bne.s   loc_4EE2
                 cmp.b   $E(a0),d0
                 beq.s   return_4EF2
@@ -11089,7 +11041,7 @@ loc_4FB6:
                 
                 move.w  (a0),d0
                 bmi.s   return_4FE4
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 bne.s   loc_4FE6
                 move.b  3(a0),d0
                 andi.b  #$78,d0 
@@ -15362,10 +15314,10 @@ loc_610A:
                 bsr.w   sub_95DA
                 bcc.s   loc_6124
                 move.w  #6,d0
-                bsr.w   sub_B7A
+                bsr.w   Sleep           
 loc_6124:
                 
-                cmpi.w  #$FE,(word_FF12DE).l 
+                cmpi.w  #$FE,(byte_FF12DE).l 
                 beq.w   loc_61EC
                 move.b  #2,d0
                 jsr     sub_10318
@@ -15379,7 +15331,7 @@ loc_613E:
                 cmpi.b  #$40,d0 
                 bne.w   return_6182
                 move.w  (word_FF5422).l,(unk_FF1208).l
-                cmpi.w  #$FE,(word_FF12DE).l 
+                cmpi.w  #$FE,(byte_FF12DE).l 
                 beq.s   return_6182
                 move.b  #0,d0
                 jsr     sub_10318
@@ -15395,7 +15347,7 @@ loc_6184:
                 andi.b  #$C0,d0
                 cmpi.b  #$80,d0
                 bne.w   return_61C8
-                cmpi.w  #$FE,(word_FF12DE).l 
+                cmpi.w  #$FE,(byte_FF12DE).l 
                 beq.s   loc_61B6
                 move.b  #3,d0
                 jsr     sub_10318
@@ -15413,7 +15365,7 @@ loc_61CA:
                 bsr.w   sub_95AC
                 bcc.s   loc_61E2
                 move.w  #6,d0
-                bsr.w   sub_B7A
+                bsr.w   Sleep           
 loc_61E2:
                 
                 move.b  #1,d0
@@ -15468,7 +15420,7 @@ loc_6246:
                 
                 bsr.w   sub_667C
                 bcc.s   return_6208
-                cmpi.w  #$295,(word_FF1204).l
+                cmpi.w  #$295,(CURRENT_MAP).l
                 bne.s   byte_620A
                 jsr     sub_22EA8
                 bra.s   byte_620A
@@ -15483,9 +15435,9 @@ loc_625E:
                 bra.w   loc_61EC
 loc_6278:
                 
-                cmpi.w  #$FE,(word_FF12DE).l 
+                cmpi.w  #$FE,(byte_FF12DE).l 
                 beq.s   loc_625E
-                cmpi.b  #2,(word_FF12DE+1).l
+                cmpi.b  #2,(byte_FF12DF).l
                 bne.w   return_6208
                 bra.s   loc_62A6
 loc_6290:
@@ -15523,7 +15475,7 @@ return_62E8:
                 rts
 loc_62EA:
                 
-                cmpi.w  #$AA,(word_FF1204).l 
+                cmpi.w  #$AA,(CURRENT_MAP).l 
                 bne.s   loc_6310
                 moveq   #7,d0
                 bsr.w   sub_E110
@@ -15568,7 +15520,7 @@ loc_634A:
                 bmi.s   return_63CA
                 move.w  d0,(word_FF1206).l
                 bsr.w   sub_A14C
-                move.w  d0,(word_FF1204).l
+                move.w  d0,(CURRENT_MAP).l
                 tst.w   (byte_FF5430).l
                 bpl.s   loc_6374
 
@@ -15596,7 +15548,7 @@ loc_6388:
                 bmi.s   return_63CA
                 move.w  d0,(word_FF1206).l
                 bsr.w   sub_A14C
-                move.w  d0,(word_FF1204).l
+                move.w  d0,(CURRENT_MAP).l
                 bsr.w   sub_8EF4
                 move.b  #2,d0
                 bsr.w   sub_2824
@@ -15614,7 +15566,7 @@ loc_63CC:
                 bmi.s   loc_6406
                 move.w  d0,(word_FF1206).l
                 bsr.w   sub_A14C
-                move.w  d0,(word_FF1204).l
+                move.w  d0,(CURRENT_MAP).l
                 bsr.w   sub_8EF4
                 move.b  #3,d0
                 bsr.w   sub_2824
@@ -15687,11 +15639,11 @@ loc_6482:
                 addi.w  #$110,$14(a0)
                 addi.w  #$110,$18(a0)
                 addi.w  #$110,$1A(a0)
-                addi.w  #$A0,(word_FF1200).l 
+                addi.w  #$A0,(PLAYER_X).l 
                 subi.w  #$1C0,$16(a0)
                 subi.w  #$1C0,$1C(a0)
                 subi.w  #$1C0,$1E(a0)
-                subi.w  #$230,(word_FF1202).l
+                subi.w  #$230,(PLAYER_Y).l
 return_6518:
                 
                 rts
@@ -15713,17 +15665,17 @@ loc_651A:
                 subi.w  #$110,$14(a0)
                 subi.w  #$110,$18(a0)
                 subi.w  #$110,$1A(a0)
-                subi.w  #$A0,(word_FF1200).l 
+                subi.w  #$A0,(PLAYER_X).l 
                 addi.w  #$1C0,$16(a0)
                 addi.w  #$1C0,$1C(a0)
                 addi.w  #$1C0,$1E(a0)
-                addi.w  #$230,(word_FF1202).l
+                addi.w  #$230,(PLAYER_Y).l
                 rts
 loc_6598:
                 
                 cmpi.b  #8,(byte_FF1150).l
                 beq.s   return_65B4
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   return_65B4
                 move.b  #$36,d0 
                 jsr     sub_10318
@@ -15734,7 +15686,7 @@ loc_65B6:
                 
                 cmpi.b  #8,(byte_FF1150).l
                 beq.s   return_65D2
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   return_65D2
                 move.b  #$37,d0 
                 jsr     sub_10318
@@ -15745,7 +15697,7 @@ loc_65D4:
                 
                 cmpi.b  #8,(byte_FF1150).l
                 beq.s   return_65F0
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   return_65F0
                 move.b  #$38,d0 
                 jsr     sub_10318
@@ -15756,7 +15708,7 @@ loc_65F2:
                 
                 cmpi.b  #8,(byte_FF1150).l
                 beq.s   return_660E
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   return_660E
                 move.b  #$39,d0 
                 jsr     sub_10318
@@ -15777,9 +15729,9 @@ loc_6610:
                 beq.s   return_667A
                 move.w  #5,d0
                 jsr     (sub_45E).l
-                jsr     (sub_2A8).l
-                jsr     (sub_242).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
+                jsr     (j_DuplicatePalettes).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 move.w  #$FFFF,d0
                 lea     (dword_FF5400).l,a5
                 jsr     sub_10338
@@ -15840,7 +15792,7 @@ sub_66AC:
                 
                 btst    #4,(dword_FF542C).l
                 bne.w   sub_673E
-                move.b  (byte_FF0F8E).l,d1
+                move.b  (P1_INPUT).l,d1 
                 and.b   d1,(byte_FF113D).l
                 move.b  (byte_FF1133).l,d0
                 bne.w   loc_674E
@@ -15848,7 +15800,7 @@ sub_66AC:
                 bne.w   loc_6B30
                 tst.b   (byte_FF113D).l
                 bne.w   sub_673E
-                move.b  (byte_FF0F8E).l,d0
+                move.b  (P1_INPUT).l,d0 
                 andi.b  #$60,d0 
                 beq.s   sub_673E
                 btst    #0,(byte_FF1153).l
@@ -15939,7 +15891,7 @@ loc_67D6:
                 subq.b  #1,(byte_FF1133).l
                 tst.b   (byte_FF113D).l
                 bne.w   return_6A0A
-                move.b  (byte_FF0F8E).l,d0
+                move.b  (P1_INPUT).l,d0 
                 andi.b  #$60,d0 
                 beq.w   return_6A0A
                 move.b  #$60,(byte_FF113D).l 
@@ -15962,7 +15914,7 @@ loc_6850:
                 andi.b  #$20,d0 
                 move.w  #$10,(word_FF12E0).l
                 addq.b  #1,(byte_FF1133).l
-                move.b  (byte_FF0F8E).l,d0
+                move.b  (P1_INPUT).l,d0 
                 andi.b  #$F,d0
                 beq.s   return_6876
                 move.b  #$17,(word_FF12E0).l
@@ -16019,7 +15971,7 @@ loc_6880:
 loc_68E8:
                 
                 addq.b  #1,(byte_FF1133).l
-                andi.b  #$60,(byte_FF0F8E).l 
+                andi.b  #$60,(P1_INPUT).l 
                 clr.w   (word_FF12E0).l
                 move.w  (byte_FF5430).l,d0
                 bmi.s   return_6960
@@ -16100,9 +16052,9 @@ loc_69EE:
                 clr.w   (word_FF120C).l
 loc_69FA:
                 
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   return_6A0A
-                andi.b  #$60,(byte_FF0F8E).l 
+                andi.b  #$60,(P1_INPUT).l 
 return_6A0A:
                 
                 rts
@@ -16196,9 +16148,9 @@ sub_6ABA:
                 move.b  #1,(byte_FF113F).l
                 andi.w  #$F8FF,(dword_FF542C).l
                 ori.w   #$100,(dword_FF542C).l
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   loc_6AE2
-                andi.b  #$60,(byte_FF0F8E).l 
+                andi.b  #$60,(P1_INPUT).l 
 loc_6AE2:
                 
                 move.b  #$60,(byte_FF113D).l 
@@ -16267,9 +16219,9 @@ loc_6BA2:
                 move.b  (dword_FF542C+1).l,d0
                 andi.b  #$30,d0 
                 bne.s   return_6BBE
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.s   return_6BBE
-                andi.b  #$60,(byte_FF0F8E).l 
+                andi.b  #$60,(P1_INPUT).l 
 return_6BBE:
                 
                 rts
@@ -16508,7 +16460,7 @@ loc_6DDC:
                 move.b  9(a4),$49(a4)
                 suba.l  #dword_FF5400,a4
                 move.w  a4,(word_FF120C).l
-                clr.b   (byte_FF0F8E).l
+                clr.b   (P1_INPUT).l    
                 move.b  #$60,(byte_FF113D).l 
                 sndCom  SFX_STEP
                 ori     #1,ccr
@@ -16627,7 +16579,7 @@ loc_6EF6:
                 or.b    d0,4(a0)
                 bsr.w   sub_701A
                 bsr.w   sub_401C
-                bsr.w   sub_BA4
+                bsr.w   WaitForDMAQueueProcessing
                 jsr     sub_22EB8
                 bsr.w   sub_700A
                 movem.l (sp)+,d0/a0
@@ -16636,7 +16588,7 @@ loc_6EF6:
                 bsr.w   sub_401C
 loc_6F5A:
                 
-                andi.b  #$60,(byte_FF0F8E).l 
+                andi.b  #$60,(P1_INPUT).l 
                 move.b  #$60,(byte_FF113D).l 
                 ori     #1,ccr
                 rts
@@ -16803,7 +16755,7 @@ loc_70A4:
                 sndCom  MUSIC_ITEM_CHEST
                 move.w  #$15,d0
                 jsr     sub_22E90
-                bsr.w   sub_852
+                bsr.w   PlayMusicAfterCurrentOne
                 bra.s   loc_7190
 word_7116:
                 
@@ -16826,7 +16778,7 @@ loc_7132:
                 sndCom  MUSIC_ITEM_CHEST
                 move.w  #$11,d0
                 jsr     sub_22E90
-                bsr.w   sub_852
+                bsr.w   PlayMusicAfterCurrentOne
                 movem.w (sp)+,d0-d1
                 cmpi.b  #$3E,d0 
                 beq.s   loc_7176
@@ -16854,7 +16806,7 @@ loc_719C:
                 ori.b   #$80,$A(a4)
                 bsr.w   sub_401C
                 bsr.w   sub_9DA2
-                bsr.w   sub_BA4
+                bsr.w   WaitForDMAQueueProcessing
 loc_71B4:
                 
                 jsr     sub_22EA0
@@ -16867,7 +16819,7 @@ loc_71BC:
                 bsr.s   sub_7234
 loc_71CE:
                 
-                clr.b   (byte_FF0F8E).l
+                clr.b   (P1_INPUT).l    
                 move.b  #$60,(byte_FF113D).l 
                 ori     #1,ccr
                 rts
@@ -16930,9 +16882,9 @@ sub_7250:
                 movem.l a4,-(sp)
                 bsr.w   sub_401C
                 bsr.w   sub_9DA2
-                bsr.w   sub_B9A
+                bsr.w   EnableDMAQueueProcessing
                 move.w  #4,d0
-                bsr.w   sub_B7A
+                bsr.w   Sleep           
                 movem.l (sp)+,a4
                 rts
 
@@ -17306,7 +17258,7 @@ loc_7616:
 
 sub_7624:
                 
-                tst.b   (byte_FF0F8E).l
+                tst.b   (P1_INPUT).l    
                 bpl.w   return_77A4
                 btst    #2,(byte_FF1153).l
                 bne.w   return_77A4
@@ -17325,16 +17277,16 @@ byte_7654:
                 bsr.w   sub_7862
                 jsr     sub_22E94
                 bsr.w   sub_7984
-                bsr.w   sub_BA4
+                bsr.w   WaitForDMAQueueProcessing
                 move.w  #0,d0
                 move.b  #$EF,d1
-                bsr.w   sub_8B2
-                bsr.w   sub_AE0
+                bsr.w   ApplyLogicalAndOnVDPRegister
+                bsr.w   ClearVsramAndSprites
                 clr.w   d6
-                bsr.w   sub_EDA
+                bsr.w   UpdateBackgroundHScrollData
                 clr.w   d6
-                bsr.w   sub_F36
-                bsr.w   sub_BA4
+                bsr.w   UpdateBackgroundVScrollData
+                bsr.w   WaitForDMAQueueProcessing
                 lea     (byte_FF7D82).l,a0
                 move.w  #$4BF,d7
 loc_76A0:
@@ -17445,16 +17397,16 @@ loc_776E:
                 
                 bsr.w   sub_D3A8
                 bsr.w   sub_78B6
-                bsr.w   sub_B38
+                bsr.w   ClearScrollTableData
                 move.w  #0,d0
                 move.b  #$10,d1
-                bsr.w   sub_8A0
+                bsr.w   ApplyLogicalOrOnVDPRegister
                 move.w  #$9203,d0
-                bsr.w   sub_87E
+                bsr.w   SetVDPRegister
                 bsr.w   sub_2996
                 bsr.w   sub_8E9C
                 bsr.w   sub_77A6
-                clr.b   (byte_FF0F8E).l
+                clr.b   (P1_INPUT).l    
                 movem.w (sp)+,d1
 return_77A4:
                 
@@ -17467,7 +17419,7 @@ return_77A4:
 
 sub_77A6:
                 
-                bsr.w   sub_BA4
+                bsr.w   WaitForDMAQueueProcessing
                 move.b  (byte_FF114E).l,d0
                 beq.s   return_77F2
                 lea     unk_7B10(pc), a0
@@ -17488,7 +17440,7 @@ loc_77DE:
                 lea     (byte_FF2C00).l,a1
                 lea     (loc_F180).l,a2
                 bsr.w   sub_4A7A
-                bsr.w   sub_BA4
+                bsr.w   WaitForDMAQueueProcessing
 return_77F2:
                 
                 rts
@@ -17564,11 +17516,11 @@ loc_7870:
                 dbf     d7,loc_7870
                 lea     byte_7896(pc), a0
                 lea     (byte_FF00A0).l,a1
-                bsr.w   sub_966
-                bsr.w   sub_B16
+                bsr.w   loc_966
+                bsr.w   ClearSpriteTable
                 bsr.w   sub_792C
                 move.w  #$921C,d0
-                bsr.w   sub_87E
+                bsr.w   SetVDPRegister
                 rts
 
     ; End of function sub_7862
@@ -17705,13 +17657,13 @@ unk_7918:       dc.b   2
 
 sub_792C:
                 
-                movea.l (dword_FF0FDA).l,a6
+                movea.l (DMA_QUEUE_POINTER).l,a6
                 move.l  #$8F029404,(a6)+
                 move.l  #$93C0968E,(a6)+
                 move.l  #$95C0977F,(a6)+
                 move.l  #$71800083,(a6)+
-                move.l  a6,(dword_FF0FDA).l
-                addq.b  #1,(byte_FF0F8D).l
+                move.l  a6,(DMA_QUEUE_POINTER).l
+                addq.b  #1,(DMA_QUEUE_SIZE).l
                 rts
 
     ; End of function sub_792C
@@ -17721,13 +17673,13 @@ sub_792C:
 
 sub_7958:
                 
-                movea.l (dword_FF0FDA).l,a6
+                movea.l (DMA_QUEUE_POINTER).l,a6
                 move.l  #$8F029404,(a6)+
                 move.l  #$93C096BE,(a6)+
                 move.l  #$95C0977F,(a6)+
                 move.l  #$61800083,(a6)+
-                move.l  a6,(dword_FF0FDA).l
-                addq.b  #1,(byte_FF0F8D).l
+                move.l  a6,(DMA_QUEUE_POINTER).l
+                addq.b  #1,(DMA_QUEUE_SIZE).l
                 rts
 
     ; End of function sub_7958
@@ -17738,13 +17690,13 @@ sub_7958:
 sub_7984:
                 
                 movem.l a6,-(sp)
-                movea.l (dword_FF0FDA).l,a6
+                movea.l (DMA_QUEUE_POINTER).l,a6
                 move.l  #$8F029402,(a6)+
                 move.l  #$93009693,(a6)+
                 move.l  #$9500977F,(a6)+
                 move.l  #$7A000083,(a6)+
-                move.l  a6,(dword_FF0FDA).l
-                addq.b  #1,(byte_FF0F8D).l
+                move.l  a6,(DMA_QUEUE_POINTER).l
+                addq.b  #1,(DMA_QUEUE_SIZE).l
                 movem.l (sp)+,a6
                 rts
 
@@ -17755,13 +17707,13 @@ sub_7984:
 
 sub_79B8:
                 
-                movea.l (dword_FF0FDA).l,a6
+                movea.l (DMA_QUEUE_POINTER).l,a6
                 move.l  #$8F029400,(a6)+
                 move.l  #$9364968E,(a6)+
                 move.l  #$9542977F,(a6)+
                 move.l  #$70840083,(a6)+
-                move.l  a6,(dword_FF0FDA).l
-                addq.b  #1,(byte_FF0F8D).l
+                move.l  a6,(DMA_QUEUE_POINTER).l
+                addq.b  #1,(DMA_QUEUE_SIZE).l
                 rts
 
     ; End of function sub_79B8
@@ -17771,13 +17723,13 @@ sub_79B8:
 
 sub_79E4:
                 
-                movea.l (dword_FF0FDA).l,a6
+                movea.l (DMA_QUEUE_POINTER).l,a6
                 move.l  #$8F029400,(a6)+
                 move.l  #$93C0968E,(a6)+
                 move.l  #$9500977F,(a6)+
                 move.l  #$70000083,(a6)+
-                move.l  a6,(dword_FF0FDA).l
-                addq.b  #1,(byte_FF0F8D).l
+                move.l  a6,(DMA_QUEUE_POINTER).l
+                addq.b  #1,(DMA_QUEUE_SIZE).l
                 rts
 
     ; End of function sub_79E4
@@ -17787,13 +17739,13 @@ sub_79E4:
 
 sub_7A10:
                 
-                movea.l (dword_FF0FDA).l,a6
+                movea.l (DMA_QUEUE_POINTER).l,a6
                 move.l  #$8F029407,(a6)+
                 move.l  #$9300968E,(a6)+
                 move.l  #$9500977F,(a6)+
                 move.l  #$70000083,(a6)+
-                move.l  a6,(dword_FF0FDA).l
-                addq.b  #1,(byte_FF0F8D).l
+                move.l  a6,(DMA_QUEUE_POINTER).l
+                addq.b  #1,(DMA_QUEUE_SIZE).l
                 rts
 
     ; End of function sub_7A10
@@ -21204,7 +21156,7 @@ loc_873A:
                 
                 btst    #2,(byte_FF1027).l
                 bne.s   loc_8758
-                cmpi.w  #$20A,(word_FF1204).l
+                cmpi.w  #$20A,(CURRENT_MAP).l
                 bne.s   loc_8758
                 bset    #2,(byte_FF1027).l
                 bra.s   loc_8762
@@ -21256,7 +21208,7 @@ loc_87C2:
                 
                 move.w  (a0),d0
                 bmi.w   loc_87F2
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 beq.w   loc_87D6
                 addq.l  #4,a0
                 bra.s   loc_87C2
@@ -21338,7 +21290,7 @@ unk_8800:       dc.b   1
 
 sub_8832:
                 
-                cmpi.w  #$2F6,(word_FF1204).l
+                cmpi.w  #$2F6,(CURRENT_MAP).l
                 bne.w   loc_8BC0
                 cmpi.b  #$11,(dword_FF5400+1).l
                 bhi.w   loc_8BC0
@@ -21358,7 +21310,7 @@ loc_884E:
                 bra.w   loc_8BBA
 loc_8886:
                 
-                cmpi.w  #$234,(word_FF1204).l
+                cmpi.w  #$234,(CURRENT_MAP).l
                 bne.w   loc_8BC0
                 move.b  (dword_FF5400).l,d0
                 subi.b  #$2F,d0 
@@ -21397,17 +21349,17 @@ loc_88F2:
                 jsr     sub_103AA
                 jsr     sub_1036C
                 jsr     sub_10340
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 sndCom  SFX_ITEM_USE
                 move.w  #$A,d0
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 bra.s   loc_88DE
 loc_892A:
                 
                 bra.w   loc_8BBA
 loc_892E:
                 
-                cmpi.w  #$1E6,(word_FF1204).l
+                cmpi.w  #$1E6,(CURRENT_MAP).l
                 bne.w   loc_8BC0
                 move.b  (dword_FF5400).l,d0
                 subi.b  #$37,d0 
@@ -21427,7 +21379,7 @@ loc_897A:
                 move.w  #$1C,d0
                 jsr     sub_22E90
                 move.w  #$14,d6
-                bsr.w   sub_1164
+                bsr.w   GenerateRandomNumber
                 cmpi.b  #8,d7
                 bcs.s   loc_899A
                 cmpi.b  #$C,d7
@@ -21507,7 +21459,7 @@ loc_8A12:
                 bra.w   loc_8BBA
 loc_8A4A:
                 
-                cmpi.w  #$196,(word_FF1204).l
+                cmpi.w  #$196,(CURRENT_MAP).l
                 bne.s   loc_8A7A
                 move.w  (dword_FF5400).l,d0
                 andi.w  #$FEFE,d0
@@ -21519,7 +21471,7 @@ loc_8A4A:
                 bra.w   loc_8BBA
 loc_8A7A:
                 
-                cmpi.w  #$199,(word_FF1204).l
+                cmpi.w  #$199,(CURRENT_MAP).l
                 bne.w   loc_8BC0
                 move.b  (dword_FF5400).l,d0
                 andi.b  #$FE,d0
@@ -21541,7 +21493,7 @@ loc_8AC4:
                 
                 btst    #6,(MAIN_FLAGS).l
                 bne.w   loc_8BC0
-                cmpi.w  #$1B1,(word_FF1204).l
+                cmpi.w  #$1B1,(CURRENT_MAP).l
                 bne.w   loc_8BC0
                 cmpi.b  #$F,(dword_FF5400).l
                 bhi.w   loc_8BC0
@@ -21715,19 +21667,19 @@ byte_8BF2:
                 
                 sndCom  MUSIC_WHISTLE
                 move.w  #$167,d0
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 move.l  (dword_FF5400).l,d0
                 movem.l d0,-(sp)
-                move.w  #$230,(word_FF1204).l
+                move.w  #$230,(CURRENT_MAP).l
                 move.w  #$1732,(dword_FF5400).l
                 bset    #6,(byte_FF540C).l
                 bset    #0,(byte_FF1026).l
                 bsr.w   sub_620E
                 sndCom  MUSIC_WHISTLE
                 move.w  #$B7,d0 
-                jsr     (sub_BA4).l
+                jsr     (WaitForDMAQueueProcessing).l
                 jsr     sub_22EF8
-                move.w  #$234,(word_FF1204).l
+                move.w  #$234,(CURRENT_MAP).l
                 movem.l (sp)+,d0
                 move.l  d0,(dword_FF5400).l
                 bclr    #6,(byte_FF540C).l
@@ -21754,7 +21706,7 @@ byte_8C8E:
                 move.b  #8,d0
                 bsr.w   sub_4B52
                 move.w  #$1E,d0
-                jsr     (sub_B7A).l
+                jsr     (Sleep).l       
                 move.b  #$10,d0
                 bsr.w   sub_4B52
                 bset    #6,(MAIN_FLAGS).l
@@ -21784,11 +21736,11 @@ loc_8CEE:       jsr     sub_103A4
 sub_8CF6:
                 
                 move.w  #2,d6
-                bsr.w   sub_1164
+                bsr.w   GenerateRandomNumber
                 tst.b   d7
                 beq.s   loc_8D44
                 move.w  #$153,d0
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 jsr     sub_22EF8
                 move.b  #0,d0
                 move.b  #9,d1
@@ -21809,7 +21761,7 @@ sub_8CF6:
 loc_8D44:
                 
                 move.w  #$152,d0
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 jsr     sub_22EF8
                 move.w  #$FF,(byte_FF543E).l
                 jsr     sub_103AA
@@ -21828,22 +21780,22 @@ loc_8D44:
 
 sub_8D84:
                 
-                jsr     (sub_8F6).l
+                jsr     (DisableDisplayAndInterrupts).l
                 move.l  #$C0760000,(VDP_Control).l
                 move.w  #0,(VDP_Data).l
                 move.w  #0,(word_FF0F46).l
                 move.w  #0,(word_FF00F6).l
                 bsr.w   sub_8F34
                 bsr.w   sub_8F4C
-                jsr     (sub_8F2).l
+                jsr     (EnableDisplayAndInterrupts).l
                 bsr.w   sub_79E4
                 bsr.w   sub_8FCC
-                jsr     (sub_8FA).l
-                jsr     (sub_BA4).l
+                jsr     (ActivateIntDMAQueueProcessing).l
+                jsr     (WaitForDMAQueueProcessing).l
                 bsr.w   sub_9046
                 bsr.w   sub_906C
                 bsr.w   sub_90C4
-                cmpi.w  #$8B,(word_FF1204).l 
+                cmpi.w  #$8B,(CURRENT_MAP).l 
                 beq.s   loc_8DF6
                 jsr     sub_10344
                 jsr     sub_10340
@@ -21852,7 +21804,7 @@ loc_8DF6:
                 
                 move.b  #1,(byte_FF1159).l
                 bsr.w   sub_C46A        
-                jsr     (sub_B9A).l
+                jsr     (EnableDMAQueueProcessing).l
                 move.w  #$222,d1
                 move.w  #5,d7
 loc_8E10:
@@ -21862,7 +21814,7 @@ loc_8E10:
                 move.w  d1,(word_FF0F46).l
                 move.w  d1,(word_FF00F6).l
                 move.w  #4,d0
-                jsr     (sub_B7A).l
+                jsr     (Sleep).l       
                 addi.w  #$222,d1
                 dbf     d7,loc_8E10
                 move.l  #$C07E0000,(VDP_Control).l
@@ -21870,15 +21822,15 @@ loc_8E10:
                 move.w  #0,(word_FF0F4E).l
                 move.w  #0,(word_FF00FE).l
                 move.w  #$3C,d0 
-                jsr     (sub_B7A).l
+                jsr     (Sleep).l       
                 sndCom  MUSIC_LABYRINTH
                 move.b  #$2B,(MUSIC_INDEX).l 
                 move.w  #$78,d0 
-                jsr     (sub_B7A).l
+                jsr     (Sleep).l       
                 lea     unk_903C(pc), a0
                 lea     (byte_FF00F4).l,a1
                 move.w  #4,d0
-                jsr     (sub_96A).l
+                jsr     (loc_96A).l
                 jsr     sub_8EB4(pc)
                 nop
                 rts
@@ -21913,18 +21865,18 @@ sub_8EA0:
 
 sub_8EB4:
                 
-                move.w  #$8AB8,(word_FF0FC4).l
+                move.w  #$8AB8,(VDP_REG0A_STATUS).l
                 move.w  #$8AB8,(VDP_Control).l
                 jsr     (sub_972).l
                 move.w  #6,d6
 loc_8ECE:
                 
-                lea     (word_FF0080).l,a0
-                lea     (word_FF0ED0).l,a1
+                lea     (PALETTE_1_BASE).l,a0
+                lea     (PALETTE_1_CURRENT).l,a1
                 move.w  #$39,d5 
                 jsr     (sub_9CE).l
                 move.w  #2,d0
-                jsr     (sub_B7A).l
+                jsr     (Sleep).l       
                 dbf     d6,loc_8ECE
                 rts
 
@@ -21939,14 +21891,14 @@ sub_8EF4:
                 move.w  #6,d6
 loc_8EFE:
                 
-                lea     (word_FF0080).l,a0
-                lea     (word_FF0ED0).l,a1
+                lea     (PALETTE_1_BASE).l,a0
+                lea     (PALETTE_1_CURRENT).l,a1
                 move.w  #$39,d5 
                 jsr     (sub_9CE).l
                 move.w  #2,d0
-                jsr     (sub_B7A).l
+                jsr     (Sleep).l       
                 dbf     d6,loc_8EFE
-                move.w  #$8A18,(word_FF0FC4).l
+                move.w  #$8A18,(VDP_REG0A_STATUS).l
                 move.w  #$8A18,(VDP_Control).l
                 rts
 
@@ -21976,7 +21928,7 @@ sub_8F4C:
 loc_8F56:
                 
                 move.w  (a0)+,d0
-                jsr     (sub_87E).l
+                jsr     (SetVDPRegister).l
                 dbf     d1,loc_8F56
                 rts
 
@@ -21997,7 +21949,7 @@ unk_8F64:       dc.b $91
 
 sub_8F6E:
                 
-                cmpi.w  #$8B,(word_FF1204).l 
+                cmpi.w  #$8B,(CURRENT_MAP).l 
                 bne.s   loc_8F8C
                 lea     (word_FF1C00).l,a1
                 move.w  #$7FF,d7
@@ -22034,7 +21986,7 @@ sub_8FB4:
                 lea     plt_901C(pc), a0
                 lea     (byte_FF00C0).l,a1
                 move.w  #$F,d0
-                jsr     (sub_96A).l
+                jsr     (loc_96A).l
                 bra.w   sub_78B6
 
     ; End of function sub_8FB4
@@ -22048,8 +22000,8 @@ sub_8FCC:
                 lea     unk_903C(pc), a0
                 lea     (byte_FF00F4).l,a1
                 move.w  #4,d0
-                jsr     (sub_96A).l
-                lea     (word_FF0080).l,a0
+                jsr     (loc_96A).l
+                lea     (PALETTE_1_BASE).l,a0
                 clr.w   (a0)
                 clr.w   $20(a0)
                 clr.w   $40(a0)
@@ -22115,7 +22067,7 @@ unk_903C:       dc.b   8
 sub_9046:
                 
                 lea     unk_905C(pc), a0
-                lea     (word_FF0550).l,a1
+                lea     (SPRITE_TABLE).l,a1
                 move.w  #7,d0
 loc_9054:
                 
@@ -22156,16 +22108,16 @@ sub_906C:
 loc_908E:
                 
                 addi.w  #$90,d6 
-                jsr     (sub_EBE).l
-                jsr     (sub_EDA).l
+                jsr     (UpdateForegroundHScrollData).l
+                jsr     (UpdateBackgroundHScrollData).l
                 clr.w   d6
                 move.b  (word_FF1126).l,d6
                 add.b   (word_FF1126+1).l,d6
                 lsr.b   #1,d6
                 subi.w  #$68,d6 
-                jsr     (sub_F1A).l
-                jsr     (sub_F36).l
-                jmp     (sub_B9A).l
+                jsr     (UpdateForegroundVScrolData).l
+                jsr     (UpdateBackgroundVScrollData).l
+                jmp     (EnableDMAQueueProcessing).l
 
     ; End of function sub_906C
 
@@ -22174,7 +22126,7 @@ loc_908E:
 
 sub_90C4:
                 
-                jsr     (sub_BA4).l
+                jsr     (WaitForDMAQueueProcessing).l
                 addi.b  #$C,(byte_FF1124).l
                 addi.b  #$C,(byte_FF1125).l
                 move.w  #$18C,(word_FF1184).l
@@ -22203,7 +22155,7 @@ loc_9110:
 loc_913E:
                 
                 bsr.w   sub_A61C
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 movem.w (sp)+,d7
                 dbf     d7,loc_90E6
                 rts
@@ -22512,7 +22464,7 @@ loc_9600:
                 swap    d0
                 lsr.b   #1,d0
                 lea     unk_976C(pc), a0
-                move.w  (word_FF1204).l,d7
+                move.w  (CURRENT_MAP).l,d7
                 moveq   #0,d3
                 moveq   #0,d2
 loc_962C:
@@ -23828,7 +23780,7 @@ loc_9BE8:
                 
                 move.w  (a0)+,d0
                 bmi.s   return_9BFC
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 bne.s   loc_9BE8
                 jsr     sub_22EA4
                 nop
@@ -23853,7 +23805,7 @@ loc_9C16:
                 
                 move.w  (a0)+,d0
                 bmi.s   return_9C40
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 bne.s   loc_9C16
                 move.b  (dword_FF542C+1).l,d0
                 andi.b  #$C0,d0
@@ -23994,7 +23946,7 @@ loc_9CDA:
                 
                 move.w  (a0),d0
                 bmi.s   loc_9CFE
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 beq.s   loc_9CEA
                 addq.l  #4,a0
                 bra.s   loc_9CDA
@@ -24093,7 +24045,7 @@ loc_9D68:
                 move.w  (a1,d3.w),(a5)+
                 move.w  2(a1,d3.w),(a5)+
                 move.b  4(a1,d3.w),(a4)+
-                cmpi.w  #$1ED,(word_FF1204).l
+                cmpi.w  #$1ED,(CURRENT_MAP).l
                 bne.s   loc_9D90
                 move.b  #2,(a4)+
                 bra.s   loc_9D94
@@ -24160,7 +24112,7 @@ loc_9DEA:
                 mulu.w  d0,d1
                 movea.l (a6),a0
                 adda.l  d1,a0
-                jsr     (sub_DD6).l
+                jsr     (ApplyVIntVramDMA).l
 return_9E02:
                 
                 rts
@@ -24418,11 +24370,11 @@ sub_9EF8:
                 
                 lea     (byte_FF1218).l,a1
                 clr.b   d7
-                move.w  (word_FF1204).l,d0
+                move.w  (CURRENT_MAP).l,d0
                 bsr.s   sub_9F1C
-                move.w  (word_FF1204).l,d0
+                move.w  (CURRENT_MAP).l,d0
                 bsr.w   sub_A180
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 beq.w   return_A0A0
 
     ; End of function sub_9EF8
@@ -24611,7 +24563,7 @@ return_A0A0:
 
 loc_A0A2:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bmi.w   loc_A09C
                 move.w  #$1D,d7
 
@@ -24619,7 +24571,7 @@ loc_A0A2:
 
 byte_A0AE:      sndCom  SFX_ITEM_DROP
                 move.w  #2,d0
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 dbf     d7,byte_A0AE
                 bra.s   loc_A09C
 
@@ -24641,7 +24593,7 @@ loc_A0D4:
                 move.w  2(a0),d0
                 move.w  d0,(word_FF1206).l
                 bsr.w   sub_A14C
-                move.w  d0,(word_FF1204).l
+                move.w  d0,(CURRENT_MAP).l
                 move.b  4(a0),(dword_FF5400).l
                 move.b  5(a0),(dword_FF5400+1).l
                 move.w  #$808,(dword_FF5400+2).l
@@ -24675,7 +24627,7 @@ sub_A114:
 
 sub_A12E:
                 
-                move.w  (word_FF1204).l,d0
+                move.w  (CURRENT_MAP).l,d0
                 bsr.s   sub_A180
                 move.w  #$FFFF,d1
 loc_A13A:
@@ -33526,7 +33478,7 @@ loc_C4F4:
                 lea     (byte_FF2C00).l,a0
                 lea     (loc_F180).l,a1
                 move.w  #$400,d0
-                jmp     (sub_DD6).l
+                jmp     (ApplyVIntVramDMA).l
 
     ; End of function sub_C4E2
 
@@ -33659,1638 +33611,823 @@ IntroTextBlock10:
                 incbin "data/scripting/text/intro/introtextblock10.bin"
 IntroTextBlock11:
                 incbin "data/scripting/text/intro/introtextblock11.bin"
-byte_C74E:      dc.b 0
-                dc.b   0
-                dc.b   0
-                dc.b   1
-                dc.b   0
-                dc.b   2
-                dc.b   0
-                dc.b   3
-                dc.b   0
-                dc.b   4
-                dc.b   0
-                dc.b   5
-                dc.b   0
-                dc.b   6
-                dc.b   0
-                dc.b   7
-                dc.b   0
-                dc.b   8
-                dc.b   0
-                dc.b   9
-                dc.b   0
-                dc.b  $A
-                dc.b   0
-                dc.b  $B
-                dc.b   0
-                dc.b  $C
-                dc.b   0
-                dc.b  $D
-                dc.b   0
-                dc.b  $E
-                dc.b   0
-                dc.b  $F
-                dc.b   0
-                dc.b $10
-                dc.b   0
-                dc.b   4
-                dc.b   0
-                dc.b $11
-                dc.b   0
-                dc.b $12
-                dc.b   0
-                dc.b $13
-                dc.b   0
-                dc.b $14
-                dc.b   0
-                dc.b $15
-                dc.b   0
-                dc.b $16
-                dc.b   0
-                dc.b $17
-                dc.b   0
-                dc.b $18
-                dc.b   0
-                dc.b  $E
-                dc.b   0
-                dc.b $19
-                dc.b   0
-                dc.b $1A
-                dc.b   0
-                dc.b $1B
-                dc.b   0
-                dc.b $1C
-                dc.b   0
-                dc.b $1D
-                dc.b   0
-                dc.b $1E
-                dc.b   0
-                dc.b $1E
-                dc.b   0
-                dc.b $1F
-                dc.b   0
-                dc.b $20
-                dc.b   0
-                dc.b $21 
-                dc.b   0
-                dc.b $22 
-                dc.b   0
-                dc.b $23 
-                dc.b   0
-                dc.b $24 
-                dc.b   0
-                dc.b $25 
-                dc.b   0
-                dc.b $26 
-                dc.b   0
-                dc.b $27 
-                dc.b   0
-                dc.b $28 
-                dc.b   0
-                dc.b $29 
-                dc.b   0
-                dc.b $2A 
-                dc.b   0
-                dc.b $2B 
-                dc.b   0
-                dc.b $2C 
-                dc.b   0
-                dc.b $2D 
-                dc.b   0
-                dc.b $2E 
-                dc.b   0
-                dc.b $2D 
-                dc.b   0
-                dc.b $2F 
-                dc.b   0
-                dc.b $2F 
-                dc.b   0
-                dc.b $2F 
-                dc.b   0
-                dc.b $2F 
-                dc.b   0
-                dc.b $30 
-                dc.b   0
-                dc.b $30 
-                dc.b   0
-                dc.b $30 
-                dc.b   0
-                dc.b $30 
-                dc.b   0
-                dc.b $31 
-                dc.b   0
-                dc.b $31 
-                dc.b   0
-                dc.b $31 
-                dc.b   0
-                dc.b $31 
-                dc.b   0
-                dc.b $32 
-                dc.b   0
-                dc.b $32 
-                dc.b   0
-                dc.b $33 
-                dc.b   0
-                dc.b $33 
-                dc.b   0
-                dc.b $34 
-                dc.b   0
-                dc.b $35 
-                dc.b   0
-                dc.b $35 
-                dc.b   0
-                dc.b $36 
-                dc.b   0
-                dc.b $37 
-                dc.b   0
-                dc.b $38 
-                dc.b   0
-                dc.b $39 
-                dc.b   0
-                dc.b $3A 
-                dc.b   0
-                dc.b $3A 
-                dc.b   0
-                dc.b $3B 
-                dc.b   0
-                dc.b $34 
-                dc.b   0
-                dc.b $3C 
-                dc.b   0
-                dc.b $3C 
-                dc.b   0
-                dc.b $3D 
-                dc.b   0
-                dc.b $3E 
-                dc.b   0
-                dc.b $3F 
-                dc.b   0
-                dc.b $40 
-                dc.b   0
-                dc.b $40 
-                dc.b   0
-                dc.b $41 
-                dc.b   0
-                dc.b $42 
-                dc.b   0
-                dc.b $42 
-                dc.b   0
-                dc.b $43 
-                dc.b   0
-                dc.b $43 
-                dc.b   0
-                dc.b $44 
-                dc.b   0
-                dc.b $45 
-                dc.b   0
-                dc.b $46 
-                dc.b   0
-                dc.b $47 
-                dc.b   0
-                dc.b $48 
-                dc.b   0
-                dc.b $48 
-                dc.b   0
-                dc.b $49 
-                dc.b   0
-                dc.b $4A 
-                dc.b   0
-                dc.b $4B 
-                dc.b   0
-                dc.b $4B 
-                dc.b   0
-                dc.b $4C 
-                dc.b   0
-                dc.b $4D 
-                dc.b   0
-                dc.b $4D 
-                dc.b   0
-                dc.b $49 
-                dc.b   0
-                dc.b $4E 
-                dc.b   0
-                dc.b $4F 
-                dc.b   0
-                dc.b $50 
-                dc.b   0
-                dc.b $51 
-                dc.b   0
-                dc.b $52 
-                dc.b   0
-                dc.b $53 
-                dc.b   0
-                dc.b $54 
-                dc.b   0
-                dc.b $55 
-                dc.b   0
-                dc.b $56 
-                dc.b   0
-                dc.b $57 
-                dc.b   0
-                dc.b $58 
-                dc.b   0
-                dc.b $59 
-                dc.b   0
-                dc.b $5A 
-                dc.b   0
-                dc.b $5B 
-                dc.b   0
-                dc.b $5C 
-                dc.b   0
-                dc.b $5D 
-                dc.b   0
-                dc.b $5C 
-                dc.b   0
-                dc.b $5D 
-                dc.b   0
-                dc.b $5E 
-                dc.b   0
-                dc.b $5F 
-                dc.b   0
-                dc.b $60 
-                dc.b   0
-                dc.b $61 
-                dc.b   0
-                dc.b $62 
-                dc.b   0
-                dc.b $63 
-                dc.b   0
-                dc.b $64 
-                dc.b   0
-                dc.b $65 
-                dc.b   0
-                dc.b $66 
-                dc.b   0
-                dc.b $67 
-                dc.b   0
-                dc.b $68 
-                dc.b   0
-                dc.b $69 
-                dc.b   0
-                dc.b $6A 
-                dc.b   0
-                dc.b $6B 
-                dc.b   0
-                dc.b $6C 
-                dc.b   0
-                dc.b $6D 
-                dc.b   0
-                dc.b $6E 
-                dc.b   0
-                dc.b $6F 
-                dc.b   0
-                dc.b $70 
-                dc.b   0
-                dc.b $71 
-                dc.b   0
-                dc.b $72 
-                dc.b   0
-                dc.b $73 
-                dc.b   0
-                dc.b $74 
-                dc.b   0
-                dc.b $74 
-                dc.b   0
-                dc.b $75 
-                dc.b   0
-                dc.b $75 
-                dc.b   0
-                dc.b $76 
-                dc.b   0
-                dc.b $77 
-                dc.b   0
-                dc.b $77 
-                dc.b   0
-                dc.b $78 
-                dc.b   0
-                dc.b $78 
-                dc.b   0
-                dc.b $79 
-                dc.b   0
-                dc.b $79 
-                dc.b   0
-                dc.b $7A 
-                dc.b   0
-                dc.b $7B 
-                dc.b   0
-                dc.b $7C 
-                dc.b   0
-                dc.b $7C 
-                dc.b   0
-                dc.b $7D 
-                dc.b   0
-                dc.b $7D 
-                dc.b   0
-                dc.b $7E 
-                dc.b   0
-                dc.b $7F 
-                dc.b   0
-                dc.b $80 
-                dc.b   0
-                dc.b $80 
-                dc.b   0
-                dc.b $81 
-                dc.b   0
-                dc.b $81 
-                dc.b   0
-                dc.b $82 
-                dc.b   0
-                dc.b $83 
-                dc.b   0
-                dc.b $83 
-                dc.b   0
-                dc.b $84 
-                dc.b   0
-                dc.b $85 
-                dc.b   0
-                dc.b $86 
-                dc.b   0
-                dc.b $84 
-                dc.b   0
-                dc.b $87 
-                dc.b   0
-                dc.b $88 
-                dc.b   0
-                dc.b $89 
-                dc.b   0
-                dc.b $8A 
-                dc.b   0
-                dc.b $8B 
-                dc.b   0
-                dc.b $8C 
-                dc.b   0
-                dc.b $8D 
-                dc.b   0
-                dc.b $8E 
-                dc.b   0
-                dc.b $8F 
-                dc.b   0
-                dc.b $90 
-                dc.b   0
-                dc.b $91 
-                dc.b   0
-                dc.b $92 
-                dc.b   0
-                dc.b $93 
-                dc.b   0
-                dc.b $91 
-                dc.b   0
-                dc.b $94 
-                dc.b   0
-                dc.b $95 
-                dc.b   0
-                dc.b $96 
-                dc.b   0
-                dc.b $97 
-                dc.b   0
-                dc.b $98 
-                dc.b   0
-                dc.b $99 
-                dc.b   0
-                dc.b $9A 
-                dc.b   0
-                dc.b $9B 
-                dc.b   0
-                dc.b $9C 
-                dc.b   0
-                dc.b $9D 
-                dc.b   0
-                dc.b $9E 
-                dc.b   0
-                dc.b $9F 
-                dc.b   0
-                dc.b $A0 
-                dc.b   0
-                dc.b $A1 
-                dc.b   0
-                dc.b $A2 
-                dc.b   0
-                dc.b $A3 
-                dc.b   0
-                dc.b $A4 
-                dc.b   0
-                dc.b $A5 
-                dc.b   0
-                dc.b $A6 
-                dc.b   0
-                dc.b $A7 
-                dc.b   0
-                dc.b $A8 
-                dc.b   0
-                dc.b $A9 
-                dc.b   0
-                dc.b $AA 
-                dc.b   0
-                dc.b $AB 
-                dc.b   0
-                dc.b $AB 
-                dc.b   0
-                dc.b $AC 
-                dc.b   0
-                dc.b $A9 
-                dc.b   0
-                dc.b $AD 
-                dc.b   0
-                dc.b $AE 
-                dc.b   0
-                dc.b $AF 
-                dc.b   0
-                dc.b $A6 
-                dc.b   0
-                dc.b $B0 
-                dc.b   0
-                dc.b $B1 
-                dc.b   0
-                dc.b $B2 
-                dc.b   0
-                dc.b $9A 
-                dc.b   0
-                dc.b $B3 
-                dc.b   0
-                dc.b $B4 
-                dc.b   0
-                dc.b $B4 
-                dc.b   0
-                dc.b $B5 
-                dc.b   0
-                dc.b $B6 
-                dc.b   0
-                dc.b $B7 
-                dc.b   0
-                dc.b $B8 
-                dc.b   0
-                dc.b $B9 
-                dc.b   0
-                dc.b $BA 
-                dc.b   0
-                dc.b $BB 
-                dc.b   0
-                dc.b $BC 
-                dc.b   0
-                dc.b $BD 
-                dc.b   0
-                dc.b $BE 
-                dc.b   0
-                dc.b $BF 
-                dc.b   0
-                dc.b $C0 
-                dc.b   0
-                dc.b $C1 
-                dc.b   0
-                dc.b $C2 
-                dc.b   0
-                dc.b $C3 
-                dc.b   0
-                dc.b $C4 
-                dc.b   0
-                dc.b $C5 
-                dc.b   0
-                dc.b $C6 
-                dc.b   0
-                dc.b $C6 
-                dc.b   0
-                dc.b $C7 
-                dc.b   0
-                dc.b $C8 
-                dc.b   0
-                dc.b $C9 
-                dc.b   0
-                dc.b $C0 
-                dc.b   0
-                dc.b $CA 
-                dc.b   0
-                dc.b $7A 
-                dc.b   0
-                dc.b $CB 
-                dc.b   0
-                dc.b $CC 
-                dc.b   0
-                dc.b $CD 
-                dc.b   0
-                dc.b $CE 
-                dc.b   0
-                dc.b $CF 
-                dc.b   0
-                dc.b $D0 
-                dc.b   0
-                dc.b $D1 
-                dc.b   0
-                dc.b $D2 
-                dc.b   0
-                dc.b $C0 
-                dc.b   0
-                dc.b $D3 
-                dc.b   0
-                dc.b $D3 
-                dc.b   0
-                dc.b $C7 
-                dc.b   0
-                dc.b $D4 
-                dc.b   0
-                dc.b $D5 
-                dc.b   0
-                dc.b $D6 
-                dc.b   0
-                dc.b $D7 
-                dc.b   0
-                dc.b $D8 
-                dc.b   0
-                dc.b $CE 
-                dc.b   0
-                dc.b $CF 
-                dc.b   0
-                dc.b $D9 
-                dc.b   0
-                dc.b $DA 
-                dc.b   0
-                dc.b $DB 
-                dc.b   0
-                dc.b $DC 
-                dc.b   0
-                dc.b $DD 
-                dc.b   0
-                dc.b $DE 
-                dc.b   0
-                dc.b $DF 
-                dc.b   0
-                dc.b $E0 
-                dc.b   0
-                dc.b $E1 
-                dc.b   0
-                dc.b $E2 
-                dc.b   0
-                dc.b $E3 
-                dc.b   0
-                dc.b $E4 
-                dc.b   0
-                dc.b $E5 
-                dc.b   0
-                dc.b $E6 
-                dc.b   0
-                dc.b $E7 
-                dc.b   0
-                dc.b $E8 
-                dc.b   0
-                dc.b $E9 
-                dc.b   0
-                dc.b $EA 
-                dc.b   0
-                dc.b $EB 
-                dc.b   0
-                dc.b $EC 
-                dc.b   0
-                dc.b $ED 
-                dc.b   0
-                dc.b $EE 
-                dc.b   0
-                dc.b $EF 
-                dc.b   0
-                dc.b $F0 
-                dc.b   0
-                dc.b $F1 
-                dc.b   0
-                dc.b $F2 
-                dc.b   0
-                dc.b $F3 
-                dc.b   0
-                dc.b $F4 
-                dc.b   0
-                dc.b $F5 
-                dc.b   0
-                dc.b $F6 
-                dc.b   0
-                dc.b $F7 
-                dc.b   0
-                dc.b $F8 
-                dc.b   0
-                dc.b $F9 
-                dc.b   0
-                dc.b $FA 
-                dc.b   0
-                dc.b $FB 
-                dc.b   0
-                dc.b $FC 
-                dc.b   0
-                dc.b $AA 
-                dc.b   0
-                dc.b $FD 
-                dc.b   0
-                dc.b $FE 
-                dc.b   0
-                dc.b $FF
-                dc.b   1
-                dc.b   0
-                dc.b   1
-                dc.b   1
-                dc.b   1
-                dc.b   2
-                dc.b   1
-                dc.b   3
-                dc.b   1
-                dc.b   4
-                dc.b   1
-                dc.b   5
-                dc.b   1
-                dc.b   6
-                dc.b   1
-                dc.b   7
-                dc.b   1
-                dc.b   8
-                dc.b   1
-                dc.b   9
-                dc.b   1
-                dc.b  $A
-                dc.b   1
-                dc.b  $B
-                dc.b   1
-                dc.b  $C
-                dc.b   1
-                dc.b  $D
-                dc.b   1
-                dc.b  $E
-                dc.b   1
-                dc.b  $F
-                dc.b   1
-                dc.b $10
-                dc.b   1
-                dc.b $11
-                dc.b   1
-                dc.b $12
-                dc.b   1
-                dc.b $13
-                dc.b   1
-                dc.b $14
-                dc.b   1
-                dc.b $15
-                dc.b   0
-                dc.b $F8 
-                dc.b   1
-                dc.b $16
-                dc.b   1
-                dc.b $17
-                dc.b   1
-                dc.b $18
-                dc.b   1
-                dc.b $19
-                dc.b   1
-                dc.b $1A
-                dc.b   1
-                dc.b $1B
-                dc.b   1
-                dc.b $1C
-                dc.b   1
-                dc.b $1D
-                dc.b   1
-                dc.b $1E
-                dc.b   1
-                dc.b $1F
-                dc.b   1
-                dc.b $20
-                dc.b   1
-                dc.b $21 
-                dc.b   1
-                dc.b $22 
-                dc.b   1
-                dc.b $23 
-                dc.b   1
-                dc.b $24 
-                dc.b   0
-                dc.b $95 
-                dc.b   1
-                dc.b $25 
-                dc.b   1
-                dc.b   5
-                dc.b   0
-                dc.b $F8 
-                dc.b   1
-                dc.b $26 
-                dc.b   1
-                dc.b $27 
-                dc.b   1
-                dc.b $28 
-                dc.b   1
-                dc.b $29 
-                dc.b   1
-                dc.b $2A 
-                dc.b   1
-                dc.b $2B 
-                dc.b   1
-                dc.b $2C 
-                dc.b   1
-                dc.b $2D 
-                dc.b   1
-                dc.b $2E 
-                dc.b   1
-                dc.b $2F 
-                dc.b   1
-                dc.b $30 
-                dc.b   1
-                dc.b $31 
-                dc.b   1
-                dc.b $32 
-                dc.b   1
-                dc.b $33 
-                dc.b   1
-                dc.b $34 
-                dc.b   1
-                dc.b $35 
-                dc.b   1
-                dc.b $36 
-                dc.b   1
-                dc.b $37 
-                dc.b   1
-                dc.b $38 
-                dc.b   1
-                dc.b $39 
-                dc.b   1
-                dc.b $3A 
-                dc.b   1
-                dc.b $3B 
-                dc.b   1
-                dc.b $3C 
-                dc.b   1
-                dc.b $3D 
-                dc.b   1
-                dc.b $3E 
-                dc.b   1
-                dc.b $3F 
-                dc.b   1
-                dc.b $40 
-                dc.b   1
-                dc.b $41 
-                dc.b   1
-                dc.b $42 
-                dc.b   1
-                dc.b $43 
-                dc.b   1
-                dc.b $44 
-                dc.b   1
-                dc.b $45 
-                dc.b   1
-                dc.b $46 
-                dc.b   1
-                dc.b $47 
-                dc.b   1
-                dc.b $48 
-                dc.b   1
-                dc.b $49 
-                dc.b   1
-                dc.b $4A 
-                dc.b   1
-                dc.b $4B 
-                dc.b   1
-                dc.b $4C 
-                dc.b   1
-                dc.b $4D 
-                dc.b   1
-                dc.b $4E 
-                dc.b   1
-                dc.b $4F 
-                dc.b   1
-                dc.b $50 
-                dc.b   1
-                dc.b $51 
-                dc.b   1
-                dc.b $52 
-                dc.b   1
-                dc.b $53 
-                dc.b   1
-                dc.b $54 
-                dc.b   1
-                dc.b $55 
-                dc.b   1
-                dc.b $56 
-                dc.b   1
-                dc.b $57 
-                dc.b   1
-                dc.b $58 
-                dc.b   1
-                dc.b $59 
-                dc.b   1
-                dc.b $5A 
-                dc.b   1
-                dc.b $5B 
-                dc.b   1
-                dc.b $5C 
-                dc.b   1
-                dc.b $5D 
-                dc.b   1
-                dc.b $5E 
-                dc.b   1
-                dc.b $5F 
-                dc.b   1
-                dc.b $60 
-                dc.b   1
-                dc.b $61 
-                dc.b   1
-                dc.b $62 
-                dc.b   1
-                dc.b $63 
-                dc.b   1
-                dc.b $64 
-                dc.b   1
-                dc.b $65 
-                dc.b   1
-                dc.b $66 
-                dc.b   1
-                dc.b $67 
-                dc.b   1
-                dc.b $68 
-                dc.b   1
-                dc.b $69 
-                dc.b   1
-                dc.b $6A 
-                dc.b   1
-                dc.b $6B 
-                dc.b   1
-                dc.b $6C 
-                dc.b   1
-                dc.b $62 
-                dc.b   1
-                dc.b $6D 
-                dc.b   1
-                dc.b $6E 
-                dc.b   1
-                dc.b $6F 
-                dc.b   1
-                dc.b $70 
-                dc.b   1
-                dc.b $71 
-                dc.b   1
-                dc.b $72 
-                dc.b   1
-                dc.b $73 
-                dc.b   1
-                dc.b $74 
-                dc.b   1
-                dc.b $75 
-                dc.b   1
-                dc.b $76 
-                dc.b   1
-                dc.b $70 
-                dc.b   1
-                dc.b $70 
-                dc.b   1
-                dc.b $75 
-                dc.b   1
-                dc.b $71 
-                dc.b   1
-                dc.b $70 
-                dc.b   1
-                dc.b $70 
-                dc.b   1
-                dc.b $77 
-                dc.b   1
-                dc.b $78 
-                dc.b   1
-                dc.b $79 
-                dc.b   1
-                dc.b $7A 
-                dc.b   1
-                dc.b $7B 
-                dc.b   1
-                dc.b $7C 
-                dc.b   1
-                dc.b $7D 
-                dc.b   1
-                dc.b $7E 
-                dc.b   1
-                dc.b $7F 
-                dc.b   1
-                dc.b $80 
-                dc.b   1
-                dc.b $7F 
-                dc.b   1
-                dc.b $81 
-                dc.b   1
-                dc.b $82 
-                dc.b   1
-                dc.b $82 
-                dc.b   1
-                dc.b $83 
-                dc.b   1
-                dc.b $84 
-                dc.b   1
-                dc.b $7D 
-                dc.b   1
-                dc.b $85 
-                dc.b   1
-                dc.b $86 
-                dc.b   1
-                dc.b $87 
-                dc.b   1
-                dc.b $88 
-                dc.b   1
-                dc.b $89 
-                dc.b   1
-                dc.b $8A 
-                dc.b   1
-                dc.b $8B 
-                dc.b   1
-                dc.b $8C 
-                dc.b   1
-                dc.b $8D 
-                dc.b   1
-                dc.b $8E 
-                dc.b   1
-                dc.b $8F 
-                dc.b   1
-                dc.b $90 
-                dc.b   1
-                dc.b $91 
-                dc.b   1
-                dc.b $92 
-                dc.b   1
-                dc.b $93 
-                dc.b   1
-                dc.b $94 
-                dc.b   1
-                dc.b $95 
-                dc.b   1
-                dc.b $96 
-                dc.b   1
-                dc.b $97 
-                dc.b   1
-                dc.b $7D 
-                dc.b   1
-                dc.b $98 
-                dc.b   1
-                dc.b $99 
-                dc.b   1
-                dc.b $9A 
-                dc.b   1
-                dc.b $9B 
-                dc.b   1
-                dc.b $9C 
-                dc.b   1
-                dc.b $9D 
-                dc.b   1
-                dc.b $9E 
-                dc.b   1
-                dc.b $9F 
-                dc.b   1
-                dc.b $A0 
-                dc.b   1
-                dc.b $A1 
-                dc.b   1
-                dc.b $A2 
-                dc.b   1
-                dc.b $A3 
-                dc.b   1
-                dc.b $A4 
-                dc.b   1
-                dc.b $A5 
-                dc.b   1
-                dc.b $A6 
-                dc.b   1
-                dc.b $A7 
-                dc.b   1
-                dc.b $A8 
-                dc.b   1
-                dc.b $A8 
-                dc.b   1
-                dc.b $A8 
-                dc.b   1
-                dc.b $A9 
-                dc.b   1
-                dc.b $AA 
-                dc.b   1
-                dc.b $AB 
-                dc.b   1
-                dc.b $AC 
-                dc.b   1
-                dc.b $AD 
-                dc.b   1
-                dc.b $AE 
-                dc.b   1
-                dc.b $AF 
-                dc.b   1
-                dc.b $B0 
-                dc.b   1
-                dc.b $B1 
-                dc.b   1
-                dc.b $B2 
-                dc.b   1
-                dc.b $B3 
-                dc.b   1
-                dc.b $7D 
-                dc.b   1
-                dc.b $9E 
-                dc.b   1
-                dc.b $B4 
-                dc.b   1
-                dc.b $B5 
-                dc.b   1
-                dc.b $B5 
-                dc.b   1
-                dc.b $B5 
-                dc.b   1
-                dc.b $B5 
-                dc.b   1
-                dc.b $B6 
-                dc.b   1
-                dc.b $B7 
-                dc.b   1
-                dc.b $B8 
-                dc.b   1
-                dc.b $B9 
-                dc.b   1
-                dc.b $BA 
-                dc.b   1
-                dc.b $7D 
-                dc.b   1
-                dc.b $82 
-                dc.b   1
-                dc.b $7D 
-                dc.b   1
-                dc.b $BB 
-                dc.b   1
-                dc.b $BC 
-                dc.b   1
-                dc.b $BD 
-                dc.b   1
-                dc.b $BE 
-                dc.b   1
-                dc.b $BF 
-                dc.b   1
-                dc.b $C0 
-                dc.b   1
-                dc.b $C1 
-                dc.b   1
-                dc.b $C2 
-                dc.b   1
-                dc.b $70 
-                dc.b   1
-                dc.b $70 
-                dc.b   1
-                dc.b $C3 
-                dc.b   1
-                dc.b $B5 
-                dc.b   1
-                dc.b $B5 
-                dc.b   1
-                dc.b $B5 
-                dc.b   1
-                dc.b $B5 
-                dc.b   1
-                dc.b $B5 
-                dc.b   1
-                dc.b $B5 
-                dc.b   1
-                dc.b $B5 
-                dc.b   1
-                dc.b $C4 
-                dc.b   1
-                dc.b $70 
-                dc.b   1
-                dc.b $70 
-                dc.b   1
-                dc.b $A9 
-                dc.b   1
-                dc.b $A9 
-                dc.b   1
-                dc.b $C5 
-                dc.b   1
-                dc.b $C6 
-                dc.b   1
-                dc.b $C7 
-                dc.b   1
-                dc.b $C8 
-                dc.b   1
-                dc.b $C9 
-                dc.b   0
-                dc.b $D0 
-                dc.b   1
-                dc.b $CA 
-                dc.b   0
-                dc.b $D0 
-                dc.b   1
-                dc.b $CB 
-                dc.b   1
-                dc.b $CC 
-                dc.b   1
-                dc.b $C7 
-                dc.b   1
-                dc.b $CD 
-                dc.b   1
-                dc.b $B4 
-                dc.b   1
-                dc.b $CE 
-                dc.b   1
-                dc.b $B3 
-                dc.b   1
-                dc.b $CF 
-                dc.b   1
-                dc.b $D0 
-                dc.b   1
-                dc.b $D1 
-                dc.b   1
-                dc.b $D2 
-                dc.b   1
-                dc.b $D3 
-                dc.b   1
-                dc.b $D4 
-                dc.b   1
-                dc.b $D5 
-                dc.b   1
-                dc.b $D6 
-                dc.b   1
-                dc.b $D7 
-                dc.b   1
-                dc.b $D8 
-                dc.b   1
-                dc.b $D9 
-                dc.b   1
-                dc.b $DA 
-                dc.b   1
-                dc.b $CD 
-                dc.b   1
-                dc.b $B4 
-                dc.b   1
-                dc.b $DB 
-                dc.b   1
-                dc.b $DC 
-                dc.b   1
-                dc.b $DD 
-                dc.b   1
-                dc.b $DE 
-                dc.b   1
-                dc.b $DF 
-                dc.b   1
-                dc.b $E0 
-                dc.b   1
-                dc.b $E1 
-                dc.b   1
-                dc.b $E2 
-                dc.b   1
-                dc.b $E3 
-                dc.b   1
-                dc.b $E4 
-                dc.b   1
-                dc.b $E5 
-                dc.b   1
-                dc.b $E6 
-                dc.b   1
-                dc.b $DF 
-                dc.b   1
-                dc.b $E0 
-                dc.b   1
-                dc.b $E0 
-                dc.b   1
-                dc.b $E2 
-                dc.b   1
-                dc.b $E2 
-                dc.b   1
-                dc.b $E7 
-                dc.b   1
-                dc.b $E8 
-                dc.b   1
-                dc.b $E9 
-                dc.b   1
-                dc.b $EA 
-                dc.b   1
-                dc.b $EB 
-                dc.b   1
-                dc.b $EC 
-                dc.b   1
-                dc.b $ED 
-                dc.b   1
-                dc.b $EE 
-                dc.b   1
-                dc.b $EA 
-                dc.b   1
-                dc.b $EF 
-                dc.b   1
-                dc.b $F0 
-                dc.b   1
-                dc.b $F0 
-                dc.b   1
-                dc.b $F0 
-                dc.b   1
-                dc.b $F1 
-                dc.b   1
-                dc.b $F2 
-                dc.b   1
-                dc.b $F3 
-                dc.b   1
-                dc.b $ED 
-                dc.b   1
-                dc.b $EE 
-                dc.b   1
-                dc.b $EF 
-                dc.b   1
-                dc.b $F4 
-                dc.b   1
-                dc.b $F4 
-                dc.b   1
-                dc.b $F5 
-                dc.b   1
-                dc.b $F6 
-                dc.b   1
-                dc.b $F6 
-                dc.b   1
-                dc.b $F7 
-                dc.b   1
-                dc.b $F8 
-                dc.b   1
-                dc.b $F8 
-                dc.b   1
-                dc.b $F9 
-                dc.b   1
-                dc.b $F9 
-                dc.b   1
-                dc.b $FA 
-                dc.b   1
-                dc.b $FA 
-                dc.b   1
-                dc.b $FB 
-                dc.b   1
-                dc.b $FC 
-                dc.b   1
-                dc.b $FC 
-                dc.b   1
-                dc.b $FD 
-                dc.b   1
-                dc.b $FE 
-                dc.b   1
-                dc.b $FF
-                dc.b   1
-                dc.b $FF
-                dc.b   1
-                dc.b $FF
-                dc.b   2
-                dc.b   0
-                dc.b   2
-                dc.b   0
-                dc.b   2
-                dc.b   0
-                dc.b   2
-                dc.b   1
-                dc.b   2
-                dc.b   1
-                dc.b   2
-                dc.b   1
-                dc.b   2
-                dc.b   2
-                dc.b   2
-                dc.b   3
-                dc.b   2
-                dc.b   4
-                dc.b   2
-                dc.b   5
-                dc.b   2
-                dc.b   6
-                dc.b   2
-                dc.b   7
-                dc.b   2
-                dc.b   7
-                dc.b   2
-                dc.b   7
-                dc.b   2
-                dc.b   7
-                dc.b   2
-                dc.b   8
-                dc.b   2
-                dc.b   9
-                dc.b   2
-                dc.b  $A
-                dc.b   2
-                dc.b  $B
-                dc.b   2
-                dc.b  $C
-                dc.b   2
-                dc.b  $D
-                dc.b   2
-                dc.b  $E
-                dc.b   2
-                dc.b  $F
-                dc.b   2
-                dc.b $10
-                dc.b   2
-                dc.b  $F
-                dc.b   2
-                dc.b  $F
-                dc.b   2
-                dc.b  $F
-                dc.b   2
-                dc.b  $F
-                dc.b   2
-                dc.b  $F
-                dc.b   2
-                dc.b  $F
-                dc.b   2
-                dc.b $11
-                dc.b   2
-                dc.b $11
-                dc.b   2
-                dc.b $11
-                dc.b   2
-                dc.b $12
-                dc.b   2
-                dc.b $13
-                dc.b   2
-                dc.b $14
-                dc.b   2
-                dc.b $15
-                dc.b   2
-                dc.b $16
-                dc.b   2
-                dc.b $17
-                dc.b   2
-                dc.b $17
-                dc.b   2
-                dc.b $18
-                dc.b   2
-                dc.b $18
-                dc.b   2
-                dc.b $19
-                dc.b   2
-                dc.b $1A
-                dc.b   2
-                dc.b $1A
-                dc.b   2
-                dc.b $1B
-                dc.b   2
-                dc.b $1C
-                dc.b   2
-                dc.b $1D
-                dc.b   2
-                dc.b $1E
-                dc.b   2
-                dc.b $1E
-                dc.b   2
-                dc.b $1F
-                dc.b   2
-                dc.b $20
-                dc.b   2
-                dc.b $20
-                dc.b   2
-                dc.b $21 
-                dc.b   2
-                dc.b $21 
-                dc.b   2
-                dc.b $22 
-                dc.b   2
-                dc.b $22 
-                dc.b   2
-                dc.b $23 
-                dc.b   2
-                dc.b $23 
-                dc.b   2
-                dc.b $24 
-                dc.b   2
-                dc.b $24 
-                dc.b   2
-                dc.b $25 
-                dc.b   2
-                dc.b $25 
-                dc.b   2
-                dc.b $26 
-                dc.b   2
-                dc.b $18
-                dc.b   2
-                dc.b $27 
-                dc.b   2
-                dc.b $27 
-                dc.b   2
-                dc.b $27 
-                dc.b   2
-                dc.b $28 
-                dc.b   1
-                dc.b $F6 
-                dc.b   1
-                dc.b $F6 
-                dc.b   1
-                dc.b $FC 
-                dc.b   1
-                dc.b $FC 
-                dc.b   2
-                dc.b $29 
-                dc.b   2
-                dc.b $2A 
-                dc.b   2
-                dc.b $2B 
-                dc.b   2
-                dc.b $2B 
-                dc.b   2
-                dc.b $2C 
-                dc.b   2
-                dc.b $2D 
-                dc.b   2
-                dc.b $2B 
-                dc.b   2
-                dc.b $2D 
-                dc.b   2
-                dc.b $2E 
-                dc.b   2
-                dc.b $2E 
-                dc.b   2
-                dc.b $25 
-                dc.b   2
-                dc.b $25 
-                dc.b   2
-                dc.b $26 
-                dc.b   2
-                dc.b $26 
-                dc.b   2
-                dc.b $2F 
-                dc.b   2
-                dc.b $2F 
-                dc.b   2
-                dc.b $27 
-                dc.b   2
-                dc.b $27 
-                dc.b   1
-                dc.b $F6 
-                dc.b   2
-                dc.b $30 
-                dc.b   2
-                dc.b $30 
-                dc.b   1
-                dc.b $FA 
-                dc.b   1
-                dc.b $FA 
-                dc.b   2
-                dc.b $31 
-                dc.b   2
-                dc.b $32 
-                dc.b   2
-                dc.b $33 
-                dc.b   2
-                dc.b $34 
-                dc.b   2
-                dc.b $35 
-                dc.b   2
-                dc.b $36 
-                dc.b   2
-                dc.b $37 
-                dc.b   2
-                dc.b $38 
-                dc.b   2
-                dc.b $39 
-                dc.b   1
-                dc.b $A6 
-                dc.b   1
-                dc.b $ED 
-                dc.b   2
-                dc.b $3A 
-                dc.b   2
-                dc.b $3B 
-                dc.b   2
-                dc.b $3C 
-                dc.b   2
-                dc.b $3D 
-                dc.b   2
-                dc.b $3E 
-                dc.b   1
-                dc.b $C0 
-                dc.b   2
-                dc.b $3F 
-                dc.b   2
-                dc.b $40 
-                dc.b   1
-                dc.b $BF 
-                dc.b   2
-                dc.b $41 
-                dc.b   2
-                dc.b $42 
-                dc.b   2
-                dc.b $43 
-                dc.b   2
-                dc.b $44 
-                dc.b   2
-                dc.b $45 
-                dc.b   2
-                dc.b $46 
-                dc.b   2
-                dc.b $47 
-                dc.b   2
-                dc.b $48 
-                dc.b   2
-                dc.b $49 
-                dc.b   2
-                dc.b $4A 
-                dc.b   2
-                dc.b $4B 
-                dc.b   2
-                dc.b $4C 
-                dc.b   2
-                dc.b $4D 
-                dc.b   2
-                dc.b $4E 
-                dc.b   2
-                dc.b $4F 
-                dc.b   2
-                dc.b $50 
-                dc.b   2
-                dc.b $51 
-                dc.b   2
-                dc.b $52 
-                dc.b   2
-                dc.b $53 
-                dc.b   2
-                dc.b $54 
-                dc.b   2
-                dc.b $55 
-                dc.b   2
-                dc.b $56 
-                dc.b   2
-                dc.b $55 
-                dc.b   2
-                dc.b $55 
-                dc.b   2
-                dc.b $55 
-                dc.b   2
-                dc.b $57 
-                dc.b   2
-                dc.b $57 
-                dc.b   2
-                dc.b $58 
-                dc.b   2
-                dc.b $59 
-                dc.b   2
-                dc.b $5A 
-                dc.b   2
-                dc.b $5B 
-                dc.b   2
-                dc.b $5C 
-                dc.b   2
-                dc.b $5D 
-                dc.b   2
-                dc.b $5E 
-                dc.b   2
-                dc.b $5F 
-                dc.b   2
-                dc.b $60 
-                dc.b   2
-                dc.b $61 
-                dc.b   2
-                dc.b $62 
-                dc.b   2
-                dc.b $63 
-                dc.b   2
-                dc.b $64 
-                dc.b   2
-                dc.b $65 
-                dc.b   2
-                dc.b $66 
-                dc.b   2
-                dc.b $67 
-                dc.b   2
-                dc.b $68 
-                dc.b   2
-                dc.b $69 
-                dc.b   2
-                dc.b $6A 
-                dc.b   2
-                dc.b $6B 
-                dc.b   2
-                dc.b $6C 
-                dc.b   2
-                dc.b $6D 
-                dc.b   2
-                dc.b $6E 
-                dc.b   2
-                dc.b $6F 
-                dc.b   2
-                dc.b $70 
-                dc.b   0
-                dc.b $89 
-                dc.b   2
-                dc.b $71 
-                dc.b   2
-                dc.b $72 
-                dc.b   2
-                dc.b $73 
-                dc.b   2
-                dc.b $74 
-                dc.b   2
-                dc.b $75 
-                dc.b   2
-                dc.b $76 
-                dc.b   2
-                dc.b $77 
-                dc.b   2
-                dc.b $78 
-                dc.b   2
-                dc.b $79 
-                dc.b   2
-                dc.b $7A 
-                dc.b   2
-                dc.b $7B 
-                dc.b   2
-                dc.b $7C 
-                dc.b   2
-                dc.b $7D 
-                dc.b   2
-                dc.b $7E 
-                dc.b   2
-                dc.b $7F 
-                dc.b   2
-                dc.b $80 
-                dc.b   2
-                dc.b $81 
+VisitedMapFlagmap:
+                dc.w 0
+                dc.w 1
+                dc.w 2
+                dc.w 3
+                dc.w 4
+                dc.w 5
+                dc.w 6
+                dc.w 7
+                dc.w 8
+                dc.w 9
+                dc.w $A
+                dc.w $B
+                dc.w $C
+                dc.w $D
+                dc.w $E
+                dc.w $F
+                dc.w $10
+                dc.w 4
+                dc.w $11
+                dc.w $12
+                dc.w $13
+                dc.w $14
+                dc.w $15
+                dc.w $16
+                dc.w $17
+                dc.w $18
+                dc.w $E
+                dc.w $19
+                dc.w $1A
+                dc.w $1B
+                dc.w $1C
+                dc.w $1D
+                dc.w $1E
+                dc.w $1E
+                dc.w $1F
+                dc.w $20
+                dc.w $21
+                dc.w $22
+                dc.w $23
+                dc.w $24
+                dc.w $25
+                dc.w $26
+                dc.w $27
+                dc.w $28
+                dc.w $29
+                dc.w $2A
+                dc.w $2B
+                dc.w $2C
+                dc.w $2D
+                dc.w $2E
+                dc.w $2D
+                dc.w $2F
+                dc.w $2F
+                dc.w $2F
+                dc.w $2F
+                dc.w $30
+                dc.w $30
+                dc.w $30
+                dc.w $30
+                dc.w $31
+                dc.w $31
+                dc.w $31
+                dc.w $31
+                dc.w $32
+                dc.w $32
+                dc.w $33
+                dc.w $33
+                dc.w $34
+                dc.w $35
+                dc.w $35
+                dc.w $36
+                dc.w $37
+                dc.w $38
+                dc.w $39
+                dc.w $3A
+                dc.w $3A
+                dc.w $3B
+                dc.w $34
+                dc.w $3C
+                dc.w $3C
+                dc.w $3D
+                dc.w $3E
+                dc.w $3F
+                dc.w $40
+                dc.w $40
+                dc.w $41
+                dc.w $42
+                dc.w $42
+                dc.w $43
+                dc.w $43
+                dc.w $44
+                dc.w $45
+                dc.w $46
+                dc.w $47
+                dc.w $48
+                dc.w $48
+                dc.w $49
+                dc.w $4A
+                dc.w $4B
+                dc.w $4B
+                dc.w $4C
+                dc.w $4D
+                dc.w $4D
+                dc.w $49
+                dc.w $4E
+                dc.w $4F
+                dc.w $50
+                dc.w $51
+                dc.w $52
+                dc.w $53
+                dc.w $54
+                dc.w $55
+                dc.w $56
+                dc.w $57
+                dc.w $58
+                dc.w $59
+                dc.w $5A
+                dc.w $5B
+                dc.w $5C
+                dc.w $5D
+                dc.w $5C
+                dc.w $5D
+                dc.w $5E
+                dc.w $5F
+                dc.w $60
+                dc.w $61
+                dc.w $62
+                dc.w $63
+                dc.w $64
+                dc.w $65
+                dc.w $66
+                dc.w $67
+                dc.w $68
+                dc.w $69
+                dc.w $6A
+                dc.w $6B
+                dc.w $6C
+                dc.w $6D
+                dc.w $6E
+                dc.w $6F
+                dc.w $70
+                dc.w $71
+                dc.w $72
+                dc.w $73
+                dc.w $74
+                dc.w $74
+                dc.w $75
+                dc.w $75
+                dc.w $76
+                dc.w $77
+                dc.w $77
+                dc.w $78
+                dc.w $78
+                dc.w $79
+                dc.w $79
+                dc.w $7A
+                dc.w $7B
+                dc.w $7C
+                dc.w $7C
+                dc.w $7D
+                dc.w $7D
+                dc.w $7E
+                dc.w $7F
+                dc.w $80
+                dc.w $80
+                dc.w $81
+                dc.w $81
+                dc.w $82
+                dc.w $83
+                dc.w $83
+                dc.w $84
+                dc.w $85
+                dc.w $86
+                dc.w $84
+                dc.w $87
+                dc.w $88
+                dc.w $89
+                dc.w $8A
+                dc.w $8B
+                dc.w $8C
+                dc.w $8D
+                dc.w $8E
+                dc.w $8F
+                dc.w $90
+                dc.w $91
+                dc.w $92
+                dc.w $93
+                dc.w $91
+                dc.w $94
+                dc.w $95
+                dc.w $96
+                dc.w $97
+                dc.w $98
+                dc.w $99
+                dc.w $9A
+                dc.w $9B
+                dc.w $9C
+                dc.w $9D
+                dc.w $9E
+                dc.w $9F
+                dc.w $A0
+                dc.w $A1
+                dc.w $A2
+                dc.w $A3
+                dc.w $A4
+                dc.w $A5
+                dc.w $A6
+                dc.w $A7
+                dc.w $A8
+                dc.w $A9
+                dc.w $AA
+                dc.w $AB
+                dc.w $AB
+                dc.w $AC
+                dc.w $A9
+                dc.w $AD
+                dc.w $AE
+                dc.w $AF
+                dc.w $A6
+                dc.w $B0
+                dc.w $B1
+                dc.w $B2
+                dc.w $9A
+                dc.w $B3
+                dc.w $B4
+                dc.w $B4
+                dc.w $B5
+                dc.w $B6
+                dc.w $B7
+                dc.w $B8
+                dc.w $B9
+                dc.w $BA
+                dc.w $BB
+                dc.w $BC
+                dc.w $BD
+                dc.w $BE
+                dc.w $BF
+                dc.w $C0
+                dc.w $C1
+                dc.w $C2
+                dc.w $C3
+                dc.w $C4
+                dc.w $C5
+                dc.w $C6
+                dc.w $C6
+                dc.w $C7
+                dc.w $C8
+                dc.w $C9
+                dc.w $C0
+                dc.w $CA
+                dc.w $7A
+                dc.w $CB
+                dc.w $CC
+                dc.w $CD
+                dc.w $CE
+                dc.w $CF
+                dc.w $D0
+                dc.w $D1
+                dc.w $D2
+                dc.w $C0
+                dc.w $D3
+                dc.w $D3
+                dc.w $C7
+                dc.w $D4
+                dc.w $D5
+                dc.w $D6
+                dc.w $D7
+                dc.w $D8
+                dc.w $CE
+                dc.w $CF
+                dc.w $D9
+                dc.w $DA
+                dc.w $DB
+                dc.w $DC
+                dc.w $DD
+                dc.w $DE
+                dc.w $DF
+                dc.w $E0
+                dc.w $E1
+                dc.w $E2
+                dc.w $E3
+                dc.w $E4
+                dc.w $E5
+                dc.w $E6
+                dc.w $E7
+                dc.w $E8
+                dc.w $E9
+                dc.w $EA
+                dc.w $EB
+                dc.w $EC
+                dc.w $ED
+                dc.w $EE
+                dc.w $EF
+                dc.w $F0
+                dc.w $F1
+                dc.w $F2
+                dc.w $F3
+                dc.w $F4
+                dc.w $F5
+                dc.w $F6
+                dc.w $F7
+                dc.w $F8
+                dc.w $F9
+                dc.w $FA
+                dc.w $FB
+                dc.w $FC
+                dc.w $AA
+                dc.w $FD
+                dc.w $FE
+                dc.w $FF
+                dc.w $100
+                dc.w $101
+                dc.w $102
+                dc.w $103
+                dc.w $104
+                dc.w $105
+                dc.w $106
+                dc.w $107
+                dc.w $108
+                dc.w $109
+                dc.w $10A
+                dc.w $10B
+                dc.w $10C
+                dc.w $10D
+                dc.w $10E
+                dc.w $10F
+                dc.w $110
+                dc.w $111
+                dc.w $112
+                dc.w $113
+                dc.w $114
+                dc.w $115
+                dc.w $F8
+                dc.w $116
+                dc.w $117
+                dc.w $118
+                dc.w $119
+                dc.w $11A
+                dc.w $11B
+                dc.w $11C
+                dc.w $11D
+                dc.w $11E
+                dc.w $11F
+                dc.w $120
+                dc.w $121
+                dc.w $122
+                dc.w $123
+                dc.w $124
+                dc.w $95
+                dc.w $125
+                dc.w $105
+                dc.w $F8
+                dc.w $126
+                dc.w $127
+                dc.w $128
+                dc.w $129
+                dc.w $12A
+                dc.w $12B
+                dc.w $12C
+                dc.w $12D
+                dc.w $12E
+                dc.w $12F
+                dc.w $130
+                dc.w $131
+                dc.w $132
+                dc.w $133
+                dc.w $134
+                dc.w $135
+                dc.w $136
+                dc.w $137
+                dc.w $138
+                dc.w $139
+                dc.w $13A
+                dc.w $13B
+                dc.w $13C
+                dc.w $13D
+                dc.w $13E
+                dc.w $13F
+                dc.w $140
+                dc.w $141
+                dc.w $142
+                dc.w $143
+                dc.w $144
+                dc.w $145
+                dc.w $146
+                dc.w $147
+                dc.w $148
+                dc.w $149
+                dc.w $14A
+                dc.w $14B
+                dc.w $14C
+                dc.w $14D
+                dc.w $14E
+                dc.w $14F
+                dc.w $150
+                dc.w $151
+                dc.w $152
+                dc.w $153
+                dc.w $154
+                dc.w $155
+                dc.w $156
+                dc.w $157
+                dc.w $158
+                dc.w $159
+                dc.w $15A
+                dc.w $15B
+                dc.w $15C
+                dc.w $15D
+                dc.w $15E
+                dc.w $15F
+                dc.w $160
+                dc.w $161
+                dc.w $162
+                dc.w $163
+                dc.w $164
+                dc.w $165
+                dc.w $166
+                dc.w $167
+                dc.w $168
+                dc.w $169
+                dc.w $16A
+                dc.w $16B
+                dc.w $16C
+                dc.w $162
+                dc.w $16D
+                dc.w $16E
+                dc.w $16F
+                dc.w $170
+                dc.w $171
+                dc.w $172
+                dc.w $173
+                dc.w $174
+                dc.w $175
+                dc.w $176
+                dc.w $170
+                dc.w $170
+                dc.w $175
+                dc.w $171
+                dc.w $170
+                dc.w $170
+                dc.w $177
+                dc.w $178
+                dc.w $179
+                dc.w $17A
+                dc.w $17B
+                dc.w $17C
+                dc.w $17D
+                dc.w $17E
+                dc.w $17F
+                dc.w $180
+                dc.w $17F
+                dc.w $181
+                dc.w $182
+                dc.w $182
+                dc.w $183
+                dc.w $184
+                dc.w $17D
+                dc.w $185
+                dc.w $186
+                dc.w $187
+                dc.w $188
+                dc.w $189
+                dc.w $18A
+                dc.w $18B
+                dc.w $18C
+                dc.w $18D
+                dc.w $18E
+                dc.w $18F
+                dc.w $190
+                dc.w $191
+                dc.w $192
+                dc.w $193
+                dc.w $194
+                dc.w $195
+                dc.w $196
+                dc.w $197
+                dc.w $17D
+                dc.w $198
+                dc.w $199
+                dc.w $19A
+                dc.w $19B
+                dc.w $19C
+                dc.w $19D
+                dc.w $19E
+                dc.w $19F
+                dc.w $1A0
+                dc.w $1A1
+                dc.w $1A2
+                dc.w $1A3
+                dc.w $1A4
+                dc.w $1A5
+                dc.w $1A6
+                dc.w $1A7
+                dc.w $1A8
+                dc.w $1A8
+                dc.w $1A8
+                dc.w $1A9
+                dc.w $1AA
+                dc.w $1AB
+                dc.w $1AC
+                dc.w $1AD
+                dc.w $1AE
+                dc.w $1AF
+                dc.w $1B0
+                dc.w $1B1
+                dc.w $1B2
+                dc.w $1B3
+                dc.w $17D
+                dc.w $19E
+                dc.w $1B4
+                dc.w $1B5
+                dc.w $1B5
+                dc.w $1B5
+                dc.w $1B5
+                dc.w $1B6
+                dc.w $1B7
+                dc.w $1B8
+                dc.w $1B9
+                dc.w $1BA
+                dc.w $17D
+                dc.w $182
+                dc.w $17D
+                dc.w $1BB
+                dc.w $1BC
+                dc.w $1BD
+                dc.w $1BE
+                dc.w $1BF
+                dc.w $1C0
+                dc.w $1C1
+                dc.w $1C2
+                dc.w $170
+                dc.w $170
+                dc.w $1C3
+                dc.w $1B5
+                dc.w $1B5
+                dc.w $1B5
+                dc.w $1B5
+                dc.w $1B5
+                dc.w $1B5
+                dc.w $1B5
+                dc.w $1C4
+                dc.w $170
+                dc.w $170
+                dc.w $1A9
+                dc.w $1A9
+                dc.w $1C5
+                dc.w $1C6
+                dc.w $1C7
+                dc.w $1C8
+                dc.w $1C9
+                dc.w $D0
+                dc.w $1CA
+                dc.w $D0
+                dc.w $1CB
+                dc.w $1CC
+                dc.w $1C7
+                dc.w $1CD
+                dc.w $1B4
+                dc.w $1CE
+                dc.w $1B3
+                dc.w $1CF
+                dc.w $1D0
+                dc.w $1D1
+                dc.w $1D2
+                dc.w $1D3
+                dc.w $1D4
+                dc.w $1D5
+                dc.w $1D6
+                dc.w $1D7
+                dc.w $1D8
+                dc.w $1D9
+                dc.w $1DA
+                dc.w $1CD
+                dc.w $1B4
+                dc.w $1DB
+                dc.w $1DC
+                dc.w $1DD
+                dc.w $1DE
+                dc.w $1DF
+                dc.w $1E0
+                dc.w $1E1
+                dc.w $1E2
+                dc.w $1E3
+                dc.w $1E4
+                dc.w $1E5
+                dc.w $1E6
+                dc.w $1DF
+                dc.w $1E0
+                dc.w $1E0
+                dc.w $1E2
+                dc.w $1E2
+                dc.w $1E7
+                dc.w $1E8
+                dc.w $1E9
+                dc.w $1EA
+                dc.w $1EB
+                dc.w $1EC
+                dc.w $1ED
+                dc.w $1EE
+                dc.w $1EA
+                dc.w $1EF
+                dc.w $1F0
+                dc.w $1F0
+                dc.w $1F0
+                dc.w $1F1
+                dc.w $1F2
+                dc.w $1F3
+                dc.w $1ED
+                dc.w $1EE
+                dc.w $1EF
+                dc.w $1F4
+                dc.w $1F4
+                dc.w $1F5
+                dc.w $1F6
+                dc.w $1F6
+                dc.w $1F7
+                dc.w $1F8
+                dc.w $1F8
+                dc.w $1F9
+                dc.w $1F9
+                dc.w $1FA
+                dc.w $1FA
+                dc.w $1FB
+                dc.w $1FC
+                dc.w $1FC
+                dc.w $1FD
+                dc.w $1FE
+                dc.w $1FF
+                dc.w $1FF
+                dc.w $1FF
+                dc.w $200
+                dc.w $200
+                dc.w $200
+                dc.w $201
+                dc.w $201
+                dc.w $201
+                dc.w $202
+                dc.w $203
+                dc.w $204
+                dc.w $205
+                dc.w $206
+                dc.w $207
+                dc.w $207
+                dc.w $207
+                dc.w $207
+                dc.w $208
+                dc.w $209
+                dc.w $20A
+                dc.w $20B
+                dc.w $20C
+                dc.w $20D
+                dc.w $20E
+                dc.w $20F
+                dc.w $210
+                dc.w $20F
+                dc.w $20F
+                dc.w $20F
+                dc.w $20F
+                dc.w $20F
+                dc.w $20F
+                dc.w $211
+                dc.w $211
+                dc.w $211
+                dc.w $212
+                dc.w $213
+                dc.w $214
+                dc.w $215
+                dc.w $216
+                dc.w $217
+                dc.w $217
+                dc.w $218
+                dc.w $218
+                dc.w $219
+                dc.w $21A
+                dc.w $21A
+                dc.w $21B
+                dc.w $21C
+                dc.w $21D
+                dc.w $21E
+                dc.w $21E
+                dc.w $21F
+                dc.w $220
+                dc.w $220
+                dc.w $221
+                dc.w $221
+                dc.w $222
+                dc.w $222
+                dc.w $223
+                dc.w $223
+                dc.w $224
+                dc.w $224
+                dc.w $225
+                dc.w $225
+                dc.w $226
+                dc.w $218
+                dc.w $227
+                dc.w $227
+                dc.w $227
+                dc.w $228
+                dc.w $1F6
+                dc.w $1F6
+                dc.w $1FC
+                dc.w $1FC
+                dc.w $229
+                dc.w $22A
+                dc.w $22B
+                dc.w $22B
+                dc.w $22C
+                dc.w $22D
+                dc.w $22B
+                dc.w $22D
+                dc.w $22E
+                dc.w $22E
+                dc.w $225
+                dc.w $225
+                dc.w $226
+                dc.w $226
+                dc.w $22F
+                dc.w $22F
+                dc.w $227
+                dc.w $227
+                dc.w $1F6
+                dc.w $230
+                dc.w $230
+                dc.w $1FA
+                dc.w $1FA
+                dc.w $231
+                dc.w $232
+                dc.w $233
+                dc.w $234
+                dc.w $235
+                dc.w $236
+                dc.w $237
+                dc.w $238
+                dc.w $239
+                dc.w $1A6
+                dc.w $1ED
+                dc.w $23A
+                dc.w $23B
+                dc.w $23C
+                dc.w $23D
+                dc.w $23E
+                dc.w $1C0
+                dc.w $23F
+                dc.w $240
+                dc.w $1BF
+                dc.w $241
+                dc.w $242
+                dc.w $243
+                dc.w $244
+                dc.w $245
+                dc.w $246
+                dc.w $247
+                dc.w $248
+                dc.w $249
+                dc.w $24A
+                dc.w $24B
+                dc.w $24C
+                dc.w $24D
+                dc.w $24E
+                dc.w $24F
+                dc.w $250
+                dc.w $251
+                dc.w $252
+                dc.w $253
+                dc.w $254
+                dc.w $255
+                dc.w $256
+                dc.w $255
+                dc.w $255
+                dc.w $255
+                dc.w $257
+                dc.w $257
+                dc.w $258
+                dc.w $259
+                dc.w $25A
+                dc.w $25B
+                dc.w $25C
+                dc.w $25D
+                dc.w $25E
+                dc.w $25F
+                dc.w $260
+                dc.w $261
+                dc.w $262
+                dc.w $263
+                dc.w $264
+                dc.w $265
+                dc.w $266
+                dc.w $267
+                dc.w $268
+                dc.w $269
+                dc.w $26A
+                dc.w $26B
+                dc.w $26C
+                dc.w $26D
+                dc.w $26E
+                dc.w $26F
+                dc.w $270
+                dc.w $89
+                dc.w $271
+                dc.w $272
+                dc.w $273
+                dc.w $274
+                dc.w $275
+                dc.w $276
+                dc.w $277
+                dc.w $278
+                dc.w $279
+                dc.w $27A
+                dc.w $27B
+                dc.w $27C
+                dc.w $27D
+                dc.w $27E
+                dc.w $27F
+                dc.w $280
+                dc.w $281
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -36004,14 +35141,14 @@ loc_D256:
 
 sub_D25C:
                 
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 bsr.w   sub_D9FC
                 bsr.w   sub_D996
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 move.w  #$8F80,d0
                 move.w  #$800,d1
                 clr.w   d2
-                jsr     (sub_F42).l
+                jsr     (ApplyVramDMAFill).l
                 move.w  #$BC,d1 
                 clr.w   d0
                 move.w  #$3E,d7 
@@ -36025,7 +35162,7 @@ loc_D28A:
                 movem.w d7,-(sp)
                 andi.b  #3,d7
                 bne.s   loc_D2AE
-                jsr     (sub_BA4).l
+                jsr     (WaitForDMAQueueProcessing).l
 loc_D2AE:
                 
                 movem.w (sp)+,d7
@@ -36040,14 +35177,14 @@ loc_D2C8:
                 dbf     d7,loc_D2C8
                 clr.w   $E(a1)
                 lea     byte_E0E0(pc), a0
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_BASE).l,a1
                 moveq   #7,d7
 loc_D2DE:
                 
                 move.w  (a0)+,(a1)+
                 dbf     d7,loc_D2DE
                 lea     (byte_FF2C00).l,a0
-                move.w  (word_FF0F9C).l,word_FF2C04-byte_FF2C00(a0)
+                move.w  (byte_FF0F9C).l,word_FF2C04-byte_FF2C00(a0)
                 rts
 
     ; End of function sub_D25C
@@ -36124,7 +35261,7 @@ loc_D34C:
                 movem.w (sp)+,d0
 loc_D38A:
                 
-                move.b  (byte_FF0F8E).l,d1
+                move.b  (P1_INPUT).l,d1 
                 btst    #7,d1
                 beq.s   loc_D39A
                 moveq   #2,d1
@@ -36171,7 +35308,7 @@ loc_D3C6:
                 
                 moveq   #$F,d0
                 bsr.w   sub_D88A
-                move.b  (byte_FF0F8E).l,d1
+                move.b  (P1_INPUT).l,d1 
                 move.b  d1,d0
                 andi.b  #$90,d0
                 bne.w   loc_D34C
@@ -36181,7 +35318,7 @@ loc_D3C6:
                 lea     ($FF2C00).l,a1
                 lea     byte_FF2C0A-byte_FF2C00(a1),a0
                 lea     $C(a1),a1
-                move.b  (byte_FF0F8E).l,d0
+                move.b  (P1_INPUT).l,d0 
                 btst    #0,d0
                 bne.w   loc_D426
                 btst    #1,d0
@@ -36290,10 +35427,10 @@ loc_D4E0:
                 move.w  #$FFFF,(a0)
                 tst.w   d0
                 beq.s   loc_D504
-                jsr     (sub_90E).l
+                jsr     (DuplicatePalettes).l
 loc_D504:
                 
-                jsr     (sub_BA4).l
+                jsr     (WaitForDMAQueueProcessing).l
                 rts
 
     ; End of function sub_D4AE
@@ -36616,7 +35753,7 @@ sub_D714:
                 bsr.w   sub_D902
                 move.l  (sp)+,d2
                 bsr.w   sub_D756
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 movem.w (sp)+,d0-d1/d7
                 rts
 
@@ -36649,7 +35786,7 @@ sub_D756:
                 lea     (byte_FF0558).l,a0
                 lea     ($FF2C00).l,a1
                 move.w  word_FF2C04-byte_FF2C00(a1),d3
-                move.w  (word_FF0F9C).l,d4
+                move.w  (byte_FF0F9C).l,d4
                 sub.w   d3,d4
                 andi.b  #$3F,d4 
                 cmpi.b  #$20,d4 
@@ -36737,7 +35874,7 @@ loc_D814:
                 
                 bsr.w   sub_D828
                 bsr.w   sub_D710
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 ori     #1,ccr
                 rts
 
@@ -36768,7 +35905,7 @@ loc_D850:
                 lea     $80(a2),a1
                 dbf     d7,loc_D84A
                 jsr     (sub_792C).l
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 rts
 
     ; End of function sub_D828
@@ -36796,12 +35933,12 @@ sub_D86C:
 sub_D88A:
                 
                 movem.w d0,-(sp)
-                jsr     (sub_1040).l
+                jsr     (RefreshPlayerInput).l
                 movem.w (sp)+,d4
-                move.w  (word_FF0F9C).l,d2
+                move.w  (byte_FF0F9C).l,d2
                 lea     (byte_FF2C00).l,a1
                 move.b  (a1),d1
-                lea     (byte_FF0F8E).l,a0
+                lea     (P1_INPUT).l,a0 
                 move.b  (a0),d0
                 andi.b  #$F,d0
                 andi.b  #$F,d1
@@ -36857,7 +35994,7 @@ loc_D90A:
                 bne.s   loc_D92C
                 lea     ($FF2C00).l,a0
                 move.w  word_FF2C04-byte_FF2C00(a0),d2
-                move.w  (word_FF0F9C).l,d3
+                move.w  (byte_FF0F9C).l,d3
                 sub.w   d2,d3
                 andi.b  #$1F,d3
                 cmpi.b  #$10,d3
@@ -36865,8 +36002,8 @@ loc_D90A:
                 moveq   #$FFFFFFFF,d0
 loc_D92C:
                 
-                lea     (word_FF0550).l,a0
-                move.w  d0,word_FF0556-word_FF0550(a0)
+                lea     (SPRITE_TABLE).l,a0
+                move.w  d0,word_FF0556-SPRITE_TABLE(a0)
                 move.w  d1,(a0)
                 move.b  #$F,2(a0)
                 move.w  #$A0A8,d2
@@ -36881,10 +36018,10 @@ loc_D92C:
 sub_D948:
                 
                 movem.w d0,-(sp)
-                jsr     (sub_B5E).l
-                jsr     (sub_1040).l
+                jsr     (WaitForVInt).l
+                jsr     (RefreshPlayerInput).l
                 movem.w (sp)+,d0
-                move.b  (byte_FF0F8E).l,d1
+                move.b  (P1_INPUT).l,d1 
                 andi.b  #$F0,d1
                 bne.s   sub_D948
                 rts
@@ -36896,13 +36033,13 @@ sub_D948:
 
 sub_D96A:
                 
-                jsr     (sub_1040).l
-                move.b  (byte_FF0F8E).l,d0
+                jsr     (RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,d0 
                 andi.b  #$F0,d0
                 bne.s   sub_D96A
-                jsr     (sub_B5E).l
-                jsr     (sub_1040).l
-                move.b  (byte_FF0F8E).l,d0
+                jsr     (WaitForVInt).l
+                jsr     (RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,d0 
                 andi.b  #$F0,d0
                 bne.s   sub_D96A
                 rts
@@ -36940,7 +36077,7 @@ loc_D9B2:
                 lea     (loc_1500).w,a1
                 move.w  #$140,d0
                 move.w  #2,d1
-                jsr     (sub_D22).l
+                jsr     (ApplyImmediateVramDMA).l
                 rts
 
     ; End of function sub_D996
@@ -36974,8 +36111,8 @@ loc_DA16:
                 lea     (initStack).w,a1
                 move.w  #$A80,d0
                 move.w  #2,d1
-                jsr     (sub_DD6).l
-                jsr     (sub_BA4).l
+                jsr     (ApplyVIntVramDMA).l
+                jsr     (WaitForDMAQueueProcessing).l
                 rts
 
     ; End of function sub_D9FC
@@ -37115,7 +36252,7 @@ sub_DB14:
                 
                 jsr     sub_22E94
                 jsr     (sub_2FC).l
-                jsr     (sub_BA4).l
+                jsr     (WaitForDMAQueueProcessing).l
                 rts
 
     ; End of function sub_DB14
@@ -38482,7 +37619,7 @@ sub_E154:
                 
                 lea     (byte_FF2C00).l,a5
                 movea.l a5,a1
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 moveq   #$37,d7 
 loc_E164:
                 
@@ -38536,7 +37673,7 @@ loc_E1B8:
                 dbf     d5,loc_E1B4
                 dbf     d7,loc_E1AC
                 move.w  #$8F02,d0
-                jsr     (sub_87E).l
+                jsr     (SetVDPRegister).l
                 rts
 
     ; End of function sub_E154
@@ -38566,7 +37703,7 @@ loc_E1FC:
                 move.b  d2,(a0)+
                 addi.w  #6,d1
                 dbf     d7,loc_E1E6
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
 loc_E20C:
                 
                 btst    #2,(VDP_Control+1).l
@@ -38679,7 +37816,7 @@ loc_E2F2:
 sub_E2FC:
                 
                 move.w  #$8124,(VDP_Control).l
-                move.w  #$8124,(unk_FF0FB2).l
+                move.w  #$8124,(VDP_REG01_STATUS).l
                 rts
 
     ; End of function sub_E2FC
@@ -38691,20 +37828,20 @@ sub_E30E:
                 
                 link    a6,#-$8E
                 move.w  d0,-$82(a6)
-                move.w  (dword_FF0100).l,-$84(a6)
-                move.w  (dword_FF0500).l,-$86(a6)
+                move.w  (HORIZONTAL_SCROLL_DATA).l,-$84(a6)
+                move.w  (VERTICAL_SCROLL_DATA).l,-$86(a6)
                 move.w  #6,-$88(a6)
                 move.w  #3,-$8A(a6)
                 move.w  #8,-$8C(a6)
                 move.w  #$1C,-$8E(a6)
                 bsr.w   sub_E3F8
-                move.w  (dword_FF0100).l,d6
-                jsr     (sub_EBE).l
-                jsr     (sub_EDA).l
-                jsr     (sub_BA4).l
+                move.w  (HORIZONTAL_SCROLL_DATA).l,d6
+                jsr     (UpdateForegroundHScrollData).l
+                jsr     (UpdateBackgroundHScrollData).l
+                jsr     (WaitForDMAQueueProcessing).l
                 moveq   #$B,d0
                 moveq   #3,d1
-                jsr     (sub_8A0).l
+                jsr     (ApplyLogicalOrOnVDPRegister).l
                 cmpi.w  #2,-$82(a6)
                 bne.s   loc_E372
                 bsr.w   sub_E398
@@ -38716,9 +37853,9 @@ loc_E376:
                 
                 moveq   #$B,d0
                 moveq   #$C,d1
-                jsr     (sub_8B2).l
-                move.w  -$84(a6),(dword_FF0100).l
-                move.w  -$86(a6),(dword_FF0500).l
+                jsr     (ApplyLogicalAndOnVDPRegister).l
+                move.w  -$84(a6),(HORIZONTAL_SCROLL_DATA).l
+                move.w  -$86(a6),(VERTICAL_SCROLL_DATA).l
                 bsr.w   sub_E40C
                 unlk    a6
                 rts
@@ -38738,7 +37875,7 @@ loc_E39C:
                 bsr.w   sub_E43A
                 bsr.w   sub_E446
                 bsr.w   sub_E48E
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 move.l  (sp)+,d7
                 subq.w  #1,d7
                 cmpi.w  #$80,d7 
@@ -38752,7 +37889,7 @@ loc_E39C:
 
 sub_E3C0:
                 
-                lea     (word_FF0ED0).l,a0
+                lea     (PALETTE_1_CURRENT).l,a0
                 moveq   #$37,d7 
 loc_E3C8:
                 
@@ -38767,7 +37904,7 @@ loc_E3D8:
                 bsr.w   sub_E43A
                 bsr.w   sub_E446
                 bsr.w   sub_E4C0
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 move.l  (sp)+,d7
                 dbf     d7,loc_E3D8
                 rts
@@ -38779,7 +37916,7 @@ loc_E3D8:
 
 sub_E3F8:
                 
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 lea     -$80(a6),a1
                 moveq   #$1F,d7
 loc_E404:
@@ -38795,7 +37932,7 @@ loc_E404:
 
 sub_E40C:
                 
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_BASE).l,a1
                 lea     -$80(a6),a0
                 moveq   #$1F,d7
 loc_E418:
@@ -38850,7 +37987,7 @@ loc_E442:
 sub_E446:
                 
                 move.w  -$84(a6),d2
-                lea     (dword_FF0100).l,a0
+                lea     (HORIZONTAL_SCROLL_DATA).l,a0
                 move.w  d7,d1
                 mulu.w  -$88(a6),d1
                 move.w  #$FF,d6
@@ -38874,8 +38011,8 @@ loc_E46E:
                 move.w  d0,(a0)+
                 add.w   -$8C(a6),d1
                 dbf     d6,loc_E45A
-                jsr     (sub_E8A).l
-                jsr     (sub_2A2).l
+                jsr     (UpdateVDPHScrollData).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 rts
 
     ; End of function sub_E446
@@ -38903,7 +38040,7 @@ loc_E49E:
 loc_E4AC:
                 
                 moveq   #$37,d7 
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 move.l  d7,-(sp)
                 jsr     sub_F8C6
                 move.l  (sp)+,d7
@@ -38928,8 +38065,8 @@ loc_E4C8:
                 rts
 loc_E4D6:
                 
-                lea     (word_FF0080).l,a0
-                lea     (word_FF0ED0).l,a1
+                lea     (PALETTE_1_BASE).l,a0
+                lea     (PALETTE_1_CURRENT).l,a1
                 moveq   #$37,d5 
                 jsr     (sub_9CE).l
                 rts
@@ -38948,8 +38085,8 @@ loc_E4F0:
                 moveq   #$FFFFFFFF,d2
 loc_E4F2:
                 
-                jsr     (sub_90E).l
-                lea     (word_FF0ED0).l,a0
+                jsr     (DuplicatePalettes).l
+                lea     (PALETTE_1_CURRENT).l,a0
                 movea.l a0,a1
                 moveq   #$39,d7 
                 moveq   #$E,d6
@@ -38977,7 +38114,7 @@ loc_E520:
                 or.b    d1,d0
                 move.b  d0,(a1)+
                 dbf     d7,loc_E504
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 rts
 
     ; End of function sub_E4EC
@@ -38987,8 +38124,8 @@ loc_E520:
 
 sub_E538:
                 
-                jsr     (sub_90E).l
-                lea     (word_FF0ED0).l,a0
+                jsr     (DuplicatePalettes).l
+                lea     (PALETTE_1_CURRENT).l,a0
                 moveq   #$39,d7 
 loc_E546:
                 
@@ -39003,7 +38140,7 @@ loc_E546:
                 or.b    d1,d0
                 move.b  d0,(a0)+
                 dbf     d7,loc_E546
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 rts
 
     ; End of function sub_E538
@@ -39027,7 +38164,7 @@ loc_E586:
                 subq.w  #2,-$126(a6)
 loc_E596:
                 
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 lea     -$80(a6),a1
                 bsr.w   sub_E780
                 lea     -$120(a6),a0
@@ -39047,14 +38184,14 @@ loc_E5AA:
                 bsr.w   sub_E866
                 jsr     (sub_990).l
                 moveq   #$3C,d0 
-                jsr     (sub_B7A).l
+                jsr     (Sleep).l       
                 bsr.w   sub_E78A
                 bsr.w   sub_E78A
                 bsr.w   sub_E78A
                 moveq   #$3C,d0 
-                jsr     (sub_B7A).l
-                lea     (word_FF0ED0).l,a0
-                lea     (word_FF0080).l,a1
+                jsr     (Sleep).l       
+                lea     (PALETTE_1_CURRENT).l,a0
+                lea     (PALETTE_1_BASE).l,a1
                 bsr.w   sub_E780
                 bra.s   loc_E66C
 loc_E608:
@@ -39067,19 +38204,19 @@ loc_E608:
                 jsr     (sub_990).l
                 moveq   #2,d7
                 bsr.w   sub_E7AA
-                lea     (word_FF0ED0).l,a0
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_CURRENT).l,a0
+                lea     (PALETTE_1_BASE).l,a1
                 moveq   #$F,d7
                 bsr.w   sub_E782
-                lea     (word_FF0ED0).l,a0
+                lea     (PALETTE_1_CURRENT).l,a0
                 move.w  #$EEE,d0
                 moveq   #$3F,d7 
 loc_E64C:
                 
                 move.w  d0,(a0)+
                 dbf     d7,loc_E64C
-                jsr     (sub_92C).l
-                jsr     (sub_BA4).l
+                jsr     (AppyDMAForCRAM).l
+                jsr     (WaitForDMAQueueProcessing).l
                 moveq   #$3B,d7 
 loc_E660:
                 
@@ -39102,8 +38239,8 @@ loc_E686:
                 lea     ($2000).w,a1
                 moveq   #$20,d0 
                 moveq   #2,d1
-                jsr     (sub_DD6).l
-                jsr     (sub_BA4).l
+                jsr     (ApplyVIntVramDMA).l
+                jsr     (WaitForDMAQueueProcessing).l
                 cmpi.w  #7,-$126(a6)
                 bne.s   loc_E6B4
                 move.w  #$258,d7
@@ -39114,16 +38251,16 @@ loc_E6B4:
 loc_E6B8:
                 
                 movem.w d7,-(sp)
-                jsr     (sub_1040).l
+                jsr     (RefreshPlayerInput).l
                 bsr.w   sub_E8F8
                 bsr.w   sub_E8A8
                 move.w  #$23A,d0
                 bsr.w   sub_E87A
-                jsr     (sub_92C).l
-                move.b  (byte_FF0F8E).l,d1
-                jsr     (sub_B9A).l
+                jsr     (AppyDMAForCRAM).l
+                move.b  (P1_INPUT).l,d1 
+                jsr     (EnableDMAQueueProcessing).l
                 clr.w   d0
-                jsr     (sub_B7A).l
+                jsr     (Sleep).l       
                 cmpi.w  #7,-$126(a6)
                 bne.s   loc_E708
                 move.w  -$128(a6),d0
@@ -39145,31 +38282,31 @@ loc_E712:
                 movem.w (sp)+,d7
                 dbf     d7,loc_E6B8
                 lea     -$80(a6),a0
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_BASE).l,a1
                 bsr.w   sub_E780
                 cmpi.w  #7,-$126(a6)
                 bne.s   loc_E742
-                lea     (word_FF0ED0).l,a0
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_CURRENT).l,a0
+                lea     (PALETTE_1_BASE).l,a1
                 bsr.w   sub_E780
                 bra.s   loc_E768
 loc_E742:
                 
                 moveq   #$1E,d0
-                jsr     (sub_B7A).l
+                jsr     (Sleep).l       
                 jsr     (sub_972).l
                 moveq   #3,d7
                 bsr.w   sub_E79A
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 bsr.w   sub_E78A
                 bsr.w   sub_E78A
                 bsr.w   sub_E78A
 loc_E768:
                 
                 lea     -$80(a6),a0
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_BASE).l,a1
                 bsr.w   sub_E780
-                clr.w   (word_FF0ED0).l
+                clr.w   (PALETTE_1_CURRENT).l
                 unlk    a6
                 rts
 
@@ -39203,7 +38340,7 @@ sub_E78A:
                 clr.w   d7
                 bsr.w   sub_E79A
                 moveq   #$13,d0
-                jsr     (sub_B7A).l
+                jsr     (Sleep).l       
                 rts
 
     ; End of function sub_E78A
@@ -39214,8 +38351,8 @@ sub_E78A:
 sub_E79A:
                 
                 bsr.w   sub_E7AA
-                jsr     (sub_92C).l
-                jmp     (sub_B9A).l
+                jsr     (AppyDMAForCRAM).l
+                jmp     (EnableDMAQueueProcessing).l
 
     ; End of function sub_E79A
 
@@ -39225,8 +38362,8 @@ sub_E79A:
 sub_E7AA:
                 
                 move.l  d7,-(sp)
-                lea     (word_FF0080).l,a0
-                lea     (word_FF0ED0).l,a1
+                lea     (PALETTE_1_BASE).l,a0
+                lea     (PALETTE_1_CURRENT).l,a1
                 move.w  (word_FF0F50).l,d3
                 move.w  (word_FF0F52).l,d4
                 move.w  (byte_FF0F54).l,d7
@@ -39296,7 +38433,7 @@ loc_E83E:
                 andi.b  #3,d0
                 cmpi.b  #1,d0
                 bcs.w   loc_E4F0
-                jmp     (sub_90E).l
+                jmp     (DuplicatePalettes).l
 
     ; End of function sub_E832
 
@@ -39373,8 +38510,8 @@ loc_E8C0:
                 move.w  -$12A(a6),d3
                 move.w  -$12C(a6),d4
                 move.w  -$12E(a6),d7
-                lea     (word_FF0080).l,a0
-                lea     (word_FF0ED0).l,a1
+                lea     (PALETTE_1_BASE).l,a0
+                lea     (PALETTE_1_CURRENT).l,a1
                 moveq   #$3F,d5 
 loc_E8DA:
                 
@@ -39483,15 +38620,15 @@ sub_E9C8:
                 cmpi.b  #$A0,d0
                 bcs.w   loc_EA02
                 moveq   #8,d6
-                jsr     (sub_1164).l
+                jsr     (GenerateRandomNumber).l
                 addi.w  #$18,d7
                 move.b  d7,(a0)
                 move.w  #$100,d6
-                jsr     (sub_1164).l
+                jsr     (GenerateRandomNumber).l
                 move.b  d7,1(a0)
                 clr.b   2(a0)
                 moveq   #2,d6
-                jsr     (sub_1164).l
+                jsr     (GenerateRandomNumber).l
                 addq.b  #2,d7
                 move.b  d7,3(a0)
 loc_EA02:
@@ -39616,10 +38753,10 @@ sub_EAD0:
 
 sub_EAD4:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bne.s   loc_EAF2
-                jsr     (sub_1040).l
-                btst    #7,(byte_FF0F8E).l
+                jsr     (RefreshPlayerInput).l
+                btst    #7,(P1_INPUT).l 
                 beq.s   loc_EAF2
 loc_EAEA:
                 
@@ -39633,7 +38770,7 @@ loc_EAF2:
                 bsr.w   sub_D96A
 loc_EB02:
                 
-                move.w  (word_FF0F9C).l,d0
+                move.w  (byte_FF0F9C).l,d0
                 lea     (byte_FF2C00).l,a0
                 move.w  d0,word_FF2C04-byte_FF2C00(a0)
                 move.w  d0,2(a0)
@@ -39641,7 +38778,7 @@ loc_EB16:
                 
                 moveq   #6,d0
                 bsr.w   sub_D88A
-                move.b  (byte_FF0F8E).l,d1
+                move.b  (P1_INPUT).l,d1 
                 move.b  d1,d0
                 andi.b  #$90,d0
                 bne.w   loc_EAA6
@@ -39784,7 +38921,7 @@ loc_EC1C:
                 andi.b  #$22,d0 
                 move.b  d0,(a1)+
                 dbf     d7,loc_EC14
-                jsr     (sub_90E).l
+                jsr     (DuplicatePalettes).l
                 rts
 
     ; End of function sub_EC06
@@ -39839,7 +38976,7 @@ loc_EC7C:
                 bsr.w   sub_EDC4
                 moveq   #1,d2
                 bsr.w   sub_EDAA
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 rts
 
     ; End of function sub_EC60
@@ -40016,7 +39153,7 @@ sub_EDAA:
                 moveq   #$FFFFFFFF,d2
                 move.w  d2,8(a0)
                 move.w  d2,$10(a0)
-                jsr     (sub_BA4).l
+                jsr     (WaitForDMAQueueProcessing).l
                 move.l  (sp)+,d2
                 rts
 
@@ -40140,20 +39277,20 @@ loc_EE90:
                 move.b  #$B,(byte_FF112A).l
                 clr.w   -$A(a6)
                 clr.b   -8(a6)
-                jsr     (sub_8F6).l
+                jsr     (DisableDisplayAndInterrupts).l
                 clr.w   d6
-                jsr     (sub_2E4).l
-                jsr     (sub_2EA).l
+                jsr     (j_UpdateForegroundVScrolData).l
+                jsr     (j_UpdateBackgroundVScrollData).l
                 bsr.w   sub_F636
                 bsr.w   sub_F6DC
                 bsr.w   sub_F958
                 bsr.w   sub_F694
                 clr.w   d6
-                jsr     (sub_2D2).l
-                jsr     (sub_2E4).l
-                jsr     (sub_2D8).l
-                jsr     (sub_2EA).l
-                jsr     (sub_8F2).l
+                jsr     (j_UpdateForegroundHScrollData).l
+                jsr     (j_UpdateForegroundVScrolData).l
+                jsr     (j_UpdateBackgroundHScrollData).l
+                jsr     (j_UpdateBackgroundVScrollData).l
+                jsr     (EnableDisplayAndInterrupts).l
                 jsr     (sub_24E).l
 loc_EEF6:
                 
@@ -40166,7 +39303,7 @@ loc_EEF6:
                 tst.w   d0
                 bmi.s   loc_EEF6
                 move.w  d0,-4(a6)
-                move.b  d0,(byte_FF0010).l
+                move.b  d0,(SAVE_SLOT).l
                 move.w  -$C(a6),d0
                 cmpi.b  #1,d0
                 beq.w   loc_EF50
@@ -40174,8 +39311,8 @@ loc_EEF6:
                 bsr.w   sub_FF12
                 jsr     (sub_254).l
                 move.w  -4(a6),d0
-                move.b  d0,(byte_FF0010).l
-                jsr     (sub_15C2).l
+                move.b  d0,(SAVE_SLOT).l
+                jsr     (LoadSave).l
                 unlk    a6
                 rts
 
@@ -40191,7 +39328,7 @@ loc_EF50:
                 bsr.w   sub_F5F4
                 move.w  #$4B,d1 
                 bsr.w   sub_F618
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 bsr.w   sub_F5DC
 loc_EF6E:
                 
@@ -40219,7 +39356,7 @@ loc_EF84:
                 bne.w   loc_EEF6
                 move.w  -4(a6),d0
                 move.w  -6(a6),d1
-                jsr     (sub_15E6).l
+                jsr     (CopySave).l
                 move.w  -6(a6),d0
                 bsr.w   sub_F72E
                 bra.w   loc_EEF6
@@ -40232,9 +39369,9 @@ loc_EFB8:
                 tst.w   d0
                 bne.w   loc_EEF6
                 move.w  -4(a6),d0
-                move.b  d0,(byte_FF0010).l
-                jsr     (sub_154C).l
-                jsr     (sub_B5E).l
+                move.b  d0,(SAVE_SLOT).l
+                jsr     (GetSaveSlot).l
+                jsr     (WaitForVInt).l
                 move.w  -4(a6),d0
                 bsr.w   sub_F72E
                 bra.w   loc_EEF6
@@ -40249,11 +39386,11 @@ sub_EFF0:
                 clr.b   d0
                 bsr.w   sub_FAF0
                 bsr.w   sub_F218
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 bsr.w   sub_F306
                 clr.b   -$19(a6)
                 move.l  #$F2D1,-$16(a6)
-                move.b  (byte_FF0F8E).l,d0
+                move.b  (P1_INPUT).l,d0 
                 move.b  d0,-8(a6)
 loc_F01A:
                 
@@ -40263,7 +39400,7 @@ loc_F01A:
 loc_F024:
                 
                 bsr.w   sub_F2E2
-                move.b  (byte_FF0F8E).l,d0
+                move.b  (P1_INPUT).l,d0 
                 btst    #4,d0
                 bne.s   sub_F0AE
                 btst    #7,d0
@@ -40311,7 +39448,7 @@ loc_F08E:
                 
                 bsr.w   sub_F8B6
                 bsr.w   sub_F13A
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 bsr.w   sub_F306
                 bra.w   loc_F01A
 byte_F0A4:
@@ -40469,7 +39606,7 @@ sub_F13A:
                 jsr     (sub_468A).l
 loc_F180:
                 
-                jsr     (sub_B9A).l
+                jsr     (EnableDMAQueueProcessing).l
                 movem.l (sp)+,d2-d3/a4-a6
                 rts
 
@@ -40700,8 +39837,8 @@ unk_F2DB:       dc.b  $F
 
 sub_F2E2:
                 
-                jsr     (sub_33E).l
-                move.b  (byte_FF0F8E).l,d1
+                jsr     (j_RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,d1 
                 move.b  -8(a6),d0
                 bne.s   loc_F2FA
                 move.b  d1,-8(a6)
@@ -40709,7 +39846,7 @@ sub_F2E2:
 loc_F2FA:
                 
                 move.b  d1,-8(a6)
-                clr.b   (byte_FF0F8E).l
+                clr.b   (P1_INPUT).l    
 return_F304:
                 
                 rts
@@ -40746,7 +39883,7 @@ loc_F32C:
                 
                 movem.l d0-d1/a1,-(sp)
                 moveq   #2,d1
-                jsr     (sub_2C0).l
+                jsr     (j_ApplyImmediateVramDMA).l
                 movem.l (sp)+,d0-d1/a1
                 lea     $80(a1),a1
                 dbf     d1,loc_F32C
@@ -40760,9 +39897,9 @@ loc_F32C:
 sub_F346:
                 
                 moveq   #0,d7
-                move.w  (word_FF0FE2).l,d7
+                move.w  (HOUR_COUNTER).l,d7
                 mulu.w  #$64,d7 
-                add.w   (word_FF0FE0).l,d7
+                add.w   (MINUTE_COUNTER).l,d7
                 jsr     (sub_338).l
                 lea     (unk_FF0F96).l,a0
                 bsr.s   sub_F374
@@ -41102,7 +40239,7 @@ sub_F578:
                 lea     (a0,d1.w),a0
                 move.w  #$1C0,d0
                 moveq   #2,d1
-                jsr     (sub_2C0).l
+                jsr     (j_ApplyImmediateVramDMA).l
                 rts
 
     ; End of function sub_F578
@@ -41133,7 +40270,7 @@ sub_F5DC:
                 lea     (unk_50C0).w,a1
                 move.w  #$480,d0
                 moveq   #2,d1
-                jsr     (sub_2C0).l
+                jsr     (j_ApplyImmediateVramDMA).l
                 rts
 
     ; End of function sub_F5DC
@@ -41188,7 +40325,7 @@ sub_F636:
                 move.w  #0,d0
                 move.w  #0,d1
                 clr.w   d2
-                jsr     (sub_320).l
+                jsr     (j_ApplyVramDMAFill).l
                 lea     unk_FB52(pc), a0
                 lea     (byte_FF2C00).l,a1
                 lea     ($1000).w,a2
@@ -41215,9 +40352,9 @@ sub_F636:
 sub_F694:
                 
                 lea     byte_F6BC(pc), a0
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_BASE).l,a1
                 bsr.s   sub_F6B2
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 lea     $20(a0),a1
                 bsr.w   sub_F6B2
                 lea     $40(a0),a1
@@ -41284,7 +40421,7 @@ loc_F6E6:
                 lea     (byte_FF3900).l,a0
                 move.w  #$1C0,d0
                 moveq   #2,d1
-                jsr     (sub_2C0).l
+                jsr     (j_ApplyImmediateVramDMA).l
                 movem.l (sp)+,d7/a1
                 lea     $380(a1),a1
                 dbf     d7,loc_F6E6
@@ -41320,9 +40457,9 @@ sub_F72E:
 
 sub_F736:
                 
-                move.b  (byte_FF0010).l,d1
+                move.b  (SAVE_SLOT).l,d1
                 move.l  d1,-(sp)
-                move.b  d0,(byte_FF0010).l
+                move.b  d0,(SAVE_SLOT).l
                 cmpi.b  #1,d0
                 bcc.s   loc_F756
                 lea     (byte_FF2C56).l,a5
@@ -41349,7 +40486,7 @@ loc_F780:
                 
                 bsr.w   sub_F78E
                 move.l  (sp)+,d1
-                move.b  d1,(byte_FF0010).l
+                move.b  d1,(SAVE_SLOT).l
                 rts
 
     ; End of function sub_F736
@@ -41360,7 +40497,7 @@ loc_F780:
 sub_F78E:
                 
                 move.l  d0,-(sp)
-                jsr     (sub_15C2).l
+                jsr     (LoadSave).l
                 lea     (byte_FF3562).l,a0
                 lea     (a5),a1
                 moveq   #$11,d6
@@ -41370,7 +40507,7 @@ sub_F78E:
                 lea     $236(a5),a1
                 bsr.w   sub_F578
                 lea     $56(a5),a1
-                move.b  (byte_FF0010).l,d0
+                move.b  (SAVE_SLOT).l,d0
                 addq.b  #1,d0
                 bsr.w   sub_F3CC
                 move.w  (byte_FF543E).l,d2
@@ -41448,7 +40585,7 @@ sub_F83C:
 
 loc_F852:
                 
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 lea     $20(a0),a1
                 moveq   #$F,d7
                 move.w  #$EEE,d1
@@ -41459,20 +40596,20 @@ loc_F862:
                 sub.w   d0,d2
                 move.w  d2,(a1)+
                 dbf     d7,loc_F862
-                jsr     (sub_90E).l
-                jsr     (sub_B9A).l
+                jsr     (DuplicatePalettes).l
+                jsr     (EnableDMAQueueProcessing).l
                 rts
 loc_F87C:
                 
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 lea     $20(a0),a1
                 moveq   #$F,d7
 loc_F888:
                 
                 move.w  (a0)+,(a1)+
                 dbf     d7,loc_F888
-                jsr     (sub_90E).l
-                jsr     (sub_B9A).l
+                jsr     (DuplicatePalettes).l
+                jsr     (EnableDMAQueueProcessing).l
                 rts
 
 ; END OF FUNCTION CHUNK FOR sub_F83C
@@ -41548,8 +40685,8 @@ loc_F8F2:
                 or.w    d3,d1
                 move.w  d1,(a0)+
                 dbf     d7,sub_F8C6
-                jsr     (sub_90E).l
-                jsr     (sub_B9A).l
+                jsr     (DuplicatePalettes).l
+                jsr     (EnableDMAQueueProcessing).l
                 rts
 
     ; End of function sub_F8C6
@@ -41583,7 +40720,7 @@ loc_F924:
 
 sub_F92A:
                 
-                jsr     (sub_B16).l
+                jsr     (ClearSpriteTable).l
                 bsr.w   sub_F694
                 bsr.w   sub_F202
                 bsr.s   sub_F958
@@ -41634,7 +40771,7 @@ sub_F992:
                 move.w  #$D0,(word_FF1194).l 
                 move.w  #$47,d1 
                 bsr.w   sub_F618
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 bsr.w   sub_F5DC
                 bsr.w   sub_F218
                 move.w  #$118,d0
@@ -41653,7 +40790,7 @@ sub_F9D6:
                 
                 link    a4,#-$A
                 move.w  d1,-6(a4)
-                move.w  d1,(word_FF0550).l
+                move.w  d1,(SPRITE_TABLE).l
                 move.b  #5,(byte_FF0552).l
                 move.w  #$A0AA,(word_FF0554).l
                 move.w  d0,-4(a4)
@@ -41661,8 +40798,8 @@ sub_F9D6:
                 move.w  d2,-8(a4)
                 clr.w   -2(a4)
                 move.w  d3,-$A(a4)
-                jsr     (sub_90E).l
-                jsr     (sub_B5E).l
+                jsr     (DuplicatePalettes).l
+                jsr     (WaitForVInt).l
                 bsr.w   sub_F306
                 bsr.s   sub_FA24
                 move.w  -2(a4),d0
@@ -41677,13 +40814,13 @@ sub_F9D6:
 sub_FA24:
                 
                 bsr.w   sub_F2E2
-                move.b  (byte_FF0F8E).l,d1
+                move.b  (P1_INPUT).l,d1 
                 cmpi.b  #$10,d1
                 bcs.s   loc_FA58
                 clr.w   -$A(a6)
                 jsr     sub_FABC(pc)
                 nop
-                move.b  (byte_FF0F8E).l,d1
+                move.b  (P1_INPUT).l,d1 
                 andi.b  #$10,d1
                 beq.s   byte_FA52
                 move.w  #$FFFF,-2(a4)
@@ -41698,14 +40835,14 @@ loc_FA58:
                 move.w  d0,-2(a4)
                 bsr.s   sub_FABC
                 bsr.w   sub_F8B6
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 bra.s   sub_FA24
 loc_FA6C:
                 
                 move.w  -2(a4),d0
                 move.w  -8(a4),d1
                 move.w  -$A(a4),d2
-                move.b  (byte_FF0F8E).l,d3
+                move.b  (P1_INPUT).l,d3 
                 btst    #2,d3
                 bne.s   loc_FA8C
                 btst    #3,d3
@@ -41764,7 +40901,7 @@ sub_FABC:
 loc_FAD4:
                 
                 move.w  -4(a4),(word_FF0556).l
-                move.w  -6(a4),(word_FF0550).l
+                move.w  -6(a4),(SPRITE_TABLE).l
                 rts
 
     ; End of function sub_FABC
@@ -41774,7 +40911,7 @@ loc_FAD4:
 
 sub_FAE6:
                 
-                move.w  #$FFFF,(word_FF0550).l
+                move.w  #$FFFF,(SPRITE_TABLE).l
                 rts
 
     ; End of function sub_FAE6
@@ -41785,13 +40922,13 @@ sub_FAE6:
 sub_FAF0:
                 
                 move.w  -2(a6),d0
-                move.b  d0,(byte_FF0010).l
-                jsr     (sub_15C2).l
+                move.b  d0,(SAVE_SLOT).l
+                jsr     (LoadSave).l
                 lea     (byte_FF00C0).l,a1
                 bsr.w   sub_FB1E
                 jsr     (sub_78B6).l
-                jsr     (sub_90E).l
-                jsr     (sub_B9A).l
+                jsr     (DuplicatePalettes).l
+                jsr     (EnableDMAQueueProcessing).l
                 rts
 
     ; End of function sub_FAF0
@@ -42389,7 +41526,7 @@ loc_FF1A:
 loc_FF32:
                 
                 bsr.w   sub_F2E2
-                move.b  (byte_FF0F8E).l,d0
+                move.b  (P1_INPUT).l,d0 
                 cmpi.b  #$10,d0
                 bcc.s   loc_FF74
                 movem.w d7,-(sp)
@@ -42400,7 +41537,7 @@ loc_FF32:
                 bsr.w   sub_F13A
                 move.w  #4,d0
                 bsr.w   sub_1007E
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 addq.w  #1,-2(a4)
                 movem.w (sp)+,d7
                 dbf     d7,loc_FF32
@@ -42444,7 +41581,7 @@ loc_FFB0:
                 
                 addq.l  #2,a0
                 dbf     d7,loc_FFA6
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 bsr.w   sub_F30E
                 lea     (byte_FF2C02).l,a0
                 move.w  #$45E,d7
@@ -42453,7 +41590,7 @@ loc_FFCC:
                 
                 move.w  d0,(a0)+
                 dbf     d7,loc_FFCC
-                jsr     (sub_B5E).l
+                jsr     (WaitForVInt).l
                 move.w  -2(a6),d0
                 bsr.w   sub_F72E
                 rts
@@ -42514,11 +41651,11 @@ loc_10024:
                 add.w   d1,-$10(a6)
                 add.w   d2,-$12(a6)
                 move.w  -$10(a6),d6
-                jsr     (sub_2D2).l
+                jsr     (j_UpdateForegroundHScrollData).l
                 move.w  -$12(a6),d6
                 neg.w   d6
-                jsr     (sub_2E4).l
-                jsr     (sub_2A2).l
+                jsr     (j_UpdateForegroundVScrolData).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 addq.w  #1,-6(a4)
                 move.w  -6(a4),d0
                 cmpi.w  #$24,d0 

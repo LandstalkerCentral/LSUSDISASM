@@ -175,17 +175,17 @@ loc_1A44DC:
                 bra.w   loc_1A4472
 loc_1A44EA:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bmi.w   loc_1A44DC
                 movem.w d0,-(sp)
                 sndCom  SFX_ENEMY_DEATH
                 move.w  #6,d0
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 movem.w (sp)+,d0
                 bra.s   loc_1A44DC
 loc_1A450A:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bmi.w   loc_1A4472
                 movem.w d7,-(sp)
                 moveq   #6,d7
@@ -194,7 +194,7 @@ loc_1A4518:
                 movem.w d0,-(sp)
                 sndCom  SFX_ITEM_USE
                 move.w  #6,d0
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 movem.w (sp)+,d0
                 dbf     d7,loc_1A4518
                 movem.w (sp)+,d7
@@ -1075,8 +1075,15 @@ SpritePalette143:
                 incbin "data/graphics/sprites/palettes/spritepalette143.bin"
 SpritePalette144:
                 incbin "data/graphics/sprites/palettes/spritepalette144.bin"
-unk_1A4C8E:     dc.b $60 
-                dc.b $46 
+
+; =============== S U B R O U T I N E =======================================
+
+sub_1A4C8E:
+                
+                bra.s   loc_1A4CD6
+
+    ; End of function sub_1A4C8E
+
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -1146,7 +1153,7 @@ sub_1A4D0E:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A4D58
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1A4D58
                 move.b  #$20,$37(a5) 
@@ -1177,7 +1184,7 @@ sub_1A4D5C:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A4DA6
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A4DA6
                 move.b  #$21,$37(a5) 
@@ -1208,7 +1215,7 @@ sub_1A4DAA:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A4DF4
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1A4DF4
                 move.b  #$22,$37(a5) 
@@ -1234,7 +1241,7 @@ sub_1A4DF8:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A4E4E
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1A4E34
                 move.b  #$23,$37(a5) 
@@ -1379,7 +1386,7 @@ sub_1A4F34:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A4F7E
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #8,d7
                 bhi.s   loc_1A4F7E
                 move.b  #$20,$37(a5) 
@@ -1410,7 +1417,7 @@ sub_1A4F82:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A4FCC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A4FCC
                 move.b  #$21,$37(a5) 
@@ -1441,7 +1448,7 @@ sub_1A4FD0:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A501A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A501A
                 move.b  #$22,$37(a5) 
@@ -1467,7 +1474,7 @@ sub_1A501E:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A5074
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$3C,d7 
                 bcc.s   loc_1A505A
                 move.b  #$23,$37(a5) 
@@ -1632,7 +1639,7 @@ sub_1A519A:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A51E4
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #8,d7
                 bhi.s   loc_1A51E4
                 move.b  #$20,$37(a5) 
@@ -1663,7 +1670,7 @@ sub_1A51E8:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A5232
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1A5232
                 move.b  #$21,$37(a5) 
@@ -1694,7 +1701,7 @@ sub_1A5236:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A5280
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1A5280
                 move.b  #$22,$37(a5) 
@@ -1720,7 +1727,7 @@ sub_1A5284:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A52DA
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1A52C0
                 move.b  #$23,$37(a5) 
@@ -1894,7 +1901,7 @@ sub_1A5424:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A5486
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1F,d7
                 bhi.s   loc_1A5486
 
@@ -1943,7 +1950,7 @@ sub_1A548A:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A54F0
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1F,d7
                 bhi.s   loc_1A54F0
                 btst    #6,$38(a5)
@@ -1978,7 +1985,7 @@ sub_1A54F4:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A554C
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1A554C
                 btst    #6,$38(a5)
@@ -2243,7 +2250,7 @@ sub_1A57B8:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A581A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1F,d7
                 bhi.s   loc_1A581A
 
@@ -2292,7 +2299,7 @@ sub_1A581E:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A5884
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$2B,d7 
                 bhi.s   loc_1A5884
                 btst    #6,$38(a5)
@@ -2327,7 +2334,7 @@ sub_1A5888:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A58E0
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1F,d7
                 bhi.s   loc_1A58E0
                 btst    #6,$38(a5)
@@ -2493,7 +2500,7 @@ loc_1A5A5E:
                 cmpi.b  #$C,$D(a5)
                 bne.s   loc_1A5AAC
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.b  #$28,d7 
                 bcc.s   return_1A5AC6
                 move.b  #0,d0
@@ -2632,7 +2639,7 @@ sub_1A5BC6:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A5C28
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$25,d7 
                 bhi.s   loc_1A5C28
 
@@ -2681,7 +2688,7 @@ sub_1A5C2C:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A5C92
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bhi.s   loc_1A5C92
                 btst    #6,$38(a5)
@@ -2716,7 +2723,7 @@ sub_1A5C96:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A5CEE
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$25,d7 
                 bhi.s   loc_1A5CEE
                 btst    #6,$38(a5)
@@ -2882,7 +2889,7 @@ loc_1A5E6C:
                 cmpi.b  #$C,$D(a5)
                 bne.s   loc_1A5EC8
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 move.b  #0,d0
                 cmpi.b  #$A,d7
                 bcs.s   loc_1A5EC2
@@ -3009,7 +3016,7 @@ sub_1A5FB8:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A5FF4
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$25,d7 
                 bhi.s   loc_1A5FF4
                 move.b  #$20,$37(a5) 
@@ -3036,7 +3043,7 @@ sub_1A5FF8:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6030
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1A6030
                 move.b  #$21,$37(a5) 
@@ -3067,7 +3074,7 @@ sub_1A6034:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A607E
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A607E
                 move.b  #$22,$37(a5) 
@@ -3093,7 +3100,7 @@ sub_1A6082:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A60D8
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$28,d7 
                 bcc.s   loc_1A60BE
                 move.b  #$23,$37(a5) 
@@ -3254,7 +3261,7 @@ sub_1A6212:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A624E
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$25,d7 
                 bhi.s   loc_1A624E
                 move.b  #$20,$37(a5) 
@@ -3281,7 +3288,7 @@ sub_1A6252:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A628A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1A628A
                 move.b  #$21,$37(a5) 
@@ -3312,7 +3319,7 @@ sub_1A628E:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A62DC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1A62DC
                 move.b  #$22,$37(a5) 
@@ -3339,7 +3346,7 @@ sub_1A62E0:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6336
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1A631C
                 move.b  #$23,$37(a5) 
@@ -3557,7 +3564,7 @@ sub_1A6516:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6552
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1A6552
                 move.b  #$20,$37(a5) 
@@ -3584,7 +3591,7 @@ sub_1A6556:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A658E
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A658E
                 move.b  #$21,$37(a5) 
@@ -3610,7 +3617,7 @@ sub_1A6592:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A65CE
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A65CE
                 move.b  #$22,$37(a5) 
@@ -3637,7 +3644,7 @@ sub_1A65D2:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6628
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$46,d7 
                 bcc.s   loc_1A660E
                 move.b  #$23,$37(a5) 
@@ -3865,7 +3872,7 @@ sub_1A6824:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A685C
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1A685C
                 move.b  #$20,$37(a5) 
@@ -3891,7 +3898,7 @@ sub_1A6860:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6898
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1A6898
                 move.b  #$21,$37(a5) 
@@ -3917,7 +3924,7 @@ sub_1A689C:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A68D4
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A68D4
                 move.b  #$22,$37(a5) 
@@ -3943,7 +3950,7 @@ sub_1A68D8:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A692E
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$3C,d7 
                 bcc.s   loc_1A6914
                 move.b  #$23,$37(a5) 
@@ -4120,7 +4127,7 @@ sub_1A6A8C:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6AC4
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #6,d7
                 bhi.s   loc_1A6AC4
                 move.b  #$20,$37(a5) 
@@ -4146,7 +4153,7 @@ sub_1A6AC8:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6B00
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A6B00
                 move.b  #$21,$37(a5) 
@@ -4172,7 +4179,7 @@ sub_1A6B04:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6B3C
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1A6B3C
                 move.b  #$22,$37(a5) 
@@ -4198,7 +4205,7 @@ sub_1A6B40:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6B96
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1A6B7C
                 move.b  #$23,$37(a5) 
@@ -4355,7 +4362,7 @@ sub_1A6CB2:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6CEA
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bhi.s   loc_1A6CEA
                 move.b  #$20,$37(a5) 
@@ -4381,7 +4388,7 @@ sub_1A6CEE:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6D26
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1F,d7
                 bhi.s   loc_1A6D26
                 move.b  #$21,$37(a5) 
@@ -4407,7 +4414,7 @@ sub_1A6D2A:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6D62
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1F,d7
                 bhi.s   loc_1A6D62
                 move.b  #$22,$37(a5) 
@@ -4433,7 +4440,7 @@ sub_1A6D66:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6DBC
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$28,d7 
                 bcc.s   loc_1A6DA2
                 move.b  #$23,$37(a5) 
@@ -4607,7 +4614,7 @@ sub_1A6F1C:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6F54
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$25,d7 
                 bhi.s   loc_1A6F54
                 move.b  #$20,$37(a5) 
@@ -4633,7 +4640,7 @@ sub_1A6F58:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6F90
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1A6F90
                 move.b  #$21,$37(a5) 
@@ -4659,7 +4666,7 @@ sub_1A6F94:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A6FDC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$96,d7 
                 bhi.s   loc_1A6FDC
                 move.b  (dword_FF542C).l,d0
@@ -4689,7 +4696,7 @@ sub_1A6FE0:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A7036
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1E,d7
                 bcc.s   loc_1A701C
                 move.b  #$23,$37(a5) 
@@ -4840,7 +4847,7 @@ sub_1A7148:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A7180
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1A7180
                 move.b  #$20,$37(a5) 
@@ -4866,7 +4873,7 @@ sub_1A7184:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A71BC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1A71BC
                 move.b  #$21,$37(a5) 
@@ -4892,7 +4899,7 @@ sub_1A71C0:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A7208
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$96,d7 
                 bhi.s   loc_1A7208
                 move.b  (dword_FF542C).l,d0
@@ -4922,7 +4929,7 @@ sub_1A720C:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A7262
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$14,d7
                 bcc.s   loc_1A7248
                 move.b  #$23,$37(a5) 
@@ -5073,7 +5080,7 @@ sub_1A7374:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A73AC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A73AC
                 move.b  #$20,$37(a5) 
@@ -5099,7 +5106,7 @@ sub_1A73B0:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A73F2
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 move.b  (dword_FF542C).l,d0
                 andi.b  #7,d0
@@ -5127,7 +5134,7 @@ sub_1A73F6:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A7432
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$4B,d7 
                 bhi.s   loc_1A7432
                 move.b  #$22,$37(a5) 
@@ -5154,7 +5161,7 @@ sub_1A7436:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A748C
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$A,d7
                 bcc.s   loc_1A7472
                 move.b  #$23,$37(a5) 
@@ -5314,7 +5321,7 @@ sub_1A7596:
                 cmpi.w  #$20,d0 
                 bcc.s   sub_1A75E0
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 move.b  #$21,$37(a5) 
                 move.w  #0,$34(a5)
                 bsr.w   sub_1A8AE0
@@ -5501,7 +5508,7 @@ sub_1A7732:
                 cmpi.w  #$20,d0 
                 bcc.s   sub_1A779C
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$5A,d7 
                 bcc.s   sub_1A7782
                 move.b  #$21,$37(a5) 
@@ -5727,7 +5734,7 @@ sub_1A7936:
                 cmpi.w  #$20,d0 
                 bcc.s   loc_1A79A0
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$50,d7 
                 bcc.s   loc_1A7986
                 move.b  #$21,$37(a5) 
@@ -5949,7 +5956,7 @@ sub_1A7B80:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A7BB8
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A7BB8
                 move.b  #$20,$37(a5) 
@@ -5975,7 +5982,7 @@ sub_1A7BBC:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A7BF4
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1A7BF4
                 move.b  #$21,$37(a5) 
@@ -6001,7 +6008,7 @@ sub_1A7BF8:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A7C30
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$14,d7
                 bhi.s   loc_1A7C30
                 move.b  #$22,$37(a5) 
@@ -6031,7 +6038,7 @@ sub_1A7C34:
                 cmpi.w  #$21,d0 
                 bhi.s   loc_1A7C9A
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$50,d7 
                 bcc.s   loc_1A7C80
                 move.b  #$23,$37(a5) 
@@ -6288,7 +6295,7 @@ sub_1A7EBA:
                 bsr.w   sub_1A8964
                 bcc.s   sub_1A7EF2
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   sub_1A7EF2
                 move.b  #$20,$37(a5) 
@@ -6320,7 +6327,7 @@ sub_1A7EF6:
                 bsr.w   sub_1A8964
                 bcc.s   sub_1A7F2E
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   sub_1A7F2E
                 move.b  #$21,$37(a5) 
@@ -6352,7 +6359,7 @@ sub_1A7F32:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A7F6A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1E,d7
                 bhi.s   loc_1A7F6A
                 move.b  #$22,$37(a5) 
@@ -6382,7 +6389,7 @@ sub_1A7F6E:
                 cmpi.w  #$21,d0 
                 bhi.s   sub_1A7FD4
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$3C,d7 
                 bcc.s   sub_1A7FBA
                 move.b  #$23,$37(a5) 
@@ -6661,7 +6668,7 @@ sub_1A81E0:
                 bsr.w   sub_1A8964
                 bcc.s   sub_1A8228
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   sub_1A8228
                 move.b  #$20,$37(a5) 
@@ -6693,7 +6700,7 @@ sub_1A822C:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A8264
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1F,d7
                 bhi.s   loc_1A8264
                 move.b  #$21,$37(a5) 
@@ -6719,7 +6726,7 @@ sub_1A8268:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A82A0
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A82A0
                 move.b  #$22,$37(a5) 
@@ -6749,7 +6756,7 @@ sub_1A82A4:
                 cmpi.w  #$21,d0 
                 bhi.s   loc_1A830A
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$28,d7 
                 bcc.s   loc_1A82F0
                 move.b  #$23,$37(a5) 
@@ -7040,7 +7047,7 @@ byte_1A8418:    dc.b 0
 sub_1A84A6:
                 
                 bra.w   sub_1A4C90
-                bra.w   unk_1A4C8E
+                bra.w   sub_1A4C8E
                 bra.w   sub_1A4EB6
                 bra.w   sub_1A4EB4
                 bra.w   sub_1A511C
@@ -7768,7 +7775,7 @@ sub_1A8B9A:
                 cmp.b   d0,d1
                 bne.s   loc_1A8C16
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$50,d7 
                 bls.w   loc_1A8C00
                 move.b  #$20,$37(a5) 
@@ -7814,7 +7821,7 @@ sub_1A8C1E:
                 andi.b  #7,d0
                 beq.w   loc_1A8C88
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1E,d7
                 bhi.s   loc_1A8C84
                 bset    #1,$38(a5)
@@ -7899,7 +7906,7 @@ loc_1A8CEC:
                 andi.b  #$F,d0
                 bne.s   loc_1A8D60
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$50,d7 
                 bcs.w   loc_1A8C00
 loc_1A8D60:
@@ -8041,7 +8048,7 @@ sub_1A8E5A:
                 cmp.b   d0,d1
                 bne.s   loc_1A8ED6
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bls.w   loc_1A8EC0
                 move.b  #$20,$37(a5) 
@@ -8087,7 +8094,7 @@ sub_1A8EDE:
                 andi.b  #7,d0
                 beq.w   loc_1A8F48
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bhi.s   loc_1A8F44
                 bset    #1,$38(a5)
@@ -8172,7 +8179,7 @@ loc_1A8FAC:
                 andi.b  #$F,d0
                 bne.s   loc_1A9020
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcs.w   loc_1A8EC0
 loc_1A9020:
@@ -8314,7 +8321,7 @@ sub_1A911A:
                 cmp.b   d0,d1
                 bne.s   loc_1A9196
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1E,d7
                 bls.w   loc_1A9180
                 move.b  #$20,$37(a5) 
@@ -8360,7 +8367,7 @@ sub_1A919E:
                 andi.b  #7,d0
                 beq.w   loc_1A9208
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$50,d7 
                 bhi.s   loc_1A9204
                 bset    #1,$38(a5)
@@ -8445,7 +8452,7 @@ loc_1A926C:
                 andi.b  #$F,d0
                 bne.s   loc_1A92E0
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1E,d7
                 bcs.w   loc_1A9180
 loc_1A92E0:
@@ -8563,7 +8570,7 @@ sub_1A93D2:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A940A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$24,d7 
                 bhi.s   loc_1A940A
                 move.b  #$20,$37(a5) 
@@ -8589,7 +8596,7 @@ sub_1A940E:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A944A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$24,d7 
                 bhi.s   loc_1A944A
                 move.b  #$21,$37(a5) 
@@ -8616,7 +8623,7 @@ sub_1A944E:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A948A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$24,d7 
                 bhi.s   loc_1A948A
                 move.b  #$22,$37(a5) 
@@ -8643,7 +8650,7 @@ sub_1A948E:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A94E4
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$3C,d7 
                 bcc.s   loc_1A94CA
                 move.b  #$23,$37(a5) 
@@ -8846,7 +8853,7 @@ sub_1A9684:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A96BC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$3E,d7 
                 bhi.s   loc_1A96BC
                 move.b  #$20,$37(a5) 
@@ -8879,7 +8886,7 @@ sub_1A96C0:
                 cmp.b   d0,d1
                 bne.s   loc_1A9716
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$3C,d7 
                 bhi.s   loc_1A9716
                 move.b  #$21,$37(a5) 
@@ -8906,7 +8913,7 @@ sub_1A971A:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A9756
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1A9756
                 move.b  #$22,$37(a5) 
@@ -8933,7 +8940,7 @@ sub_1A975A:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A97B0
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$28,d7 
                 bcc.s   loc_1A9796
                 move.b  #$23,$37(a5) 
@@ -9112,7 +9119,7 @@ sub_1A9930:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A9968
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$56,d7 
                 bhi.s   loc_1A9968
                 move.b  #$20,$37(a5) 
@@ -9138,7 +9145,7 @@ sub_1A996C:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A99A8
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$7D,d7 
                 bhi.s   loc_1A99A8
                 move.b  #$21,$37(a5) 
@@ -9165,7 +9172,7 @@ sub_1A99AC:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A99E8
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$2B,d7 
                 bhi.s   loc_1A99E8
                 move.b  #$22,$37(a5) 
@@ -9192,7 +9199,7 @@ sub_1A99EC:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A9A42
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1A9A28
                 move.b  #$23,$37(a5) 
@@ -9365,7 +9372,7 @@ sub_1A9B9E:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A9BF2
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #2,d7
                 move.b  #$20,$37(a5) 
                 move.w  #0,$34(a5)
@@ -9394,7 +9401,7 @@ sub_1A9BF6:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1A9C3A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$190,d7
                 bhi.s   loc_1A9C3A
                 move.b  #$21,$37(a5) 
@@ -9740,7 +9747,7 @@ sub_1A9FA6:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1A9FFC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #2,d7
                 bhi.s   loc_1A9FFC
                 move.b  #$20,$37(a5) 
@@ -9770,7 +9777,7 @@ sub_1AA000:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AA044
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$28,d7 
                 bhi.s   loc_1AA044
                 move.b  #$21,$37(a5) 
@@ -9833,7 +9840,7 @@ sub_1AA092:
                 cmpi.b  #$20,d0 
                 bcc.s   loc_1AA100
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$A,d7
                 bhi.s   loc_1AA0EA
                 move.b  #$23,$37(a5) 
@@ -10134,7 +10141,7 @@ sub_1AA3DC:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1AA432
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$14,d7
                 bhi.s   loc_1AA432
                 move.b  #$20,$37(a5) 
@@ -10164,7 +10171,7 @@ sub_1AA436:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AA47A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$50,d7 
                 bhi.s   loc_1AA47A
                 move.b  #$21,$37(a5) 
@@ -10227,7 +10234,7 @@ sub_1AA4C8:
                 cmpi.b  #$20,d0 
                 bcc.s   loc_1AA536
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #5,d7
                 bhi.s   loc_1AA520
                 move.b  #$23,$37(a5) 
@@ -10533,7 +10540,7 @@ sub_1AA812:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1AA8C0
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1AA8C0
                 move.b  #$20,$37(a5) 
@@ -10552,7 +10559,7 @@ loc_1AA882:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AA8C0
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1AA8C0
                 move.b  #$20,$37(a5) 
@@ -10581,7 +10588,7 @@ sub_1AA8C4:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AA908
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1AA908
                 move.b  #$21,$37(a5) 
@@ -10610,7 +10617,7 @@ sub_1AA90C:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AA950
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bhi.s   loc_1AA950
                 move.b  #$22,$37(a5) 
@@ -10639,7 +10646,7 @@ sub_1AA954:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AA9B2
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1AA998
                 move.b  #$23,$37(a5) 
@@ -10871,7 +10878,7 @@ sub_1AABB0:
                 bsr.w   sub_1A8964
                 bcc.w   loc_1AAC4C
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1AAC4C
                 move.b  #$20,$37(a5) 
@@ -10890,7 +10897,7 @@ loc_1AAC0E:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AAC4C
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1AAC4C
                 move.b  #$20,$37(a5) 
@@ -10919,7 +10926,7 @@ sub_1AAC50:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AAC94
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1AAC94
                 move.b  #$21,$37(a5) 
@@ -10948,7 +10955,7 @@ sub_1AAC98:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AACDC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$3E,d7 
                 bhi.s   loc_1AACDC
                 move.b  #$22,$37(a5) 
@@ -10977,7 +10984,7 @@ sub_1AACE0:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AAD3E
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$3C,d7 
                 bcc.s   loc_1AAD24
                 move.b  #$23,$37(a5) 
@@ -11095,7 +11102,7 @@ loc_1AAE32:
                 cmpi.b  #$20,$D(a5) 
                 bcs.w   return_1AAE82
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 move.b  #0,d0
                 cmpi.b  #$28,d7 
                 bcs.s   loc_1AAE7A
@@ -11214,7 +11221,7 @@ sub_1AAF50:
                 bsr.w   sub_1A8964
                 bcc.w   loc_1AAFEC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$25,d7 
                 bhi.s   loc_1AAFEC
                 move.b  #$20,$37(a5) 
@@ -11233,7 +11240,7 @@ loc_1AAFAE:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AAFEC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$25,d7 
                 bhi.s   loc_1AAFEC
                 move.b  #$20,$37(a5) 
@@ -11262,7 +11269,7 @@ sub_1AAFF0:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB034
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1AB034
                 move.b  #$21,$37(a5) 
@@ -11291,7 +11298,7 @@ sub_1AB038:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB07C
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$57,d7 
                 bhi.s   loc_1AB07C
                 move.b  #$22,$37(a5) 
@@ -11320,7 +11327,7 @@ sub_1AB080:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB0DE
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$46,d7 
                 bcc.s   loc_1AB0C4
                 move.b  #$23,$37(a5) 
@@ -11438,7 +11445,7 @@ loc_1AB1D2:
                 cmpi.b  #$20,$D(a5) 
                 bcs.s   return_1AB22C
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 move.b  #0,d0
                 cmpi.b  #$1E,d7
                 bcs.s   loc_1AB224
@@ -11552,7 +11559,7 @@ sub_1AB2E2:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB31A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1AB31A
                 move.b  #$20,$37(a5) 
@@ -11578,7 +11585,7 @@ sub_1AB31E:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB356
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #8,d7
                 bhi.s   loc_1AB356
                 move.b  #$21,$37(a5) 
@@ -11604,7 +11611,7 @@ sub_1AB35A:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB392
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #4,d7
                 bhi.s   loc_1AB392
                 move.b  #$22,$37(a5) 
@@ -11630,7 +11637,7 @@ sub_1AB396:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB3EC
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$46,d7 
                 bcc.s   loc_1AB3D2
                 move.b  #$23,$37(a5) 
@@ -11791,7 +11798,7 @@ sub_1AB51A:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB552
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #8,d7
                 bhi.s   loc_1AB552
                 move.b  #$20,$37(a5) 
@@ -11817,7 +11824,7 @@ sub_1AB556:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB58E
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1AB58E
                 move.b  #$21,$37(a5) 
@@ -11843,7 +11850,7 @@ sub_1AB592:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB5CA
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #3,d7
                 bhi.s   loc_1AB5CA
                 move.b  #$22,$37(a5) 
@@ -11869,7 +11876,7 @@ sub_1AB5CE:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB624
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$28,d7 
                 bcc.s   loc_1AB60A
                 move.b  #$23,$37(a5) 
@@ -12048,7 +12055,7 @@ sub_1AB784:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB7BC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #8,d7
                 bhi.s   loc_1AB7BC
                 move.b  #$20,$37(a5) 
@@ -12074,7 +12081,7 @@ sub_1AB7C0:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB7F8
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1AB7F8
                 move.b  #$21,$37(a5) 
@@ -12100,7 +12107,7 @@ sub_1AB7FC:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB834
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #5,d7
                 bhi.s   loc_1AB834
                 move.b  #$22,$37(a5) 
@@ -12126,7 +12133,7 @@ sub_1AB838:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AB88E
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1AB874
                 move.b  #$23,$37(a5) 
@@ -12269,7 +12276,7 @@ loc_1AB9BA:
                 tst.w   $2A(a5)
                 bne.s   loc_1AB9E2
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.b  #1,d7
                 bcs.s   loc_1AB9D8
                 cmpi.b  #2,d7
@@ -12356,7 +12363,7 @@ loc_1ABA70:
                 tst.w   $2A(a5)
                 bne.s   loc_1ABAAE
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.b  #1,d7
                 bcs.s   loc_1ABA8E
                 cmpi.b  #2,d7
@@ -12366,7 +12373,7 @@ loc_1ABA8E:
                 
                 move.b  #$22,d0 
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.b  #$50,d7 
                 bcs.s   loc_1ABAA6
                 move.b  #$21,d0 
@@ -12459,7 +12466,7 @@ loc_1ABB4C:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1ABB8C
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.b  #1,d7
                 bcs.s   loc_1ABB8C
                 cmpi.b  #2,d7
@@ -12469,7 +12476,7 @@ loc_1ABB8C:
                 
                 move.b  #$22,d0 
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.b  #$50,d7 
                 bcs.s   loc_1ABBA4
                 move.b  #$21,d0 
@@ -12589,7 +12596,7 @@ sub_1ABC8E:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ABCCA
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #9,d7
                 bhi.s   loc_1ABCCA
                 move.b  #$20,$37(a5) 
@@ -12616,7 +12623,7 @@ sub_1ABCCE:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ABD0A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1ABD0A
                 move.b  #$21,$37(a5) 
@@ -12643,7 +12650,7 @@ sub_1ABD0E:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ABD4A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1ABD4A
                 move.b  #$22,$37(a5) 
@@ -12673,7 +12680,7 @@ sub_1ABD4E:
                 andi.b  #7,d0
                 beq.s   loc_1ABD96
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$5A,d7 
                 bhi.s   loc_1ABD96
                 move.b  #$23,$37(a5) 
@@ -12700,7 +12707,7 @@ sub_1ABD9A:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ABDD6
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #7,d7
                 bhi.s   loc_1ABDD6
                 move.b  #$24,$37(a5) 
@@ -12727,7 +12734,7 @@ sub_1ABDDA:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ABE32
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$46,d7 
                 bcc.s   loc_1ABE18
                 bra.s   loc_1ABE18
@@ -13137,7 +13144,7 @@ loc_1AC1FC:
 sub_1AC200:
                 
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C8,d7 
                 bhi.s   loc_1AC226
                 move.b  #$21,$37(a5) 
@@ -13158,7 +13165,7 @@ loc_1AC226:
 sub_1AC22A:
                 
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C8,d7 
                 bhi.s   loc_1AC254
                 move.b  #$22,$37(a5) 
@@ -13521,7 +13528,7 @@ loc_1AC5E6:
 sub_1AC5EA:
                 
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12C,d7
                 bhi.s   loc_1AC610
                 move.b  #$21,$37(a5) 
@@ -13542,7 +13549,7 @@ loc_1AC610:
 sub_1AC614:
                 
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12C,d7
                 bhi.s   loc_1AC63E
                 move.b  #$22,$37(a5) 
@@ -13801,7 +13808,7 @@ loc_1AC8BA:
 sub_1AC8BE:
                 
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$190,d7
                 bhi.s   loc_1AC8E4
                 move.b  #$21,$37(a5) 
@@ -13822,7 +13829,7 @@ loc_1AC8E4:
 sub_1AC8E8:
                 
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$190,d7
                 bhi.s   loc_1AC912
                 move.b  #$22,$37(a5) 
@@ -14062,7 +14069,7 @@ sub_1ACB64:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ACB9C
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$56,d7 
                 bhi.s   loc_1ACB9C
                 move.b  #$20,$37(a5) 
@@ -14088,7 +14095,7 @@ sub_1ACBA0:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ACBDC
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$7D,d7 
                 bhi.s   loc_1ACBDC
                 move.b  #$21,$37(a5) 
@@ -14115,7 +14122,7 @@ sub_1ACBE0:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ACC1C
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$2B,d7 
                 bhi.s   loc_1ACC1C
                 move.b  #$22,$37(a5) 
@@ -14142,7 +14149,7 @@ sub_1ACC20:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ACC76
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1ACC5C
                 move.b  #$23,$37(a5) 
@@ -14305,7 +14312,7 @@ sub_1ACD98:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ACDD4
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$10,d7
                 bhi.s   loc_1ACDD4
                 move.b  #$25,$37(a5) 
@@ -14337,7 +14344,7 @@ sub_1ACDD8:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1ACE26
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$10,d7
                 bhi.s   loc_1ACE26
 loc_1ACE0C:
@@ -14366,7 +14373,7 @@ sub_1ACE2A:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ACE62
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1ACE62
                 move.b  #$21,$37(a5) 
@@ -14392,7 +14399,7 @@ sub_1ACE66:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ACE9E
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1ACE9E
                 move.b  #$22,$37(a5) 
@@ -14418,7 +14425,7 @@ sub_1ACEA2:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ACEF8
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1ACEDE
                 move.b  #$23,$37(a5) 
@@ -14492,7 +14499,7 @@ loc_1ACF6A:
 
                 sndCom  SFX_FALL
                 move.w  #2,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 move.w  #$40,d0 
                 tst.b   d7
                 beq.s   loc_1ACF92
@@ -14671,7 +14678,7 @@ sub_1AD124:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD160
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bcc.s   loc_1AD160
                 move.b  #$22,$37(a5) 
@@ -14809,7 +14816,7 @@ sub_1AD24E:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD28A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1AD28A
                 move.b  #$22,$37(a5) 
@@ -14961,7 +14968,7 @@ sub_1AD3A6:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD3E4
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #8,d7
                 bhi.s   loc_1AD3E4
                 bset    #6,$C(a5)
@@ -14988,7 +14995,7 @@ sub_1AD3E8:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD416
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #6,d7
                 bhi.s   loc_1AD416
                 bsr.w   sub_1AD4A4
@@ -15013,7 +15020,7 @@ sub_1AD41A:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD45C
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1AD45C
                 bsr.w   sub_1AD4A4
@@ -15042,7 +15049,7 @@ sub_1AD460:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD4A0
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$50,d7 
                 bcc.s   loc_1AD4A0
                 bsr.s   sub_1AD4A4
@@ -15235,7 +15242,7 @@ sub_1AD62C:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD66A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1AD66A
                 bset    #6,$C(a5)
@@ -15262,7 +15269,7 @@ sub_1AD66E:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD69C
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #6,d7
                 bhi.s   loc_1AD69C
                 bsr.w   sub_1AD72A
@@ -15287,7 +15294,7 @@ sub_1AD6A0:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD6E2
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$10,d7
                 bhi.s   loc_1AD6E2
                 bsr.w   sub_1AD72A
@@ -15316,7 +15323,7 @@ sub_1AD6E6:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD726
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$50,d7 
                 bcc.s   loc_1AD726
                 bsr.s   sub_1AD72A
@@ -15509,7 +15516,7 @@ sub_1AD8B2:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD8F0
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$20,d7 
                 bhi.s   loc_1AD8F0
                 bset    #6,$C(a5)
@@ -15536,7 +15543,7 @@ sub_1AD8F4:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD922
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #6,d7
                 bhi.s   loc_1AD922
                 bsr.w   sub_1AD9B0
@@ -15561,7 +15568,7 @@ sub_1AD926:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD968
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1AD968
                 bsr.w   sub_1AD9B0
@@ -15590,7 +15597,7 @@ sub_1AD96C:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AD9AC
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$50,d7 
                 bcc.s   loc_1AD9AC
                 bsr.s   sub_1AD9B0
@@ -15781,7 +15788,7 @@ sub_1ADB28:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1ADB72
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1ADB72
                 move.b  #$20,$37(a5) 
@@ -15812,7 +15819,7 @@ sub_1ADB76:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1ADBC0
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1ADBC0
                 move.b  #$21,$37(a5) 
@@ -15843,7 +15850,7 @@ sub_1ADBC4:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1ADC0E
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1ADC0E
                 move.b  #$22,$37(a5) 
@@ -15869,7 +15876,7 @@ sub_1ADC12:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ADC68
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1ADC4E
                 move.b  #$23,$37(a5) 
@@ -16017,7 +16024,7 @@ sub_1ADD60:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1ADDAA
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1ADDAA
                 move.b  #$20,$37(a5) 
@@ -16048,7 +16055,7 @@ sub_1ADDAE:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1ADDF8
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1ADDF8
                 move.b  #$21,$37(a5) 
@@ -16079,7 +16086,7 @@ sub_1ADDFC:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1ADE46
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1ADE46
                 move.b  #$22,$37(a5) 
@@ -16105,7 +16112,7 @@ sub_1ADE4A:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1ADEA0
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1ADE86
                 move.b  #$23,$37(a5) 
@@ -16253,7 +16260,7 @@ sub_1ADF98:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1ADFE2
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1ADFE2
                 move.b  #$20,$37(a5) 
@@ -16284,7 +16291,7 @@ sub_1ADFE6:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1AE030
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12,d7
                 bhi.s   loc_1AE030
                 move.b  #$21,$37(a5) 
@@ -16315,7 +16322,7 @@ sub_1AE034:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1AE07E
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$C,d7
                 bhi.s   loc_1AE07E
                 move.b  #$22,$37(a5) 
@@ -16341,7 +16348,7 @@ sub_1AE082:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AE0D8
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1AE0BE
                 move.b  #$23,$37(a5) 
@@ -16500,7 +16507,7 @@ sub_1AE1F4:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AE230
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1AE230
                 move.b  #$21,$37(a5) 
@@ -16527,7 +16534,7 @@ sub_1AE234:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AE270
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$10,d7
                 bhi.s   loc_1AE270
                 move.b  #$22,$37(a5) 
@@ -16729,7 +16736,7 @@ loc_1AE416:
 sub_1AE41C:
                 
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$A,d7
                 bhi.w   loc_1AE4C0
                 move.b  4(a5),d0
@@ -16797,7 +16804,7 @@ loc_1AE4C0:
 sub_1AE4C4:
                 
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$14,d7
                 bhi.s   loc_1AE4F4
 loc_1AE4D4:
@@ -16822,7 +16829,7 @@ loc_1AE4F4:
 sub_1AE4F8:
                 
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$4B,d7 
                 bcc.s   sub_1AE524
                 move.b  #$23,$37(a5) 
@@ -16943,7 +16950,7 @@ loc_1AE612:
                 bhi.s   loc_1AE67A
                 bset    #6,$C(a5)
                 move.w  #4,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 add.b   d7,d7
                 move.w  word_1AE672(pc,d7.w),d6
                 cmp.w   (a5),d6
@@ -17246,7 +17253,7 @@ sub_1AE91C:
                 btst    #6,$C(a5)
                 beq.w   loc_1AE9CA
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1E,d7
                 bhi.w   loc_1AE9CA
                 move.w  #$1F,d1
@@ -17263,18 +17270,18 @@ sub_1AE944:
                 
                 movem.w d1,-(sp)
                 move.w  #7,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 addi.b  #3,d7
                 move.w  d7,d5
                 move.w  #2,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 tst.b   d7
                 beq.s   loc_1AE968
                 neg.b   d5
 loc_1AE968:
                 
                 move.w  #2,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 tst.b   d7
                 beq.s   loc_1AE988
                 add.b   (dword_FF5400).l,d5
@@ -17331,7 +17338,7 @@ loc_1AE9D4:
 sub_1AE9EE:
                 
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #1,d7
                 bhi.s   loc_1AEA18
 loc_1AE9FE:
@@ -17362,7 +17369,7 @@ sub_1AEA1C:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AEA60
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$12C,d7
                 bhi.s   loc_1AEA60
                 move.b  #$21,$37(a5) 
@@ -17391,7 +17398,7 @@ sub_1AEA64:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AEAA8
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$19,d7
                 bhi.s   loc_1AEAA8
                 move.b  #$22,$37(a5) 
@@ -17644,7 +17651,7 @@ sub_1AECDC:
                 bsr.w   sub_1A8964
                 bcs.s   loc_1AED2A
                 move.w  #$3E8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #6,d7
                 bhi.s   loc_1AED2A
                 move.b  #$24,$37(a5) 
@@ -17671,7 +17678,7 @@ sub_1AED2E:
                 bsr.w   sub_1A8964
                 bcc.s   loc_1AED84
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.s   loc_1AED6A
 loc_1AED50:
@@ -17804,15 +17811,15 @@ loc_1AEE74:
                 
                 movem.w d0/d6,-(sp)
                 movem.w d0,-(sp)
-                add.w   d0,(dword_FF0500).l
-                add.w   d0,(dword_FF0500+2).l
-                jsr     (sub_2DE).l
-                jsr     (sub_2A8).l
+                add.w   d0,(VERTICAL_SCROLL_DATA).l
+                add.w   d0,(VERTICAL_SCROLL_DATA+2).l
+                jsr     (j_UpdateVDPVScrollData).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.w (sp)+,d0
-                sub.w   d0,(dword_FF0500).l
-                sub.w   d0,(dword_FF0500+2).l
-                jsr     (sub_2DE).l
-                jsr     (sub_2A8).l
+                sub.w   d0,(VERTICAL_SCROLL_DATA).l
+                sub.w   d0,(VERTICAL_SCROLL_DATA+2).l
+                jsr     (j_UpdateVDPVScrollData).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.w (sp)+,d0/d6
                 dbf     d6,loc_1AEE74
                 subq.w  #1,d0
@@ -17923,7 +17930,7 @@ sub_1AEF72:
                 cmpi.w  #$64,$12(a5) 
                 bcc.w   loc_1AF0BA
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcc.w   loc_1AF0BA
                 move.b  #$27,$37(a5) 
@@ -17944,7 +17951,7 @@ sub_1AEFAC:
                 cmpi.w  #$F0,$12(a5) 
                 bcs.s   loc_1AF016
                 move.w  #2,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 tst.b   d7
                 beq.s   loc_1AEFE2
                 move.b  (dword_FF5400).l,(a5)
@@ -17982,7 +17989,7 @@ sub_1AF01A:
                 cmpi.w  #$94,$12(a5) 
                 bcs.s   loc_1AF04E
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$1E,d7
                 bhi.w   loc_1AF04E
                 move.b  #$21,$37(a5) 
@@ -18004,7 +18011,7 @@ loc_1AF04E:
 sub_1AF052:
                 
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$A,d7
                 bhi.s   loc_1AF080
                 move.w  #$383,$34(a5)
@@ -18031,7 +18038,7 @@ sub_1AF084:
                 cmpi.w  #$64,$12(a5) 
                 bcc.s   loc_1AF0BA
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$55,d7 
                 bcc.s   loc_1AF0BA
                 move.b  #$23,$37(a5) 
@@ -18067,14 +18074,14 @@ loc_1AF0BE:
 
 loc_1AF0D8:
                 
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 beq.w   sub_1AEF04
                 move.l  (a5),d0
                 movem.l d0,-(sp)
                 move.w  (dword_FF5414).l,d0
                 move.w  (dword_FF5414+2).l,d1
                 move.w  #2,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 tst.b   d7
                 beq.s   loc_1AF10C
                 subi.w  #$38,d0 
@@ -18130,7 +18137,7 @@ sub_1AF18A:
                 cmpi.w  #$64,$12(a5) 
                 bcc.s   loc_1AF1E6
                 move.w  #$19,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 move.b  (dword_FF5400).l,d6
                 subi.b  #$18,d6
                 add.b   (dword_FF5400+1).l,d6

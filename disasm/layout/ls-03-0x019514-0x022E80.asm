@@ -43,7 +43,7 @@ sub_1953A:
                 lea     (byte_FF5480).l,a1
                 clr.b   (byte_FF1838).l
                 clr.b   (byte_FF183C).l
-                move.w  (word_FF1204).l,d7
+                move.w  (CURRENT_MAP).l,d7
                 add.w   d7,d7
                 move.w  (a0,d7.w),d2
                 beq.w   loc_19A3A
@@ -135,13 +135,13 @@ loc_1961A:
                 bcc.s   loc_19678
                 jsr     (sub_4A0).l
                 bcc.s   loc_19676
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bmi.s   loc_196C0
                 move.w  #$1D,d7
 byte_19666:
                 
                 sndCom  SFX_SWORD_CLANG
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 dbf     d7,byte_19666
                 bra.s   loc_196C0
 loc_19676:
@@ -157,7 +157,7 @@ loc_1967E:
                 movem.l d2/a0,-(sp)
                 lea     (byte_FF5480).l,a0
                 clr.b   d2
-                cmpi.w  #$1A5,(word_FF1204).l
+                cmpi.w  #$1A5,(CURRENT_MAP).l
                 beq.s   loc_196BC
 loc_1969A:
                 
@@ -252,7 +252,7 @@ loc_1973C:
                 move.b  #1,$C(a1)
                 jsr     sub_9B010
                 beq.w   loc_1983E
-                cmpi.w  #$291,(word_FF1204).l
+                cmpi.w  #$291,(CURRENT_MAP).l
                 bne.w   loc_19778
                 bclr    d1,(a0,d0.w)
                 bra.w   loc_1983E
@@ -684,7 +684,7 @@ sub_19B62:
                 bclr    #3,(byte_FF1029).l
 loc_19B74:
                 
-                cmpi.w  #$1AA,(word_FF1204).l
+                cmpi.w  #$1AA,(CURRENT_MAP).l
                 bne.s   loc_19BA8
                 cmpi.b  #$22,(dword_FF5400+1).l 
                 bcs.s   loc_19B94
@@ -699,7 +699,7 @@ loc_19B94:
                 bra.w   return_1A308
 loc_19BA8:
                 
-                cmpi.w  #$259,(word_FF1204).l
+                cmpi.w  #$259,(CURRENT_MAP).l
                 bne.s   loc_19BCA
                 btst    #2,(byte_FF1002).l
                 bne.w   return_1A308
@@ -707,7 +707,7 @@ loc_19BA8:
                 bra.w   return_1A308
 loc_19BCA:
                 
-                cmpi.w  #$1C,(word_FF1204).l
+                cmpi.w  #$1C,(CURRENT_MAP).l
                 bne.s   loc_19BEC
                 btst    #5,(byte_FF1002).l
                 beq.w   return_1A308
@@ -715,7 +715,7 @@ loc_19BCA:
                 bra.w   return_1A308
 loc_19BEC:
                 
-                cmpi.w  #$1C1,(word_FF1204).l
+                cmpi.w  #$1C1,(CURRENT_MAP).l
                 bne.s   loc_19C14
                 btst    #6,(byte_FF1002).l
                 beq.w   return_1A308
@@ -724,7 +724,7 @@ loc_19BEC:
                 bra.w   return_1A308
 loc_19C14:
                 
-                cmpi.w  #$B7,(word_FF1204).l 
+                cmpi.w  #$B7,(CURRENT_MAP).l 
                 bne.s   loc_19C38
                 cmpi.b  #$F,(dword_FF5400+1).l
                 beq.s   loc_19C30
@@ -736,7 +736,7 @@ loc_19C30:
                 bra.w   sub_1A30A
 loc_19C38:
                 
-                cmpi.w  #$B9,(word_FF1204).l 
+                cmpi.w  #$B9,(CURRENT_MAP).l 
                 bne.s   loc_19C5C
                 cmpi.b  #$24,(dword_FF5400+1).l 
                 bcc.s   loc_19C54
@@ -748,7 +748,7 @@ loc_19C54:
                 bra.w   sub_1A30A
 loc_19C5C:
                 
-                cmpi.w  #$BA,(word_FF1204).l 
+                cmpi.w  #$BA,(CURRENT_MAP).l 
                 bne.s   loc_19C80
                 cmpi.b  #$24,(dword_FF5400+1).l 
                 bcc.s   loc_19C78
@@ -760,7 +760,7 @@ loc_19C78:
                 bra.w   sub_1A30A
 loc_19C80:
                 
-                cmpi.w  #$251,(word_FF1204).l
+                cmpi.w  #$251,(CURRENT_MAP).l
                 bne.s   loc_19D08
                 tst.b   (MAIN_FLAGS).l
                 bpl.w   return_1A308
@@ -794,7 +794,7 @@ loc_19CD6:
                 bra.w   return_1A308
 loc_19D08:
                 
-                cmpi.w  #$2C5,(word_FF1204).l
+                cmpi.w  #$2C5,(CURRENT_MAP).l
                 bne.s   loc_19D36
                 btst    #3,(byte_FF1003).l
                 beq.w   return_1A308
@@ -806,7 +806,7 @@ loc_19D08:
                 bra.w   return_1A308
 loc_19D36:
                 
-                cmpi.w  #$277,(word_FF1204).l
+                cmpi.w  #$277,(CURRENT_MAP).l
                 bne.s   loc_19D5C
                 btst    #4,(byte_FF1014).l
                 beq.w   return_1A308
@@ -816,7 +816,7 @@ loc_19D36:
                 bra.w   return_1A308
 loc_19D5C:
                 
-                cmpi.w  #$282,(word_FF1204).l
+                cmpi.w  #$282,(CURRENT_MAP).l
                 bne.s   loc_19D8A
                 btst    #5,(byte_FF1014).l
                 beq.w   return_1A308
@@ -828,7 +828,7 @@ loc_19D5C:
                 bra.w   return_1A308
 loc_19D8A:
                 
-                cmpi.w  #$38,(word_FF1204).l 
+                cmpi.w  #$38,(CURRENT_MAP).l 
                 bne.s   loc_19DBC
                 btst    #0,(byte_FF1014).l
                 beq.w   return_1A308
@@ -841,7 +841,7 @@ loc_19D8A:
                 bra.w   return_1A308
 loc_19DBC:
                 
-                cmpi.w  #$287,(word_FF1204).l
+                cmpi.w  #$287,(CURRENT_MAP).l
                 bne.s   loc_19E24
                 cmpi.b  #$FF,(byte_FF1015).l
                 bne.s   loc_19E14
@@ -870,7 +870,7 @@ loc_19E14:
                 bra.w   return_1A308
 loc_19E24:
                 
-                cmpi.w  #$3C,(word_FF1204).l 
+                cmpi.w  #$3C,(CURRENT_MAP).l 
                 bne.s   loc_19E5A
                 btst    #0,(byte_FF1014).l
                 beq.w   return_1A308
@@ -884,7 +884,7 @@ loc_19E24:
                 bra.w   return_1A308
 loc_19E5A:
                 
-                cmpi.w  #7,(word_FF1204).l
+                cmpi.w  #7,(CURRENT_MAP).l
                 bne.s   loc_19E80
                 btst    #2,(word_FF100A).l
                 beq.w   return_1A308
@@ -894,7 +894,7 @@ loc_19E5A:
                 bra.w   return_1A308
 loc_19E80:
                 
-                cmpi.w  #$2C,(word_FF1204).l 
+                cmpi.w  #$2C,(CURRENT_MAP).l 
                 bne.s   loc_19EBE
                 move.b  #0,d0
                 btst    #5,(dword_FF1020).l
@@ -908,7 +908,7 @@ loc_19E80:
                 bra.w   return_1A308
 loc_19EBE:
                 
-                cmpi.w  #$284,(word_FF1204).l
+                cmpi.w  #$284,(CURRENT_MAP).l
                 bne.s   loc_19F08
                 btst    #5,(byte_FF102A).l
                 bne.w   return_1A308
@@ -927,7 +927,7 @@ loc_19EBE:
                 bra.w   return_1A308
 loc_19F08:
                 
-                cmpi.w  #$EC,(word_FF1204).l 
+                cmpi.w  #$EC,(CURRENT_MAP).l 
                 bne.s   loc_19F3A
                 btst    #0,(byte_FF1028).l
                 beq.w   return_1A308
@@ -940,7 +940,7 @@ loc_19F08:
                 bra.w   return_1A308
 loc_19F3A:
                 
-                cmpi.w  #$28B,(word_FF1204).l
+                cmpi.w  #$28B,(CURRENT_MAP).l
                 bne.s   loc_19F60
                 btst    #6,(byte_FF1014).l
                 beq.w   return_1A308
@@ -950,7 +950,7 @@ loc_19F3A:
                 bra.w   return_1A308
 loc_19F60:
                 
-                cmpi.w  #$2B6,(word_FF1204).l
+                cmpi.w  #$2B6,(CURRENT_MAP).l
                 bne.s   loc_19F8C
                 move.b  (byte_FF1013).l,d0
                 andi.b  #$E0,d0
@@ -962,7 +962,7 @@ loc_19F60:
                 bra.w   return_1A308
 loc_19F8C:
                 
-                cmpi.w  #$295,(word_FF1204).l
+                cmpi.w  #$295,(CURRENT_MAP).l
                 bne.s   loc_19FE8
                 lea     (byte_FF5480).l,a0
                 btst    #4,(byte_FF102A).l
@@ -994,7 +994,7 @@ loc_19FCE:
                 bra.w   return_1A308
 loc_19FE8:
                 
-                cmpi.w  #$1E6,(word_FF1204).l
+                cmpi.w  #$1E6,(CURRENT_MAP).l
                 bne.s   loc_1A00E
                 btst    #6,(byte_FF102A).l
                 beq.w   return_1A308
@@ -1004,7 +1004,7 @@ loc_19FE8:
                 bra.w   return_1A308
 loc_1A00E:
                 
-                cmpi.w  #$94,(word_FF1204).l 
+                cmpi.w  #$94,(CURRENT_MAP).l 
                 bne.s   loc_1A034
                 btst    #6,(byte_FF102A).l
                 beq.w   return_1A308
@@ -1018,7 +1018,7 @@ loc_1A034:
                 bne.s   loc_1A0A2
                 lea     unk_1A058(pc), a5
                 move.w  #9,d7
-                move.w  (word_FF1204).l,d0
+                move.w  (CURRENT_MAP).l,d0
 loc_1A04C:
                 
                 cmp.w   (a5)+,d0
@@ -1068,7 +1068,7 @@ loc_1A09A:
                 dbf     d7,loc_1A080
 loc_1A0A2:
                 
-                cmpi.w  #$F2,(word_FF1204).l 
+                cmpi.w  #$F2,(CURRENT_MAP).l 
                 bne.s   loc_1A0CA
                 btst    #7,(byte_FF1026).l
                 beq.w   return_1A308
@@ -1079,7 +1079,7 @@ loc_1A0A2:
                 bra.w   return_1A308
 loc_1A0CA:
                 
-                cmpi.w  #$1E0,(word_FF1204).l
+                cmpi.w  #$1E0,(CURRENT_MAP).l
                 bne.s   loc_1A0F2
                 btst    #6,(byte_FF1027).l
                 beq.w   return_1A308
@@ -1090,9 +1090,9 @@ loc_1A0CA:
                 bra.w   return_1A308
 loc_1A0F2:
                 
-                cmpi.w  #$299,(word_FF1204).l
+                cmpi.w  #$299,(CURRENT_MAP).l
                 bne.w   loc_1A1A6
-                move.b  (byte_FF0F8F).l,d0
+                move.b  (P2_INPUT).l,d0 
                 cmpi.b  #$E0,d0
                 beq.w   return_1A308
                 lea     (byte_FF5480).l,a0
@@ -1123,7 +1123,7 @@ loc_1A0F2:
                 bra.w   return_1A308
 loc_1A1A6:
                 
-                cmpi.w  #$19E,(word_FF1204).l
+                cmpi.w  #$19E,(CURRENT_MAP).l
                 bne.w   loc_1A1D6
                 btst    #4,(byte_FF1029).l
                 beq.w   return_1A308
@@ -1135,7 +1135,7 @@ loc_1A1A6:
                 bra.w   return_1A308
 loc_1A1D6:
                 
-                cmpi.w  #$24,(word_FF1204).l 
+                cmpi.w  #$24,(CURRENT_MAP).l 
                 bne.w   loc_1A226
                 btst    #5,(dword_FF1020).l
                 beq.w   return_1A308
@@ -1155,7 +1155,7 @@ loc_1A1D6:
                 bra.w   return_1A308
 loc_1A226:
                 
-                cmpi.w  #$199,(word_FF1204).l
+                cmpi.w  #$199,(CURRENT_MAP).l
                 bne.w   loc_1A24A
                 btst    #1,(byte_FF102B).l
                 beq.w   return_1A308
@@ -1163,7 +1163,7 @@ loc_1A226:
                 bra.w   return_1A308
 loc_1A24A:
                 
-                cmpi.w  #$19A,(word_FF1204).l
+                cmpi.w  #$19A,(CURRENT_MAP).l
                 bne.w   loc_1A26E
                 btst    #0,(byte_FF1038).l
                 beq.w   return_1A308
@@ -1171,7 +1171,7 @@ loc_1A24A:
                 bra.w   return_1A308
 loc_1A26E:
                 
-                cmpi.w  #$194,(word_FF1204).l
+                cmpi.w  #$194,(CURRENT_MAP).l
                 bne.w   loc_1A292
                 btst    #5,(byte_FF1038).l
                 beq.w   return_1A308
@@ -1179,7 +1179,7 @@ loc_1A26E:
                 bra.w   return_1A308
 loc_1A292:
                 
-                cmpi.w  #$1A1,(word_FF1204).l
+                cmpi.w  #$1A1,(CURRENT_MAP).l
                 bne.w   loc_1A2B6
                 btst    #2,(byte_FF1038).l
                 beq.w   return_1A308
@@ -1187,15 +1187,15 @@ loc_1A292:
                 bra.w   return_1A308
 loc_1A2B6:
                 
-                cmpi.w  #$2EF,(word_FF1204).l
+                cmpi.w  #$2EF,(CURRENT_MAP).l
                 bne.w   loc_1A2D8
-                cmpi.w  #$FE,(word_FF12DE).l 
+                cmpi.w  #$FE,(byte_FF12DE).l 
                 bne.w   return_1A308
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 bra.w   return_1A308
 loc_1A2D8:
                 
-                cmpi.w  #$283,(word_FF1204).l
+                cmpi.w  #$283,(CURRENT_MAP).l
                 bne.s   loc_1A306
                 btst    #5,(byte_FF1014).l
                 beq.w   return_1A308
@@ -1311,7 +1311,7 @@ loc_1A38C:
                 
                 move.w  (a0),d0
                 bmi.s   return_1A3D6
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 bne.s   loc_1A3D2
                 move.b  3(a0),d1
                 lsr.b   #5,d1
@@ -1354,7 +1354,7 @@ loc_1A3DC:
                 
                 move.w  (a0),d0
                 bmi.s   return_1A444
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 bne.s   loc_1A440
                 move.b  3(a0),d1
                 lsr.b   #5,d1
@@ -1504,7 +1504,7 @@ return_1A4CE:
 
 sub_1A4D0:
                 
-                move.w  (word_FF1204).l,d0
+                move.w  (CURRENT_MAP).l,d0
                 lea     (MAIN_FLAGS).l,a1
 loc_1A4DC:
                 
@@ -1546,7 +1546,7 @@ loc_1A51C:
                 
                 move.w  (a0),d0
                 bmi.s   return_1A546
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 bne.s   loc_1A542
                 clr.w   d0
                 move.b  2(a0),d0
@@ -1619,7 +1619,7 @@ loc_1A596:
                 
                 move.w  (a0),d0
                 bmi.s   return_1A5B8
-                cmp.w   (word_FF1204).l,d0
+                cmp.w   (CURRENT_MAP).l,d0
                 beq.s   loc_1A5A6
 loc_1A5A2:
                 

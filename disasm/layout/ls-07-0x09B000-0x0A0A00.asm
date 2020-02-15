@@ -14181,7 +14181,7 @@ byte_9B458:     dc.b 0
 
 sub_9E75E:
                 
-                move.w  (word_FF1204).l,d0
+                move.w  (CURRENT_MAP).l,d0
                 jsr     (sub_440).l
                 clr.w   d1
                 move.b  byte_9E78E(pc,d0.w),d1
@@ -15238,7 +15238,7 @@ unk_9EABE:      dc.b   0
 
 sub_9EB9C:
                 
-                cmpi.w  #$188,(word_FF1204).l
+                cmpi.w  #$188,(CURRENT_MAP).l
                 beq.s   return_9EBC4
                 move.b  #$FF,$36(a4)
                 clr.w   d0
@@ -15288,11 +15288,11 @@ loc_9EC06:
                 
                 move.w  d0,(a0)+
                 dbf     d7,loc_9EC06
-                jsr     (sub_230).l
+                jsr     (j_DisableDisplayAndInterrupts).l
                 clr.w   d0
                 clr.w   d1
                 clr.w   d2
-                jsr     (sub_320).l
+                jsr     (j_ApplyVramDMAFill).l
                 lea     unk_9FA42(pc), a0
                 lea     (byte_FF2C00).l,a1
                 lea     (loc_4000).w,a2
@@ -15305,13 +15305,13 @@ loc_9EC06:
                 lea     (byte_FF5C02).l,a1
                 jsr     sub_38608
                 lea     byte_9FA3A(pc), a0
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_BASE).l,a1
                 move.l  (a0)+,(a1)+
                 move.l  (a0)+,(a1)+
                 move.b  (a0)+,(a1)+
-                jsr     (sub_242).l
-                jsr     (sub_22A).l
-                jsr     (sub_23C).l
+                jsr     (j_DuplicatePalettes).l
+                jsr     (j_EnableDisplayAndInterrupts).l
+                jsr     (j_DeactivateIntDMAQueueProcessing).l
                 move.b  #1,(byte_FF112A).l
                 lea     (byte_FF1BFA).l,a0
                 move.b  #0,(a0)+
@@ -15339,9 +15339,9 @@ loc_9ECBC:
 loc_9ECC2:
                 
                 move.w  #$2A2F,d0
-                jsr     (sub_278).l
-                jsr     (sub_33E).l
-                move.b  (byte_FF0F8E).l,d1
+                jsr     (j_Sleep).l
+                jsr     (j_RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,d1 
                 unlk    a6
                 rts
 
@@ -15357,12 +15357,12 @@ sub_9ECDC:
                 lsr.w   #1,d6
                 bcs.s   loc_9ECF8
                 addi.w  #$10,d6
-                jsr     (sub_2EA).l
-                jsr     (sub_2A2).l
+                jsr     (j_UpdateBackgroundVScrollData).l
+                jsr     (j_EnableDMAQueueProcessing).l
 loc_9ECF8:
                 
                 bsr.w   sub_9F644
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 addq.w  #1,-2(a6)
                 addq.w  #1,-$10(a6)
                 movem.l (sp)+,d0-a6
@@ -17757,8 +17757,8 @@ loc_9F662:
                 movea.l d0,a1
                 moveq   #$28,d0 
                 moveq   #2,d1
-                jsr     (sub_2C6).l
-                jsr     (sub_2A2).l
+                jsr     (j_ApplyVIntVramDMA).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 rts
 
     ; End of function sub_9F644
@@ -17891,8 +17891,8 @@ loc_9F7B0:
                 lsl.w   #4,d1
                 move.w  d1,d0
                 moveq   #2,d1
-                jsr     (sub_2C6).l
-                jsr     (sub_2A2).l
+                jsr     (j_ApplyVIntVramDMA).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 bsr.w   sub_9ECDC
                 lea     (byte_FF1C80).l,a0
                 move.w  -6(a6),d0

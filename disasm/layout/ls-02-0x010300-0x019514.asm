@@ -989,8 +989,8 @@ loc_1084C:
                 dbf     d0,loc_1084C
 loc_10856:
                 
-                move.b  (a0)+,(word_FF12DE).l
-                move.b  (a0)+,(word_FF12DE+1).l
+                move.b  (a0)+,(byte_FF12DE).l
+                move.b  (a0)+,(byte_FF12DF).l
                 move.l  a0,(dword_FF1870).l
                 rts
 
@@ -1672,7 +1672,7 @@ loc_10BA6:
 loc_10BC4:
                 
                 bclr    #0,(byte_FF540C).l
-                cmpi.w  #$1AA,(word_FF1204).l
+                cmpi.w  #$1AA,(CURRENT_MAP).l
                 bne.s   loc_10BE2
                 btst    #4,(MAIN_FLAGS).l
                 beq.w   loc_10C8E
@@ -1690,11 +1690,11 @@ loc_10BE2:
                 move.b  #1,(byte_FF114B).l
                 move.b  #$11,(byte_FF114D).l
                 move.w  #$3C,d0 
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 move.b  #$41,(byte_FF114D).l 
 loc_10C2C:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 cmpi.b  #$21,(byte_FF114B).l 
                 bne.s   loc_10C2C
                 move.b  #$31,(byte_FF114D).l 
@@ -1723,7 +1723,7 @@ loc_10C8E:
                 
                 jsr     (sub_3E6).l
                 clr.b   (byte_FF1145).l
-                move.w  #$251,(word_FF1204).l
+                move.w  #$251,(CURRENT_MAP).l
                 move.w  #$251,(word_FF1206).l
                 move.b  #$10,(dword_FF5400).l
                 move.b  #$F,(dword_FF5400+1).l
@@ -2113,7 +2113,7 @@ sub_110D8:
                 
                 cmpi.b  #$30,(dword_FF5400+1).l 
                 bne.w   sub_10F52
-                tst.w   (word_FF12DE).l
+                tst.w   (byte_FF12DE).l
                 bne.w   sub_10F52
                 bra.w   sub_10F4C
 
@@ -2335,7 +2335,7 @@ sub_112E4:
 
 sub_1130A:
                 
-                cmpi.b  #$A,(word_FF12DE).l
+                cmpi.b  #$A,(byte_FF12DE).l
                 bne.w   sub_10F52
                 btst    #1,(byte_FF1004).l
                 beq.w   sub_10F4C
@@ -3099,7 +3099,7 @@ sub_11936:
 
 sub_1195E:
                 
-                cmpi.b  #$FE,(word_FF12DE+1).l
+                cmpi.b  #$FE,(byte_FF12DF).l
                 bne.w   sub_10F52
                 bra.w   sub_10F4C
 
@@ -3660,7 +3660,7 @@ sub_11DA2:
 
 sub_11DC4:
                 
-                cmpi.w  #$FE,(word_FF12DE).l 
+                cmpi.w  #$FE,(byte_FF12DE).l 
                 bne.w   sub_10F52
                 bra.w   sub_10F4C
 
@@ -4454,7 +4454,7 @@ loc_12668:
                 rts
 loc_12674:
                 
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 jsr     sub_22EF8
                 rts
 loc_12682:
@@ -4497,9 +4497,9 @@ loc_126BC:
                 bra.s   loc_12674
 loc_126C2:
                 
-                move.w  (word_FF1204).l,d0
+                move.w  (CURRENT_MAP).l,d0
                 jsr     (sub_3F2).l
-                move.w  d0,(word_FF1204).l
+                move.w  d0,(CURRENT_MAP).l
                 jsr     (sub_3EC).l
                 move.b  #$31,(byte_FF114D).l 
                 movem.l (sp)+,d0
@@ -4526,8 +4526,8 @@ loc_12726:
                 bsr.w   sub_1587C
                 jsr     (sub_3F8).l
                 jsr     (sub_404).l
-                jsr     (sub_296).l
-                jsr     (sub_2A2).l
+                jsr     (j_RequestVDPCommandQueueProcessing).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 move.w  #$12,d0
                 bsr.w   loc_12674
                 movem.l (sp)+,a5
@@ -4548,8 +4548,8 @@ loc_12774:
                 bsr.w   sub_1587C
                 jsr     (sub_3F8).l
                 jsr     (sub_404).l
-                jsr     (sub_296).l
-                jmp     (sub_2A2).l
+                jsr     (j_RequestVDPCommandQueueProcessing).l
+                jmp     (j_EnableDMAQueueProcessing).l
 loc_127A4:
                 
                 move.w  #$14,d0
@@ -4563,8 +4563,8 @@ loc_127AC:
                 bsr.w   sub_1587C
                 jsr     (sub_3F8).l
                 jsr     (sub_404).l
-                jsr     (sub_296).l
-                jmp     (sub_2A2).l
+                jsr     (j_RequestVDPCommandQueueProcessing).l
+                jmp     (j_EnableDMAQueueProcessing).l
 loc_127D8:
                 
                 move.w  #$16,d0
@@ -4601,7 +4601,7 @@ loc_1281E:
                 or.b    d0,4(a0)
                 bsr.w   loc_10492
                 jsr     (sub_3F8).l
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 movem.w (sp)+,d7
                 dbf     d7,loc_1281E
                 move.w  #8,d0
@@ -4654,7 +4654,7 @@ loc_128D6:
                 rts
 loc_12906:
                 
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 rts
 loc_1290E:
                 
@@ -4675,7 +4675,7 @@ loc_1291A:
                 rts
 loc_1294A:
                 
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 rts
 loc_12952:
                 
@@ -4710,7 +4710,7 @@ loc_12988:
                 jsr     (sub_3DA).l
                 jsr     (sub_3E0).l
                 move.b  #$31,(byte_FF114D).l 
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 bset    #4,(MAIN_FLAGS).l
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
@@ -4720,9 +4720,9 @@ loc_12988:
 loc_129F0:
                 
                 bset    #3,(MAIN_FLAGS).l
-                move.w  (word_FF1204).l,d0
+                move.w  (CURRENT_MAP).l,d0
                 jsr     (sub_3F2).l
-                move.w  d0,(word_FF1204).l
+                move.w  d0,(CURRENT_MAP).l
                 jsr     (sub_3EC).l
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
@@ -4803,7 +4803,7 @@ loc_12AC8:
 
 loc_12AF2:
                 
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 rts
 loc_12AFA:
                 
@@ -4867,7 +4867,7 @@ loc_12BA0:
                 movem.l a5,-(sp)
                 jsr     (sub_3FE).l
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.l (sp)+,a5
                 movem.w (sp)+,d7
                 dbf     d7,loc_12BA0
@@ -4936,7 +4936,7 @@ sub_12CAE:
                 movea.l a1,a0
                 jsr     sub_1A4418
                 sndCom  SFX_ENEMY_HIT
-                jsr     (sub_242).l
+                jsr     (j_DuplicatePalettes).l
                 lea     (byte_FF5480).l,a1
                 bset    #7,$48(a1)
                 jmp     (sub_3F8).l
@@ -5064,11 +5064,11 @@ loc_12DCE:
                 bsr.w   sub_16928
                 bsr.w   sub_1691E
                 bsr.w   sub_1693A
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 clr.b   (byte_FF1145).l
                 clr.b   (byte_FF1142).l
                 clr.b   (byte_FF1143).l
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 bclr    #0,(byte_FF540C).l
                 bclr    #4,(byte_FF1146).l
                 bclr    #2,(byte_FF1153).l
@@ -5091,11 +5091,11 @@ loc_12E48:
                 bsr.w   sub_16928
                 bsr.w   sub_1691E
                 bsr.w   sub_1693A
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 clr.b   (byte_FF1145).l
                 clr.b   (byte_FF1142).l
                 clr.b   (byte_FF1143).l
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 bclr    #0,(byte_FF540C).l
                 bclr    #4,(byte_FF1146).l
                 bclr    #2,(byte_FF1153).l
@@ -5220,7 +5220,7 @@ sub_12FE6:
                 move.b  4(a1),d1
                 bsr.w   sub_1979C
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 rts
 
     ; End of function sub_12FE6
@@ -5258,7 +5258,7 @@ loc_1305C:
                 move.b  #$21,(byte_FF114D).l 
 loc_13074:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 cmpi.b  #$21,(byte_FF114B).l 
                 bne.s   loc_13074
                 move.w  #$4F,d0 
@@ -5282,7 +5282,7 @@ loc_1309C:
                 movem.l a5,-(sp)
                 jsr     (sub_3FE).l
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.l (sp)+,a5
                 movem.w (sp)+,d7
                 dbf     d7,loc_1309C
@@ -5294,7 +5294,7 @@ loc_1309C:
                 bclr    #4,(byte_FF1003).l
                 andi.b  #$F8,(byte_FF1153).l
                 jsr     (sub_428).l
-                jsr     (sub_242).l
+                jsr     (j_DuplicatePalettes).l
                 lea     (dword_FF5400).l,a1
                 move.b  4(a1),d1
                 bsr.w   sub_1979C
@@ -5392,9 +5392,9 @@ loc_131F6:
 loc_131FE:
                 
                 bset    #1,(byte_FF1012).l
-                move.w  (word_FF1204).l,d0
+                move.w  (CURRENT_MAP).l,d0
                 jsr     (sub_3F2).l
-                move.w  d0,(word_FF1204).l
+                move.w  d0,(CURRENT_MAP).l
                 jsr     (sub_3EC).l
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
@@ -5486,7 +5486,7 @@ loc_13388:
                 bsr.w   sub_15838
 loc_1338C:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 cmpi.b  #$21,(byte_FF114B).l 
                 bne.s   loc_1338C
                 move.w  #$61,d0 
@@ -5518,7 +5518,7 @@ loc_133D8:
                 sndCom  SFX_EKE_LOWER_PITCH
                 clr.b   (byte_FF1143).l
                 move.w  #$100,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 andi.b  #$C0,d7
                 andi.b  #$3F,(byte_FF5404).l 
                 or.b    d7,(byte_FF5404).l
@@ -5558,7 +5558,7 @@ loc_13456:
 
 byte_1345E:     sndCom  SOUND_COMMAND_FFFADE_OUT
                 move.w  #$B4,d0 
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 dc.b $4E, $40, 0, $2C
                 rts
 
@@ -5567,7 +5567,7 @@ byte_1345E:     sndCom  SOUND_COMMAND_FFFADE_OUT
 loc_13472:
                 
                 move.w  #$B4,d0 
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
 
 ; END OF FUNCTION CHUNK FOR sub_120F6
 
@@ -5598,7 +5598,7 @@ loc_13492:
 loc_134BA:
                 
                 move.b  #$31,(byte_FF114D).l 
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 rts
 loc_134CA:
                 
@@ -5607,7 +5607,7 @@ loc_134D2:
                 
                 bsr.w   sub_135F6
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 cmpi.b  #$1A,(byte_FF1145).l
                 bne.s   loc_134D2
                 clr.b   (byte_FF1145).l
@@ -5616,13 +5616,13 @@ loc_134D2:
 
                 sndCom  SOUND_COMMAND_FFFADE_OUT
                 move.w  #$B4,d0 
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 jsr     (sub_36E).l
                 move.w  #1,d6
                 bsr.w   sub_135D0
                 dc.b $4E, $40, 0, $28
                 move.w  #$78,d0 
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 move.w  #$6A,d0 
                 bsr.w   loc_12674
                 move.b  #$53,(byte_FF114B).l 
@@ -5646,7 +5646,7 @@ loc_134D2:
                 jsr     sub_1036C
                 jsr     sub_10340
                 move.w  #$78,d0 
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 bset    #0,(byte_FF1014).l
                 move.w  #$140E,(dword_FF5400).l
                 move.w  #$808,(dword_FF5400+2).l
@@ -5655,19 +5655,19 @@ loc_134D2:
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
                 movem.l (sp)+,d7/a5
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 rts
 
 ; =============== S U B R O U T I N E =======================================
 
 sub_135D0:
                 
-                lea     (word_FF0080).l,a0
-                lea     (word_FF0ED0).l,a1
+                lea     (PALETTE_1_BASE).l,a0
+                lea     (PALETTE_1_CURRENT).l,a1
                 move.w  #$39,d5 
                 jsr     (sub_37A).l
                 move.w  #$14,d0
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 dbf     d6,sub_135D0
                 rts
 
@@ -5730,7 +5730,7 @@ loc_13684:
 
 byte_13688:     sndCom  SFX_WING_FLAP
                 move.w  #5,d0
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 dbf     d7,byte_13688
                 move.b  #8,d0
                 jsr     (sub_40A).l
@@ -5756,13 +5756,13 @@ loc_136BE:
                 move.w  #$27,d0 
                 bsr.w   loc_12674
                 bset    #1,(byte_FF1004).l
-                move.w  (word_FF1204).l,d0
+                move.w  (CURRENT_MAP).l,d0
                 jsr     (sub_3F2).l
-                move.w  d0,(word_FF1204).l
+                move.w  d0,(CURRENT_MAP).l
                 jsr     (sub_43A).l
                 move.b  #$21,(byte_FF114B).l 
                 move.b  #$21,(byte_FF114D).l 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
@@ -5797,10 +5797,10 @@ sub_1375A:
                 move.w  #8,$24(a5)
                 bset    #7,$48(a5)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 movem.l (sp)+,a5
                 move.w  #$A,d0
-                jmp     (sub_278).l
+                jmp     (j_Sleep).l
 
     ; End of function sub_1375A
 
@@ -5891,7 +5891,7 @@ loc_1387E:
                 clr.w   $26(a5)
                 bset    #7,$48(a5)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 move.w  #$28,d0 
                 bsr.w   loc_12674
                 move.b  #$57,(byte_FF114B).l 
@@ -6029,7 +6029,7 @@ loc_139FA:
                 rts
 loc_13A16:
                 
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 jsr     sub_1A4400
                 move.b  #$28,d0 
                 jmp     (sub_40A).l
@@ -6113,7 +6113,7 @@ loc_13B06:
                 move.w  #4,$26(a5)
                 bset    #7,$48(a5)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 move.b  #$40,(byte_FF1143).l 
                 clr.w   (word_FF543C).l
                 bsr.w   sub_13140
@@ -6133,7 +6133,7 @@ loc_13B56:
                 move.w  #$38,$24(a5) 
                 bset    #7,$48(a5)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.l (sp)+,a5
                 rts
 loc_13B74:
@@ -6325,10 +6325,10 @@ sub_13D3C:
                 move.w  #$10,$24(a5)
                 bset    #7,$48(a5)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 movem.l (sp)+,a5
                 move.w  #8,d0
-                jmp     (sub_278).l
+                jmp     (j_Sleep).l
 
     ; End of function sub_13D3C
 
@@ -6445,7 +6445,7 @@ loc_13E86:
                 bsr.w   sub_13F6E
                 movem.l d7-a0/a5,-(sp)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.l (sp)+,d7-a0/a5
                 dbf     d7,loc_13E86
                 addq.l  #2,a0
@@ -6667,10 +6667,10 @@ sub_13FB2:
                 move.w  #8,$24(a5)
                 bset    #7,$48(a5)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 movem.l (sp)+,a5
                 move.w  #4,d0
-                jmp     (sub_278).l
+                jmp     (j_Sleep).l
 
     ; End of function sub_13FB2
 
@@ -6744,7 +6744,7 @@ loc_14058:
                 movem.l a5,-(sp)
                 jsr     (sub_3FE).l
                 jsr     (sub_3F8).l
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 movem.l (sp)+,a5
                 bsr.w   sub_15838
                 move.w  #$A5,d0 
@@ -6790,7 +6790,7 @@ loc_140EE:
                 movem.l a5,-(sp)
                 jsr     (sub_3FE).l
                 jsr     (sub_3F8).l
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 movem.l (sp)+,a5
                 move.w  #$AB,d0 
                 bsr.w   loc_12674
@@ -6812,11 +6812,11 @@ loc_14158:
                 move.w  #$B4,d0 
                 bsr.w   loc_12674
                 move.w  #$3C,d0 
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 move.b  #$24,(byte_FF114D).l 
 loc_14190:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 cmpi.b  #$24,(byte_FF114B).l 
                 bne.s   loc_14190
                 move.w  #$B5,d0 
@@ -6867,7 +6867,7 @@ loc_14228:
                 move.w  #$BC,d0 
                 bsr.w   loc_12674
                 bset    #1,(byte_FF1026).l
-                move.w  #$275,(word_FF1204).l
+                move.w  #$275,(CURRENT_MAP).l
                 bsr.s   byte_14266
                 bset    #0,(byte_FF1001).l
                 move.b  #$1E,d0
@@ -6924,7 +6924,7 @@ loc_142C2:
                 andi.b  #$3F,(byte_FF5404).l 
                 ori.b   #$80,(byte_FF5404).l
                 bset    #4,(byte_FF1028).l
-                move.w  #$1F1,(word_FF1204).l
+                move.w  #$1F1,(CURRENT_MAP).l
                 move.w  #$2724,(dword_FF5400).l
                 bsr.s   sub_14312
                 movem.l (sp)+,d0
@@ -6952,7 +6952,7 @@ loc_14338:
                 
                 moveq   #1,d0
                 jsr     sub_38610
-                move.w  #$1EF,(word_FF1204).l
+                move.w  #$1EF,(CURRENT_MAP).l
                 move.w  #$262F,(dword_FF5400).l
                 bsr.s   sub_14312
                 movem.l (sp)+,d0
@@ -6979,7 +6979,7 @@ loc_14398:
                 
                 move.w  #$C0,d0 
                 bsr.w   loc_12674
-                move.w  #$21F,(word_FF1204).l
+                move.w  #$21F,(CURRENT_MAP).l
                 move.w  #$2D28,(dword_FF5400).l
                 jsr     (sub_3EC).l
                 movem.l (sp)+,d0
@@ -7160,7 +7160,7 @@ loc_145A4:
                 jmp     sub_22EB4
 loc_145C2:
                 
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 jmp     sub_22EA8
 loc_145CE:
                 
@@ -7181,10 +7181,10 @@ sub_145E2:
                 move.w  #$28,$24(a5) 
                 bset    #7,$48(a5)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 movem.l (sp)+,a5
                 move.w  #6,d0
-                jmp     (sub_278).l
+                jmp     (j_Sleep).l
 
     ; End of function sub_145E2
 
@@ -7230,7 +7230,7 @@ loc_14680:      subi.w  #4,$12(a5)
                 bsr.w   sub_13F6E
                 movem.l d7-a0/a5,-(sp)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.l (sp)+,d7-a0/a5
                 dbf     d7,loc_14680
                 movem.l a5,-(sp)
@@ -7261,10 +7261,10 @@ loc_14704:
                 bsr.w   sub_13F6E
                 movem.l d7-a0/a5,-(sp)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.l (sp)+,d7-a0/a5
                 dbf     d7,loc_14704
-                move.w  #$310,(word_FF1204).l
+                move.w  #$310,(CURRENT_MAP).l
                 move.w  #$310,(word_FF1206).l
                 move.w  #$1718,(dword_FF5400).l
                 clr.w   (dword_FF5400+2).l
@@ -7287,13 +7287,13 @@ loc_14704:
                 bset    #7,$48(a1)
                 bclr    #0,$C(a1)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 bsr.w   sub_15838
                 move.w  #$DE,d0 
                 bsr.w   loc_12674
                 clr.b   (byte_FF114B).l
                 clr.w   (word_FF0588).l
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 bset    #5,(byte_FF102A).l
                 bra.w   loc_13C64
 
@@ -7320,7 +7320,7 @@ sub_147E8:
                 bsr.w   sub_13F66
                 movem.l d7-a0/a5,-(sp)
                 jsr     (sub_3F8).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.l (sp)+,d7-a0/a5
                 rts
 
@@ -7456,7 +7456,7 @@ loc_1495C:
                 move.b  #$22,(byte_FF114D).l 
 loc_14980:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 cmpi.b  #$22,(byte_FF114B).l 
                 bne.s   loc_14980
                 move.w  #$EE,d0 
@@ -7465,7 +7465,7 @@ loc_14980:
                 move.b  #$21,(byte_FF114D).l 
 loc_149A8:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 cmpi.b  #$21,(byte_FF114B).l 
                 bne.s   loc_149A8
                 move.w  #$EF,d0 
@@ -7527,14 +7527,14 @@ return_14A44:
                 rts
 loc_14A46:
                 
-                move.w  #$8C,(word_FF1204).l 
+                move.w  #$8C,(CURRENT_MAP).l 
                 move.w  #$8C,(word_FF1206).l 
                 move.w  #$2014,(dword_FF5400).l
                 move.w  #$808,(dword_FF5400+2).l
                 andi.b  #$3F,(byte_FF5404).l 
                 ori.b   #$80,(byte_FF5404).l
                 jsr     (sub_3EC).l
-                move.w  #$FE,(word_FF12DE).l 
+                move.w  #$FE,(byte_FF12DE).l 
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
@@ -7542,13 +7542,13 @@ loc_14A46:
                 rts
 loc_14A96:
                 
-                move.w  #$8D,(word_FF1204).l 
+                move.w  #$8D,(CURRENT_MAP).l 
                 move.w  #$8D,(word_FF1206).l 
                 move.w  #$2C2C,(dword_FF5400).l
                 move.w  #$808,(dword_FF5400+2).l
                 ori.b   #$C0,(byte_FF5404).l
                 jsr     (sub_3EC).l
-                move.w  #$FE,(word_FF12DE).l 
+                move.w  #$FE,(byte_FF12DE).l 
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
@@ -7556,7 +7556,7 @@ loc_14A96:
                 rts
 loc_14ADE:
                 
-                move.w  #$8E,(word_FF1204).l 
+                move.w  #$8E,(CURRENT_MAP).l 
                 move.w  #$8E,(word_FF1206).l 
                 move.w  #$2F1D,(dword_FF5400).l
                 move.w  #$808,(dword_FF5400+2).l
@@ -7568,7 +7568,7 @@ loc_14ADE:
 
                 sndCom  MUSIC_BLACK_MARKET
                 move.b  #$E,(MUSIC_INDEX).l
-                move.w  #$FE,(word_FF12DE).l 
+                move.w  #$FE,(byte_FF12DE).l 
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
@@ -7602,7 +7602,7 @@ loc_14B44:
                 sndCom  MUSIC_DRAMATIC_EFFECT
                 move.b  #$65,(byte_FF114B).l 
                 move.b  #$22,(byte_FF114D).l 
-loc_14B8E:      jsr     (sub_272).l
+loc_14B8E:      jsr     (j_WaitForVInt).l
                 cmpi.b  #$22,(byte_FF114B).l 
                 bne.s   loc_14B8E
                 clr.b   (byte_FF114B).l
@@ -7612,7 +7612,7 @@ loc_14B8E:      jsr     (sub_272).l
                 bsr.w   sub_14BF2
                 jsr     sub_22F14
                 move.w  #$1E,d0
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 bsr.w   sub_15838
                 move.w  #$102,d0
                 move.w  #$3C,d1 
@@ -7631,7 +7631,7 @@ sub_14BF2:
                 movem.w d1,-(sp)
                 bsr.w   loc_12674
                 movem.w (sp)+,d0
-                jmp     (sub_278).l
+                jmp     (j_Sleep).l
 
     ; End of function sub_14BF2
 
@@ -7679,10 +7679,10 @@ loc_14C04:
                 move.b  #$22,(byte_FF114D).l 
 loc_14CA2:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 cmpi.b  #$22,(byte_FF114B).l 
                 bne.s   loc_14CA2
-                move.w  #$8F,(word_FF1204).l 
+                move.w  #$8F,(CURRENT_MAP).l 
                 move.w  #$8F,(word_FF1206).l 
                 move.w  #$2119,(dword_FF5400).l
                 move.w  #$808,(dword_FF5400+2).l
@@ -7692,7 +7692,7 @@ loc_14CA2:
                 move.b  #$21,(byte_FF114B).l 
                 move.b  #$21,(byte_FF114D).l 
                 jsr     (sub_42E).l
-                move.w  #$FE,(word_FF12DE).l 
+                move.w  #$FE,(byte_FF12DE).l 
                 move.b  #$1D,d0
                 jsr     sub_22F0C
                 movem.l (sp)+,d0
@@ -7702,7 +7702,7 @@ loc_14CA2:
                 rts
 loc_14D22:
                 
-                move.w  #$94,(word_FF1204).l 
+                move.w  #$94,(CURRENT_MAP).l 
                 move.w  #$2026,(dword_FF5400).l
                 move.w  #$808,(dword_FF5400+2).l
                 andi.b  #$3F,(byte_FF5404).l 
@@ -7806,7 +7806,7 @@ loc_14E4E:
                 move.w  #$11F,d0
                 move.w  #$3C,d1 
                 bsr.w   sub_14BF2
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 move.b  #$31,(byte_FF114B).l 
                 jmp     sub_22F14
 loc_14EAA:
@@ -7843,10 +7843,9 @@ loc_14EF8:
                 
                 move.w  #$F3,d0 
                 bra.w   loc_12674
-
-; END OF FUNCTION CHUNK FOR sub_120F6
-
-byte_14F00:     sndCom  SFX_MONSTER_SKREECH
+byte_14F00:
+                
+                sndCom  SFX_MONSTER_SKREECH
                 move.b  #7,(byte_FF1153).l
                 bset    #4,(byte_FF1146).l
                 move.w  #$814D,(word_FF540A).l
@@ -7856,9 +7855,6 @@ byte_14F00:     sndCom  SFX_MONSTER_SKREECH
                 move.b  4(a1),d1
                 bsr.w   sub_1979C
                 rts
-
-; START OF FUNCTION CHUNK FOR sub_120F6
-
 loc_14F3C:
                 
                 move.w  #$F4,d0 
@@ -7879,7 +7875,7 @@ loc_14F54:
                 andi.b  #$F8,(byte_FF1153).l
                 bclr    #4,(byte_FF1146).l
                 jsr     (sub_428).l
-                jsr     (sub_242).l
+                jsr     (j_DuplicatePalettes).l
                 lea     (dword_FF5400).l,a1
                 move.b  4(a1),d1
                 bsr.w   sub_1979C
@@ -7902,39 +7898,35 @@ loc_14FCA:
                 
                 move.w  #$121,d0
                 bra.w   loc_12674
-
-; END OF FUNCTION CHUNK FOR sub_120F6
-
-byte_14FD2:     sndCom  MUSIC_JINGLE_1
-                jmp     (sub_446).l
-
-; START OF FUNCTION CHUNK FOR sub_120F6
-
+byte_14FD2:
+                
+                sndCom  MUSIC_JINGLE_1
+                jmp     (j_PlayMusicAfterCurrentOne).l
 loc_14FDC:
                 
                 move.w  #4,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 addi.b  #$A,d7
                 move.b  d7,$66(a5)
                 rts
 loc_14FF0:
                 
                 move.w  #3,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 addi.b  #2,d7
                 move.b  d7,$66(a5)
                 rts
 loc_15004:
                 
                 move.w  #2,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 addi.b  #1,d7
                 move.b  d7,$66(a5)
                 rts
 loc_15018:
                 
                 move.w  #8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 addi.b  #1,d7
                 move.b  d7,$66(a5)
                 rts
@@ -7996,7 +7988,7 @@ return_150D0:
 loc_150D2:
                 
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 move.b  #8,d0
                 cmpi.b  #2,d7
                 bcs.s   loc_150F4
@@ -8008,7 +8000,7 @@ loc_150F4:
                 
                 move.b  d0,9(a5)
                 move.w  #8,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 addi.b  #1,d7
                 move.b  d7,$66(a5)
                 rts
@@ -8148,11 +8140,11 @@ loc_15286:
                 bra.w   loc_12674
 loc_1528E:
                 
-                move.w  #$6F,(word_FF1204).l 
+                move.w  #$6F,(CURRENT_MAP).l 
                 move.w  #$1E35,(dword_FF5400).l
                 move.w  #$808,(dword_FF5400+2).l
                 bsr.w   byte_14266
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
@@ -8225,18 +8217,18 @@ loc_152C2:
                 movem.l a5,-(sp)
                 jsr     (sub_3F8).l
                 movem.l (sp)+,a5
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 move.w  #5,d0
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 move.w  #$C,$24(a5)
                 move.w  #$10,$26(a5)
                 bset    #7,$48(a5)
                 movem.l a5,-(sp)
                 jsr     (sub_3F8).l
                 movem.l (sp)+,a5
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 move.w  #5,d0
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 move.w  #4,$24(a5)
                 move.w  #0,$26(a5)
                 bset    #7,$48(a5)
@@ -8259,7 +8251,7 @@ loc_15444:
                 
                 move.w  #$142,d0
                 bsr.w   loc_12674
-                move.w  #$70,(word_FF1204).l 
+                move.w  #$70,(CURRENT_MAP).l 
                 bsr.w   byte_14266
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
@@ -8281,7 +8273,7 @@ byte_1547C:     sndCom  SFX_SHLARF
                 movem.l a5,-(sp)
                 jsr     (sub_3F8).l
                 movem.l (sp)+,a5
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 lea     (loc_F180).l,a2
                 move.b  #1,d0
                 jsr     (sub_488).l
@@ -8299,14 +8291,14 @@ loc_154EE:      movem.w d7,-(sp)
                 moveq   #6,d0
                 jsr     (sub_45E).l
                 bsr.s   sub_15530
-                jsr     (sub_242).l
+                jsr     (j_DuplicatePalettes).l
                 bsr.s   sub_15530
                 movem.w (sp)+,d7
                 dbf     d7,loc_154EE
                 move.w  #$143,d0
                 bsr.w   loc_12674
                 jsr     (sub_46A).l
-                jsr     (sub_242).l
+                jsr     (j_DuplicatePalettes).l
                 dc.b $4E, $40, 0, $29
                 lea     (byte_FF5580).l,a5
                 jmp     sub_1A4400
@@ -8325,7 +8317,7 @@ loc_15532:
                 movem.l a5,-(sp)
                 jsr     (sub_3F8).l
                 movem.l (sp)+,a5
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.w (sp)+,d7
                 dbf     d7,loc_15532
                 rts
@@ -8333,7 +8325,7 @@ byte_1556C:
                 
                 sndCom  SOUND_COMMAND_STOP_MUSIC
                 move.w  #$78,d0 
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 movem.l a0,-(sp)
                 bsr.w   sub_15914
                 movem.l (sp)+,a0
@@ -8345,7 +8337,7 @@ loc_15594:
                 move.w  #$E6B4,(a1)+
                 dbf     d7,loc_15594
                 jsr     (sub_4B2).l
-                move.w  #$71,(word_FF1204).l 
+                move.w  #$71,(CURRENT_MAP).l 
                 move.w  #$1C19,(dword_FF5400).l
                 andi.b  #$3F,(byte_FF5404).l 
                 ori.b   #$80,(byte_FF5404).l
@@ -8395,7 +8387,7 @@ byte_1568E:
                 
                 sndCom  SFX_FRIDAY_REVIVE
                 move.w  #$34,d0 
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 dbf     d7,byte_1568E
                 bsr.w   loc_15852
                 move.w  #$14B,d0
@@ -8422,10 +8414,10 @@ byte_1568E:
                 sndCom  SOUND_COMMAND_FFFADE_OUT
                 jsr     (sub_254).l
                 move.w  #$78,d0 
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 clr.w   d0
                 move.b  #$EF,d1
-                jsr     (sub_31A).l
+                jsr     (j_ApplyLogicalAndOnVDPRegister).l
                 jsr     sub_9B004
                 jmp     (loc_4AC).l
 
@@ -8548,7 +8540,7 @@ sub_1584A:
                 move.b  #$41,(byte_FF114D).l 
 loc_15852:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 cmpi.b  #$21,(byte_FF114B).l 
                 beq.s   return_1586C
                 cmpi.b  #$22,(byte_FF114B).l 
@@ -8564,7 +8556,7 @@ return_1586C:
 
 sub_1586E:
                 
-                move.w  d0,(word_FF1204).l
+                move.w  d0,(CURRENT_MAP).l
                 move.w  d0,(word_FF1206).l
                 rts
 
@@ -8638,7 +8630,7 @@ loc_15936:
                 move.w  #$D,d0
                 jsr     AddGold
                 jsr     (sub_3B6).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 bsr.w   sub_1595C
                 bra.w   loc_15936
 
@@ -8679,7 +8671,7 @@ byte_1597C:
 loc_15988:
                 
                 bsr.s   sub_159AE
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 dbf     d6,loc_15988
                 cmpi.w  #4,(word_FF1800).l
                 bcc.s   loc_159A4
@@ -8699,12 +8691,12 @@ sub_159AE:
                 
                 movem.l d0-a6,-(sp)
                 move.w  (word_FF1800).l,d0
-                add.w   d0,(dword_FF0500).l
-                add.w   d0,(dword_FF0500+2).l
+                add.w   d0,(VERTICAL_SCROLL_DATA).l
+                add.w   d0,(VERTICAL_SCROLL_DATA+2).l
                 neg.w   d0
                 move.w  d0,(word_FF1800).l
-                jsr     (sub_2DE).l
-                jsr     (sub_2A2).l
+                jsr     (j_UpdateVDPVScrollData).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 movem.l (sp)+,d0-a6
                 rts
 
@@ -8718,7 +8710,7 @@ sub_159DE:
                 move.b  #5,(byte_FF114E).l
                 jsr     (sub_464).l
                 jsr     (sub_46A).l
-                jsr     (sub_242).l
+                jsr     (j_DuplicatePalettes).l
                 rts
 
     ; End of function sub_159DE
@@ -8757,13 +8749,13 @@ loc_15A38:
                 
                 movem.w d7,-(sp)
                 move.w  #$E0,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 subi.w  #$60,d7 
                 move.w  d7,(a0)
                 move.b  #$F,2(a0)
                 move.w  d0,4(a0)
                 move.w  #$140,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 addi.w  #$80,d7 
                 move.w  d7,6(a0)
                 addi.w  #$10,d0
@@ -8822,7 +8814,7 @@ loc_15AE2:
                 move.w  #$88,(a0) 
                 movem.w d6-d7,-(sp)
                 move.w  #$140,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 addi.w  #$80,d7 
                 move.w  d7,6(a0)
                 btst    #2,d7
@@ -8898,8 +8890,8 @@ sub_15B88:
                 move.w  (dword_FF1804).l,d3
                 move.w  (word_FF1808).l,d4
                 move.w  (word_FF180C).l,d7
-                lea     (word_FF0080).l,a0
-                lea     (word_FF0ED0).l,a1
+                lea     (PALETTE_1_BASE).l,a0
+                lea     (PALETTE_1_CURRENT).l,a1
                 move.w  #$3F,d5 
 loc_15BAA:
                 
@@ -8907,7 +8899,7 @@ loc_15BAA:
                 bsr.s   sub_15BD0
                 move.w  d0,(a1)+
                 dbf     d5,loc_15BAA
-                jsr     (sub_248).l
+                jsr     (j_AppyCRAMDMA).l
                 add.w   d4,d3
                 move.w  d3,(dword_FF1804).l
                 move.w  d4,(word_FF1808).l
@@ -9516,7 +9508,7 @@ loc_16116:
                 dbf     d7,loc_160B8
 loc_1611E:
                 
-                cmpi.w  #$20A,(word_FF1204).l
+                cmpi.w  #$20A,(CURRENT_MAP).l
                 beq.s   loc_1612C
                 tst.b   d6
                 beq.s   return_16132
@@ -9542,7 +9534,7 @@ sub_16134:
                 cmpi.b  #$25,$3B(a5) 
                 bne.s   return_1616C
                 move.w  #$64,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 cmpi.w  #$32,d7 
                 bcs.s   return_1616C
                 move.b  #1,$4D(a5)
@@ -9689,7 +9681,7 @@ byte_16284:
                 sndCom  SFX_ENEMY_DEATH
                 tst.w   d6
                 beq.s   loc_162D8
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 tst.w   d7
                 bne.s   loc_162D8
                 lea     (byte_FF5480).l,a0
@@ -9829,7 +9821,7 @@ sub_16420:
                 addq.b  #2,(byte_FF114A).l
                 ext.w   d0
                 move.w  word_164AA(pc,d0.w),d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 tst.w   d7
                 bne.s   loc_1648A
                 move.b  #2,d0
@@ -9946,7 +9938,7 @@ loc_1659A:
                 move.w  d0,d1
                 lsr.w   #8,d0
                 move.w  #$60,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 mulu.w  d7,d0
                 add.w   d1,d0
                 move.b  (byte_FF12E5).l,d1
@@ -9986,7 +9978,7 @@ sub_165D0:
                 move.w  d0,d1
                 lsr.w   #8,d0
                 move.w  #$60,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 mulu.w  d7,d0
                 add.w   d1,d0
 loc_165FC:
@@ -10021,13 +10013,13 @@ sub_16602:
                 bsr.w   sub_17830
                 tst.w   (byte_FF543E).l
                 beq.w   loc_164EA
-                lea     (word_FF0ED0).l,a0
+                lea     (PALETTE_1_CURRENT).l,a0
                 moveq   #$F,d7
 loc_16666:
                 
                 move.w  #$EEE,(a0)+
                 dbf     d7,loc_16666
-                jsr     (sub_248).l
+                jsr     (j_AppyCRAMDMA).l
                 subq.b  #1,(byte_FF1149).l
                 beq.s   loc_166E0
 loc_1667C:
@@ -10072,17 +10064,17 @@ loc_166E0:
 
 sub_166E8:
                 
-                tst.w   (word_FF0ED0).l
+                tst.w   (PALETTE_1_CURRENT).l
                 beq.s   return_16710
-                lea     (word_FF0080).l,a0
-                lea     (word_FF0ED0).l,a1
+                lea     (PALETTE_1_BASE).l,a0
+                lea     (PALETTE_1_CURRENT).l,a1
                 moveq   #$F,d7
 loc_166FE:
                 
                 move.w  (a0)+,(a1)+
                 dbf     d7,loc_166FE
-                jsr     (sub_248).l
-                jsr     (sub_2A8).l
+                jsr     (j_AppyCRAMDMA).l
+                jsr     (j_WaitForDMAQueueProcessing).l
 return_16710:
                 
                 rts
@@ -10099,24 +10091,24 @@ sub_16712:
                 move.b  #4,(byte_FF114E).l
                 jsr     (sub_464).l
                 jsr     (sub_46A).l
-                jsr     (sub_242).l
-                move.w  (dword_FF0500).l,d0
-                move.w  (dword_FF0500+2).l,d1
+                jsr     (j_DuplicatePalettes).l
+                move.w  (VERTICAL_SCROLL_DATA).l,d0
+                move.w  (VERTICAL_SCROLL_DATA+2).l,d1
                 movem.w d0-d1,-(sp)
                 sndCom  SFX_RUMBLE
                 bsr.s   sub_16794
                 move.b  #$10,(byte_FF05CB).l
                 move.b  #$4F,(byte_FF07C3).l 
                 movem.w (sp)+,d0-d1
-                move.w  d0,(dword_FF0500).l
-                move.w  d1,(dword_FF0500+2).l
-                jsr     (sub_2DE).l
+                move.w  d0,(VERTICAL_SCROLL_DATA).l
+                move.w  d1,(VERTICAL_SCROLL_DATA+2).l
+                jsr     (j_UpdateVDPVScrollData).l
                 movem.w (sp)+,d0
                 move.b  d0,(byte_FF114E).l
                 jsr     (sub_464).l
                 jsr     (sub_46A).l
-                jsr     (sub_242).l
-                jmp     (sub_2A8).l
+                jsr     (j_DuplicatePalettes).l
+                jmp     (j_WaitForDMAQueueProcessing).l
 
     ; End of function sub_16712
 
@@ -10149,7 +10141,7 @@ loc_167C2:
                 
                 bsr.w   sub_16848
                 bsr.w   sub_1685E
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 bsr.w   sub_168F4
                 bra.s   loc_167C2
 
@@ -10171,13 +10163,13 @@ loc_167EA:
                 
                 movem.w d7,-(sp)
                 move.w  #$E0,d6 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 subi.w  #$60,d7 
                 move.w  d7,(a0)
                 move.b  #$F,2(a0)
                 move.w  d0,4(a0)
                 move.w  #$140,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 addi.w  #$80,d7 
                 move.w  d7,6(a0)
                 addi.w  #$10,d0
@@ -10203,9 +10195,9 @@ loc_1682C:
 
 sub_16848:
                 
-                add.w   d4,(dword_FF0500).l
-                add.w   d4,(dword_FF0500+2).l
-                jsr     (sub_2DE).l
+                add.w   d4,(VERTICAL_SCROLL_DATA).l
+                add.w   d4,(VERTICAL_SCROLL_DATA+2).l
+                jsr     (j_UpdateVDPVScrollData).l
                 neg.w   d4
                 rts
 
@@ -10249,7 +10241,7 @@ loc_168A8:
                 move.w  #$88,(a0) 
                 movem.w d6-d7,-(sp)
                 move.w  #$140,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 addi.w  #$80,d7 
                 move.w  d7,6(a0)
                 movem.w (sp)+,d6-d7
@@ -11273,7 +11265,7 @@ loc_16E96:
                 movea.l (a0),a0
                 lea     (byte_FF2C00).l,a1
                 lea     (unk_A280).l,a2
-                cmpi.b  #$18,(word_FF0FC4+1).l
+                cmpi.b  #$18,(VDP_REG0A_VALUE).l
                 beq.s   loc_16EC2
                 jmp     (sub_2F6).l     
 loc_16EC2:
@@ -13883,7 +13875,7 @@ loc_17AEA:
                 
                 clr.w   d6
                 move.b  $2A(a5),d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 movea.l $32(a5),a6
                 clr.w   d6
                 move.b  2(a6),d6
@@ -14513,7 +14505,7 @@ sub_17FB8:
 sub_17FBE:
                 
                 move.w  #$100,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 andi.b  #$C0,d7
                 andi.b  #$3F,4(a5) 
                 or.b    d7,4(a5)
@@ -15133,7 +15125,7 @@ loc_18522:
                 
                 cmpi.b  #$FF,d3
                 bne.s   loc_18534
-                move.b  (word_FF0F9C+1).l,d3
+                move.b  (byte_FF0F9D).l,d3
                 ror.b   #2,d3
                 andi.b  #$C0,d3
 loc_18534:
@@ -15272,7 +15264,7 @@ loc_186D6:
                 
                 cmpi.b  #$FF,d2
                 bne.s   loc_186E8
-                move.b  (word_FF0F9C+1).l,d2
+                move.b  (byte_FF0F9D).l,d2
                 ror.b   #2,d2
                 andi.b  #$C0,d2
 loc_186E8:
@@ -15392,7 +15384,7 @@ loc_18816:      jsr     sub_22F08
                 bsr.w   sub_16C3C
                 bsr.w   sub_1691E
                 bsr.w   sub_1693A
-loc_18832:      jsr     (sub_2A8).l
+loc_18832:      jsr     (j_WaitForDMAQueueProcessing).l
                 jsr     sub_22EE8
                 move.w  #$13,d0
                 jsr     sub_22E90
@@ -15748,7 +15740,7 @@ loc_18B24:
                 bra.w   loc_17AC2
 loc_18B32:
                 
-                clr.w   (word_FF12DE).l
+                clr.w   (byte_FF12DE).l
                 bra.w   sub_17ABA
 loc_18B3C:
                 
@@ -16061,7 +16053,7 @@ loc_18E38:
                 move.b  $2A(a5),d0
                 lsl.b   #3,d0
                 jsr     (sub_40A).l
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 movem.l (sp)+,a5
                 bra.w   loc_17AC2
 loc_18E56:

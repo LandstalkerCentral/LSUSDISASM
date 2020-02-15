@@ -218,7 +218,7 @@ sub_22EE0:
 
 sub_22EE4:
                 
-                jmp     sub_253F8(pc)
+                jmp     sub_253F8(pc)   
 
     ; End of function sub_22EE4
 
@@ -917,11 +917,11 @@ loc_23212:
                 movem.w d2,-(sp)
 loc_23216:
                 
-                jsr     (sub_33E).l
-                move.b  (byte_FF0F8E).l,d1
+                jsr     (j_RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,d1 
                 andi.b  #$70,d1 
                 bne.s   loc_23232
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 dbf     d0,loc_23216
 
     ; End of function sub_2320E
@@ -962,7 +962,7 @@ sub_2323E:
 sub_23244:
                 
                 move.w  #$3B,d0 
-                jmp     (sub_278).l
+                jmp     (j_Sleep).l
 
     ; End of function sub_23244
 
@@ -999,12 +999,12 @@ sub_23280:
                 movem.w d2,-(sp)
 loc_23284:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 bsr.s   sub_232CE
                 bne.s   loc_23284
 loc_2328E:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 bsr.s   sub_232CE
                 beq.s   loc_2328E
                 bra.s   loc_23232
@@ -1024,13 +1024,13 @@ loc_2329E:
                 movem.w d2,-(sp)
 loc_232AC:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 bsr.s   sub_232E0
                 bsr.s   sub_232CE
                 bne.s   loc_232AC
 loc_232B8:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 bsr.s   sub_232E0
                 bsr.s   sub_232CE
                 beq.s   loc_232B8
@@ -1044,8 +1044,8 @@ loc_232B8:
 
 sub_232CE:
                 
-                jsr     (sub_33E).l
-                move.b  (byte_FF0F8E).l,d1
+                jsr     (j_RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,d1 
                 andi.b  #$70,d1 
                 rts
 
@@ -1203,8 +1203,8 @@ sub_2339E:
                 lea     byte_233BA(pc), a0
                 lea     (unk_A480).l,a1
                 move.w  #$40,d0 
-                jsr     (sub_2C6).l
-                jsr     (sub_2A2).l
+                jsr     (j_ApplyVIntVramDMA).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 rts
 
     ; End of function sub_2339E
@@ -1345,7 +1345,7 @@ sub_2343A:
                 bsr.s   sub_2344C
                 bsr.s   sub_2346C
                 jsr     (sub_2FC).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 rts
 
     ; End of function sub_2343A
@@ -1401,9 +1401,9 @@ sub_2347E:
                 
                 move.w  d1,(word_FF0576).l
                 move.w  d1,(word_FF0586).l
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 move.w  d0,(VDP_Control).l
-                move.w  d0,(word_FF0FC4).l
+                move.w  d0,(VDP_REG0A_STATUS).l
                 rts
 
     ; End of function sub_2347E
@@ -1413,7 +1413,7 @@ sub_2347E:
 
 sub_2349E:
                 
-                cmpi.w  #$921C,(word_FF0FD4).l
+                cmpi.w  #$921C,(VDP_REG12_STATUS).l
                 rts
 
     ; End of function sub_2349E
@@ -1492,7 +1492,7 @@ sub_23526:
                 beq.w   loc_2353A
                 nop
                 nop
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
 loc_2353A:
                 
                 lea     (byte_FF3900).l,a0
@@ -1527,8 +1527,8 @@ loc_2356A:
                 
                 lea     (byte_FF3900).l,a0
                 lea     (unk_A500).l,a1
-                jsr     (sub_2C6).l
-                jmp     (sub_2A8).l
+                jsr     (j_ApplyVIntVramDMA).l
+                jmp     (j_WaitForDMAQueueProcessing).l
 
     ; End of function sub_2355A
 
@@ -5641,9 +5641,9 @@ loc_24778:
                 clr.w   (word_FF0560).l
 loc_2478C:
                 
-                jsr     (sub_272).l
-                jsr     (sub_33E).l
-                move.b  (byte_FF0F8E).l,d0
+                jsr     (j_WaitForVInt).l
+                jsr     (j_RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,d0 
                 and.b   d2,d0
                 andi.b  #$70,d0 
                 beq.s   loc_247AE
@@ -5652,11 +5652,11 @@ loc_2478C:
                 bra.s   byte_247D4
 loc_247AE:
                 
-                move.b  (byte_FF0F8E).l,d2
+                move.b  (P1_INPUT).l,d2 
                 eori.b  #$70,d2 
-                btst    #3,(byte_FF0F8E).l
+                btst    #3,(P1_INPUT).l 
                 bne.s   loc_247E8
-                btst    #2,(byte_FF0F8E).l
+                btst    #2,(P1_INPUT).l 
                 bne.s   loc_24804
 loc_247CC:
                 
@@ -5731,9 +5731,9 @@ loc_24898:
                 clr.w   (word_FF07C8).l
 loc_248AC:
                 
-                jsr     (sub_272).l
-                jsr     (sub_33E).l
-                move.b  (byte_FF0F8E).l,d0
+                jsr     (j_WaitForVInt).l
+                jsr     (j_RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,d0 
                 and.b   d2,d0
                 andi.b  #$70,d0 
                 beq.s   loc_248D0
@@ -5742,11 +5742,11 @@ loc_248AC:
                 bra.s   byte_248F6
 loc_248D0:
                 
-                move.b  (byte_FF0F8E).l,d2
+                move.b  (P1_INPUT).l,d2 
                 eori.b  #$70,d2 
-                btst    #3,(byte_FF0F8E).l
+                btst    #3,(P1_INPUT).l 
                 bne.s   loc_24916
-                btst    #2,(byte_FF0F8E).l
+                btst    #2,(P1_INPUT).l 
                 bne.s   loc_24952
 loc_248EE:
                 
@@ -5804,8 +5804,8 @@ sub_24998:
                 lea     unk_249B4(pc), a0
                 lea     (unk_A480).l,a1
                 move.w  #$40,d0 
-                jsr     (sub_2C6).l
-                jsr     (sub_2A2).l
+                jsr     (j_ApplyVIntVramDMA).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 rts
 
     ; End of function sub_24998
@@ -6047,7 +6047,7 @@ loc_24ABE:
                 
                 move.w  (a1,d1.w),d0
                 lea     unk_24D34(pc), a0
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
 loc_24ACA:
                 
                 movem.l (sp)+,d0/a0-a1
@@ -6091,7 +6091,7 @@ byte_24B16:
                 bsr.w   sub_28FD8
                 move.w  #$13,d0
                 bsr.w   sub_28FD8
-                jsr     (sub_446).l
+                jsr     (j_PlayMusicAfterCurrentOne).l
 loc_24B36:
                 
                 move.b  #$FF,(byte_FF1903).l
@@ -6130,7 +6130,7 @@ loc_24B6A:
 loc_24B74:
                 
                 move.w  (a0,d2.w),d0
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
                 or.w    d0,d0
 loc_24B7E:
                 
@@ -6491,7 +6491,7 @@ sub_24CF6:
                 bsr.s   sub_24D0C
                 move    sr,-(sp)
                 bcc.s   loc_24D08
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bne.w   loc_24D08
                 trap    #1
                 dc.w $2AF1
@@ -6961,7 +6961,7 @@ sub_24EF0:
                 bsr.w   sub_24CC2
                 movea.l $C(sp),a0
                 move.w  (a0),d0
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
                 movem.l (sp)+,d0-d1/a0
                 addq.l  #4,sp
                 rts
@@ -6978,7 +6978,7 @@ sub_24F0A:
                 move.w  d0,d2
                 movea.l $10(sp),a0
                 move.w  (a0),d0
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
                 bsr.w   sub_28FE8
                 bcs.s   loc_24F2A
                 move.w  6(a0),d0
@@ -6999,7 +6999,7 @@ loc_24F3E:
                 move.b  #$FF,(byte_FF1903).l
 loc_24F50:
                 
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
                 bsr.w   sub_29026
                 movem.l (sp)+,d0-d2/a0
                 addq.l  #4,sp
@@ -7053,7 +7053,7 @@ loc_24FA0:
                 bsr.w   sub_29162
                 bsr.w   sub_29072
                 bsr.w   sub_29C8A
-                jsr     (sub_446).l
+                jsr     (j_PlayMusicAfterCurrentOne).l
                 trap    #2
                 dc.w $E
                 move.b  #$FF,(byte_FF1903).l
@@ -7087,8 +7087,8 @@ loc_24FF8:
                 dc.b   0
                 dc.b $27 
                 sndCom  MUSIC_SAVE
-                jsr     (sub_446).l
-                jsr     (sub_3CE).l
+                jsr     (j_PlayMusicAfterCurrentOne).l
+                jsr     (j_SaveGame).l
                 move.b  #$FF,(byte_FF1903).l
                 trap    #2
                 dc.w $E
@@ -7145,7 +7145,7 @@ loc_25074:
                 dc.b $77 
                 bsr.w   sub_29ACC
                 sndCom  MUSIC_REST
-                jsr     (sub_446).l
+                jsr     (j_PlayMusicAfterCurrentOne).l
                 move.w  #$80,d0 
                 bsr.w   sub_29162
                 bsr.w   sub_29072
@@ -7283,9 +7283,9 @@ sub_25196:
                 
                 movem.l d0-a6,-(sp)
                 move.w  #$FFFF,(word_FF1926).l
-                btst    #1,(byte_FF0F8F).l
+                btst    #1,(P2_INPUT).l 
                 beq.s   loc_251B8
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bne.s   loc_251B8
                 bsr.w   sub_2A442
                 bra.s   loc_251CA
@@ -7296,7 +7296,7 @@ loc_251B8:
                 lea     unk_25B0E(pc), a0
                 add.w   d0,d0
                 move.w  (a0,d0.w),d0
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
 loc_251CA:
                 
                 movem.l (sp)+,d0-a6
@@ -7352,7 +7352,7 @@ loc_25212:
 
 loc_25218:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bne.s   loc_25222
                 trap    #1
 
@@ -7411,7 +7411,7 @@ loc_2525C:
 
 loc_25262:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bne.s   loc_2526C
                 trap    #1
 
@@ -7461,7 +7461,7 @@ loc_2529A:
 
 loc_252A0:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bne.s   loc_252AA
                 trap    #1
 
@@ -7518,7 +7518,7 @@ loc_252EA:
                 cmp.b   1(a1),d0
                 blt.s   loc_252EA
                 move.w  2(a1),d0
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
 loc_25304:
                 
                 movem.l (sp)+,d0/a0-a2
@@ -7526,7 +7526,7 @@ loc_25304:
                 rts
 loc_2530C:
                 
-                tst.w   (word_210).w
+                tst.w   (DebugModeAccessWord).w
                 bne.s   loc_25316
                 trap    #1
                 move.l  -(a3),(a2)+
@@ -7743,6 +7743,8 @@ loc_253EE:
 
 ; =============== S U B R O U T I N E =======================================
 
+; main trap 1/2 function, crucial to figure out
+
 sub_253F8:
                 
                 movem.l d0/a0,-(sp)
@@ -7771,7 +7773,7 @@ sub_25418:
                 lea     unk_2542E(pc), a0
                 add.w   d0,d0
                 move.w  (a0,d0.w),d0
-                bsr.s   sub_253F8
+                bsr.s   sub_253F8       
                 movem.l (sp)+,d0/a0
                 rts
 
@@ -10202,7 +10204,7 @@ loc_25DAC:
                 move.w  4(a0),d0
 loc_25DB0:
                 
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
                 addq.l  #6,8(sp)
                 movem.l (sp)+,d0/a0
                 rts
@@ -10227,7 +10229,7 @@ loc_25DD8:
                 move.w  4(a0),d0
 loc_25DDC:
                 
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
                 addq.l  #6,8(sp)
                 movem.l (sp)+,d0/a0
                 rts
@@ -10242,7 +10244,7 @@ sub_25DEA:
                 movem.l d0/a0,-(sp)
                 movea.l 8(sp),a0
                 move.w  (a0),d0
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
                 bsr.w   sub_28FE8
                 bcc.s   loc_25E04
                 move.w  2(a0),d0
@@ -10252,7 +10254,7 @@ loc_25E04:
                 move.w  4(a0),d0
 loc_25E08:
                 
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
                 addq.l  #6,8(sp)
                 movem.l (sp)+,d0/a0
                 rts
@@ -10504,7 +10506,7 @@ loc_25F7C:
                 move.w  (a0),d0
 loc_25F7E:
                 
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
                 addq.l  #4,$3C(sp)
                 movem.l (sp)+,d0-a6
                 rts
@@ -14814,7 +14816,7 @@ sub_274DA:
                 trap    #1
                 dc.b $10
                 dc.b $31 
-                jsr     (sub_446).l
+                jsr     (j_PlayMusicAfterCurrentOne).l
                 trap    #1
                 dc.b $10
                 dc.b $2D 
@@ -15087,10 +15089,10 @@ sub_27652:
                 movem.l d0/d6-a0,-(sp)
                 lea     unk_27672(pc), a0
                 moveq   #4,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 add.w   d7,d7
                 move.w  (a0,d7.w),d0
-                bsr.w   sub_253F8
+                bsr.w   sub_253F8       
                 movem.l (sp)+,d0/d6-a0
                 rts
 
@@ -21078,7 +21080,7 @@ sub_28EBC:
                 bsr.w   sub_291D6
                 move.w  #$13,d0
                 bsr.w   sub_28FD8
-                jsr     (sub_446).l
+                jsr     (j_PlayMusicAfterCurrentOne).l
                 move.l  (sp)+,d0
                 rts
 
@@ -21096,7 +21098,7 @@ sub_28EE0:
                 jsr     j_AddGold
                 move.w  #$15,d0
                 bsr.w   sub_28FD8
-                jsr     (sub_446).l
+                jsr     (j_PlayMusicAfterCurrentOne).l
                 move.l  (sp)+,d0
                 rts
                 sndCom  MUSIC_HEHEH_THINK_ILL_DISRUPT_THIS_GOOD_CHEER
@@ -21166,7 +21168,7 @@ sub_28F6E:
                 bne.s   loc_28F98
                 bsr.w   sub_22E94
                 jsr     (sub_2FC).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 bsr.w   sub_22E9C
                 bset    #0,(byte_FF1902).l
 loc_28F98:
@@ -21184,7 +21186,7 @@ sub_28F9E:
                 movem.l d0-a6,-(sp)
                 bsr.w   sub_22E98
                 jsr     (sub_2FC).l
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.l (sp)+,d0-a6
                 rts
 
@@ -21282,7 +21284,7 @@ sub_29046:
                 movea.l 8(sp),a0
                 move.w  (a0)+,d0
                 move.l  a0,8(sp)
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 movem.l (sp)+,d0/a0
                 rts
 
@@ -23971,7 +23973,7 @@ loc_29CF0:
                 
                 move.l  (a0)+,(a1)+
                 dbf     d1,loc_29CF0
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 lea     (byte_FF1A84).l,a1
                 move.w  #$F,d1
 loc_29D06:
@@ -24019,29 +24021,29 @@ sub_29D52:
                 move.l  d0,-(sp)
                 lea     (word_FF1A7E).l,a0
                 moveq   #1,d0
-                jsr     (sub_308).l
+                jsr     (j_GetVDPRegisterStatus).l
                 move.w  d0,(a0)+
                 moveq   #$B,d0
-                jsr     (sub_308).l
+                jsr     (j_GetVDPRegisterStatus).l
                 move.w  d0,(a0)+
                 moveq   #$F,d0
-                jsr     (sub_308).l
+                jsr     (j_GetVDPRegisterStatus).l
                 move.w  d0,(a0)+
                 move.w  #$8F02,d0
-                jsr     (sub_30E).l
-                lea     (word_FF0080).l,a1
+                jsr     (j_SetVDPRegister).l
+                lea     (PALETTE_1_BASE).l,a1
                 moveq   #$3F,d0 
 loc_29D8E:
                 
                 move.w  (a1)+,(a0)+
                 dbf     d0,loc_29D8E
-                move.l  (dword_FF0100).l,(a0)+
-                move.l  (dword_FF0500).l,(a0)+
+                move.l  (HORIZONTAL_SCROLL_DATA).l,(a0)+
+                move.l  (VERTICAL_SCROLL_DATA).l,(a0)+
                 bsr.w   sub_29EFE
                 bsr.w   sub_29F20
-                jsr     (sub_2CC).l
-                jsr     (sub_2DE).l
-                jsr     (sub_2A8).l
+                jsr     (j_UpdateVDPHScrollData).l
+                jsr     (j_UpdateVDPVScrollData).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 move.l  (sp)+,d0
                 bsr.s   sub_29DC4
                 movem.l (sp)+,d0-d2/a0-a1
@@ -24060,7 +24062,7 @@ sub_29DC4:
                 move.w  (word_FF1A80).l,d0
                 andi.w  #$FFF8,d0
                 or.w    d1,d0
-                jsr     (sub_30E).l
+                jsr     (j_SetVDPRegister).l
                 movem.l (sp)+,d0-d1
                 rts
 
@@ -24075,20 +24077,20 @@ sub_29DE6:
                 move.w  d0,d7
                 btst    #0,d7
                 beq.s   loc_29DF8
-                jsr     (sub_2CC).l
+                jsr     (j_UpdateVDPHScrollData).l
 loc_29DF8:
                 
                 btst    #1,d7
                 beq.s   loc_29E04
-                jsr     (sub_2DE).l
+                jsr     (j_UpdateVDPVScrollData).l
 loc_29E04:
                 
                 btst    #4,d7
                 beq.s   loc_29E10
-                jsr     (sub_242).l
+                jsr     (j_DuplicatePalettes).l
 loc_29E10:
                 
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 move.w  d7,d0
                 andi.w  #$C,d0
                 beq.w   loc_29E9E
@@ -24149,23 +24151,23 @@ sub_29EA4:
                 movem.l d0/a0-a1,-(sp)
                 lea     (word_FF1A7E).l,a0
                 move.w  (a0)+,d0
-                jsr     (sub_30E).l
+                jsr     (j_SetVDPRegister).l
                 move.w  (a0)+,d0
-                jsr     (sub_30E).l
+                jsr     (j_SetVDPRegister).l
                 move.w  (a0)+,d0
-                jsr     (sub_30E).l
-                lea     (word_FF0080).l,a1
+                jsr     (j_SetVDPRegister).l
+                lea     (PALETTE_1_BASE).l,a1
                 moveq   #$3F,d0 
 loc_29ECE:
                 
                 move.w  (a0)+,(a1)+
                 dbf     d0,loc_29ECE
-                jsr     (sub_242).l
-                move.l  (a0)+,(dword_FF0100).l
-                move.l  (a0)+,(dword_FF0500).l
-                jsr     (sub_2CC).l
-                jsr     (sub_2DE).l
-                jsr     (sub_2A8).l
+                jsr     (j_DuplicatePalettes).l
+                move.l  (a0)+,(HORIZONTAL_SCROLL_DATA).l
+                move.l  (a0)+,(VERTICAL_SCROLL_DATA).l
+                jsr     (j_UpdateVDPHScrollData).l
+                jsr     (j_UpdateVDPVScrollData).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 movem.l (sp)+,d0/a0-a1
                 rts
 
@@ -24177,7 +24179,7 @@ loc_29ECE:
 sub_29EFE:
                 
                 movem.l d0-d1/a0,-(sp)
-                lea     (dword_FF0100).l,a0
+                lea     (HORIZONTAL_SCROLL_DATA).l,a0
                 move.w  (word_FF1B04).l,d0
                 move.w  #$FF,d1
 loc_29F12:
@@ -24196,7 +24198,7 @@ loc_29F12:
 sub_29F20:
                 
                 movem.l d0-d1/a0,-(sp)
-                lea     (dword_FF0500).l,a0
+                lea     (VERTICAL_SCROLL_DATA).l,a0
                 move.w  (word_FF1B08).l,d0
                 move.w  #$13,d1
 loc_29F34:
@@ -24423,7 +24425,7 @@ sub_2A07A:
                 movem.l d0/d2/d4-d6/a1-a2,-(sp)
 loc_2A07E:
                 
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_BASE).l,a1
                 lea     (byte_FF1A84).l,a2
                 moveq   #3,d5
 loc_2A08C:
@@ -24450,10 +24452,10 @@ loc_2A0AE:
                 
                 dbf     d5,loc_2A08C
                 rol.w   #4,d2
-                jsr     (sub_242).l
-                jsr     (sub_2A2).l
+                jsr     (j_DuplicatePalettes).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 move.w  d3,d0
-                jsr     (sub_278).l
+                jsr     (j_Sleep).l
                 dbf     d4,loc_2A07E
                 movem.l (sp)+,d0/d2/d4-d6/a1-a2
                 rts
@@ -24466,7 +24468,7 @@ loc_2A0AE:
 sub_2A0D2:
                 
                 move.w  #$FFFF,(byte_FF5480).l
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 rts
 
     ; End of function sub_2A0D2
@@ -24657,7 +24659,7 @@ sub_2A1CC:
                 move.w  d1,d6
 loc_2A1D2:
                 
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 add.w   d2,d7
                 move.w  d7,(a0)+
                 dbf     d3,loc_2A1D2
@@ -25607,7 +25609,7 @@ sub_2A604:
                 move.w  (a0)+,(dword_FF5400).l
                 move.w  d0,(word_FF1206).l
                 jsr     (sub_3F2).l
-                move.w  d0,(word_FF1204).l
+                move.w  d0,(CURRENT_MAP).l
                 jsr     (sub_3E6).l
                 clr.b   d0
                 jsr     (sub_3DA).l
@@ -26008,9 +26010,9 @@ loc_2A836:
 sub_2A840:
                 
                 movem.l d1-a6,-(sp)
-                jsr     (sub_272).l
-                jsr     (sub_33E).l
-                move.b  (byte_FF0F8E).l,d1
+                jsr     (j_WaitForVInt).l
+                jsr     (j_RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,d1 
                 move.b  (byte_FF1916).l,d2
                 move.b  d1,(byte_FF1916).l
                 move.b  d1,d3

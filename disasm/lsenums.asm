@@ -7,6 +7,27 @@ SOUND_COMMAND: equ $0
 
 ; ---------------------------------------------------------------------------
 
+; enum InterruptParametersBitmap
+VDP_COMMAND_REQUEST: equ $0
+DEACTIVATE_DMA: equ $1
+DMA_REQUEST: equ $3
+VRAM_READ_REQUEST: equ $4
+ENABLE_INT: equ $7
+
+; ---------------------------------------------------------------------------
+
+; enum InputBitmap
+INPUT_UP: equ $0
+INPUT_DOWN: equ $1
+INPUT_LEFT: equ $2
+INPUT_RIGHT: equ $3
+INPUT_B: equ $4
+INPUT_C: equ $5
+INPUT_A: equ $6
+INPUT_START: equ $7
+
+; ---------------------------------------------------------------------------
+
 ; enum SoundCommands
 SOUND_COMMAND_INIT_DRIVER: equ $20
 SOUND_COMMAND_WAIT_MUSIC_END: equ $F0

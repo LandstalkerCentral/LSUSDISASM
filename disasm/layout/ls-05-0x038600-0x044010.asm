@@ -16,11 +16,11 @@ j_DisplaySegaLogo:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_38604:
+j_ExecuteIntroLoop:
                 
-                jmp     sub_39762(pc)
+                jmp     ExecuteIntroLoop(pc)
 
-    ; End of function sub_38604
+    ; End of function j_ExecuteIntroLoop
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -54,18 +54,18 @@ sub_38610:
 
 DisplaySegaLogo:
                 
-                jsr     (sub_230).l
+                jsr     (j_DisableDisplayAndInterrupts).l
                 bsr.w   sub_3869C
                 bsr.w   DecompressSegaLogo
                 bsr.s   sub_38654
-                jsr     (sub_22A).l
+                jsr     (j_EnableDisplayAndInterrupts).l
                 jsr     (sub_24E).l
                 move.w  #$F0,d7 
 loc_38634:
                 
-                jsr     (sub_272).l
-                jsr     (sub_33E).l
-                move.b  (byte_FF0F8E).l,d0
+                jsr     (j_WaitForVInt).l
+                jsr     (j_RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,d0 
                 andi.b  #$F0,d0
                 dbne    d7,loc_38634
                 jmp     (sub_254).l
@@ -118,7 +118,7 @@ loc_386AA:
                 dbf     d7,loc_386AA
                 lea     byte_386C2(pc), a0
                 moveq   #6,d0
-                jmp     (sub_326).l
+                jmp     (j_CopyPalette).l
 
     ; End of function sub_3869C
 
@@ -157,10 +157,10 @@ sub_389D4:
                 jsr     (sub_3E6).l
                 move.w  #0,d0
                 move.b  #$10,d1
-                jsr     (sub_314).l
+                jsr     (j_ApplyLogicalOrOnVDPRegister).l
                 move.w  #$9203,d0
-                jsr     (sub_30E).l
-                move.w  #$8A18,(word_FF0FC4).l
+                jsr     (j_SetVDPRegister).l
+                move.w  #$8A18,(VDP_REG0A_STATUS).l
                 move.w  #$8A18,(VDP_Control).l
                 bsr.s   sub_38A12
                 bsr.s   sub_38A2E
@@ -179,7 +179,7 @@ sub_38A12:
                 lea     (byte_FF2C00).l,a1
                 lea     ($2000).w,a2
                 jsr     (sub_2F6).l     
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 rts
 
     ; End of function sub_38A12
@@ -189,14 +189,14 @@ sub_38A12:
 
 sub_38A2E:
                 
-                jsr     (sub_224).l
-                jsr     (sub_25A).l
-                jsr     (sub_21E).l
-                clr.w   (dword_FF0100).l
-                clr.w   (dword_FF0500).l
-                jsr     (sub_2CC).l
-                jsr     (sub_2DE).l
-                jsr     (sub_2A8).l
+                jsr     (j_DisableInterrupts).l
+                jsr     (j_ClearVsramAndSprites).l
+                jsr     (j_EnableInterrupts).l
+                clr.w   (HORIZONTAL_SCROLL_DATA).l
+                clr.w   (VERTICAL_SCROLL_DATA).l
+                jsr     (j_UpdateVDPHScrollData).l
+                jsr     (j_UpdateVDPVScrollData).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 lea     unk_39752(pc), a0
                 lea     (byte_FF2C00).l,a1
                 bsr.w   sub_3976A
@@ -228,7 +228,7 @@ loc_38A88:
 sub_38AA2:
                 
                 lea     byte_38AAC(pc), a0
-                jmp     (sub_326).l
+                jmp     (j_CopyPalette).l
 
     ; End of function sub_38AA2
 
@@ -3489,12 +3489,12 @@ unk_39752:      dc.b  $A
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_39762:
+ExecuteIntroLoop:
                 
-                bsr.w   sub_3DF0A
-                bra.w   loc_39848
+                bsr.w   LoadClimaxLogo
+                bra.w   LoadTitleScreen
 
-    ; End of function sub_39762
+    ; End of function ExecuteIntroLoop
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -3674,15 +3674,15 @@ sub_39842:
     ; End of function sub_39842
 
 
-; START OF FUNCTION CHUNK FOR sub_39762
+; =============== S U B R O U T I N E =======================================
 
-loc_39848:
+LoadTitleScreen:
                 
-                jsr     (sub_230).l
+                jsr     (j_DisableDisplayAndInterrupts).l
                 move.w  #$8000,d0
                 move.w  #$8000,d1
                 clr.w   d2
-                jsr     (sub_320).l
+                jsr     (j_ApplyVramDMAFill).l
                 lea     TitleScreenTileset1(pc), a0
                 lea     (byte_FF2C00).l,a1
                 lea     (0).w,a2
@@ -3730,16 +3730,16 @@ loc_39848:
                 moveq   #$13,d6
                 moveq   #1,d7
                 bsr.w   sub_39E72
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 moveq   #$1F,d7
 loc_39920:
                 
                 clr.w   (a0)+
                 dbf     d7,loc_39920
-                jsr     (sub_242).l
-                jsr     (sub_21E).l
-                jsr     (sub_2A8).l
-                jsr     (sub_212).l
+                jsr     (j_DuplicatePalettes).l
+                jsr     (j_EnableInterrupts).l
+                jsr     (j_WaitForDMAQueueProcessing).l
+                jsr     (j_EnableDisplayOnVDP).l
                 bsr.w   sub_399CC
                 tst.w   d0
                 beq.s   loc_39948
@@ -3748,11 +3748,11 @@ loc_39948:
                 
                 bsr.w   sub_39D76
                 lea     TitleScreenPalette1(pc), a0
-                jsr     (sub_326).l
+                jsr     (j_CopyPalette).l
                 lea     TitleScreenPalette1(pc), a0
                 jsr     (sub_32C).l
-                jsr     (sub_242).l
-                jsr     (sub_2A8).l
+                jsr     (j_DuplicatePalettes).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 bsr.w   sub_39988
                 move    sr,-(sp)
                 jsr     (sub_254).l
@@ -3764,7 +3764,7 @@ loc_3997C:
                 ori     #1,ccr
                 rts
 
-; END OF FUNCTION CHUNK FOR sub_39762
+    ; End of function LoadTitleScreen
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -3774,18 +3774,18 @@ sub_39988:
                 move.w  #$E0F,d7
 loc_3998C:
                 
-                jsr     (sub_33E).l
-                andi.b  #$FF,(byte_FF0F8E).l
+                jsr     (j_RefreshPlayerInput).l
+                andi.b  #$FF,(P1_INPUT).l
                 beq.s   loc_399AA
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 dbf     d7,loc_3998C
                 bra.w   loc_399C2
 loc_399AA:
                 
-                jsr     (sub_33E).l
-                tst.b   (byte_FF0F8E).l
+                jsr     (j_RefreshPlayerInput).l
+                tst.b   (P1_INPUT).l    
                 bmi.s   loc_399C6
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 dbf     d7,loc_399AA
 loc_399C2:
                 
@@ -3816,8 +3816,8 @@ loc_399D6:
 loc_399E4:
                 
                 clr.b   -$1D(a6)
-                jsr     (sub_33E).l
-                move.b  (byte_FF0F8E).l,d0
+                jsr     (j_RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,d0 
                 bne.s   loc_39A54
                 move.w  #$136,d0
                 bsr.w   sub_39DD8
@@ -3834,11 +3834,11 @@ loc_399E4:
                 bsr.w   sub_39A98
                 tst.b   -$1D(a6)
                 beq.s   loc_39A3C
-                jsr     (sub_242).l
-                jsr     (sub_2A2).l
+                jsr     (j_DuplicatePalettes).l
+                jsr     (j_EnableDMAQueueProcessing).l
 loc_39A3C:
                 
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 addq.w  #1,-2(a6)
                 move.w  #$3C,d0 
                 bsr.w   sub_39A5C
@@ -4227,7 +4227,7 @@ loc_39CB4:
                 clr.l   d6
                 andi.b  #3,d0
                 bne.s   loc_39CE6
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 lea     TitleScreenPalette1(pc), a1
                 moveq   #$F,d7
 loc_39CCE:
@@ -4318,7 +4318,7 @@ loc_39D42:
 loc_39D4A:
                 
                 lea     TitleScreenPalette2(pc), a0
-                jsr     (sub_326).l
+                jsr     (j_CopyPalette).l
                 lea     (byte_FF00A0).l,a0
                 moveq   #$F,d7
 loc_39D5C:
@@ -4369,11 +4369,11 @@ loc_39DA4:
                 lea     (unk_C000).l,a1
                 move.w  #$700,d0
                 moveq   #2,d1
-                jsr     (sub_2C6).l
+                jsr     (j_ApplyVIntVramDMA).l
                 move.w  #$E000,d0
                 move.w  #$8C0,d1
                 clr.l   d2
-                jsr     (sub_320).l
+                jsr     (j_ApplyVramDMAFill).l
                 rts
 
     ; End of function sub_39D76
@@ -4431,7 +4431,7 @@ loc_39E30:
                 
                 movem.l d0-d1/a1,-(sp)
                 moveq   #2,d1
-                jsr     (sub_2C0).l
+                jsr     (j_ApplyImmediateVramDMA).l
                 movem.l (sp)+,d0-d1/a1
                 lea     $80(a1),a1
                 dbf     d1,loc_39E30
@@ -4555,16 +4555,16 @@ TitleScreenPalette2:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_3DF0A:
+LoadClimaxLogo:
                 
-                jsr     (sub_230).l
+                jsr     (j_DisableDisplayAndInterrupts).l
                 clr.w   d6
-                jsr     (sub_2D2).l
-                jsr     (sub_2E4).l
+                jsr     (j_UpdateForegroundHScrollData).l
+                jsr     (j_UpdateForegroundVScrolData).l
                 move.w  #$8000,d0
                 move.w  #$8000,d1
                 clr.w   d2
-                jsr     (sub_320).l
+                jsr     (j_ApplyVramDMAFill).l
                 lea     ClimaxLogoTileset(pc), a0
                 lea     (byte_FF2C00).l,a1
                 lea     (initStack).w,a2
@@ -4577,16 +4577,16 @@ sub_3DF0A:
                 lea     (unk_C410).l,a1
                 bsr.w   sub_39E20
                 lea     ClimaxLogoPalette(pc), a0
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_BASE).l,a1
                 move.l  (a0)+,(a1)+
                 move.l  (a0)+,(a1)+
-                jsr     (sub_22A).l
+                jsr     (j_EnableDisplayAndInterrupts).l
                 jsr     (sub_24E).l
-                jsr     (sub_35C).l
+                jsr     (j_WaitForPlayer1InputFor3Seconds).l
                 jsr     (sub_254).l
                 rts
 
-    ; End of function sub_3DF0A
+    ; End of function LoadClimaxLogo
 
 ClimaxLogoTileset:
                 incbin "data/graphics/specialscreens/climaxlogotileset.bin"
@@ -4607,7 +4607,7 @@ sub_3E654:
                 clr.w   -$8C(a6)
                 clr.w   -$98(a6)
                 clr.w   -$96(a6)
-                lea     (word_FF0080).l,a0
+                lea     (PALETTE_1_BASE).l,a0
                 lea     -$80(a6),a1
                 move.w  #$3F,d7 
 loc_3E682:
@@ -4615,36 +4615,36 @@ loc_3E682:
                 move.w  (a0)+,(a1)+
                 dbf     d7,loc_3E682
                 jsr     (sub_3E6).l
-                jsr     (sub_23C).l
+                jsr     (j_DeactivateIntDMAQueueProcessing).l
                 lea     unk_43D2A(pc), a0
                 lea     (byte_FF5C02).l,a1
                 lea     (off_20).w,a2   
                 jsr     (sub_2F6).l     
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 lea     unk_43D4C(pc), a0
                 lea     (byte_FF5C82).l,a1
                 lea     ($A0).w,a2
                 jsr     (sub_2F6).l     
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 bsr.w   sub_3EB0E
                 bsr.w   sub_3EB5E
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 lea     (byte_FF2C00).l,a0
                 lea     (RomStartAdr).w,a1
                 move.w  (asc_140).w,d0  
                 moveq   #2,d1
-                jsr     (sub_2C6).l
-                jsr     (sub_2A8).l
+                jsr     (j_ApplyVIntVramDMA).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 lea     unk_3ED9A(pc), a0
                 lea     (byte_FF5C02).l,a1
                 lea     ($1000).w,a2
                 jsr     (sub_2F6).l     
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 lea     unk_41B41(pc), a0
                 lea     (byte_FF5C02).l,a1
                 lea     (byte_6000).w,a2
                 jsr     (sub_2F6).l     
-                jsr     (sub_2A8).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 lea     unk_41B01(pc), a0
                 lea     (byte_FF2C00).l,a1
                 bsr.w   sub_3976A
@@ -4656,8 +4656,8 @@ loc_3E682:
                 lea     (unk_C180).l,a1
                 move.w  #$640,d0
                 move.w  #2,d1
-                jsr     (sub_2C6).l
-                jsr     (sub_2A8).l
+                jsr     (j_ApplyVIntVramDMA).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 lea     unk_43C84(pc), a0
                 lea     (byte_FF2C00).l,a1
                 bsr.w   sub_3976A
@@ -4669,26 +4669,26 @@ loc_3E682:
                 lea     ($E180).l,a1
                 move.w  #$640,d0
                 move.w  #2,d1
-                jsr     (sub_2C6).l
-                jsr     (sub_2A8).l
-                jsr     (sub_236).l
+                jsr     (j_ApplyVIntVramDMA).l
+                jsr     (j_WaitForDMAQueueProcessing).l
+                jsr     (j_ActivateIntDMAQueueProcessing).l
                 clr.w   d6
-                jsr     (sub_2D2).l
-                jsr     (sub_2E4).l
-                jsr     (sub_2D8).l
-                jsr     (sub_2EA).l
-                jsr     (sub_266).l
+                jsr     (j_UpdateForegroundHScrollData).l
+                jsr     (j_UpdateForegroundVScrolData).l
+                jsr     (j_UpdateBackgroundHScrollData).l
+                jsr     (j_UpdateBackgroundVScrollData).l
+                jsr     (j_ClearSpriteTable).l
                 bsr.w   sub_3EC76
                 lea     byte_43E2E(pc), a0
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_BASE).l,a1
                 moveq   #$F,d7
 loc_3E7DC:
                 
                 move.l  (a0)+,(a1)+
                 dbf     d7,loc_3E7DC
                 jsr     (sub_48E).l
-                jsr     (sub_242).l
-                lea     (word_FF0ED0).l,a0
+                jsr     (j_DuplicatePalettes).l
+                lea     (PALETTE_1_CURRENT).l,a0
                 moveq   #$F,d7
 loc_3E7F6:
                 
@@ -4696,23 +4696,23 @@ loc_3E7F6:
                 dbf     d7,loc_3E7F6
                 clr.w   d0
                 move.b  #$EF,d1
-                jsr     (sub_31A).l
+                jsr     (j_ApplyLogicalAndOnVDPRegister).l
                 move.w  -$82(a6),d0
                 lea     off_3E86C(pc), a0
                 lsl.w   #2,d0
                 movea.l (a0,d0.w),a0
                 jsr     (a0)
-                jsr     (sub_266).l
-                lea     (word_FF0080).l,a0
+                jsr     (j_ClearSpriteTable).l
+                lea     (PALETTE_1_BASE).l,a0
                 moveq   #$39,d7 
 loc_3E826:
                 
                 clr.w   (a0)+
                 dbf     d7,loc_3E826
-                jsr     (sub_242).l
-                jsr     (sub_2A8).l
+                jsr     (j_DuplicatePalettes).l
+                jsr     (j_WaitForDMAQueueProcessing).l
                 lea     -$80(a6),a0
-                lea     (word_FF0080).l,a1
+                lea     (PALETTE_1_BASE).l,a1
                 move.w  #$3F,d7 
 loc_3E846:
                 
@@ -4721,7 +4721,7 @@ loc_3E846:
                 bsr.w   sub_3E860
                 clr.l   d0
                 move.b  #$10,d1
-                jsr     (sub_314).l
+                jsr     (j_ApplyLogicalOrOnVDPRegister).l
                 unlk    a6
                 rts
 
@@ -4751,7 +4751,7 @@ off_3E86C:      dc.l sub_3EC44
 sub_3E87C:
                 
                 jsr     (sub_416).l
-                jsr     (sub_34A).l
+                jsr     (j_WaitForPlayer1NewButtonPush).l
                 jsr     (sub_3E6).l
                 rts
 
@@ -4765,18 +4765,18 @@ sub_3E890:
                 jsr     (sub_368).l
                 move.b  #1,-$8F(a6)
                 move.w  #$1C,-$92(a6)
-                jsr     (sub_33E).l
-                move.b  (byte_FF0F8E).l,-$85(a6)
+                jsr     (j_RefreshPlayerInput).l
+                move.b  (P1_INPUT).l,-$85(a6)
                 move.w  #$C8,-$8E(a6) 
                 clr.w   -$96(a6)
                 move.w  #$100,d6
-                jsr     (sub_362).l
+                jsr     (j_GenerateRandomNumber).l
                 move.w  d7,-$8C(a6)
 loc_3E8C8:
                 
                 jsr     sub_3E90A(pc)
                 nop
-                tst.b   (byte_FF0F8E).l
+                tst.b   (P1_INPUT).l    
                 beq.s   loc_3E8DA
                 bsr.w   sub_3E92C
 loc_3E8DA:
@@ -4786,7 +4786,7 @@ loc_3E8DA:
                 bsr.w   sub_3E9B8
                 bsr.w   sub_3E9D8
                 addq.w  #1,-$98(a6)
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 move.b  -$8F(a6),d0
                 andi.b  #$F,d0
                 cmpi.b  #$F,d0
@@ -4802,8 +4802,8 @@ loc_3E8DA:
 
 sub_3E90A:
                 
-                jsr     (sub_33E).l
-                lea     (byte_FF0F8E).l,a0
+                jsr     (j_RefreshPlayerInput).l
+                lea     (P1_INPUT).l,a0 
                 lea     -$85(a6),a1
                 tst.b   (a0)
                 bne.s   loc_3E922
@@ -4891,8 +4891,8 @@ sub_3E990:
                 rts
 loc_3E9A0:
                 
-                lea     (word_FF0080).l,a0
-                lea     (word_FF0ED0).l,a1
+                lea     (PALETTE_1_BASE).l,a0
+                lea     (PALETTE_1_CURRENT).l,a1
                 move.w  #$1F,d5
                 jsr     (sub_37A).l
                 rts
@@ -5300,9 +5300,9 @@ sub_3EC44:
 loc_3EC4A:
                 
                 bsr.w   sub_3EC96
-                jsr     (sub_2A2).l
+                jsr     (j_EnableDMAQueueProcessing).l
                 addq.w  #1,-$98(a6)
-                jsr     (sub_272).l
+                jsr     (j_WaitForVInt).l
                 cmpi.w  #7,-$88(a6)
                 beq.w   loc_3EC6E
                 tst.w   -$96(a6)
@@ -5369,7 +5369,7 @@ loc_3ECC4:
                 bra.s   sub_3EC9E
 loc_3ECC6:
                 
-                lea     (word_FF0550).l,a1
+                lea     (SPRITE_TABLE).l,a1
                 move.w  -$88(a6),d7
                 lsl.w   #3,d7
                 lea     (a1,d7.w),a1
