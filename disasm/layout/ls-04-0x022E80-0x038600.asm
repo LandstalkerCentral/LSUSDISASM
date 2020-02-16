@@ -7283,7 +7283,7 @@ sub_25196:
                 
                 movem.l d0-a6,-(sp)
                 move.w  #$FFFF,(word_FF1926).l
-                btst    #1,(P2_INPUT).l 
+                btst    #INPUT_DOWN,(P2_INPUT).l
                 beq.s   loc_251B8
                 tst.w   (DebugModeAccessWord).w
                 bne.s   loc_251B8
@@ -7529,7 +7529,7 @@ loc_2530C:
                 tst.w   (DebugModeAccessWord).w
                 bne.s   loc_25316
                 trap    #1
-                move.l  -(a3),(a2)+
+                dc.w $24E3
 loc_25316:
                 
                 bra.s   loc_25304

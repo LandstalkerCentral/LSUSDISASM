@@ -1,6 +1,6 @@
 
 ; GAME SECTION 01 :
-; 0x000000..0x010300 : Technical Layer, Initialization, Low Level Game Engine, To figure out and describe succinctly
+; 0x000000..0x010300 : Technical Layer, Initialization, Low Level Game Engine
 ; FREE SPACE : 628 bytes.
 
 
@@ -1640,8 +1640,6 @@ Trap1_:
                 addq.l  #2,$A(sp)
                 jsr     sub_22EE4
                 movem.l (sp)+,d0/a0
-return_800:
-                
                 rte
 
     ; End of function Trap1_
@@ -8968,7 +8966,7 @@ sub_4214:
                 
                 lea     (byte_FF05D0).l,a2
                 lea     (byte_FF11DE).l,a3
-                lea     (off_120000).l,a4
+                lea     (p_pt_Sprites).l,a4
                 move.w  #$3A8,d2
                 moveq   #$F,d7
                 clr.b   d6
@@ -9544,7 +9542,7 @@ sub_468A:
                 
                 move.l     dword_436E(pc), (dword_FF1850).l
                 move.w     word_4372(pc), (word_FF1854).l
-                lea     (off_120000).l,a4
+                lea     (p_pt_Sprites).l,a4
                 movea.l (a4),a0
                 lsl.w   #2,d0
                 move.w  4(a4,d0.w),d0
@@ -9616,15 +9614,9 @@ sub_470A:
                 bsr.s   sub_46EE
                 move.l     dword_4338(pc), (dword_FF1850).l
                 move.w     sub_433C(pc), (word_FF1854).l
-
-    ; End of function sub_470A
-
-
-; START OF FUNCTION CHUNK FOR sub_46DC
-
 loc_471C:
                 
-                lea     (off_120000).l,a4
+                lea     (p_pt_Sprites).l,a4
                 movea.l (a4),a0
                 lsl.w   #2,d0
                 move.w  4(a4,d0.w),d0
@@ -9639,7 +9631,7 @@ loc_4736:
                 bpl.s   loc_4736
                 move.w  d1,d0
 
-; END OF FUNCTION CHUNK FOR sub_46DC
+    ; End of function sub_470A
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -38756,7 +38748,7 @@ sub_EAD4:
                 tst.w   (DebugModeAccessWord).w
                 bne.s   loc_EAF2
                 jsr     (RefreshPlayerInput).l
-                btst    #7,(P1_INPUT).l 
+                btst    #INPUT_START,(P1_INPUT).l
                 beq.s   loc_EAF2
 loc_EAEA:
                 
