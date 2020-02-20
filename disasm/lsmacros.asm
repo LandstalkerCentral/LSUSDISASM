@@ -153,6 +153,42 @@ sndCom:	macro
 	dc.w \1
 	endm
 	
+
+	
+mapWarp:	macro
+	dc.w \1
+	dc.w \2
+	dc.w \3
+	dc.w \4
+	endm
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	; Legacy SF2 examples
+	
+	
+	
 chkFlg:	macro
 	trap #CHECK_FLAG
 	dc.w \1
