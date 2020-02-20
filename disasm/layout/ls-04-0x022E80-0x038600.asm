@@ -1382,6 +1382,8 @@ sub_2345C:
 sub_2346C:
                 
                 bsr.s   sub_2349E
+loc_2346E:
+                
                 bcs.s   loc_23476
                 move.w  #$8AB0,d0
                 bra.s   loc_2347A
@@ -2689,7 +2691,7 @@ unk_23900:      dc.b   6
                 dc.b $16
                 dc.b $B6 
                 dc.b $16
-unk_23B7B:      dc.b $B6 
+                dc.b $B6 
                 dc.b $1E
                 dc.b $B5 
                 dc.b   6

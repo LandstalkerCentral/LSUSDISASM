@@ -7868,7 +7868,7 @@ unk_3C62:       dc.b   0
                 dc.b   0
                 dc.b   2
                 dc.b   1
-unk_3C69:       dc.b $25 
+                dc.b $25 
                 dc.b   0
                 dc.b $A6 
                 dc.b   0
@@ -8146,7 +8146,7 @@ unk_3CB0:       dc.b   0
                 dc.b   0
                 dc.b $D3 
                 dc.b   0
-unk_3D7F:       dc.b $E0 
+                dc.b $E0 
                 dc.b   0
                 dc.b   1
                 dc.b   0
@@ -8598,7 +8598,7 @@ unk_3F26:       dc.b   0
                 dc.b   1
                 dc.b $10
                 dc.b   0
-unk_3F43:       dc.b $10
+                dc.b $10
                 dc.b   1
                 dc.b $A0 
                 dc.b   1
@@ -38373,13 +38373,7 @@ loc_E7EA:
                 move.w  -$128(a6),d0
                 andi.w  #$1E,d0
                 bne.s   loc_E7F8
-
-; END OF FUNCTION CHUNK FOR sub_E87A
-
                 sndCom  SFX_TECH_1
-
-; START OF FUNCTION CHUNK FOR sub_E87A
-
 loc_E7F8:
                 
                 lsr.w   #2,d0
@@ -38394,9 +38388,9 @@ loc_E7F8:
 
 off_E80E:       dc.l unk_8024C
                 dc.l unk_A024E
-                dc.l unk_C024E
-                dc.l byte_E024E
-                dc.l unk_C024E
+                dc.l Map319+$1A
+                dc.l Map114+$2A7
+                dc.l Map319+$1A
                 dc.l unk_A024C
                 dc.l unk_8024C
                 dc.l unk_60028
