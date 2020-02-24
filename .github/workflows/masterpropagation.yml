@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v1
     - name: Auto merge on branch 'feature/romexpansion'
       uses: robotology/gh-action-nightly-merge@v1.2.0
       with:
