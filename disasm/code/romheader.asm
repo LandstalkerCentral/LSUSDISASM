@@ -81,7 +81,7 @@ aGmMk13530:     dc.b 'GM MK-1353 -0'    ; Serial Number
 CheckSum:       dc.w $F37C
 aJ:             dc.b 'J               '
 RomStartAdr:    dc.l 0                  ; Rom Start Adress
-RomEndAdr:      dc.l $1FFFFF            ; Rom End Adress
+RomEndAdr:      declareRomEnd            ; Rom End Adress
 RamStartAdr:    dc.l $FF0000            ; Ram Start Adress
 RamEndAdr:      dc.l $FFFFFF            ; Ram End Adress
                 dc.l $5241F820          ; SRam data
