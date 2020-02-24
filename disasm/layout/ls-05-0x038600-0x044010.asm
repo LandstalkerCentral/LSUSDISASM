@@ -4366,7 +4366,7 @@ loc_39DA4:
                 lea     $80(a2),a1
                 dbf     d7,loc_39D9E
                 movea.l a5,a0
-                lea     (unk_C000).l,a1
+                lea     ($C000).l,a1
                 move.w  #$700,d0
                 moveq   #2,d1
                 jsr     (j_ApplyVIntVramDMA).l
@@ -4653,7 +4653,7 @@ loc_3E682:
                 move.w  #$80,d5 
                 bsr.w   sub_3ED64
                 lea     (byte_FF1D80).l,a0
-                lea     (unk_C180).l,a1
+                lea     ($C180).l,a1
                 move.w  #$640,d0
                 move.w  #2,d1
                 jsr     (j_ApplyVIntVramDMA).l
