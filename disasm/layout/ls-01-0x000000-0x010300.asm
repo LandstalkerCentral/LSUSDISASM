@@ -31872,7 +31872,7 @@ unk_BF7E:       dc.b   0
                 dc.b $CF 
                 dc.b   0
                 dc.b $F0 
-unk_C000:       dc.b   0
+                dc.b   0
                 dc.b $F1 
                 dc.b   0
                 dc.b $F2 
@@ -32256,7 +32256,7 @@ unk_C000:       dc.b   0
                 dc.b $8F 
                 dc.b   1
                 dc.b $B0 
-unk_C180:       dc.b   1
+                dc.b   1
                 dc.b $B1 
                 dc.b   1
                 dc.b $B2 
@@ -39448,7 +39448,7 @@ return_F304:
 
 sub_F306:
                 
-                lea     (unk_C000).l,a1
+                lea     ($C000).l,a1
                 bra.s   loc_F314
 
     ; End of function sub_F306

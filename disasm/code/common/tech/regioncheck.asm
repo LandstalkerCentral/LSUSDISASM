@@ -41,7 +41,7 @@ loc_11EAB8:
                 bsr.w   sub_11EB40
                 jsr     (j_EnableDisplayAndInterrupts).l
                 lea     (byte_FF8000).l,a0
-                lea     (unk_C000).l,a1
+                lea     ($C000).l,a1
                 move.w  #$800,d0
                 moveq   #2,d1
                 jsr     (j_ApplyVIntVramDMA).l
