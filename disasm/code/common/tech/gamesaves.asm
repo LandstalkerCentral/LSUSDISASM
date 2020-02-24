@@ -70,11 +70,11 @@ loc_152C:
 
 ; =============== S U B R O U T I N E =======================================
 
-GetSaveSlot:
+EraseCurrentSave:
                 
                 move.b  (SAVE_SLOT).l,d0
 
-    ; End of function GetSaveSlot
+    ; End of function EraseCurrentSave
 
 
 ; =============== S U B R O U T I N E =======================================
