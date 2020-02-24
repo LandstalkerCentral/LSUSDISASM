@@ -32260,7 +32260,7 @@ unk_C180:       dc.b   1
                 dc.b $B1 
                 dc.b   1
                 dc.b $B2 
-unk_C184:       dc.b   1
+                dc.b   1
                 dc.b $B3 
                 dc.b   1
                 dc.b $B4 
@@ -32913,7 +32913,7 @@ unk_C3CE:       dc.b   0
                 dc.b $EC 
                 dc.b $12
                 dc.b $80 
-unk_C410:       dc.b $13
+                dc.b $13
                 dc.b $14
                 dc.b $13
                 dc.b $A8 
@@ -37057,7 +37057,7 @@ byte_E076:      dc.b 0
                 dc.b $E5 
                 dc.b   3
                 dc.b $95 
-unk_E084:       dc.b   3
+                dc.b   3
                 dc.b $95 
                 dc.b  $E
                 dc.b $55 
