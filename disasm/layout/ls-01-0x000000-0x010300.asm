@@ -3294,305 +3294,7 @@ nullsub_5:
 
     ; End of function nullsub_5
 
-
-; =============== S U B R O U T I N E =======================================
-
-CheckSRAM:
-                
-                lea     (SRAM_STRING).l,a0
-                lea     SramCheckString(pc), a1
-                moveq   #9,d7
-loc_14FE:
-                
-                move.b  (a1)+,d0
-loc_1500:
-                
-                cmp.b   (a0),d0
-                bne.s   InitializeSRAM
-                addq.w  #2,a0
-                dbf     d7,loc_14FE
-                clr.b   d0
-                bsr.s   VerifySave
-                bsr.s   VerifySave
-                bsr.s   VerifySave
-                bsr.s   VerifySave
-                rts
-
-    ; End of function CheckSRAM
-
-
-; =============== S U B R O U T I N E =======================================
-
-VerifySave:
-                
-                bsr.s   VerifyChecksum
-                beq.s   loc_151C
-                bsr.s   EraseSave
-loc_151C:
-                
-                addq.b  #1,d0
-                rts
-
-    ; End of function VerifySave
-
-
-; =============== S U B R O U T I N E =======================================
-
-InitializeSRAM:
-                
-                lea     (SRAM_STRING).l,a0
-                lea     SramCheckString(pc), a1
-                moveq   #9,d7
-loc_152C:
-                
-                move.b  (a1)+,(a0)
-                addq.w  #2,a0
-                dbf     d7,loc_152C
-                clr.b   d0
-                bsr.s   EraseSave
-                move.b  #1,d0
-                bsr.s   EraseSave
-                move.b  #2,d0
-                bsr.s   EraseSave
-                move.b  #3,d0
-                bsr.s   EraseSave
-                rts
-
-    ; End of function InitializeSRAM
-
-
-; =============== S U B R O U T I N E =======================================
-
-GetSaveSlot:
-                
-                move.b  (SAVE_SLOT).l,d0
-
-    ; End of function GetSaveSlot
-
-
-; =============== S U B R O U T I N E =======================================
-
-EraseSave:
-                
-                bsr.s   GetSave
-                move.w  #$3FF,d7
-loc_1558:
-                
-                clr.b   (a0)
-                addq.w  #2,a0
-                dbf     d7,loc_1558
-                rts
-
-    ; End of function EraseSave
-
-SramCheckString:dc.b 'KAN&MAKIKO'       ; <3
-
-; =============== S U B R O U T I N E =======================================
-
-VerifyChecksum:
-                
-                bsr.s   GetSave
-                clr.w   d1
-                move.w  #$3FE,d7
-loc_1574:
-                
-                add.b   (a0),d1
-                addq.w  #2,a0
-                dbf     d7,loc_1574
-                cmp.b   (a0),d1
-                rts
-
-    ; End of function VerifyChecksum
-
-
-; =============== S U B R O U T I N E =======================================
-
-GetSave:
-                
-                clr.w   d1
-                move.b  d0,d1
-                mulu.w  #$800,d1
-                lea     (SRAM_SAVES).l,a0
-                adda.w  d1,a0
-                rts
-
-    ; End of function GetSave
-
-
-; =============== S U B R O U T I N E =======================================
-
-WriteSave:
-                
-                movem.l d0-d1/d7-a2,-(sp)
-                move.b  (SAVE_SLOT).l,d0
-                bsr.s   GetSave
-                lea     pt_FlagMap(pc), a1
-loc_15A2:
-                
-                movea.l (a1)+,a2
-                cmpa.l  #0,a2
-                beq.s   loc_15B8
-                move.w  (a1)+,d7
-loc_15AE:
-                
-                move.b  (a2)+,(a0)
-                addq.w  #2,a0
-                dbf     d7,loc_15AE
-                bra.s   loc_15A2
-loc_15B8:
-                
-                bsr.s   VerifyChecksum
-                move.b  d1,(a0)
-                movem.l (sp)+,d0-d1/d7-a2
-                rts
-
-    ; End of function WriteSave
-
-
-; =============== S U B R O U T I N E =======================================
-
-LoadSave:
-                
-                move.b  (SAVE_SLOT).l,d0
-                bsr.s   GetSave
-                lea     pt_FlagMap(pc), a1
-loc_15CE:
-                
-                movea.l (a1)+,a2
-                cmpa.l  #0,a2
-                beq.s   return_15E4
-                move.w  (a1)+,d7
-loc_15DA:
-                
-                move.b  (a0),(a2)+
-                addq.w  #2,a0
-                dbf     d7,loc_15DA
-                bra.s   loc_15CE
-return_15E4:
-                
-                rts
-
-    ; End of function LoadSave
-
-
-; =============== S U B R O U T I N E =======================================
-
-CopySave:
-                
-                movem.w d1,-(sp)
-                bsr.s   GetSave
-                movea.l a0,a1
-                movem.w (sp)+,d0
-                bsr.s   GetSave
-                move.w  #$3FF,d7
-loc_15F8:
-                
-                move.b  (a1),(a0)
-                addq.w  #2,a0
-                addq.w  #2,a1
-                dbf     d7,loc_15F8
-                rts
-
-    ; End of function CopySave
-
-
-; =============== S U B R O U T I N E =======================================
-
-sub_1604:
-                
-                lea     pt_FlagMap(pc), a1
-                clr.w   d2
-loc_160A:
-                
-                cmpa.l  (a1),a0
-                beq.s   loc_1618
-                add.w   4(a1),d2
-                addq.w  #1,d2
-                addq.w  #6,a1
-                bra.s   loc_160A
-loc_1618:
-                
-                move.b  (SAVE_SLOT).l,d0
-                bsr.w   GetSave
-                add.w   d2,d2
-                adda.w  d2,a0
-                rts
-
-    ; End of function sub_1604
-
-pt_FlagMap:     dc.l MAIN_FLAGS
-                dc.b   0
-                dc.b $1F
-                dc.l INVENTORY_FLAGS
-                dc.b   0
-                dc.b $3F 
-                dc.l CHEST_FLAGS
-                dc.b   0
-                dc.b $3F 
-                dc.l dword_FF5400
-                dc.b   0
-                dc.b   1
-                dc.l byte_FF5404
-                dc.b   0
-                dc.b   0
-                dc.l CURRENT_MAP
-                dc.b   0
-                dc.b   1
-                dc.l GOLD
-                dc.b   0
-                dc.b   1
-                dc.l word_FF543C
-                dc.b   0
-                dc.b   1
-                dc.l byte_FF543E
-                dc.b   0
-                dc.b   1
-                dc.l word_FF547C
-                dc.b   0
-                dc.b   1
-                dc.l word_FF547E
-                dc.b   0
-                dc.b   1
-                dc.l VISITED_MAP_FLAGS
-                dc.b   0
-                dc.b $63 
-                dc.l word_FF1BF0
-                dc.b   0
-                dc.b   1
-                dc.l byte_FF114E
-                dc.b   0
-                dc.b   0
-                dc.l byte_FF114F
-                dc.b   0
-                dc.b   0
-                dc.l byte_FF1150
-                dc.b   0
-                dc.b   0
-                dc.l byte_FF1151
-                dc.b   0
-                dc.b   0
-                dc.l FRAME_COUNTER
-                dc.b   0
-                dc.b   1
-                dc.l MINUTE_COUNTER
-                dc.b   0
-                dc.b   1
-                dc.l HOUR_COUNTER
-                dc.b   0
-                dc.b   1
-                dc.l dword_FF1020
-                dc.b   0
-                dc.b $1F
-                dc.l byte_FF1146
-                dc.b   0
-                dc.b   0
-                dc.l word_FF1206        
-                dc.b   0
-                dc.b   1
-                dc.b   0
-                dc.b   0
-                dc.b   0
-                dc.b   0
+                include "code\common\tech\gamesaves.asm"    ; Game save SRAM management
 
 ; START OF FUNCTION CHUNK FOR Start
 
@@ -3691,7 +3393,7 @@ loc_17C6:
                 tst.b   (byte_FF1145).l
                 bne.s   loc_17E6
                 bsr.w   RefreshPlayerInput
-                btst    #2,(byte_FF1146).l
+                btst    #2,(STATUS_BITMAP).l
                 beq.s   return_17E4
                 andi.b  #$80,(P1_INPUT).l
 return_17E4:
@@ -3784,11 +3486,11 @@ return_18C2:
 
 sub_18C4:
                 
-                bclr    #6,(byte_FF1146).l
+                bclr    #6,(STATUS_BITMAP).l
                 clr.w   d0
                 bsr.w   sub_2FEA
                 bcc.s   loc_18DC
-                bset    #6,(byte_FF1146).l
+                bset    #6,(STATUS_BITMAP).l
 loc_18DC:
                 
                 tst.w   (DebugModeAccessWord).w
@@ -3806,7 +3508,7 @@ loc_18FC:
                 andi.b  #$F,d0
                 tst.w   (byte_FF12DE).l
                 bne.s   loc_1922
-                move.b  (byte_FF1146).l,d1
+                move.b  (STATUS_BITMAP).l,d1
                 andi.b  #2,d1
                 lsl.b   #3,d1
                 or.b    d1,d0
@@ -3877,7 +3579,7 @@ nullsub_3:
 
 sub_19B8:
                 
-                tst.b   (byte_FF1146).l
+                tst.b   (STATUS_BITMAP).l
                 bmi.s   loc_19CE
                 btst    #6,4(a5)
                 beq.w   loc_1A48
@@ -3901,7 +3603,7 @@ loc_19CE:
 
 sub_19DC:
                 
-                tst.b   (byte_FF1146).l
+                tst.b   (STATUS_BITMAP).l
                 bmi.s   loc_19F2
                 btst    #6,4(a5)
                 beq.w   loc_1A48
@@ -3925,7 +3627,7 @@ loc_19F2:
 
 sub_1A00:
                 
-                tst.b   (byte_FF1146).l
+                tst.b   (STATUS_BITMAP).l
                 bmi.s   loc_1A16
                 btst    #6,4(a5)
                 beq.w   loc_1DF2
@@ -3949,7 +3651,7 @@ loc_1A16:
 
 sub_1A24:
                 
-                tst.b   (byte_FF1146).l
+                tst.b   (STATUS_BITMAP).l
                 bmi.s   loc_1A3A
                 btst    #6,4(a5)
                 beq.w   loc_1DF2
@@ -3975,7 +3677,7 @@ loc_1A48:
                 
                 tst.w   (byte_FF12DE).l
                 bne.s   loc_1A58
-                bclr    #7,(byte_FF1146).l
+                bclr    #7,(STATUS_BITMAP).l
 loc_1A58:
                 
                 move.w  $1C(a5),d1
@@ -4053,7 +3755,7 @@ loc_1B36:
                 
                 bclr    #4,(dword_FF542C).l
                 clr.w   d0
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 beq.s   loc_1B4E
 loc_1B48:
                 
@@ -4061,7 +3763,7 @@ loc_1B48:
                 bra.s   loc_1B5C
 loc_1B4E:
                 
-                btst    #6,(byte_FF1146).l
+                btst    #6,(STATUS_BITMAP).l
                 bne.s   loc_1B48
                 bsr.w   sub_2F76
 loc_1B5C:
@@ -4156,7 +3858,7 @@ loc_1C5C:
                 
                 tst.w   (byte_FF12DE).l
                 bne.s   loc_1C6C
-                bclr    #7,(byte_FF1146).l
+                bclr    #7,(STATUS_BITMAP).l
 loc_1C6C:
                 
                 bclr    #4,(dword_FF542C).l
@@ -4190,7 +3892,7 @@ loc_1CB0:
 loc_1CD6:
                 
                 clr.w   d0
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 beq.s   loc_1CE6
 loc_1CE0:
                 
@@ -4198,7 +3900,7 @@ loc_1CE0:
                 bra.s   loc_1CF4
 loc_1CE6:
                 
-                btst    #6,(byte_FF1146).l
+                btst    #6,(STATUS_BITMAP).l
                 bne.s   loc_1CE0
                 bsr.w   sub_2F76
 loc_1CF4:
@@ -4294,7 +3996,7 @@ loc_1DF2:
                 
                 tst.w   (byte_FF12DE).l
                 bne.s   loc_1E02
-                bclr    #7,(byte_FF1146).l
+                bclr    #7,(STATUS_BITMAP).l
 loc_1E02:
                 
                 bclr    #4,(dword_FF542C).l
@@ -4322,7 +4024,7 @@ loc_1E02:
 loc_1E58:
                 
                 clr.w   d0
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 beq.s   loc_1E68
 loc_1E62:
                 
@@ -4330,7 +4032,7 @@ loc_1E62:
                 bra.s   loc_1E76
 loc_1E68:
                 
-                btst    #6,(byte_FF1146).l
+                btst    #6,(STATUS_BITMAP).l
                 bne.s   loc_1E62
                 bsr.w   sub_2F76
 loc_1E76:
@@ -4426,7 +4128,7 @@ loc_1F7C:
                 
                 tst.w   (byte_FF12DE).l
                 bne.s   loc_1F8C
-                bclr    #7,(byte_FF1146).l
+                bclr    #7,(STATUS_BITMAP).l
 loc_1F8C:
                 
                 move.w  $18(a5),d1
@@ -4492,7 +4194,7 @@ loc_2056:
                 
                 bclr    #4,(dword_FF542C).l
                 clr.w   d0
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 beq.s   loc_206E
 loc_2068:
                 
@@ -4500,7 +4202,7 @@ loc_2068:
                 bra.s   loc_207C
 loc_206E:
                 
-                btst    #6,(byte_FF1146).l
+                btst    #6,(STATUS_BITMAP).l
                 bne.s   loc_2068
                 bsr.w   sub_2F76
 loc_207C:
@@ -5254,7 +4956,7 @@ loc_2744:
                 clr.b   (a0)+
                 dbf     d7,loc_2744
                 clr.b   (byte_FF1143).l
-                clr.b   (byte_FF1142).l
+                clr.b   (byte_FF1142).l 
                 clr.b   (byte_FF1145).l
                 clr.b   (byte_FF1128).l
                 clr.b   (byte_FF12DE).l
@@ -5276,8 +4978,8 @@ loc_2744:
 
 sub_27B2:
                 
-                move.w  #$3FF,(byte_FF543E).l
-                move.w  #$3FF,(word_FF547E).l
+                move.w  #$3FF,(CURRENT_HP).l
+                move.w  #$3FF,(MAX_HP).l
                 move.w  #$100,(word_FF547C).l
                 clr.w   (word_FF1BF0).l
                 clr.w   (FRAME_COUNTER).l
@@ -5416,9 +5118,9 @@ sub_295E:
                 
                 bclr    #7,(byte_FF1005).l
                 beq.s   return_2994
-                bclr    #4,(byte_FF1146).l
+                bclr    #4,(STATUS_BITMAP).l
                 bclr    #2,(byte_FF1153).l
-                move.w  (byte_FF5458).l,(byte_FF543E).l
+                move.w  (byte_FF5458).l,(CURRENT_HP).l
                 jsr     sub_103AA
                 jsr     sub_1036C
                 jsr     sub_10340
@@ -9213,7 +8915,7 @@ loc_43D8:
                 
                 cmpa.l  #dword_FF5400,a1
                 bne.s   loc_4420
-                move.b  (byte_FF1146).l,d1
+                move.b  (STATUS_BITMAP).l,d1
                 andi.b  #$F,d1
                 beq.s   loc_4420
                 movem.l d0/a1-a3,-(sp)
@@ -15314,7 +15016,7 @@ loc_613E:
                 beq.s   return_6182
                 move.b  #0,d0
                 jsr     sub_10318
-                bset    #7,(byte_FF1146).l
+                bset    #7,(STATUS_BITMAP).l
 return_6182:
                 
                 rts
@@ -15333,7 +15035,7 @@ loc_6184:
 loc_61B6:
                 
                 move.w  (word_FF5422).l,(unk_FF1208).l
-                bset    #7,(byte_FF1146).l
+                bset    #7,(STATUS_BITMAP).l
 return_61C8:
                 
                 rts
@@ -15352,7 +15054,7 @@ loc_61E2:
 loc_61EC:
                 
                 move.w  (word_FF5422).l,(unk_FF1208).l
-                bset    #7,(byte_FF1146).l
+                bset    #7,(STATUS_BITMAP).l
                 bsr.w   sub_9BFE
                 bsr.s   byte_620A
                 bsr.w   sub_9BD0
@@ -15587,7 +15289,7 @@ loc_6464:
                 
                 bsr.w   sub_667C
                 bcc.s   return_6480
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   return_6480
                 move.b  #$80,(byte_FF1143).l
                 move.w  d1,(word_FF543C).l
@@ -15703,8 +15405,8 @@ loc_6610:
                 bsr.w   sub_667C
                 bcc.s   return_667A
                 move.w  (word_FF5422).l,(unk_FF1208).l
-                move.w  (byte_FF543E).l,d0
-                cmp.w   (word_FF547E).l,d0
+                move.w  (CURRENT_HP).l,d0
+                cmp.w   (MAX_HP).l,d0
                 beq.s   return_667A
                 move.w  #5,d0
                 jsr     (sub_45E).l
@@ -15792,14 +15494,14 @@ loc_66FE:
                 bcs.s   sub_673E
                 bsr.w   sub_6E20
                 bcs.s   sub_673E
-                btst    #3,(byte_FF1146).l
+                btst    #3,(STATUS_BITMAP).l
                 bne.s   sub_673E
                 btst    #1,(byte_FF1153).l
                 bne.s   sub_673E
                 bsr.w   sub_6ABA
-                tst.w   (word_FF12EC).l
+                tst.w   (word_FF12EC).l 
                 bne.s   return_673C
-                tst.b   (byte_FF114E).l
+                tst.b   (byte_FF114E).l 
                 beq.s   return_674C
                 move.w  #$6400,d0
                 jsr     sub_10334
@@ -15814,7 +15516,7 @@ return_673C:
 
 sub_673E:
                 
-                tst.b   (byte_FF114E).l
+                tst.b   (byte_FF114E).l 
                 beq.s   return_674C
                 jsr     sub_10330
 return_674C:
@@ -21315,14 +21017,14 @@ loc_88D2:
                 bne.w   loc_8BC0
 loc_88DE:
                 
-                move.w  (byte_FF543E).l,d0
+                move.w  (CURRENT_HP).l,d0
                 subi.w  #$100,d0
                 bcs.w   loc_892A
                 bne.s   loc_88F2
                 move.w  #$FF,d0
 loc_88F2:
                 
-                move.w  d0,(byte_FF543E).l
+                move.w  d0,(CURRENT_HP).l
                 move.w  #$A,d0
                 jsr     j_AddGold
                 jsr     sub_103AA
@@ -21742,7 +21444,7 @@ loc_8D44:
                 move.w  #$152,d0
                 jsr     (j_WaitForDMAQueueProcessing).l
                 jsr     sub_22EF8
-                move.w  #$FF,(byte_FF543E).l
+                move.w  #$FF,(CURRENT_HP).l
                 jsr     sub_103AA
                 move.b  #0,d0
                 move.b  #0,d1
@@ -39998,14 +39700,14 @@ sub_F3E0:
 sub_F416:
                 
                 clr.l   d2
-                move.w  (byte_FF543E).l,d2
+                move.w  (CURRENT_HP).l,d2
                 beq.s   loc_F424
                 addi.w  #$100,d2
 loc_F424:
                 
                 lsr.w   #8,d2
                 clr.l   d3
-                move.w  (word_FF547E).l,d3
+                move.w  (MAX_HP).l,d3
                 beq.s   loc_F434
                 addi.w  #$100,d3
 loc_F434:
@@ -40487,7 +40189,7 @@ sub_F78E:
                 move.b  (SAVE_SLOT).l,d0
                 addq.b  #1,d0
                 bsr.w   sub_F3CC
-                move.w  (byte_FF543E).l,d2
+                move.w  (CURRENT_HP).l,d2
                 beq.s   loc_F7CC
                 addi.w  #$100,d2
 loc_F7CC:

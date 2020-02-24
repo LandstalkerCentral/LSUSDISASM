@@ -226,7 +226,7 @@ byte_FF1142: equ $FF1142
 byte_FF1143: equ $FF1143
 byte_FF1144: equ $FF1144
 byte_FF1145: equ $FF1145
-byte_FF1146: equ $FF1146
+STATUS_BITMAP: equ $FF1146
 byte_FF1147: equ $FF1147
 byte_FF1148: equ $FF1148
 byte_FF1149: equ $FF1149
@@ -394,14 +394,14 @@ byte_FF5438: equ $FF5438
 word_FF5439: equ $FF5439
 byte_FF543B: equ $FF543B
 word_FF543C: equ $FF543C
-byte_FF543E: equ $FF543E
+CURRENT_HP: equ $FF543E
 byte_FF5448: equ $FF5448
 word_FF5454: equ $FF5454
 byte_FF5458: equ $FF5458
 word_FF546D: equ $FF546D
 byte_FF546F: equ $FF546F
 word_FF547C: equ $FF547C
-word_FF547E: equ $FF547E
+MAX_HP: equ $FF547E
 byte_FF5480: equ $FF5480
 byte_FF5488: equ $FF5488
 byte_FF5489: equ $FF5489

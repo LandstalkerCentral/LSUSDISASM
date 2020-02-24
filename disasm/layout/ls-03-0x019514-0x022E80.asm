@@ -131,7 +131,7 @@ loc_1961A:
                 move.b  d0,$36(a1)
                 cmpi.b  #$3E,d0 
                 bne.s   loc_1967E
-                cmpi.w  #$62FF,(word_FF547E).l
+                cmpi.w  #$62FF,(MAX_HP).l
                 bcc.s   loc_19678
                 jsr     (sub_4A0).l
                 bcc.s   loc_19676

@@ -1116,7 +1116,7 @@ loc_1A4CD6:
                 bra.w   sub_1A8AB6
 loc_1A4CDA:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A4D0A
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -1349,7 +1349,7 @@ loc_1A4EFC:
                 bra.w   sub_1A8AB6
 loc_1A4F00:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A4F30
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -1602,7 +1602,7 @@ loc_1A5162:
                 bra.w   sub_1A8AB6
 loc_1A5166:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A5196
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -1856,7 +1856,7 @@ loc_1A53C8:
                 rts
 loc_1A53E0:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A5414
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -2205,7 +2205,7 @@ loc_1A575C:
                 rts
 loc_1A5774:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A57A8
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -2594,7 +2594,7 @@ loc_1A5B6A:
                 rts
 loc_1A5B82:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A5BB6
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -2984,7 +2984,7 @@ loc_1A5F80:
                 bra.w   sub_1A8AB6
 loc_1A5F84:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A5FB4
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -3229,7 +3229,7 @@ loc_1A61DA:
                 bra.w   sub_1A8AB6
 loc_1A61DE:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A620E
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -3532,7 +3532,7 @@ loc_1A64DE:
                 bra.w   sub_1A8AB6
 loc_1A64E2:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A6512
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -3840,7 +3840,7 @@ loc_1A67EC:
                 bra.w   sub_1A8AB6
 loc_1A67F0:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A6820
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -4095,7 +4095,7 @@ loc_1A6A54:
                 bra.w   sub_1A8AB6
 loc_1A6A58:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A6A88
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -4330,7 +4330,7 @@ loc_1A6C7A:
                 bra.w   sub_1A8AB6
 loc_1A6C7E:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A6CAE
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -4582,7 +4582,7 @@ loc_1A6EE4:
                 bra.w   sub_1A8AB6
 loc_1A6EE8:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A6F18
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -4815,7 +4815,7 @@ loc_1A7110:
                 bra.w   sub_1A8AB6
 loc_1A7114:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A7144
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -5048,7 +5048,7 @@ loc_1A733C:
                 bra.w   sub_1A8AB6
 loc_1A7340:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A7370
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -5383,7 +5383,7 @@ sub_1A7642:
                 
                 tst.b   (byte_FF1145).l
                 bne.w   sub_1A753E
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A765C
                 move.b  #1,(byte_FF1142).l
 loc_1A765C:
@@ -5588,7 +5588,7 @@ sub_1A7806:
                 
                 tst.b   (byte_FF1145).l
                 bne.w   loc_1A76DA
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.w   loc_1A7826
                 move.b  #1,(byte_FF1142).l
                 bra.w   *+4
@@ -5796,7 +5796,7 @@ loc_1A7A0A:
                 
                 tst.b   (byte_FF1145).l
                 bne.w   loc_1A78DE
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.w   loc_1A7A2A
                 move.b  #1,(byte_FF1142).l
                 bra.w   *+4
@@ -5921,7 +5921,7 @@ loc_1A7B24:
                 rts
 loc_1A7B40:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A7B70
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -6121,7 +6121,7 @@ loc_1A7D48:
                 
                 tst.b   (byte_FF1145).l
                 bne.w   loc_1A7B08
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.w   loc_1A7D68
                 move.b  #1,(byte_FF1142).l
                 bra.w   *+4
@@ -6254,7 +6254,7 @@ loc_1A7E5E:
 
 sub_1A7E7A:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   sub_1A7EAA
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -6496,7 +6496,7 @@ sub_1A8082:
                 
                 tst.b   (byte_FF1145).l
                 bne.w   loc_1A7E42
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.w   loc_1A80A2
                 move.b  #1,(byte_FF1142).l
                 bra.w   *+4
@@ -6631,7 +6631,7 @@ sub_1A8198:
 
 sub_1A81B4:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   sub_1A81E0
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -6802,7 +6802,7 @@ loc_1A8334:
                 
                 tst.b   (byte_FF1145).l
                 bne.w   sub_1A817C
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.w   loc_1A8354
                 move.b  #1,(byte_FF1142).l
                 bra.w   *+4
@@ -7730,7 +7730,7 @@ sub_1A8B40:
 
 loc_1A8B5E:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A8B8A
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -8003,7 +8003,7 @@ sub_1A8E00:
 
 loc_1A8E1E:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A8E4A
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -8276,7 +8276,7 @@ sub_1A90C0:
 
 loc_1A90DE:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A910A
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -8535,7 +8535,7 @@ loc_1A937A:
 
 loc_1A9392:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A93C2
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -8818,7 +8818,7 @@ loc_1A9626:
 
 loc_1A9644:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A9674
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -9084,7 +9084,7 @@ loc_1A98D2:
 
 loc_1A98F0:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A9920
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -9624,7 +9624,7 @@ loc_1A9E90:
                 movem.w (sp)+,d0-d1
                 tst.b   (byte_FF1145).l
                 bne.w   loc_1A9B4E
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1A9EAE
                 move.b  #1,(byte_FF1142).l
 loc_1A9EAE:
@@ -10012,7 +10012,7 @@ loc_1AA2C4:
                 movem.w (sp)+,d0-d1
                 tst.b   (byte_FF1145).l
                 bne.w   loc_1A9F56
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AA2E2
                 move.b  #1,(byte_FF1142).l
 loc_1AA2E2:
@@ -10406,7 +10406,7 @@ loc_1AA6FA:
                 movem.w (sp)+,d0-d1
                 tst.b   (byte_FF1145).l
                 bne.w   loc_1AA38C
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AA718
                 move.b  #1,(byte_FF1142).l
 loc_1AA718:
@@ -11527,7 +11527,7 @@ loc_1AB2AA:
 
 loc_1AB2AE:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AB2DE
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -11766,7 +11766,7 @@ loc_1AB4E2:
 
 loc_1AB4E6:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AB516
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -12023,7 +12023,7 @@ loc_1AB74C:
 
 loc_1AB750:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AB780
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -12560,7 +12560,7 @@ loc_1ABC34:
 
 loc_1ABC4C:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1ABC8A
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -12854,7 +12854,7 @@ loc_1ABEE6:
                 move.w  #$18,d7
                 bsr.w   sub_1A8964
                 bcc.w   loc_1ABC34
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 beq.w   sub_1ABE66
                 rts
 loc_1ABF26:
@@ -13083,7 +13083,7 @@ loc_1AC168:
 
 loc_1AC16C:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AC1CC
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -13467,7 +13467,7 @@ loc_1AC552:
 
 loc_1AC556:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AC5B6
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -13747,7 +13747,7 @@ loc_1AC826:
 
 loc_1AC82A:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AC88A
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -14034,7 +14034,7 @@ loc_1ACB06:
 
 loc_1ACB24:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1ACB54
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -14278,7 +14278,7 @@ sub_1ACD54:
 
 loc_1ACD5E:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1ACD94
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -14650,7 +14650,7 @@ loc_1AD0F8:
 
 loc_1AD0FC:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AD120
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -14788,7 +14788,7 @@ loc_1AD222:
 
 loc_1AD226:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AD24A
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -14927,7 +14927,7 @@ loc_1AD352:
 
 loc_1AD356:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AD3A2
                 btst    #6,$C(a5)
                 beq.s   loc_1AD37A
@@ -15201,7 +15201,7 @@ loc_1AD5D8:
 
 loc_1AD5DC:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AD628
                 btst    #6,$C(a5)
                 beq.s   loc_1AD600
@@ -15475,7 +15475,7 @@ loc_1AD85E:
 
 loc_1AD862:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AD8AE
                 btst    #6,$C(a5)
                 beq.s   loc_1AD886
@@ -15751,7 +15751,7 @@ loc_1ADADC:
 
 loc_1ADAF4:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1ADB24
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -15987,7 +15987,7 @@ loc_1ADD14:
 
 loc_1ADD2C:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1ADD5C
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -16223,7 +16223,7 @@ loc_1ADF4C:
 
 loc_1ADF64:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1ADF94
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -17618,7 +17618,7 @@ sub_1AECAC:
 
 loc_1AECB0:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AECD8
                 move.w  $14(a5),(word_FF1800).l
                 move.w  $16(a5),(dword_FF1804).l
@@ -17785,7 +17785,7 @@ loc_1AEE1E:
                 move.b  (word_FF5412+1).l,d0
                 cmp.b   (word_FF5439).l,d0
                 bne.s   loc_1AEE62
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AEE62
                 move.b  #8,d0
                 jsr     sub_10318
@@ -18209,7 +18209,7 @@ loc_1AF236:
                 move.b  (word_FF5412+1).l,d0
                 cmp.b   (word_FF5439).l,d0
                 bne.s   loc_1AF26E
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1AF26E
                 move.b  #8,d0
                 jsr     sub_10318

@@ -2198,7 +2198,7 @@ sub_111A6:
                 bhi.w   sub_10F52
                 cmpi.b  #$15,(dword_FF5400+1).l
                 bhi.w   sub_10F52
-                tst.w   (word_FF5420).l
+                tst.w   (word_FF5420).l 
                 bne.w   sub_10F52
                 cmpi.w  #$40,(word_FF5412).l 
                 bne.w   sub_10F52
@@ -4072,7 +4072,7 @@ sub_120BE:
 
 sub_120CE:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.w   sub_10F52
                 tst.b   (byte_FF1145).l
                 bne.w   sub_10F52
@@ -4888,10 +4888,10 @@ loc_12C06:
                 tst.b   (byte_FF1904).l
                 beq.s   return_12C4E
                 bset    #7,(byte_FF1005).l
-                bset    #4,(byte_FF1146).l
+                bset    #4,(STATUS_BITMAP).l
                 bset    #2,(byte_FF1153).l
-                move.w  (byte_FF543E).l,(byte_FF5458).l
-                move.w  #$FF,(byte_FF543E).l
+                move.w  (CURRENT_HP).l,(byte_FF5458).l
+                move.w  #$FF,(CURRENT_HP).l
                 bsr.w   sub_16928
                 bsr.w   sub_1691E
 return_12C4E:
@@ -5007,7 +5007,7 @@ loc_12D18:
                 bsr.w   sub_19716
                 move.b  $B(a1),d0
                 bsr.w   sub_12CAE
-                tst.w   (byte_FF543E).l
+                tst.w   (CURRENT_HP).l
                 beq.w   return_12D8E
                 addq.b  #1,(byte_FF103A).l
                 cmpi.b  #5,(byte_FF103A).l
@@ -5046,7 +5046,7 @@ loc_12DA8:
                 move.w  #$3C,d0 
 loc_12DAC:
                 
-                cmpi.w  #$FF,(byte_FF543E).l
+                cmpi.w  #$FF,(CURRENT_HP).l
                 bne.s   loc_12DCE
                 bsr.w   loc_12674
                 tst.b   (byte_FF1904).l
@@ -5060,17 +5060,17 @@ loc_12DCE:
                 
                 bclr    #7,(byte_FF1005).l
                 bclr    #6,(byte_FF100C).l
-                move.w  (byte_FF5458).l,(byte_FF543E).l
+                move.w  (byte_FF5458).l,(CURRENT_HP).l
                 bsr.w   sub_16928
                 bsr.w   sub_1691E
                 bsr.w   sub_1693A
                 jsr     (j_EnableDMAQueueProcessing).l
                 clr.b   (byte_FF1145).l
-                clr.b   (byte_FF1142).l
+                clr.b   (byte_FF1142).l 
                 clr.b   (byte_FF1143).l
                 clr.w   (byte_FF12DE).l
                 bclr    #0,(byte_FF540C).l
-                bclr    #4,(byte_FF1146).l
+                bclr    #4,(STATUS_BITMAP).l
                 bclr    #2,(byte_FF1153).l
                 clr.w   (word_FF54AA).l
                 clr.w   (byte_FF552A).l
@@ -5087,17 +5087,17 @@ loc_12E48:
                 bset    #7,$48(a0)
                 jsr     (sub_3FE).l
                 jsr     (sub_3F8).l
-                move.w  (byte_FF5458).l,(byte_FF543E).l
+                move.w  (byte_FF5458).l,(CURRENT_HP).l
                 bsr.w   sub_16928
                 bsr.w   sub_1691E
                 bsr.w   sub_1693A
                 jsr     (j_EnableDMAQueueProcessing).l
                 clr.b   (byte_FF1145).l
-                clr.b   (byte_FF1142).l
+                clr.b   (byte_FF1142).l 
                 clr.b   (byte_FF1143).l
                 clr.w   (byte_FF12DE).l
                 bclr    #0,(byte_FF540C).l
-                bclr    #4,(byte_FF1146).l
+                bclr    #4,(STATUS_BITMAP).l
                 bclr    #2,(byte_FF1153).l
                 move.w  #$3E,d0 
                 bra.w   loc_12674
@@ -5456,7 +5456,7 @@ loc_132D8:
                 clr.b   d0
                 jsr     (sub_3DA).l
                 jsr     (sub_410).l
-                clr.b   (byte_FF1142).l
+                clr.b   (byte_FF1142).l 
                 clr.b   (byte_FF1143).l
                 bclr    #6,(byte_FF540C).l
                 bclr    #0,(byte_FF540C).l
@@ -5507,7 +5507,7 @@ loc_133D4:
                 bra.w   loc_132D8
 loc_133D8:
                 
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_1341E
                 move.b  #$11,(byte_FF1142).l
                 bset    #5,(dword_FF542C).l
@@ -7269,7 +7269,7 @@ loc_14704:
                 move.w  #$1718,(dword_FF5400).l
                 clr.w   (dword_FF5400+2).l
                 bsr.w   byte_14266
-                clr.b   (byte_FF1142).l
+                clr.b   (byte_FF1142).l 
                 clr.b   (byte_FF1145).l
                 move.w  #$DD,d0 
                 bsr.w   loc_12674
@@ -7847,7 +7847,7 @@ byte_14F00:
                 
                 sndCom  SFX_MONSTER_SKREECH
                 move.b  #7,(byte_FF1153).l
-                bset    #4,(byte_FF1146).l
+                bset    #4,(STATUS_BITMAP).l
                 move.w  #$814D,(word_FF540A).l
                 move.b  #$E,(byte_FF543B).l
                 move.b  #1,(byte_FF546F).l
@@ -7873,7 +7873,7 @@ loc_14F54:
                 move.b  #0,(byte_FF546F).l
                 bclr    #4,(byte_FF1003).l
                 andi.b  #$F8,(byte_FF1153).l
-                bclr    #4,(byte_FF1146).l
+                bclr    #4,(STATUS_BITMAP).l
                 jsr     (sub_428).l
                 jsr     (j_DuplicatePalettes).l
                 lea     (dword_FF5400).l,a1
@@ -9804,7 +9804,7 @@ sub_16420:
                 
                 tst.b   (byte_FF1145).l
                 bne.w   return_164E4
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.w   loc_16512
                 move.b  (byte_FF1143).l,d1
                 beq.w   return_164E4
@@ -9815,7 +9815,7 @@ sub_16420:
                 movem.w (sp)+,d1
                 tst.w   $3E(a5)
                 beq.w   loc_164EA
-                btst    #2,(byte_FF1146).l
+                btst    #2,(STATUS_BITMAP).l
                 beq.s   loc_1648A
                 move.b  (byte_FF114A).l,d0
                 addq.b  #2,(byte_FF114A).l
@@ -9869,13 +9869,13 @@ byte_164E6:
                 dc.b   4
 loc_164EA:
                 
-                clr.b   (byte_FF1142).l
+                clr.b   (byte_FF1142).l 
                 clr.b   (byte_FF1143).l
                 move.b  #1,(byte_FF1145).l
                 move.b  #8,d0
                 bsr.w   sub_10842
                 sndCom  SFX_DEATH
-                clr.b   (byte_FF1146).l
+                clr.b   (STATUS_BITMAP).l
                 rts
 
     ; End of function sub_16420
@@ -9903,7 +9903,7 @@ loc_16550:
                 
                 cmpi.b  #$40,(byte_FF1142).l 
                 bne.s   loc_16568
-                clr.b   (byte_FF1142).l
+                clr.b   (byte_FF1142).l 
                 bclr    #1,(byte_FF540C).l
 loc_16568:
                 
@@ -9924,7 +9924,7 @@ sub_1657E:
                 
                 movem.w d1/d6-d7,-(sp)
                 move.w  d0,d1
-                move.w  (word_FF547E).l,d0
+                move.w  (MAX_HP).l,d0
                 lsr.w   #2,d0
                 sub.w   d1,d0
                 bmi.s   loc_16596
@@ -9995,7 +9995,7 @@ sub_16602:
                 
                 cmpi.b  #1,(word_FF540A).l
                 beq.w   return_166DE
-                move.b  (byte_FF1146).l,d0
+                move.b  (STATUS_BITMAP).l,d0
                 andi.b  #$11,d0
                 cmpi.b  #1,d0
                 bne.s   loc_1667C
@@ -10011,7 +10011,7 @@ sub_16602:
                 move.w  #$100,d0
                 lea     (dword_FF5400).l,a5
                 bsr.w   sub_17830
-                tst.w   (byte_FF543E).l
+                tst.w   (CURRENT_HP).l
                 beq.w   loc_164EA
                 lea     (PALETTE_1_CURRENT).l,a0
                 moveq   #$F,d7
@@ -10024,7 +10024,7 @@ loc_16666:
                 beq.s   loc_166E0
 loc_1667C:
                 
-                btst    #2,(byte_FF1146).l
+                btst    #2,(STATUS_BITMAP).l
                 beq.s   loc_16696
                 subq.w  #1,(word_FF12E2).l
                 bne.s   loc_16696
@@ -10034,7 +10034,7 @@ loc_16696:
                 
                 cmpi.b  #7,(byte_FF1150).l
                 bne.s   return_166DE
-                move.b  (byte_FF1146).l,d0
+                move.b  (STATUS_BITMAP).l,d0
                 andi.b  #$10,d0
                 bne.s   return_166DE
                 move.b  (dword_FF542C+1).l,d0
@@ -10374,7 +10374,7 @@ sub_16968:
 sub_16978:
                 
                 moveq   #0,d7
-                move.w  (word_FF547E).l,d7
+                move.w  (MAX_HP).l,d7
                 beq.s   loc_16986
                 addi.w  #$100,d7
 loc_16986:
@@ -10401,7 +10401,7 @@ loc_169A8:
 sub_169B2:
                 
                 moveq   #0,d7
-                move.w  (byte_FF543E).l,d7
+                move.w  (CURRENT_HP).l,d7
                 beq.s   loc_169C0
                 addi.w  #$100,d7
 loc_169C0:
@@ -10440,13 +10440,13 @@ sub_169EC:
 
 sub_169F8:
                 
-                move.w  (byte_FF543E).l,d2
+                move.w  (CURRENT_HP).l,d2
                 beq.s   loc_16A04
                 addi.w  #$100,d2
 loc_16A04:
                 
                 lsr.w   #8,d2
-                move.w  (word_FF547E).l,d3
+                move.w  (MAX_HP).l,d3
                 beq.s   loc_16A12
                 addi.w  #$100,d3
 loc_16A12:
@@ -13466,7 +13466,7 @@ loc_17782:
 byte_1778C:
                 
                 sndCom  SFX_POISON
-                bset    d0,(byte_FF1146).l
+                bset    d0,(STATUS_BITMAP).l
                 cmpi.b  #1,d0
                 bcs.s   loc_177A4
                 cmpi.b  #2,d0
@@ -13492,7 +13492,7 @@ loc_177B4:
 
 sub_177C4:
                 
-                bclr    d0,(byte_FF1146).l
+                bclr    d0,(STATUS_BITMAP).l
                 rts
 
     ; End of function sub_177C4
@@ -13502,7 +13502,7 @@ sub_177C4:
 
 sub_177CC:
                 
-                move.b  (byte_FF1146).l,d0
+                move.b  (STATUS_BITMAP).l,d0
                 rts
 
     ; End of function sub_177CC
@@ -14029,7 +14029,7 @@ sub_17C2C:
                 bpl.s   loc_17C94
                 cmpa.l  #dword_FF5400,a0
                 bne.s   loc_17C82
-                tst.b   (byte_FF1142).l
+                tst.b   (byte_FF1142).l 
                 bne.s   loc_17C7A
                 move.b  4(a5),d7
                 lsr.b   #6,d7
