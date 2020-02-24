@@ -60,7 +60,7 @@ disableSram:	macro
 
 conditionalRomExpand:	macro
 	if (EXPANDED_ROM=1)
-	include "layout\sf2-expanded-19-0x200000-0x400000.asm"
+	include "layout\ls-expanded-13-0x200000-0x400000.asm"
 	endc
 	endm
 	
@@ -69,6 +69,14 @@ conditionalPc:	macro
 	\1 \2(pc),\3
 	else
 	\1 \2,\3
+	endc
+	endm
+	
+conditionalShortBsr:	macro
+	if (EXPANDED_ROM=0)
+	bsr.s \1
+	else
+	jsr \1
 	endc
 	endm
 	

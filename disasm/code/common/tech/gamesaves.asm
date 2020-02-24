@@ -5,7 +5,7 @@
 ; =============== S U B R O U T I N E =======================================
 
 CheckSRAM:
-                
+                enableSram
                 lea     (SRAM_STRING).l,a0
                 lea     SramCheckString(pc), a1
                 moveq   #9,d7
@@ -23,6 +23,7 @@ loc_1500:
                 bsr.s   VerifySave
                 bsr.s   VerifySave
                 bsr.s   VerifySave
+                disableSram
                 rts
 
     ; End of function CheckSRAM
@@ -131,6 +132,7 @@ GetSave:
 WriteSave:
                 
                 movem.l d0-d1/d7-a2,-(sp)
+                enableSram
                 move.b  (SAVE_SLOT).l,d0
                 bsr.s   GetSave
                 lea     pt_FlagMap(pc), a1
@@ -150,6 +152,7 @@ loc_15B8:
                 
                 bsr.s   VerifyChecksum
                 move.b  d1,(a0)
+                disableSram
                 movem.l (sp)+,d0-d1/d7-a2
                 rts
 
@@ -161,6 +164,7 @@ loc_15B8:
 LoadSave:
                 
                 move.b  (SAVE_SLOT).l,d0
+                enableSram
                 bsr.s   GetSave
                 lea     pt_FlagMap(pc), a1
 loc_15CE:
@@ -176,6 +180,7 @@ loc_15DA:
                 dbf     d7,loc_15DA
                 bra.s   loc_15CE
 return_15E4:
+                disableSram
                 
                 rts
 
@@ -187,10 +192,11 @@ return_15E4:
 CopySave:
                 
                 movem.w d1,-(sp)
-                bsr.s   GetSave
+                enableSram
+                conditionalShortBsr   GetSave
                 movea.l a0,a1
                 movem.w (sp)+,d0
-                bsr.s   GetSave
+                conditionalShortBsr   GetSave
                 move.w  #$3FF,d7
 loc_15F8:
                 
@@ -198,6 +204,7 @@ loc_15F8:
                 addq.w  #2,a0
                 addq.w  #2,a1
                 dbf     d7,loc_15F8
+                disableSram
                 rts
 
     ; End of function CopySave
@@ -207,6 +214,7 @@ loc_15F8:
 
 sub_1604:
                 
+                enableSram
                 lea     pt_FlagMap(pc), a1
                 clr.w   d2
 loc_160A:
@@ -223,6 +231,7 @@ loc_1618:
                 bsr.w   GetSave
                 add.w   d2,d2
                 adda.w  d2,a0
+                disableSram
                 rts
 
     ; End of function sub_1604

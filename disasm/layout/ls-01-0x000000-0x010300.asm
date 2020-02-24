@@ -84,7 +84,7 @@ aGmMk13530:     dc.b 'GM MK-1353 -0'    ; Serial Number
 CheckSum:       dc.w $F37C
 aJ:             dc.b 'J               '
 RomStartAdr:    dc.l 0                  ; Rom Start Adress
-RomEndAdr:      dc.l $1FFFFF            ; Rom End Adress
+RomEndAdr:      declareRomEnd            ; Rom End Adress
 RamStartAdr:    dc.l $FF0000            ; Ram Start Adress
 RamEndAdr:      dc.l $FFFFFF            ; Ram End Adress
                 dc.l $5241F820          ; SRam data
@@ -39049,7 +39049,9 @@ loc_EFB8:
                 bne.w   loc_EEF6
                 move.w  -4(a6),d0
                 move.b  d0,(SAVE_SLOT).l
+                enableSram
                 jsr     (GetSaveSlot).l
+                disableSram
                 jsr     (WaitForVInt).l
                 move.w  -4(a6),d0
                 bsr.w   sub_F72E

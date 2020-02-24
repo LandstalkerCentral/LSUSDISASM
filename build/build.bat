@@ -28,7 +28,7 @@ cd ../musicbank1/
 cd ../../../
 echo Assembling game ...
 SET "buildname=lsbuild-%today%-%hour%%minutes%%seconds%.bin"
-@"../tools/asm68k"  /e EXPANDED_ROM=0 /o ae-,e+,w+ /p ls.asm, "../build/%buildname%" > ../build/output.log
+@"../tools/asm68k" /e EXPANDED_ROM=0 /o ae-,e+,w+ /p ls.asm, "../build/%buildname%" > ../build/output.log
 echo End of assembly, produced %buildname%
 
 echo -------------------------------------------------------------
