@@ -3692,7 +3692,7 @@ LoadTitleScreen:
                 bsr.w   sub_3976A
                 move.w  #0,d0
                 bsr.w   sub_39E4A
-                lea     (unk_C184).l,a1
+                lea     ($C184).l,a1
                 bsr.w   sub_39E20
                 lea     TitleScreenTileset2(pc), a0
                 lea     (byte_FF2C00).l,a1
@@ -3703,7 +3703,7 @@ LoadTitleScreen:
                 bsr.w   sub_3976A
                 move.w  #$2100,d0
                 bsr.w   sub_39E4A
-                lea     (unk_E084).l,a1
+                lea     ($E084).l,a1
                 bsr.w   sub_39E20
                 lea     TitleScreenTileset3(pc), a0
                 lea     (byte_FF2C00).l,a1
@@ -4574,7 +4574,7 @@ LoadClimaxLogo:
                 bsr.w   sub_3976A
                 move.w  #0,d0
                 bsr.w   sub_39E4A
-                lea     (unk_C410).l,a1
+                lea     ($C410).l,a1
                 bsr.w   sub_39E20
                 lea     ClimaxLogoPalette(pc), a0
                 lea     (PALETTE_1_BASE).l,a1
