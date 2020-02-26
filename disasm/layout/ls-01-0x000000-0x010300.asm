@@ -4876,7 +4876,7 @@ loc_2744:
                 move.b  #$FF,(byte_FF112C).l
                 move.b  #$FF,(byte_FF112D).l
                 move.b  #$FF,(byte_FF112E).l
-                move.b  #$FF,(byte_FF112F).l
+                move.b  #$FF,(MAP_PALETTE_INDEX).l
                 move.b  #8,(dword_FF5400+2).l
                 move.b  #8,(dword_FF5400+3).l
                 move.w  #0,(word_FF540A).l
@@ -5051,7 +5051,7 @@ sub_2996:
                 move.b  #$FF,(byte_FF112C).l
                 move.b  #$FF,(byte_FF112D).l
                 move.b  #$FF,(byte_FF112E).l
-                move.b  #$FF,(byte_FF112F).l
+                move.b  #$FF,(MAP_PALETTE_INDEX).l
                 move.w  (CURRENT_MAP).l,d0
                 bsr.w   LoadMap
                 bsr.w   WaitForDMAQueueProcessing
@@ -5229,13 +5229,13 @@ LoadMap:
 loc_2BA4:
                 
                 movem.l a2,-(sp)
-                bsr.w   sub_2CF6
+                bsr.w   LoadMapTileset
                 movem.l (sp)+,a2
                 movem.w d4/d7,-(sp)
                 bsr.s   sub_2BC8
                 movem.w (sp)+,d4/d7
                 bsr.w   sub_2CA2
-                bsr.w   sub_2D64
+                bsr.w   SetMapPalette
                 bsr.w   sub_4DF6
                 rts
 
@@ -5387,7 +5387,7 @@ return_2CF4:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2CF6:
+LoadMapTileset:
                 
                 movem.w d3,-(sp)
                 clr.b   d7
@@ -5395,7 +5395,7 @@ sub_2CF6:
                 cmp.b   (byte_FF112E).l,d3
                 beq.w   loc_2D5C
                 move.b  d3,(byte_FF112E).l
-                movea.l (off_44010).l,a0
+                movea.l (p_pt_MapTilesets).l,a0
                 lsl.w   #2,d3
                 movea.l (a0,d3.w),a0
                 movem.w d2-d4,-(sp)
@@ -5403,7 +5403,7 @@ sub_2CF6:
                 lea     (0).w,a2
                 movem.l a2,-(sp)
                 movea.l a1,a2
-                bsr.w   sub_4AB2
+                bsr.w   DecompressLZ77Graphics
                 move.l  a1,d0
                 sub.l   a2,d0
                 lsr.w   #2,d0
@@ -5422,29 +5422,29 @@ loc_2D5C:
                 lsl.w   #2,d3
                 rts
 
-    ; End of function sub_2CF6
+    ; End of function LoadMapTileset
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2D64:
+SetMapPalette:
                 
                 bsr.w   sub_87BE
-                lea     unk_2DB4(pc), a0
+                lea     DefaultMapPalette(pc), a0
                 bcc.s   loc_2D76
-                move.b  d4,(byte_FF112F).l
+                move.b  d4,(MAP_PALETTE_INDEX).l
                 bra.s   loc_2D90
 loc_2D76:
                 
-                cmp.b   (byte_FF112F).l,d4
+                cmp.b   (MAP_PALETTE_INDEX).l,d4
                 beq.s   return_2DB2
-                move.b  d4,(byte_FF112F).l
+                move.b  d4,(MAP_PALETTE_INDEX).l
                 movea.l (p_MapPalettes).l,a0
                 mulu.w  #$1A,d4
                 adda.l  d4,a0
 loc_2D90:
                 
-                lea     (byte_FF0084).l,a1
+                lea     (MAP_PALETTE).l,a1
                 move.w  #$C,d0
                 bsr.w   loc_96A
                 clr.w   (PALETTE_1_BASE).l
@@ -5454,34 +5454,22 @@ return_2DB2:
                 
                 rts
 
-    ; End of function sub_2D64
+    ; End of function SetMapPalette
 
-unk_2DB4:       dc.b   8
-                dc.b $EE 
-                dc.b   2
-                dc.b $40 
-                dc.b   2
-                dc.b $44 
-                dc.b   2
-                dc.b $80 
-                dc.b   8
-                dc.b $A6 
-                dc.b   0
-                dc.b $EE 
-                dc.b  $C
-                dc.b $84 
-                dc.b   8
-                dc.b $88 
-                dc.b   2
-                dc.b $20
-                dc.b   8
-                dc.b $40 
-                dc.b  $E
-                dc.b $48 
-                dc.b  $E
-                dc.b $20
-                dc.b  $E
-                dc.b $60 
+DefaultMapPalette:
+                dc.w $8EE
+                dc.w $240
+                dc.w $244
+                dc.w $280
+                dc.w $8A6
+                dc.w $EE
+                dc.w $C84
+                dc.w $888
+                dc.w $220
+                dc.w $840
+                dc.w $E48
+                dc.w $E20
+                dc.w $E60
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -9915,7 +9903,7 @@ sub_4A7A:
                 
                 movem.l a2,-(sp)
                 movea.l a1,a2
-                bsr.w   sub_4AB2
+                bsr.w   DecompressLZ77Graphics
                 move.l  a1,d0
                 sub.l   a2,d0
                 lsr.w   #1,d0
@@ -9932,7 +9920,7 @@ sub_4A94:
                 
                 movem.l a2,-(sp)
                 movea.l a1,a2
-                bsr.w   sub_4AB2
+                bsr.w   DecompressLZ77Graphics
                 move.l  a1,d0
                 sub.l   a2,d0
                 lsr.w   #1,d0
@@ -9946,7 +9934,7 @@ sub_4A94:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_4AB2:
+DecompressLZ77Graphics:
                 
                 moveq   #$F,d4
 loc_4AB4:
@@ -9969,32 +9957,29 @@ loc_4ABA:
                 suba.w  d2,a3
                 move.b  (a3)+,(a1)+
                 move.b  (a3)+,(a1)+
-                jmp     word_4AD8(pc,d1.w)
-word_4AD8:
+                jmp     loc_4AD8(pc,d1.w)
+loc_4AD8:
                 
-                dc.w $12DB              ; Broken relative jump table ?
-                                        ; No plausible code at those destinations ...
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $12DB
-                dc.w $D000
-                dc.w $5BCB
-                dc.w $FFBE
-                dc.w $5ACB
-                dc.w 4
-                dc.w $60B0
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                move.b  (a3)+,(a1)+
+                add.b   d0,d0
+                dbmi    d3,loc_4ABA
+                dbpl    d3,loc_4B04
+                bra.s   loc_4AB4
 loc_4B04:
                 
                 move.b  (a0)+,(a1)+
@@ -10006,7 +9991,7 @@ return_4B12:
                 
                 rts
 
-    ; End of function sub_4AB2
+    ; End of function DecompressLZ77Graphics
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -15000,7 +14985,7 @@ sub_6224:
                 move.b  #$FF,(byte_FF112C).l
                 move.b  #$FF,(byte_FF112D).l
                 move.b  #$FF,(byte_FF112E).l
-                move.b  #$FF,(byte_FF112F).l
+                move.b  #$FF,(MAP_PALETTE_INDEX).l
                 bra.s   sub_620E
 
     ; End of function sub_6224
@@ -17065,7 +17050,7 @@ sub_7816:
                 
                 lea     unk_7A3C(pc), a0
                 lea     (byte_FF2C00).l,a1
-                bsr.w   sub_4AB2
+                bsr.w   DecompressLZ77Graphics
                 lea     (word_FF2C04).l,a0
                 lea     (byte_FF1D80).l,a1
                 move.w  #$12,d7
@@ -37999,14 +37984,14 @@ loc_E7F8:
 
 ; END OF FUNCTION CHUNK FOR sub_E87A
 
-off_E80E:       dc.l unk_8024C
+off_E80E:       dc.l MapTileset13+$2398
                 dc.l unk_A024E
                 dc.l Map319+$1A
                 dc.l Map114+$2A7
                 dc.l Map319+$1A
                 dc.l unk_A024C
-                dc.l unk_8024C
-                dc.l unk_60028
+                dc.l MapTileset13+$2398
+                dc.l MapTileset06+$1A82
                 dc.l unk_40006
 
 ; =============== S U B R O U T I N E =======================================

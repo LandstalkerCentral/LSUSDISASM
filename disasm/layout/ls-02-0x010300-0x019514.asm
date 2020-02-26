@@ -6940,7 +6940,7 @@ sub_14312:
                 move.b  #$FF,(byte_FF112C).l
                 move.b  #$FF,(byte_FF112D).l
                 move.b  #$FF,(byte_FF112E).l
-                move.b  #$FF,(byte_FF112F).l
+                move.b  #$FF,(MAP_PALETTE_INDEX).l
                 jmp     (sub_42E).l
 
     ; End of function sub_14312

@@ -17,7 +17,7 @@ j_CheckRegion:
     ; End of function j_CheckRegion
 
                 include "data\maps\entries.asm"    ; Map entry list
-                include "data\graphics\maps\mappalettes\entries.asm"    ; Map palettes entry list
+                include "data\graphics\maps\palettes\entries.asm"    ; Map palettes entry list
                 include "data\maps\global\mapwarps.asm"    ; Map warps
                 include "code\common\tech\regioncheck.asm"    ; Region check code
                 align $120000
