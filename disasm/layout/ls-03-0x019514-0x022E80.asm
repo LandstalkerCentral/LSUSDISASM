@@ -621,7 +621,7 @@ sub_19AC8:
                 jsr     (sub_302).l
                 add.w   d2,d3
                 add.w   d2,d3
-                addi.l  #byte_FFD192,d3
+                addi.l  #HEIGHT_MAP,d3
                 move.w  d3,$28(a1)
                 movea.l d3,a0
                 move.w  (a0),$22(a1)
