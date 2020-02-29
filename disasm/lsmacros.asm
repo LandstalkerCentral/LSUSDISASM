@@ -170,6 +170,11 @@ mapWarp:	macro
 	dc.w \4
 	endm
 	
+spritePalette:	macro
+	dc.b \1
+	dc.b \2
+	endm
+	
 	
 	
 	
