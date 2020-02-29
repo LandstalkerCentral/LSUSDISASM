@@ -6937,7 +6937,7 @@ loc_142C2:
 
 sub_14312:
                 
-                move.b  #$FF,(byte_FF112C).l
+                move.b  #$FF,(MAP_BLOCK_SET).l
                 move.b  #$FF,(byte_FF112D).l
                 move.b  #$FF,(byte_FF112E).l
                 move.b  #$FF,(MAP_PALETTE_INDEX).l

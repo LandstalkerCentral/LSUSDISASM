@@ -15298,11 +15298,11 @@ loc_9EC06:
                 lea     (loc_4000).w,a2
                 jsr     (sub_2F0).l     
                 lea     unk_A0033(pc), a0
-                lea     (byte_FF5C02).l,a1
+                lea     (MAP_BLOCKS).l,a1
                 lea     ($2000).w,a2
                 jsr     (sub_2F0).l     
                 lea     unk_A086F(pc), a0
-                lea     (byte_FF5C02).l,a1
+                lea     (MAP_BLOCKS).l,a1
                 jsr     sub_38608
                 lea     byte_9FA3A(pc), a0
                 lea     (PALETTE_1_BASE).l,a1

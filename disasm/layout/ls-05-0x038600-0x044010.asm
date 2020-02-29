@@ -4617,7 +4617,7 @@ loc_3E682:
                 jsr     (sub_3E6).l
                 jsr     (j_DeactivateIntDMAQueueProcessing).l
                 lea     unk_43D2A(pc), a0
-                lea     (byte_FF5C02).l,a1
+                lea     (MAP_BLOCKS).l,a1
                 lea     (off_20).w,a2   
                 jsr     (sub_2F6).l     
                 jsr     (j_WaitForDMAQueueProcessing).l
@@ -4636,12 +4636,12 @@ loc_3E682:
                 jsr     (j_ApplyVIntVramDMA).l
                 jsr     (j_WaitForDMAQueueProcessing).l
                 lea     unk_3ED9A(pc), a0
-                lea     (byte_FF5C02).l,a1
+                lea     (MAP_BLOCKS).l,a1
                 lea     ($1000).w,a2
                 jsr     (sub_2F6).l     
                 jsr     (j_WaitForDMAQueueProcessing).l
                 lea     unk_41B41(pc), a0
-                lea     (byte_FF5C02).l,a1
+                lea     (MAP_BLOCKS).l,a1
                 lea     (byte_6000).w,a2
                 jsr     (sub_2F6).l     
                 jsr     (j_WaitForDMAQueueProcessing).l

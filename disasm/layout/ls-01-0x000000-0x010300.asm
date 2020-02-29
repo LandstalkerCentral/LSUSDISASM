@@ -1480,8 +1480,8 @@ loc_77C:
 
 Int_AddressError:
                 
-                move.l  #'ADDR',(dword_FFFFF8).l
-                move.l  $A(sp),(dword_FFFFFC).l
+                move.l  #'ADDR',(ERROR_TYPE).l
+                move.l  $A(sp),(ERROR_ADDRESS).l
                 bra.s   EInt
 
     ; End of function Int_AddressError
@@ -1491,8 +1491,8 @@ Int_AddressError:
 
 Int_IllegalInstruction:
                 
-                move.l  #'BAD ',(dword_FFFFF8).l
-                move.l  2(sp),(dword_FFFFFC).l
+                move.l  #'BAD ',(ERROR_TYPE).l
+                move.l  2(sp),(ERROR_ADDRESS).l
                 bra.s   EInt
 
     ; End of function Int_IllegalInstruction
@@ -1502,8 +1502,8 @@ Int_IllegalInstruction:
 
 Int_ZeroDivide:
                 
-                move.l  #'ZERO',(dword_FFFFF8).l
-                move.l  1(sp),(dword_FFFFFC).l
+                move.l  #'ZERO',(ERROR_TYPE).l
+                move.l  1(sp),(ERROR_ADDRESS).l
                 bra.s   EInt
 
     ; End of function Int_ZeroDivide
@@ -1513,8 +1513,8 @@ Int_ZeroDivide:
 
 Int_OtherError:
                 
-                move.l  #'OTHR',(dword_FFFFF8).l
-                move.l  2(sp),(dword_FFFFFC).l
+                move.l  #'OTHR',(ERROR_TYPE).l
+                move.l  2(sp),(ERROR_ADDRESS).l
                 bra.w   *+4
 
     ; End of function Int_OtherError
@@ -4873,7 +4873,7 @@ loc_2744:
                 clr.b   (byte_FF12DE).l
                 clr.b   (byte_FF12DF).l
                 move.l  #byte_FF3900,(dword_FF1840).l
-                move.b  #$FF,(byte_FF112C).l
+                move.b  #$FF,(MAP_BLOCK_SET).l
                 move.b  #$FF,(byte_FF112D).l
                 move.b  #$FF,(byte_FF112E).l
                 move.b  #$FF,(MAP_PALETTE_INDEX).l
@@ -5048,7 +5048,7 @@ sub_2996:
                 
                 move.w  #$8A18,(VDP_REG0A_STATUS).l
                 move.w  #$8A18,(VDP_Control).l
-                move.b  #$FF,(byte_FF112C).l
+                move.b  #$FF,(MAP_BLOCK_SET).l
                 move.b  #$FF,(byte_FF112D).l
                 move.b  #$FF,(byte_FF112E).l
                 move.b  #$FF,(MAP_PALETTE_INDEX).l
@@ -5232,10 +5232,10 @@ loc_2BA4:
                 bsr.w   LoadMapTileset
                 movem.l (sp)+,a2
                 movem.w d4/d7,-(sp)
-                bsr.s   sub_2BC8
+                bsr.s   LoadMapData
                 movem.w (sp)+,d4/d7
-                bsr.w   sub_2CA2
-                bsr.w   SetMapPalette
+                bsr.w   LoadMapBlocks
+                bsr.w   LoadMapPalette
                 bsr.w   sub_4DF6
                 rts
 
@@ -5244,9 +5244,9 @@ loc_2BA4:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2BC8:
+LoadMapData:
                 
-                lea     (byte_FFD192).l,a1
+                lea     (HEIGHT_MAP).l,a1
                 move.w  #$AB1,d7
 loc_2BD2:
                 
@@ -5254,7 +5254,7 @@ loc_2BD2:
                 dbf     d7,loc_2BD2
                 movea.l a2,a0
                 lea     (byte_FF7C02).l,a1
-                jsr     sub_CDAE
+                jsr     DecompressMapData
                 movem.w d0-d4,-(sp)
                 lea     (byte_FF7C02).l,a0
                 move.b  (a0)+,d0
@@ -5279,7 +5279,7 @@ loc_2BD2:
                 add.w   d3,d1
                 movem.w (sp)+,d7
                 movem.w (sp)+,d5
-                lea     (byte_FFD192).l,a1
+                lea     (HEIGHT_MAP).l,a1
                 movem.w d0-d3/d5/d7,-(sp)
                 bsr.s   sub_2C4A
                 movem.w (sp)+,d0-d3/d5/d7
@@ -5288,7 +5288,7 @@ loc_2BD2:
                 movem.w (sp)+,d0-d4
                 rts
 
-    ; End of function sub_2BC8
+    ; End of function LoadMapData
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -5353,17 +5353,17 @@ return_2CA0:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2CA2:
+LoadMapBlocks:
                 
-                movea.l (off_1AF800).l,a2
+                movea.l (p_pt_MapBlocks).l,a2
                 movea.l (a2,d3.w),a2
                 movea.l (dword_FF1874).l,a1
-                cmp.b   (byte_FF112C).l,d3
+                cmp.b   (MAP_BLOCK_SET).l,d3
                 beq.s   loc_2CDA
-                move.b  d3,(byte_FF112C).l
+                move.b  d3,(MAP_BLOCK_SET).l
                 movea.l (a2),a0
-                lea     (byte_FF5C02).l,a1
-                jsr     sub_D09C
+                lea     (MAP_BLOCKS).l,a1
+                jsr     DecompressMapBlocks
                 lsl.w   #3,d0
                 adda.w  d0,a1
                 move.l  a1,(dword_FF1874).l
@@ -5377,12 +5377,12 @@ loc_2CE2:
                 move.b  d2,(byte_FF112D).l
                 lsl.w   #2,d2
                 movea.l 4(a2,d2.w),a0
-                jsr     sub_D09C
+                jsr     DecompressMapBlocks
 return_2CF4:
                 
                 rts
 
-    ; End of function sub_2CA2
+    ; End of function LoadMapBlocks
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -5427,7 +5427,7 @@ loc_2D5C:
 
 ; =============== S U B R O U T I N E =======================================
 
-SetMapPalette:
+LoadMapPalette:
                 
                 bsr.w   sub_87BE
                 lea     DefaultMapPalette(pc), a0
@@ -5454,7 +5454,7 @@ return_2DB2:
                 
                 rts
 
-    ; End of function SetMapPalette
+    ; End of function LoadMapPalette
 
 DefaultMapPalette:
                 dc.w $8EE
@@ -5527,7 +5527,7 @@ loc_2E5A:
                 addq.w  #1,(CURRENT_MAP).l
                 move.w  (CURRENT_MAP).l,d0
                 bsr.w   LoadMap
-                lea     (byte_FFD192).l,a0
+                lea     (HEIGHT_MAP).l,a0
 loc_2E70:
                 
                 cmpa.l  #byte_FFFC5A,a0
@@ -5537,7 +5537,7 @@ loc_2E70:
                 bne.s   loc_2E70
                 move.l  a0,d0
                 subq.w  #2,d0
-                subi.l  #byte_FFD192,d0
+                subi.l  #HEIGHT_MAP,d0
                 divu.w  #$94,d0 
                 move.b  d0,(dword_FF5400+1).l
                 swap    d0
@@ -5836,7 +5836,7 @@ loc_30EA:
                 andi.b  #$FE,d4
                 move.w  (word_FF5412).l,d3
                 lsr.w   #4,d3
-                lea     (byte_FFD192).l,a6
+                lea     (HEIGHT_MAP).l,a6
                 lsr.w   #4,d2
                 jsr     sub_C3AA
                 adda.w  d2,a6
@@ -5881,7 +5881,7 @@ loc_314C:
                 sub.w   d1,d4
                 move.w  (word_FF5412).l,d3
                 lsr.w   #4,d3
-                lea     (byte_FFD192).l,a6
+                lea     (HEIGHT_MAP).l,a6
                 jsr     sub_C3A0
                 adda.w  d1,a6
 loc_3174:
@@ -5940,7 +5940,7 @@ loc_31AA:
                 lsr.w   #1,d4
                 move.w  $12(a5),d3
                 lsr.w   #4,d3
-                lea     (byte_FFD192).l,a6
+                lea     (HEIGHT_MAP).l,a6
                 lsr.w   #4,d2
                 jsr     sub_C3AA
                 adda.w  d2,a6
@@ -5990,7 +5990,7 @@ loc_3202:
                 sub.w   d1,d4
                 move.w  $12(a5),d3
                 lsr.w   #4,d3
-                lea     (byte_FFD192).l,a6
+                lea     (HEIGHT_MAP).l,a6
                 jsr     sub_C3A0
                 adda.w  d1,a6
                 lsr.w   #3,d2
@@ -6151,7 +6151,7 @@ loc_331C:
                 sub.w   d5,d6
                 lsr.w   #4,d2
                 jsr     sub_C3AA
-                lea     (byte_FFD192).l,a6
+                lea     (HEIGHT_MAP).l,a6
                 adda.w  d2,a6
                 move.w  d1,d3
                 lsr.w   #3,d1
@@ -10182,7 +10182,7 @@ sub_4C94:
                 lsl.w   #3,d5
                 adda.w  d5,a3
                 movea.l (dword_FF1840).l,a0
-                lea     (byte_FF5C02).l,a2
+                lea     (MAP_BLOCKS).l,a2
                 move.w  (a1),(a0)+
                 move.l  (a2,d2.w),(a0)+
                 addq.w  #4,a1
@@ -10331,7 +10331,7 @@ sub_4DD8:
                 ext.w   d0
                 ext.w   d1
                 bsr.s   sub_4DEC
-                lea     (byte_FFD192).l,a1
+                lea     (HEIGHT_MAP).l,a1
                 adda.w  d1,a1
                 rts
 
@@ -14982,7 +14982,7 @@ loc_6212:
 
 sub_6224:
                 
-                move.b  #$FF,(byte_FF112C).l
+                move.b  #$FF,(MAP_BLOCK_SET).l
                 move.b  #$FF,(byte_FF112D).l
                 move.b  #$FF,(byte_FF112E).l
                 move.b  #$FF,(MAP_PALETTE_INDEX).l
@@ -22033,7 +22033,7 @@ loc_9600:
                 movem.w d1/d3/d5,-(sp)
                 move.w  (a0),d0
                 movem.w d0,-(sp)
-                suba.l  #byte_FFD192,a0
+                suba.l  #HEIGHT_MAP,a0
                 move.w  a0,d0
                 ext.l   d0
                 divu.w  #$94,d0 
@@ -25444,7 +25444,7 @@ loc_A630:
                 bsr.w   sub_C37E
                 moveq   #$B,d7
                 movea.l (dword_FF1840).l,a0
-                lea     (byte_FF5C02).l,a4
+                lea     (MAP_BLOCKS).l,a4
                 movea.l a4,a5
                 addq.w  #4,a5
 loc_A652:
@@ -25508,7 +25508,7 @@ loc_A6C4:
                 bsr.w   sub_C37E
                 moveq   #$B,d7
                 movea.l (dword_FF1840).l,a0
-                lea     (byte_FF5C02).l,a4
+                lea     (MAP_BLOCKS).l,a4
                 movea.l a4,a5
                 addq.w  #4,a5
 loc_A6E6:
@@ -34012,7 +34012,7 @@ VisitedMapFlagmap:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_CDAE:
+DecompressMapData:
                 
                 movem.l d0-a5,-(sp)
                 link    a6,#-$18
@@ -34453,12 +34453,12 @@ loc_D094:
                 movem.l (sp)+,d0-a5
                 rts
 
-    ; End of function sub_CDAE
+    ; End of function DecompressMapData
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_D09C:
+DecompressMapBlocks:
                 
                 movem.l d1-a5,-(sp)
                 link    a6,#-$20
@@ -34603,7 +34603,7 @@ loc_D194:
                 movem.l (sp)+,d1-a5
                 rts
 
-    ; End of function sub_D09C
+    ; End of function DecompressMapBlocks
 
 
 ; =============== S U B R O U T I N E =======================================
