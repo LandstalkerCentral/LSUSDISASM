@@ -1189,9 +1189,9 @@ loc_1A2B6:
                 
                 cmpi.w  #$2EF,(CURRENT_MAP).l
                 bne.w   loc_1A2D8
-                cmpi.w  #$FE,(byte_FF12DE).l 
+                cmpi.w  #$FE,(word_FF12DE).l 
                 bne.w   return_1A308
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 bra.w   return_1A308
 loc_1A2D8:
                 

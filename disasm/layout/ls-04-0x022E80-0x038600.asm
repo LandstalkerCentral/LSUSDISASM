@@ -1382,8 +1382,6 @@ sub_2345C:
 sub_2346C:
                 
                 bsr.s   sub_2349E
-loc_2346E:
-                
                 bcs.s   loc_23476
                 move.w  #$8AB0,d0
                 bra.s   loc_2347A

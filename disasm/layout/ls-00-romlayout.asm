@@ -10,7 +10,7 @@
                 include "layout\ls-03-0x019514-0x022E80.asm"    ; 0x019514..0x022E80 : To figure out and describe succinctly
                 include "layout\ls-04-0x022E80-0x038600.asm"    ; 0x022E80..0x038600 : To figure out and describe succinctly
                 include "layout\ls-05-0x038600-0x044010.asm"    ; 0x038600..0x044010 : To figure out and describe succinctly
-                include "layout\ls-06-0x044010-0x09B000.asm"    ; 0x044010..0x09B000 : To figure out and describe succinctly
+                include "layout\ls-06-0x044010-0x09B000.asm"    ; 0x044010..0x09B000 : Map Tilesets, Intro Font
                 include "layout\ls-07-0x09B000-0x0A0A00.asm"    ; 0x09B000..0x0A0A00 : To figure out and describe succinctly
                 include "layout\ls-08-0x0A0A00-0x120000.asm"    ; 0x0A0A00..0x120000 : Map data, region check
                 include "layout\ls-09-0x120000-0x1A4400.asm"    ; 0x120000..0x1A4400 : Sprite data

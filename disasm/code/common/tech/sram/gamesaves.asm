@@ -1,5 +1,5 @@
 
-; ASM FILE code\common\tech\gamesaves.asm :
+; ASM FILE code\common\tech\sram\gamesaves.asm :
 ; 0x14F2..0x16B6 : Game save SRAM management
 
 ; =============== S U B R O U T I N E =======================================
