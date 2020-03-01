@@ -1,4 +1,4 @@
-name: Master-branch auto-propagation
+name: feature/romexpansion auto-update
 
 on:
   push:
