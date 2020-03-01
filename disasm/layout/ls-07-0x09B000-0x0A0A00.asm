@@ -20246,9 +20246,9 @@ unk_A0033:      dc.b $FF
                 dc.b $1D
                 dc.b $60 
                 dc.b   2
-unk_A024C:      dc.b  $F
+                dc.b  $F
                 dc.b $E0 
-unk_A024E:      dc.b   2
+                dc.b   2
                 dc.b  $C
                 dc.b $E0 
                 dc.b $B6 

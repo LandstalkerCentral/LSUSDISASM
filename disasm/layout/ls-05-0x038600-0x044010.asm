@@ -10206,7 +10206,7 @@ unk_3ED9A:      dc.b $8A
                 dc.b  $F
                 dc.b $50 
                 dc.b $8F 
-unk_40006:      dc.b $3F 
+                dc.b $3F 
                 dc.b $EF 
                 dc.b $FF
                 dc.b $77 
