@@ -1,6 +1,6 @@
 
 ; GAME SECTION 06 :
-; 0x044010..0x09B000 : To figure out and describe succinctly
+; 0x044010..0x09B000 : Map Tilesets, Intro Font
 ; FREE SPACE : 916 bytes.
 
 

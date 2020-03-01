@@ -17203,7 +17203,7 @@ loc_1AF0BE:
 
 loc_1AF0D8:
                 
-                tst.w   (byte_FF12DE).l
+                tst.w   (word_FF12DE).l
                 beq.w   sub_1AEF04
                 move.l  (a5),d0
                 movem.l d0,-(sp)

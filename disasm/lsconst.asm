@@ -148,8 +148,7 @@ unk_FF0F98: equ $FF0F98
 unk_FF0F99: equ $FF0F99
 unk_FF0F9A: equ $FF0F9A
 unk_FF0F9B: equ $FF0F9B
-byte_FF0F9C: equ $FF0F9C
-byte_FF0F9D: equ $FF0F9D
+word_FF0F9C: equ $FF0F9C
 SOUND_COMMAND_QUEUE: equ $FF0FA0
 DMA_ADDR_MSBYTE: equ $FF0FA8
 RNG_SEED: equ $FF0FAA
@@ -272,8 +271,7 @@ byte_FF1210: equ $FF1210
 byte_FF1218: equ $FF1218
 word_FF12DA: equ $FF12DA
 word_FF12DC: equ $FF12DC
-byte_FF12DE: equ $FF12DE
-byte_FF12DF: equ $FF12DF
+word_FF12DE: equ $FF12DE
 word_FF12E0: equ $FF12E0
 word_FF12E2: equ $FF12E2
 unk_FF12E4: equ $FF12E4

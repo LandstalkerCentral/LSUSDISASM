@@ -989,8 +989,8 @@ loc_1084C:
                 dbf     d0,loc_1084C
 loc_10856:
                 
-                move.b  (a0)+,(byte_FF12DE).l
-                move.b  (a0)+,(byte_FF12DF).l
+                move.b  (a0)+,(word_FF12DE).l
+                move.b  (a0)+,(word_FF12DE+1).l
                 move.l  a0,(dword_FF1870).l
                 rts
 
@@ -2113,7 +2113,7 @@ sub_110D8:
                 
                 cmpi.b  #$30,(dword_FF5400+1).l 
                 bne.w   sub_10F52
-                tst.w   (byte_FF12DE).l
+                tst.w   (word_FF12DE).l
                 bne.w   sub_10F52
                 bra.w   sub_10F4C
 
@@ -2335,7 +2335,7 @@ sub_112E4:
 
 sub_1130A:
                 
-                cmpi.b  #$A,(byte_FF12DE).l
+                cmpi.b  #$A,(word_FF12DE).l
                 bne.w   sub_10F52
                 btst    #1,(byte_FF1004).l
                 beq.w   sub_10F4C
@@ -3099,7 +3099,7 @@ sub_11936:
 
 sub_1195E:
                 
-                cmpi.b  #$FE,(byte_FF12DF).l
+                cmpi.b  #$FE,(word_FF12DE+1).l
                 bne.w   sub_10F52
                 bra.w   sub_10F4C
 
@@ -3660,7 +3660,7 @@ sub_11DA2:
 
 sub_11DC4:
                 
-                cmpi.w  #$FE,(byte_FF12DE).l 
+                cmpi.w  #$FE,(word_FF12DE).l 
                 bne.w   sub_10F52
                 bra.w   sub_10F4C
 
@@ -4654,7 +4654,7 @@ loc_128D6:
                 rts
 loc_12906:
                 
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 rts
 loc_1290E:
                 
@@ -4675,7 +4675,7 @@ loc_1291A:
                 rts
 loc_1294A:
                 
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 rts
 loc_12952:
                 
@@ -4710,7 +4710,7 @@ loc_12988:
                 jsr     (sub_3DA).l
                 jsr     (sub_3E0).l
                 move.b  #$31,(byte_FF114D).l 
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 bset    #4,(MAIN_FLAGS).l
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
@@ -4803,7 +4803,7 @@ loc_12AC8:
 
 loc_12AF2:
                 
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 rts
 loc_12AFA:
                 
@@ -5068,7 +5068,7 @@ loc_12DCE:
                 clr.b   (byte_FF1145).l
                 clr.b   (byte_FF1142).l 
                 clr.b   (byte_FF1143).l
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 bclr    #0,(byte_FF540C).l
                 bclr    #4,(STATUS_BITMAP).l
                 bclr    #2,(byte_FF1153).l
@@ -5095,7 +5095,7 @@ loc_12E48:
                 clr.b   (byte_FF1145).l
                 clr.b   (byte_FF1142).l 
                 clr.b   (byte_FF1143).l
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 bclr    #0,(byte_FF540C).l
                 bclr    #4,(STATUS_BITMAP).l
                 bclr    #2,(byte_FF1153).l
@@ -5598,7 +5598,7 @@ loc_13492:
 loc_134BA:
                 
                 move.b  #$31,(byte_FF114D).l 
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 rts
 loc_134CA:
                 
@@ -5655,7 +5655,7 @@ loc_134D2:
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
                 movem.l (sp)+,d7/a5
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 rts
 
 ; =============== S U B R O U T I N E =======================================
@@ -6029,7 +6029,7 @@ loc_139FA:
                 rts
 loc_13A16:
                 
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 jsr     sub_1A4400
                 move.b  #$28,d0 
                 jmp     (sub_40A).l
@@ -7293,7 +7293,7 @@ loc_14704:
                 bsr.w   loc_12674
                 clr.b   (byte_FF114B).l
                 clr.w   (word_FF0588).l
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 bset    #5,(byte_FF102A).l
                 bra.w   loc_13C64
 
@@ -7534,7 +7534,7 @@ loc_14A46:
                 andi.b  #$3F,(byte_FF5404).l 
                 ori.b   #$80,(byte_FF5404).l
                 jsr     (sub_3EC).l
-                move.w  #$FE,(byte_FF12DE).l 
+                move.w  #$FE,(word_FF12DE).l 
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
@@ -7548,7 +7548,7 @@ loc_14A96:
                 move.w  #$808,(dword_FF5400+2).l
                 ori.b   #$C0,(byte_FF5404).l
                 jsr     (sub_3EC).l
-                move.w  #$FE,(byte_FF12DE).l 
+                move.w  #$FE,(word_FF12DE).l 
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
@@ -7568,7 +7568,7 @@ loc_14ADE:
 
                 sndCom  MUSIC_BLACK_MARKET
                 move.b  #$E,(MUSIC_INDEX).l
-                move.w  #$FE,(byte_FF12DE).l 
+                move.w  #$FE,(word_FF12DE).l 
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
@@ -7692,7 +7692,7 @@ loc_14CA2:
                 move.b  #$21,(byte_FF114B).l 
                 move.b  #$21,(byte_FF114D).l 
                 jsr     (sub_42E).l
-                move.w  #$FE,(byte_FF12DE).l 
+                move.w  #$FE,(word_FF12DE).l 
                 move.b  #$1D,d0
                 jsr     sub_22F0C
                 movem.l (sp)+,d0
@@ -7806,7 +7806,7 @@ loc_14E4E:
                 move.w  #$11F,d0
                 move.w  #$3C,d1 
                 bsr.w   sub_14BF2
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 move.b  #$31,(byte_FF114B).l 
                 jmp     sub_22F14
 loc_14EAA:
@@ -7843,9 +7843,10 @@ loc_14EF8:
                 
                 move.w  #$F3,d0 
                 bra.w   loc_12674
-byte_14F00:
-                
-                sndCom  SFX_MONSTER_SKREECH
+
+; END OF FUNCTION CHUNK FOR sub_120F6
+
+byte_14F00:     sndCom  SFX_MONSTER_SKREECH
                 move.b  #7,(byte_FF1153).l
                 bset    #4,(STATUS_BITMAP).l
                 move.w  #$814D,(word_FF540A).l
@@ -7855,6 +7856,9 @@ byte_14F00:
                 move.b  4(a1),d1
                 bsr.w   sub_1979C
                 rts
+
+; START OF FUNCTION CHUNK FOR sub_120F6
+
 loc_14F3C:
                 
                 move.w  #$F4,d0 
@@ -7898,10 +7902,14 @@ loc_14FCA:
                 
                 move.w  #$121,d0
                 bra.w   loc_12674
-byte_14FD2:
-                
-                sndCom  MUSIC_JINGLE_1
+
+; END OF FUNCTION CHUNK FOR sub_120F6
+
+byte_14FD2:     sndCom  MUSIC_JINGLE_1
                 jmp     (j_PlayMusicAfterCurrentOne).l
+
+; START OF FUNCTION CHUNK FOR sub_120F6
+
 loc_14FDC:
                 
                 move.w  #4,d6
@@ -8144,7 +8152,7 @@ loc_1528E:
                 move.w  #$1E35,(dword_FF5400).l
                 move.w  #$808,(dword_FF5400+2).l
                 bsr.w   byte_14266
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
@@ -15125,7 +15133,7 @@ loc_18522:
                 
                 cmpi.b  #$FF,d3
                 bne.s   loc_18534
-                move.b  (byte_FF0F9D).l,d3
+                move.b  (word_FF0F9C+1).l,d3
                 ror.b   #2,d3
                 andi.b  #$C0,d3
 loc_18534:
@@ -15264,7 +15272,7 @@ loc_186D6:
                 
                 cmpi.b  #$FF,d2
                 bne.s   loc_186E8
-                move.b  (byte_FF0F9D).l,d2
+                move.b  (word_FF0F9C+1).l,d2
                 ror.b   #2,d2
                 andi.b  #$C0,d2
 loc_186E8:
@@ -15740,7 +15748,7 @@ loc_18B24:
                 bra.w   loc_17AC2
 loc_18B32:
                 
-                clr.w   (byte_FF12DE).l
+                clr.w   (word_FF12DE).l
                 bra.w   sub_17ABA
 loc_18B3C:
                 

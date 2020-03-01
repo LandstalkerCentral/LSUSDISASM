@@ -3674,7 +3674,7 @@ sub_39842:
     ; End of function sub_39842
 
 
-; =============== S U B R O U T I N E =======================================
+; START OF FUNCTION CHUNK FOR ExecuteIntroLoop
 
 LoadTitleScreen:
                 
@@ -3764,7 +3764,7 @@ loc_3997C:
                 ori     #1,ccr
                 rts
 
-    ; End of function LoadTitleScreen
+; END OF FUNCTION CHUNK FOR ExecuteIntroLoop
 
 
 ; =============== S U B R O U T I N E =======================================
