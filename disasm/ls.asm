@@ -1,5 +1,6 @@
 
    include "lsmacros.asm"
+   include "lspatches.asm"
    include "lsenums.asm"
    include "lsconst.asm"
 
