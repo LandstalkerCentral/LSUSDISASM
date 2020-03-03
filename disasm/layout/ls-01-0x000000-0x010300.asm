@@ -21,7 +21,7 @@ word_200:       dc.w 0
                 dc.b $30 
                 dc.b $33 
 DebugModeAccessWord:
-                dc.w $FFFF
+                debugModeActivation
 
 ; =============== S U B R O U T I N E =======================================
 

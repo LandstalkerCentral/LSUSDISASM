@@ -55,8 +55,15 @@ disableSram:	macro
 	if (EXPANDED_ROM=1)
 	move.b #$00,($a130f1).l
 	endc
+	endm
+	
+debugModeActivation:	macro
+	if (DEBUG_MODE_ACTIVATION=1)
+	dc.w 0
+	else
+	dc.l $FFFF
+	endc
 	endm	
-
 
 conditionalRomExpand:	macro
 	if (EXPANDED_ROM=1)
