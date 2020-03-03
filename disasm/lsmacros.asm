@@ -61,7 +61,7 @@ debugModeActivation:	macro
 	if (DEBUG_MODE_ACTIVATION=1)
 	dc.w 0
 	else
-	dc.l $FFFF
+	dc.w $FFFF
 	endc
 	endm	
 
