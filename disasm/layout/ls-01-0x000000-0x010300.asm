@@ -34686,7 +34686,9 @@ loc_EFB8:
                 bne.w   loc_EEF6
                 move.w  -4(a6),d0
                 move.b  d0,(SAVE_SLOT).l
+                enableSram
                 jsr     (EraseCurrentSave).l
+                disableSram
                 jsr     (WaitForVInt).l
                 move.w  -4(a6),d0
                 bsr.w   sub_F72E

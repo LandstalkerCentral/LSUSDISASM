@@ -28,13 +28,9 @@ cd ../musicbank1/
 cd ../../../
 echo Assembling game ...
 SET "buildname=lsbuild-%today%-%hour%%minutes%%seconds%.bin"
-@"../tools/asm68k" /e EXPANDED_ROM=0 /o ae-,e+,w+ /p ls.asm, "../build/%buildname%" > ../build/output.log
+@"../tools/asm68k" /e EXPANDED_ROM=1 /o ae-,e+,w+ /p ls.asm, "../build/%buildname%" > ../build/output.log
 echo End of assembly, produced %buildname%
 
 echo -------------------------------------------------------------
-echo Checking build ...
-cd ../build/
-IF EXIST "%buildname%" (IF EXIST ../rom/ls.bin (fc /b "%buildname%" ../rom/ls.bin) ELSE echo ls.bin does not exist in build directory) ELSE echo "%buildname%" does not exist, probably due to an assembly error. Check output.log.
 
 
-pause

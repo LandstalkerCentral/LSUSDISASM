@@ -17,3 +17,4 @@
                 include "layout\ls-10-0x1A4400-0x1AF800.asm"    ; 0x1A4400..0x1AF800 : Code to figure out, Sprite Palettes
                 include "layout\ls-11-0x1AF800-0x1E0000.asm"    ; 0x1AF800..0x1E0000 : Map Blocks
                 include "layout\ls-12-0x1E0000-0x200000.asm"    ; 0x1E0000..0x1F6000 : PCM Bank 0, PCM Bank 1, Music bank 0, Sound driver, Music Bank 1.
+                conditionalRomExpand    ; if EXPANDED_ROM = 1, then include next layout file to fill the ROM up to 0x3FFFFF
