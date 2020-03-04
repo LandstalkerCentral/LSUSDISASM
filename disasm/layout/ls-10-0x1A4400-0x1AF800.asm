@@ -12128,7 +12128,7 @@ loc_1AC04E:
                 move.w  #$100,$2C(a5)
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1AC0AE
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jmp     (sub_488).l
 loc_1AC0AE:
@@ -12416,7 +12416,7 @@ loc_1AC368:
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1AC3A2
                 move.w  #$100,$2C(a5)
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jmp     (sub_488).l
 loc_1AC3A2:
@@ -12800,7 +12800,7 @@ loc_1AC752:
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1AC78C
                 move.w  #$100,$2C(a5)
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jmp     (sub_488).l
 loc_1AC78C:
@@ -13080,7 +13080,7 @@ loc_1ACA26:
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1ACA60
                 move.w  #$100,$2C(a5)
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jmp     (sub_488).l
 loc_1ACA60:
@@ -14236,7 +14236,7 @@ loc_1AD4E0:
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1AD502
                 move.w  #$300,$2C(a5)
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jmp     (sub_488).l
 loc_1AD502:
@@ -14510,7 +14510,7 @@ loc_1AD766:
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1AD788
                 move.w  #$300,$2C(a5)
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jmp     (sub_488).l
 loc_1AD788:
@@ -14784,7 +14784,7 @@ loc_1AD9EC:
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1ADA0E
                 move.w  #$300,$2C(a5)
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jmp     (sub_488).l
 loc_1ADA0E:
@@ -16130,7 +16130,7 @@ loc_1AE6A4:
                 addq.b  #1,$4D(a5)
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1AE6C6
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jmp     (sub_488).l
 loc_1AE6C6:
@@ -16167,7 +16167,7 @@ loc_1AE714:
                 addq.b  #1,$4D(a5)
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1AE736
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jmp     (sub_488).l
 loc_1AE736:
@@ -17373,7 +17373,7 @@ loc_1AF29E:
                 addq.b  #1,$4D(a5)
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1AF2F4
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jsr     (sub_488).l
                 move.b  #1,d0
@@ -17429,7 +17429,7 @@ loc_1AF372:
                 addq.b  #1,$4D(a5)
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1AF398
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jsr     (sub_488).l
                 bra.w   loc_1AF3E4
@@ -17571,7 +17571,7 @@ loc_1AF4FE:
                 addq.b  #1,$4D(a5)
                 cmpi.b  #1,$4D(a5)
                 bne.s   loc_1AF520
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jmp     (sub_488).l
 loc_1AF520:
