@@ -1201,7 +1201,7 @@ unk_23378:      dc.b $FF
 sub_2339E:
                 
                 lea     byte_233BA(pc), a0
-                lea     (unk_A480).l,a1
+                lea     ($A480).l,a1
                 move.w  #$40,d0 
                 jsr     (j_ApplyVIntVramDMA).l
                 jsr     (j_EnableDMAQueueProcessing).l
@@ -1526,7 +1526,7 @@ loc_23566:
 loc_2356A:
                 
                 lea     (byte_FF3900).l,a0
-                lea     (unk_A500).l,a1
+                lea     ($A500).l,a1
                 jsr     (j_ApplyVIntVramDMA).l
                 jmp     (j_WaitForDMAQueueProcessing).l
 
@@ -5802,7 +5802,7 @@ loc_2498E:
 sub_24998:
                 
                 lea     unk_249B4(pc), a0
-                lea     (unk_A480).l,a1
+                lea     ($A480).l,a1
                 move.w  #$40,d0 
                 jsr     (j_ApplyVIntVramDMA).l
                 jsr     (j_EnableDMAQueueProcessing).l

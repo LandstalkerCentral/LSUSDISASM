@@ -8148,7 +8148,7 @@ byte_50B8:      dc.b 0
                 dc.b $C5 
                 dc.b   6
                 dc.b   9
-unk_50C0:       dc.b   0
+                dc.b   0
                 dc.b $D9 
                 dc.b   6
                 dc.b  $A
@@ -22307,7 +22307,7 @@ unk_A3D8:       dc.b   0
                 dc.b $39 
                 dc.b $17
                 dc.b   7
-unk_A480:       dc.b   0
+                dc.b   0
                 dc.b $37 
                 dc.b   0
                 dc.b $39 
@@ -22435,7 +22435,7 @@ unk_A480:       dc.b   0
                 dc.b   5
                 dc.b   2
                 dc.b $77 
-unk_A500:       dc.b   2
+                dc.b   2
                 dc.b $78 
                 dc.b $20
                 dc.b   5
@@ -35184,7 +35184,7 @@ sub_F306:
 
 sub_F30E:
                 
-                lea     (unk_E000).l,a1
+                lea     ($E000).l,a1
 loc_F314:
                 
                 lea     (byte_FF2C00).l,a0
@@ -35583,7 +35583,7 @@ loc_F5CC:
 sub_F5DC:
                 
                 lea     (byte_FF3900).l,a0
-                lea     (unk_50C0).w,a1
+                lea     ($50C0).w,a1
                 move.w  #$480,d0
                 moveq   #2,d1
                 jsr     (j_ApplyImmediateVramDMA).l
