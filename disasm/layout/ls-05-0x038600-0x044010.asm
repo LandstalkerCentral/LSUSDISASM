@@ -4567,7 +4567,7 @@ LoadClimaxLogo:
                 jsr     (j_ApplyVramDMAFill).l
                 lea     ClimaxLogoTileset(pc), a0
                 lea     (byte_FF2C00).l,a1
-                lea     (initStack).w,a2
+                lea     (0).w,a2
                 jsr     (sub_2F0).l     
                 lea     ClimaxLogoLayout(pc), a0
                 lea     (byte_FF2C00).l,a1
@@ -4618,7 +4618,7 @@ loc_3E682:
                 jsr     (j_DeactivateIntDMAQueueProcessing).l
                 lea     unk_43D2A(pc), a0
                 lea     (MAP_BLOCKS).l,a1
-                lea     (off_20).w,a2   
+                lea     ($20).w,a2
                 jsr     (sub_2F6).l     
                 jsr     (j_WaitForDMAQueueProcessing).l
                 lea     unk_43D4C(pc), a0
@@ -4642,7 +4642,7 @@ loc_3E682:
                 jsr     (j_WaitForDMAQueueProcessing).l
                 lea     unk_41B41(pc), a0
                 lea     (MAP_BLOCKS).l,a1
-                lea     (byte_6000).w,a2
+                lea     ($6000).w,a2
                 jsr     (sub_2F6).l     
                 jsr     (j_WaitForDMAQueueProcessing).l
                 lea     unk_41B01(pc), a0

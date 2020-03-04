@@ -12051,7 +12051,7 @@ word_5138:      dc.w 1
                 dc.b $34 
                 dc.b $2B 
                 dc.b $31 
-byte_6000:      dc.b 5
+                dc.b 5
                 dc.b  $A
                 dc.b $11
                 dc.b $39 
@@ -14309,7 +14309,7 @@ sub_77A6:
 loc_77DE:
                 
                 lea     (byte_FF2C00).l,a1
-                lea     (loc_F180).l,a2
+                lea     ($F180).l,a2
                 bsr.w   sub_4A7A
                 bsr.w   WaitForDMAQueueProcessing
 return_77F2:
@@ -19788,7 +19788,7 @@ unk_976C:       dc.b   0
                 dc.b   0
                 dc.b   0
                 dc.b   0
-unk_9880:       dc.b   0
+                dc.b   0
                 dc.b   0
                 dc.b   0
                 dc.b   0
@@ -21795,7 +21795,7 @@ byte_A1A8:      dc.b 0
                 dc.b $38 
                 dc.b   1
                 dc.b $4F 
-unk_A280:       dc.b   1
+                dc.b   1
                 dc.b $3C 
                 dc.b   1
                 dc.b $4E 
@@ -30349,7 +30349,7 @@ loc_C4EA:
 loc_C4F4:
                 
                 lea     (byte_FF2C00).l,a0
-                lea     (loc_F180).l,a1
+                lea     ($F180).l,a1
                 move.w  #$400,d0
                 jmp     (ApplyVIntVramDMA).l
 
@@ -31390,7 +31390,7 @@ loc_D9B2:
                 bsr.w   sub_DA84
                 bsr.w   sub_DA84
                 lea     (byte_FF2C84).l,a0
-                lea     (loc_1500).w,a1
+                lea     ($1500).w,a1
                 move.w  #$140,d0
                 move.w  #2,d1
                 jsr     (ApplyImmediateVramDMA).l
@@ -31424,7 +31424,7 @@ loc_DA16:
                 move.b  d3,d6
                 bsr.w   sub_DA62
                 lea     (byte_FF2C84).l,a0
-                lea     (initStack).w,a1
+                lea     (0).w,a1
                 move.w  #$A80,d0
                 move.w  #2,d1
                 jsr     (ApplyVIntVramDMA).l
@@ -34920,8 +34920,6 @@ sub_F13A:
                 move.w  d7,$18(a3)
                 movem.l d2-d3/a4-a6,-(sp)
                 jsr     (sub_468A).l
-loc_F180:
-                
                 jsr     (EnableDMAQueueProcessing).l
                 movem.l (sp)+,d2-d3/a4-a6
                 rts

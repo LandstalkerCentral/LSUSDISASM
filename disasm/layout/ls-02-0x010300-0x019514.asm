@@ -7055,7 +7055,7 @@ loc_1445A:
                 
                 movem.l a5,-(sp)
                 move.b  #1,d0
-                lea     (loc_F180).l,a2
+                lea     ($F180).l,a2
                 jsr     (sub_488).l
                 move.l  #$C03A0000,(VDP_Control).l
                 move.w  #$8C,d1 
@@ -7069,7 +7069,7 @@ loc_1445A:
                 move.l  #$C05A0000,(VDP_Control).l
                 move.w  #$8C,(VDP_Data).l 
                 move.w  #$2C,(VDP_Data).l 
-                lea     (unk_9880).l,a2
+                lea     ($9880).l,a2
                 move.b  #1,d0
                 jsr     (sub_488).l
                 movem.l (sp)+,a5
@@ -8282,7 +8282,7 @@ byte_1547C:     sndCom  SFX_SHLARF
                 jsr     (sub_3F8).l
                 movem.l (sp)+,a5
                 jsr     (j_WaitForDMAQueueProcessing).l
-                lea     (loc_F180).l,a2
+                lea     ($F180).l,a2
                 move.b  #1,d0
                 jsr     (sub_488).l
                 move.l  #$C05A0000,(VDP_Control).l
@@ -11272,7 +11272,7 @@ loc_16E96:
                 adda.l  d1,a0
                 movea.l (a0),a0
                 lea     (byte_FF2C00).l,a1
-                lea     (unk_A280).l,a2
+                lea     ($A280).l,a2
                 cmpi.b  #$18,(VDP_REG0A_VALUE).l
                 beq.s   loc_16EC2
                 jmp     (sub_2F6).l     
