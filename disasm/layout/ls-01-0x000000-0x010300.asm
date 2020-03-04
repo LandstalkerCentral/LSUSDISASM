@@ -5698,7 +5698,7 @@ word_4040:      dc.w $433E
 sub_4042:
                 
                 move.l     dword_436E(pc), (dword_FF1850).l
-                move.w     word_4372(pc), (word_FF1854).l
+                move.w     off_4372(pc), (word_FF1854).l
                 move.l     sub_409E(pc), (dword_FF1858).l
                 move.w     sub_409E+4(pc), (word_FF185C).l
                 bsr.s   sub_40A4
@@ -5716,7 +5716,7 @@ loc_4074:
                 move.w  #$FFFF,(a1)
                 bsr.w   sub_4266
                 move.l     dword_436E(pc), (dword_FF1850).l
-                move.w     word_4372(pc), (word_FF1854).l
+                move.w     off_4372(pc), (word_FF1854).l
                 rts
 
     ; End of function sub_4042
@@ -6056,7 +6056,7 @@ loc_436A:
     ; End of function sub_433C
 
 dword_436E:     dc.l $4EF90000
-word_4372:      dc.w $DD6
+off_4372:       dc.w ApplyVIntVramDMA   
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -6419,10 +6419,13 @@ unk_467A:       dc.b   1
 
 ; =============== S U B R O U T I N E =======================================
 
+; Loads sprite
+; d0=sprite index
+
 sub_468A:
                 
                 move.l     dword_436E(pc), (dword_FF1850).l
-                move.w     word_4372(pc), (word_FF1854).l
+                move.w     off_4372(pc), (word_FF1854).l
                 lea     (p_pt_Sprites).l,a4
                 movea.l (a4),a0
                 lsl.w   #2,d0
@@ -6464,7 +6467,7 @@ sub_46DA:
 sub_46DC:
                 
                 move.l     dword_436E(pc), (dword_FF1850).l
-                move.w     word_4372(pc), (word_FF1854).l
+                move.w     off_4372(pc), (word_FF1854).l
                 bra.s   loc_471C
 
     ; End of function sub_46DC
@@ -34763,7 +34766,7 @@ loc_F086:
 loc_F08E:
                 
                 bsr.w   sub_F8B6
-                bsr.w   sub_F13A
+                bsr.w   sub_F13A        
                 jsr     (WaitForVInt).l
                 bsr.w   sub_F306
                 bra.w   loc_F01A
@@ -34900,6 +34903,8 @@ loc_F122:
 
 ; =============== S U B R O U T I N E =======================================
 
+; loads Nigel sprite in game save screen ?
+
 sub_F13A:
                 
                 bsr.w   sub_F18C
@@ -34919,7 +34924,7 @@ sub_F13A:
                 move.w  d7,$10(a3)
                 move.w  d7,$18(a3)
                 movem.l d2-d3/a4-a6,-(sp)
-                jsr     (sub_468A).l
+                jsr     (sub_468A).l    
                 jsr     (EnableDMAQueueProcessing).l
                 movem.l (sp)+,d2-d3/a4-a6
                 rts
@@ -34990,7 +34995,7 @@ sub_F1E4:
 sub_F1FA:
                 
                 bsr.s   sub_F1E4
-                bsr.w   sub_F13A
+                bsr.w   sub_F13A        
                 rts
 
     ; End of function sub_F1FA
@@ -36115,7 +36120,7 @@ sub_F9D6:
                 jsr     (DuplicatePalettes).l
                 jsr     (WaitForVInt).l
                 bsr.w   sub_F306
-                bsr.s   sub_FA24
+                bsr.s   sub_FA24        
                 move.w  -2(a4),d0
                 unlk    a4
                 rts
@@ -36124,6 +36129,8 @@ sub_F9D6:
 
 
 ; =============== S U B R O U T I N E =======================================
+
+; Game save menu behaviour
 
 sub_FA24:
                 
@@ -36150,7 +36157,7 @@ loc_FA58:
                 bsr.s   sub_FABC
                 bsr.w   sub_F8B6
                 jsr     (WaitForVInt).l
-                bra.s   sub_FA24
+                bra.s   sub_FA24        
 loc_FA6C:
                 
                 move.w  -2(a4),d0
@@ -36832,7 +36839,7 @@ loc_FF32:
                 bsr.w   sub_10014
                 move.w  #$46,d0 
                 bsr.w   sub_FFE2
-                bsr.w   sub_F13A
+                bsr.w   sub_F13A        
                 move.w  #4,d0
                 bsr.w   sub_1007E
                 jsr     (WaitForVInt).l
