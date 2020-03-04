@@ -5680,8 +5680,8 @@ unk_400C:       dc.b   4
 
 sub_401C:
                 
-                move.l     dword_403C(pc), (dword_FF1858).l
-                move.w     word_4040(pc), (word_FF185C).l
+                move.l     sub_403C(pc), (dword_FF1858).l
+                move.w     sub_403C+4(pc), (word_FF185C).l
                 bsr.s   sub_40A4
                 bsr.w   sub_40F2
                 bsr.w   sub_4980
@@ -5690,15 +5690,22 @@ sub_401C:
 
     ; End of function sub_401C
 
-dword_403C:     dc.l $4EF90000
-word_4040:      dc.w $433E
+
+; =============== S U B R O U T I N E =======================================
+
+sub_403C:
+                
+                jmp     (sub_433E).l
+
+    ; End of function sub_403C
+
 
 ; =============== S U B R O U T I N E =======================================
 
 sub_4042:
                 
-                move.l     dword_436E(pc), (dword_FF1850).l
-                move.w     off_4372(pc), (word_FF1854).l
+                move.l     j_ApplyVIntVramDMA_0(pc), (dword_FF1850).l
+                move.w     j_ApplyVIntVramDMA_0+4(pc), (word_FF1854).l
                 move.l     sub_409E(pc), (dword_FF1858).l
                 move.w     sub_409E+4(pc), (word_FF185C).l
                 bsr.s   sub_40A4
@@ -5715,8 +5722,8 @@ loc_4074:
                 dbmi    d7,loc_4074
                 move.w  #$FFFF,(a1)
                 bsr.w   sub_4266
-                move.l     dword_436E(pc), (dword_FF1850).l
-                move.w     off_4372(pc), (word_FF1854).l
+                move.l     j_ApplyVIntVramDMA_0(pc), (dword_FF1850).l
+                move.w     j_ApplyVIntVramDMA_0+4(pc), (word_FF1854).l
                 rts
 
     ; End of function sub_4042
@@ -5986,9 +5993,6 @@ loc_42BC:
 loc_42BE:
                 
                 movem.w d2/d6,-(sp)
-
-    ; End of function sub_427C
-
                 movem.l a1-a2,-(sp)
                 bsr.w   loc_45DE
                 bsr.w   sub_473E
@@ -5996,7 +6000,9 @@ loc_42BE:
                 tst.b   d0
                 beq.s   loc_42DC
                 bset    #0,$C(a1)
-loc_42DC:       bsr.w   sub_4374
+loc_42DC:
+                
+                bsr.w   sub_4374
                 movem.w (sp)+,d2/d6
                 cmpi.w  #$3FF,d2
                 bcs.s   loc_4318
@@ -6004,34 +6010,54 @@ loc_42DC:       bsr.w   sub_4374
                 bne.s   loc_42F6
                 bsr.w   WaitForDMAQueueProcessing
                 bra.s   loc_4318
-loc_42F6:       cmpi.w  #$456,d2
+loc_42F6:
+                
+                cmpi.w  #$456,d2
                 bcs.s   loc_4318
                 bset    #1,d6
                 bne.s   loc_4308
                 bsr.w   WaitForDMAQueueProcessing
                 bra.s   loc_4318
-loc_4308:       cmpi.w  #$4AD,d2
+loc_4308:
+                
+                cmpi.w  #$4AD,d2
                 bcs.s   loc_4318
                 bset    #2,d6
                 bne.s   loc_4318
                 bsr.w   WaitForDMAQueueProcessing
-loc_4318:       tst.w   (DebugModeAccessWord).w
+loc_4318:
+                
+                tst.w   (DebugModeAccessWord).w
                 bmi.s   return_4336
                 cmpi.w  #$4F4,d2
                 bcs.s   return_4336
                 moveq   #$A,d7
-byte_4326:      dc.b $4E, $40, 0, $56
+byte_4326:
+                
+                dc.b $4E, $40, 0, $56
                 move.w  #3,d0
                 bsr.w   Sleep           
                 dbf     d7,byte_4326
-return_4336:    rts
-dword_4338:     dc.l $4EF90000
+return_4336:
+                
+                rts
+
+    ; End of function sub_427C
+
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_433C:
+j_ApplyImmediateVramDMA_0:
                 
-                btst    d6,-(a2)
+                jmp     (ApplyImmediateVramDMA).l
+
+    ; End of function j_ApplyImmediateVramDMA_0
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_433E:
+                
                 bclr    #7,$48(a1)
                 beq.s   loc_434E
                 bclr    #7,$A(a1)
@@ -6053,10 +6079,17 @@ loc_436A:
                 bsr.s   sub_437A
                 rts
 
-    ; End of function sub_433C
+    ; End of function sub_433E
 
-dword_436E:     dc.l $4EF90000
-off_4372:       dc.w ApplyVIntVramDMA   
+
+; =============== S U B R O U T I N E =======================================
+
+j_ApplyVIntVramDMA_0:
+                
+                jmp     (ApplyVIntVramDMA).l
+
+    ; End of function j_ApplyVIntVramDMA_0
+
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -6424,8 +6457,8 @@ unk_467A:       dc.b   1
 
 sub_468A:
                 
-                move.l     dword_436E(pc), (dword_FF1850).l
-                move.w     off_4372(pc), (word_FF1854).l
+                move.l     j_ApplyVIntVramDMA_0(pc), (dword_FF1850).l
+                move.w     j_ApplyVIntVramDMA_0+4(pc), (word_FF1854).l
                 lea     (p_pt_Sprites).l,a4
                 movea.l (a4),a0
                 lsl.w   #2,d0
@@ -6466,8 +6499,8 @@ sub_46DA:
 
 sub_46DC:
                 
-                move.l     dword_436E(pc), (dword_FF1850).l
-                move.w     off_4372(pc), (word_FF1854).l
+                move.l     j_ApplyVIntVramDMA_0(pc), (dword_FF1850).l
+                move.w     j_ApplyVIntVramDMA_0+4(pc), (word_FF1854).l
                 bra.s   loc_471C
 
     ; End of function sub_46DC
@@ -6496,8 +6529,8 @@ sub_46EE:
 sub_470A:
                 
                 bsr.s   sub_46EE
-                move.l     dword_4338(pc), (dword_FF1850).l
-                move.w     sub_433C(pc), (word_FF1854).l
+                move.l     j_ApplyImmediateVramDMA_0(pc), (dword_FF1850).l
+                move.w     j_ApplyImmediateVramDMA_0+4(pc), (word_FF1854).l
 loc_471C:
                 
                 lea     (p_pt_Sprites).l,a4
