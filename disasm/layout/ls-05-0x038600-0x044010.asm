@@ -4630,7 +4630,7 @@ loc_3E682:
                 bsr.w   sub_3EB5E
                 jsr     (j_WaitForVInt).l
                 lea     (byte_FF2C00).l,a0
-                lea     (RomStartAdr).w,a1
+                lea     ($1A0).w,a1
                 move.w  (asc_140).w,d0  
                 moveq   #2,d1
                 jsr     (j_ApplyVIntVramDMA).l
