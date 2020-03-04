@@ -15295,7 +15295,7 @@ loc_9EC06:
                 jsr     (j_ApplyVramDMAFill).l
                 lea     unk_9FA42(pc), a0
                 lea     (byte_FF2C00).l,a1
-                lea     (loc_4000).w,a2
+                lea     ($4000).w,a2
                 jsr     (sub_2F0).l     
                 lea     unk_A0033(pc), a0
                 lea     (MAP_BLOCKS).l,a1

@@ -12,8 +12,6 @@ CheckSRAM:
 loc_14FE:
                 
                 move.b  (a1)+,d0
-loc_1500:
-                
                 cmp.b   (a0),d0
                 bne.s   InitializeSRAM
                 addq.w  #2,a0
