@@ -33091,7 +33091,7 @@ sub_EFF0:
                 jsr     (j_WaitForVInt).l
                 bsr.w   sub_F306
                 clr.b   -$19(a6)
-                move.l  #$F2D1,-$16(a6)
+                move.l  #unk_F2D1,-$16(a6)
                 move.b  (P1_INPUT).l,d0 
                 move.b  d0,-8(a6)
 loc_F01A:
@@ -33249,7 +33249,7 @@ sub_F0F8:
                 movea.l -$16(a6),a0
                 cmpi.b  #$F,(a0)
                 beq.s   loc_F116
-                move.l  #$F2DB,-$16(a6)
+                move.l  #unk_F2DB,-$16(a6)
                 clr.b   -$17(a6)
                 clr.b   -$18(a6)
                 clr.b   -$19(a6)
