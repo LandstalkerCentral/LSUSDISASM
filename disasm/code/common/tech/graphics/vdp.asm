@@ -171,7 +171,7 @@ loc_922:
 
 ; =============== S U B R O U T I N E =======================================
 
-AppyDMAForCRAM:
+ApplyDMAForCRAM:
                 
                 movem.l a6,-(sp)
                 movea.l (DMA_QUEUE_POINTER).l,a6
@@ -184,7 +184,7 @@ AppyDMAForCRAM:
                 movem.l (sp)+,a6
                 rts
 
-    ; End of function AppyDMAForCRAM
+    ; End of function ApplyDMAForCRAM
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -281,7 +281,7 @@ loc_9E0:
                 bsr.s   sub_9FC
                 move.w  d0,(a1)+
                 dbf     d5,loc_9E0
-                bsr.w   AppyDMAForCRAM
+                bsr.w   ApplyDMAForCRAM
                 bsr.w   EnableDMAQueueProcessing
                 add.w   d4,d3
                 move.w  d3,(word_FF0F50).l
@@ -369,7 +369,7 @@ loc_A72:
                 bsr.s   sub_A94
                 move.w  d0,(a1)+
                 dbf     d5,loc_A72
-                bsr.w   AppyDMAForCRAM
+                bsr.w   ApplyDMAForCRAM
                 bsr.w   EnableDMAQueueProcessing
                 move.w  #4,d0
                 bsr.w   Sleep           
@@ -604,7 +604,7 @@ loc_BE0:
 sub_BF6:
                 
                 movem.l d5-d7,-(sp)
-                lea     (unk_E000).l,a6
+                lea     ($E000).l,a6
                 lsl.w   #1,d5
                 move.w  (HORIZONTAL_SCROLL_DATA+2).l,d7
                 lsr.w   #2,d7
@@ -735,7 +735,7 @@ loc_D2C:
                 move.l  #$94009300,d2
                 move.b  d0,d2
                 lsl.l   #8,d0
-                andi.l  #byte_FF0000,d0
+                andi.l  #$FF0000,d0
                 or.l    d0,d2
                 move.l  d2,(a6)
                 move.l  #$96009500,d2
@@ -743,7 +743,7 @@ loc_D2C:
                 lsr.l   #1,d0
                 move.b  d0,d2
                 lsl.l   #8,d0
-                andi.l  #byte_FF0000,d0
+                andi.l  #$FF0000,d0
                 or.l    d0,d2
                 move.l  d2,(a6)
                 move.l  a0,d0

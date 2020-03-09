@@ -972,10 +972,10 @@ sub_23244:
 sub_2324E:
                 
                 move.l  (dword_FF1878).l,d7
-                jsr     (sub_338).l
+                jsr     (j_WriteAsciiNumber).l
                 lea     (byte_FF119E).l,a1
                 move.l  a1,(dword_FF1844).l
-                lea     (byte_FF0F92).l,a0
+                lea     (LOADED_NUMBER).l,a0
                 moveq   #9,d1
 loc_2326E:
                 
