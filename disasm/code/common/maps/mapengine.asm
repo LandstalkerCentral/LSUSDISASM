@@ -21,14 +21,14 @@ sub_2824:
                 bsr.s   sub_2896
                 jsr     sub_10388
                 bsr.w   sub_2DCE
-                bsr.w   sub_9EF8
+                bsr.w   sub_9EF8        
                 bsr.w   sub_A114
                 bsr.w   sub_7274
                 bsr.w   WaitForDMAQueueProcessing
                 bsr.w   sub_4042
                 bsr.w   WaitForDMAQueueProcessing
                 bsr.w   sub_401C
-                bsr.w   sub_9D36
+                bsr.w   sub_9D36        
                 bsr.w   loc_29E8
                 bsr.w   WaitForDMAQueueProcessing
                 bsr.w   sub_76EC
@@ -259,7 +259,7 @@ sub_2AF2:
                 
                 btst    #4,(byte_FF1003).l
                 beq.s   return_2B46
-                lea     unk_2B48(pc), a0
+                lea     word_2B48(pc), a0
                 move.w  (CURRENT_MAP).l,d0
                 moveq   #2,d7
 loc_2B08:
@@ -283,12 +283,9 @@ return_2B46:
 
     ; End of function sub_2AF2
 
-unk_2B48:       dc.b   2
-                dc.b $76 
-                dc.b   2
-                dc.b $7E 
-                dc.b   1
-                dc.b $C6 
+word_2B48:      dc.w $276
+                dc.w $27E
+                dc.w $1C6
 
 ; =============== S U B R O U T I N E =======================================
 

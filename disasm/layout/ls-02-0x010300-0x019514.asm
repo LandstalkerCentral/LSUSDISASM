@@ -10388,7 +10388,7 @@ sub_16978:
 loc_16986:
                 
                 lsr.w   #8,d7
-                jsr     (sub_338).l
+                jsr     (j_WriteAsciiNumber).l
                 lea     (unk_FF0F99).l,a0
                 lea     (byte_FF1CB4).l,a1
                 tst.b   (a0)+
@@ -10415,7 +10415,7 @@ sub_169B2:
 loc_169C0:
                 
                 lsr.w   #8,d7
-                jsr     (sub_338).l
+                jsr     (j_WriteAsciiNumber).l
                 lea     (unk_FF0F99).l,a0
                 lea     (byte_FF1CAE).l,a1
                 tst.b   (a0)+
@@ -10800,7 +10800,7 @@ sub_16C3C:
                 moveq   #0,d7
 loc_16C4E:
                 
-                jsr     (sub_338).l
+                jsr     (j_WriteAsciiNumber).l
                 lea     (unk_FF0F9A).l,a0
                 lea     (byte_FF1CBE).l,a1
                 tst.b   (a0)+
@@ -10821,7 +10821,7 @@ sub_16C6E:
                 movem.l d0-d2/d7-a1,-(sp)
                 moveq   #0,d7
                 move.w  (GOLD).l,d7
-                jsr     (sub_338).l
+                jsr     (j_WriteAsciiNumber).l
                 lea     (unk_FF0F97).l,a0
                 lea     (byte_FF1CC2).l,a1
                 tst.b   (a0)+
