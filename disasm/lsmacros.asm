@@ -47,13 +47,13 @@ declareRomEnd:	macro
 
 enableSram:	macro
 	if (EXPANDED_ROM=1)
-	move.b #$03,($a130f1).l
+	move.b #$01,($a130f1).l
 	endc
 	endm
 	
 disableSram:	macro
 	if (EXPANDED_ROM=1)
-	move.b #$00,($a130f1).l
+	move.b #$02,($a130f1).l
 	endc
 	endm	
 
