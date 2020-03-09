@@ -38,7 +38,7 @@ MainLoop:
                 bsr.w   sub_249A
                 bsr.w   RequestVDPCommandQueueProcessing
                 bsr.w   EnableDMAQueueProcessing
-                move.w  (word_200).w,d0
+                move.w  (MainLoopDelay).w,d0
                 bsr.w   Sleep           
                 jsr     sub_10384
                 tst.b   d0
