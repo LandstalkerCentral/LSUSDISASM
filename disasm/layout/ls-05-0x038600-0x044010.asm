@@ -116,26 +116,19 @@ loc_386AA:
                 
                 move.w  #0,(VDP_Data).l
                 dbf     d7,loc_386AA
-                lea     byte_386C2(pc), a0
+                lea     word_386C2(pc), a0
                 moveq   #6,d0
                 jmp     (j_CopyPalette).l
 
     ; End of function sub_3869C
 
-byte_386C2:     dc.b 0
-                dc.b   0
-                dc.b  $E
-                dc.b $EE 
-                dc.b   8
-                dc.b $88 
-                dc.b   4
-                dc.b $44 
-                dc.b  $E
-                dc.b $AA 
-                dc.b  $E
-                dc.b $44 
-                dc.b  $E
-                dc.b   0
+word_386C2:     dc.w 0
+                dc.w $EEE
+                dc.w $888
+                dc.w $444
+                dc.w $EAA
+                dc.w $E44
+                dc.w $E00
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -227,43 +220,27 @@ loc_38A88:
 
 sub_38AA2:
                 
-                lea     byte_38AAC(pc), a0
+                lea     word_38AAC(pc), a0
                 jmp     (j_CopyPalette).l
 
     ; End of function sub_38AA2
 
-byte_38AAC:     dc.b 0
-                dc.b   0
-                dc.b  $C
-                dc.b $CC 
-                dc.b   6
-                dc.b $66 
-                dc.b   2
-                dc.b $22 
-                dc.b   2
-                dc.b $60 
-                dc.b   8
-                dc.b $E0 
-                dc.b  $A
-                dc.b $22 
-                dc.b  $E
-                dc.b $C8 
-                dc.b   0
-                dc.b $AA 
-                dc.b  $A
-                dc.b $EE 
-                dc.b   0
-                dc.b  $A
-                dc.b  $C
-                dc.b $AE 
-                dc.b   4
-                dc.b   6
-                dc.b  $C
-                dc.b $6E 
-                dc.b   0
-                dc.b   0
-                dc.b   4
-                dc.b $44 
+word_38AAC:     dc.w 0
+                dc.w $CCC
+                dc.w $666
+                dc.w $222
+                dc.w $260
+                dc.w $8E0
+                dc.w $A22
+                dc.w $EC8
+                dc.w $AA
+                dc.w $AEE
+                dc.w $A
+                dc.w $CAE
+                dc.w $406
+                dc.w $C6E
+                dc.w 0
+                dc.w $444
 unk_38ACC:      dc.b $AF 
                 dc.b   0
                 dc.b  $C
@@ -3898,7 +3875,7 @@ loc_39AA8:
                 move.w  -6(a6),d0
                 ext.l   d0
                 lea     (word_FF0082).l,a0
-                lea     byte_39B04(pc), a1
+                lea     word_39B04(pc), a1
                 clr.b   d6
                 moveq   #$E,d7
 loc_39ABC:
@@ -3943,62 +3920,34 @@ return_39B02:
 
     ; End of function sub_39AD6
 
-byte_39B04:     dc.b 0
-                dc.b $1A
-                dc.b   0
-                dc.b   0
-                dc.b   2
-                dc.b   0
-                dc.b   4
-                dc.b   0
-                dc.b   6
-                dc.b   0
-                dc.b   8
-                dc.b   0
-                dc.b  $A
-                dc.b   0
-                dc.b  $C
-                dc.b   0
-                dc.b  $E
-                dc.b   0
-                dc.b  $E
-                dc.b $22 
-                dc.b  $E
-                dc.b $44 
-                dc.b  $E
-                dc.b $66 
-                dc.b  $E
-                dc.b $88 
-                dc.b  $E
-                dc.b $AA 
-                dc.b  $E
-                dc.b $CC 
-                dc.b  $E
-                dc.b $EE 
-                dc.b  $E
-                dc.b $EE 
-                dc.b  $E
-                dc.b $CC 
-                dc.b  $E
-                dc.b $AA 
-                dc.b  $E
-                dc.b $88 
-                dc.b  $E
-                dc.b $66 
-                dc.b  $E
-                dc.b $44 
-                dc.b  $E
-                dc.b $22 
-                dc.b  $E
-                dc.b   0
-                dc.b  $C
-                dc.b   0
-                dc.b  $A
-                dc.b   0
-                dc.b   8
-                dc.b   0
-                dc.b   6
-                dc.b   0
+word_39B04:     dc.w $1A
+                dc.w 0
+                dc.w $200
+                dc.w $400
+                dc.w $600
+                dc.w $800
+                dc.w $A00
+                dc.w $C00
+                dc.w $E00
+                dc.w $E22
+                dc.w $E44
+                dc.w $E66
+                dc.w $E88
+                dc.w $EAA
+                dc.w $ECC
+                dc.w $EEE
+                dc.w $EEE
+                dc.w $ECC
+                dc.w $EAA
+                dc.w $E88
+                dc.w $E66
+                dc.w $E44
+                dc.w $E22
+                dc.w $E00
+                dc.w $C00
+                dc.w $A00
+                dc.w $800
+                dc.w $600
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -4080,7 +4029,7 @@ loc_39BBA:
                 move.w  -$A(a6),d0
                 ext.l   d0
                 lea     (byte_FF00A2).l,a0
-                lea     unk_39C3C(pc), a1
+                lea     word_39C3C(pc), a1
                 clr.b   d6
                 andi.b  #7,d0
                 bne.s   loc_39BEC
@@ -4148,16 +4097,11 @@ loc_39C34:
 
     ; End of function sub_39BF2
 
-unk_39C3C:      dc.b   0
-                dc.b $EC 
-                dc.b   2
-                dc.b $AA 
-                dc.b   0
-                dc.b $66 
-                dc.b   0
-                dc.b $44 
-                dc.b   2
-                dc.b $22 
+word_39C3C:     dc.w $EC
+                dc.w $2AA
+                dc.w $66
+                dc.w $44
+                dc.w $222
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -4182,14 +4126,14 @@ loc_39C56:
                 moveq   #$E,d7
 loc_39C6C:
                 
-                lea     unk_39CA0(pc), a1
+                lea     word_39CA0(pc), a1
                 bsr.s   sub_39BF2
                 dbf     d7,loc_39C6C
                 lea     (byte_FF00A2).l,a0
                 moveq   #$E,d7
 loc_39C7E:
                 
-                lea     unk_39CA2(pc), a1
+                lea     word_39CA2(pc), a1
                 bsr.w   sub_39BF2
                 dbf     d7,loc_39C7E
                 addq.b  #1,-$1D(a6)
@@ -4203,10 +4147,8 @@ loc_39C9A:
 
     ; End of function sub_39C46
 
-unk_39CA0:      dc.b  $E
-                dc.b   0
-unk_39CA2:      dc.b   0
-                dc.b $EE 
+word_39CA0:     dc.w $E00
+word_39CA2:     dc.w $EE
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -4679,7 +4621,7 @@ loc_3E682:
                 jsr     (j_UpdateBackgroundVScrollData).l
                 jsr     (j_ClearSpriteTable).l
                 bsr.w   sub_3EC76
-                lea     byte_43E2E(pc), a0
+                lea     word_43E2E(pc), a0
                 lea     (PALETTE_1_BASE).l,a1
                 moveq   #$F,d7
 loc_3E7DC:
@@ -4959,7 +4901,7 @@ loc_3EA0C:
                 move.b  #5,2(a1)
                 move.w  -$84(a6),d7
                 lsl.w   #2,d7
-                lea     unk_3EADE(pc), a0
+                lea     word_3EADE(pc), a0
                 bsr.w   sub_3EA28
                 bra.w   loc_3EA62
 
@@ -5007,7 +4949,7 @@ loc_3EA74:
                 moveq   #$FFFFFFFF,d2
 loc_3EA76:
                 
-                lea     unk_3EAF6(pc), a0
+                lea     word_3EAF6(pc), a0
                 move.w  -$84(a6),d0
                 lsl.w   #2,d0
                 lea     8(a1),a1
@@ -5048,54 +4990,30 @@ loc_3EAD8:
 
 ; END OF FUNCTION CHUNK FOR sub_3E9F8
 
-unk_3EADE:      dc.b   1
-                dc.b $78 
-                dc.b   0
-                dc.b $C8 
-                dc.b   1
-                dc.b $98 
-                dc.b   0
-                dc.b $F0 
-                dc.b   1
-                dc.b $68 
-                dc.b   1
-                dc.b $10
-                dc.b   1
-                dc.b $28 
-                dc.b   0
-                dc.b $E8 
-                dc.b   0
-                dc.b $C8 
-                dc.b   1
-                dc.b   0
-                dc.b   0
-                dc.b $C0 
-                dc.b   0
-                dc.b $C0 
-unk_3EAF6:      dc.b   1
-                dc.b $88 
-                dc.b   0
-                dc.b $D8 
-                dc.b   1
-                dc.b $80 
-                dc.b   0
-                dc.b $FC 
-                dc.b   1
-                dc.b $70 
-                dc.b   1
-                dc.b $30 
-                dc.b   1
-                dc.b $10
-                dc.b   0
-                dc.b $D8 
-                dc.b   0
-                dc.b $C0 
-                dc.b   0
-                dc.b $F4 
-                dc.b   0
-                dc.b $B0 
-                dc.b   0
-                dc.b $DA 
+word_3EADE:     dc.w $178
+                dc.w $C8
+                dc.w $198
+                dc.w $F0
+                dc.w $168
+                dc.w $110
+                dc.w $128
+                dc.w $E8
+                dc.w $C8
+                dc.w $100
+                dc.w $C0
+                dc.w $C0
+word_3EAF6:     dc.w $188
+                dc.w $D8
+                dc.w $180
+                dc.w $FC
+                dc.w $170
+                dc.w $130
+                dc.w $110
+                dc.w $D8
+                dc.w $C0
+                dc.w $F4
+                dc.w $B0
+                dc.w $DA
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -26118,70 +26036,37 @@ unk_43D4C:      dc.b $FF
                 dc.b   0
                 dc.b   0
                 dc.b $FF
-byte_43E2E:     dc.b 0
-                dc.b   0
-                dc.b  $C
-                dc.b $CC 
-                dc.b   0
-                dc.b   2
-                dc.b   0
-                dc.b $24 
-                dc.b   2
-                dc.b $46 
-                dc.b   4
-                dc.b $68 
-                dc.b   0
-                dc.b $20
-                dc.b   2
-                dc.b $42 
-                dc.b   4
-                dc.b $64 
-                dc.b   2
-                dc.b $22 
-                dc.b   4
-                dc.b $44 
-                dc.b   8
-                dc.b $88 
-                dc.b   6
-                dc.b $AE 
-                dc.b   2
-                dc.b $28 
-                dc.b  $E
-                dc.b $46 
-                dc.b   0
-                dc.b   0
-                dc.b   0
-                dc.b   0
-                dc.b  $C
-                dc.b $CC 
-                dc.b  $A
-                dc.b $62 
-                dc.b  $A
-                dc.b $40 
-                dc.b  $C
-                dc.b $84 
-                dc.b   8
-                dc.b $20
-                dc.b   6
-                dc.b   0
-                dc.b   0
-                dc.b  $E
-                dc.b   6
-                dc.b $20
-                dc.b   8
-                dc.b $40 
-                dc.b   2
-                dc.b   0
-                dc.b   2
-                dc.b $22 
-                dc.b   2
-                dc.b $22 
-                dc.b   2
-                dc.b $22 
-                dc.b   2
-                dc.b $22 
-                dc.b   0
-                dc.b   0
-                dc.b $FF
-                dc.b $FF
+word_43E2E:     dc.w 0
+                dc.w $CCC
+                dc.w 2
+                dc.w $24
+                dc.w $246
+                dc.w $468
+                dc.w $20
+                dc.w $242
+                dc.w $464
+                dc.w $222
+                dc.w $444
+                dc.w $888
+                dc.w $6AE
+                dc.w $228
+                dc.w $E46
+                dc.w 0
+                dc.w 0
+                dc.w $CCC
+                dc.w $A62
+                dc.w $A40
+                dc.w $C84
+                dc.w $820
+                dc.w $600
+                dc.w $E
+                dc.w $620
+                dc.w $840
+                dc.w $200
+                dc.w $222
+                dc.w $222
+                dc.w $222
+                dc.w $222
+                dc.w 0
+                dc.w $FFFF
                 align $044010

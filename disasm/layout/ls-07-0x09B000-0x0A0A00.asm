@@ -15304,7 +15304,7 @@ loc_9EC06:
                 lea     unk_A086F(pc), a0
                 lea     (MAP_BLOCKS).l,a1
                 jsr     sub_38608
-                lea     byte_9FA3A(pc), a0
+                lea     word_9FA3A(pc), a0
                 lea     (PALETTE_1_BASE).l,a1
                 move.l  (a0)+,(a1)+
                 move.l  (a0)+,(a1)+
@@ -18180,14 +18180,10 @@ loc_9FA10:
 
     ; End of function sub_9F96A
 
-byte_9FA3A:     dc.b 0
-                dc.b   0
-                dc.b  $C
-                dc.b $CC 
-                dc.b   8
-                dc.b $88 
-                dc.b   4
-                dc.b $44 
+word_9FA3A:     dc.w 0
+                dc.w $CCC
+                dc.w $888
+                dc.w $444
 unk_9FA42:      dc.b $DF 
                 dc.b   9
                 dc.b   0

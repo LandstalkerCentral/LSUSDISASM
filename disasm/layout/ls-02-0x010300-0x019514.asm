@@ -5559,7 +5559,8 @@ loc_13456:
 byte_1345E:     sndCom  SOUND_COMMAND_FFFADE_OUT
                 move.w  #$B4,d0 
                 jsr     (j_Sleep).l
-                dc.b $4E, $40, 0, $2C
+                trap    #0
+                dc.w MUSIC_A_BALLAD_FOR_PRINCESS_LORIA
                 rts
 
 ; START OF FUNCTION CHUNK FOR sub_120F6
@@ -5620,7 +5621,8 @@ loc_134D2:
                 jsr     (sub_36E).l
                 move.w  #1,d6
                 bsr.w   sub_135D0
-                dc.b $4E, $40, 0, $28
+                trap    #0
+                dc.w MUSIC_FRIDAYS_MEMORY
                 move.w  #$78,d0 
                 jsr     (j_Sleep).l
                 move.w  #$6A,d0 
@@ -5635,7 +5637,8 @@ loc_134D2:
                 bsr.w   loc_15852
                 move.w  #$6C,d0 
                 bsr.w   loc_12674
-                dc.b $4E, $40, $FF, $FD
+                trap    #0
+                dc.w SOUND_COMMAND_FFFADE_OUT
                 move.w  #4,d6
                 bsr.w   sub_135D0
                 clr.b   (byte_FF114B).l
@@ -8307,7 +8310,8 @@ loc_154EE:      movem.w d7,-(sp)
                 bsr.w   loc_12674
                 jsr     (sub_46A).l
                 jsr     (j_DuplicatePalettes).l
-                dc.b $4E, $40, 0, $29
+                trap    #0
+                dc.w MUSIC_DIVINE_GUARDIAN_OF_THE_MAZE
                 lea     (byte_FF5580).l,a5
                 jmp     sub_1A4400
 
@@ -9953,24 +9957,22 @@ loc_1659A:
                 beq.s   loc_165C2
                 ext.w   d1
                 add.b   d1,d1
-                move.w  word_165C6(pc,d1.w),d1
+                move.w  return_165C6(pc,d1.w),d1
                 mulu.w  d1,d0
                 divu.w  #$100,d0
 loc_165C2:
                 
                 movem.w (sp)+,d1/d6-d7
+return_165C6:
+                
+                rts
 
     ; End of function sub_1657E
 
-word_165C6:     dc.w $4E75
-                dc.b   1
-                dc.b $C0 
-                dc.b   1
-                dc.b $80 
-                dc.b   2
-                dc.b   0
-                dc.b   1
-                dc.b $40 
+                dc.w $1C0
+                dc.w $180
+                dc.w $200
+                dc.w $140
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -14692,7 +14694,8 @@ loc_180DC:      movea.l a0,a5
                 bsr.w   sub_16134
                 bra.s   loc_18104
 loc_180FC:      bsr.w   sub_1602A
-                dc.b $4E, $40, 0, $67
+                trap    #0
+                dc.w SFX_ENEMY_HIT
 loc_18104:      movem.l (sp)+,a5
 loc_18108:      cmpi.b  #$59,$B(a5) 
                 bne.s   loc_18122
@@ -15373,7 +15376,7 @@ loc_187F0:
                 
                 clr.w   d0
                 move.b  $36(a5),d0
-                bne.s   byte_18850
+                bne.s   loc_18850
 
 ; END OF FUNCTION CHUNK FOR sub_178FE
 
@@ -15398,7 +15401,8 @@ loc_18832:      jsr     (j_WaitForDMAQueueProcessing).l
                 jsr     sub_22E90
                 jsr     sub_22EA0
                 bra.s   loc_188BC
-byte_18850:     dc.b $4E, $40, 0, $6A
+loc_18850:      trap    #0
+                dc.w SFX_HEALTH_RESTORE
                 cmpa.l  #dword_FF5400,a0
                 beq.s   loc_1886A
                 add.b   d0,$36(a0)

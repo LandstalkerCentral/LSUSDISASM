@@ -1,0 +1,51 @@
+Extracted from Landstalker Sprite Viewer release.txt
+To describe more formally and put into good use in future tools.
+
+Technical Info
+--------------
+
+The graphics data starts off at offset 0x120000, which provides the offset to
+the animations pointer table. After this ponter, there is a table of words that
+provide relative offsets to the animation pointer table. Each offset represents
+one sprite. 
+
+The animations pointer table has pointers each leading to rows in the frame
+pointer table. The frame pointer table has pointers leading to each individual
+frame of a sprite animation.
+
+Well done if you followed all of that. It is rather amusing to note that
+$120000 is a pointer to a pointer to a pointer to a pointer to the image of
+Nigel standing with his back turned to the camera.
+
+The graphical data starts off with a 2 byte header:
+ _ _ _ _ _ _ _ _   _ _ _ _ _ _ _ _
+|_|_|_|_|_|_|_|_| |_|_|_|_|_|_|_|_|
+ ^ <-------> <->   ^ <-------> <->
+ 0     y      w    e     x      h
+
+y = y-coordinate  (pixels/2 )
+x = x-coordinate  (pixels/2 )
+w = sprite width  (tiles - 1)
+h = sprite height (tiles - 1)
+e = end of header
+
+If the e bit is clear, it means that there is an additional header, describing
+an additional sprite. This can go on for multiple sprites. Most sprites in the
+game are made up of composite sprites set up to make one big image.
+
+After the sprite header, there is a 2 byte graphical data header:
+ _ _ _ _ _ _ _ _   _ _ _ _ _ _ _ _
+|_|_|_|_|_|_|_|_| |_|_|_|_|_|_|_|_|
+ ^ ^ ^ <------------------------->
+ F E C    size of data in words
+
+F = fill tiledata with [size] words of $0000
+E = end of graphical data.
+C = following data is RLE-compressed. Uncompressed data = [size] words
+
+if F or C is not set, then the data immediately following is raw bitmap pixels
+for the following [size] words.
+
+If E is not set then there is another block of graphical information preceded by
+the same header as above immediately following the raw data.
+
