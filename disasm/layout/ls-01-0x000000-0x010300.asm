@@ -33336,7 +33336,7 @@ loc_F1A2:
                 nop
                 cmpa.l  -$16(a6),a0
                 bne.s   loc_F1C8
-                move.l  #$F2D1,-$16(a6)
+                move.l  #unk_F2D1,-$16(a6)
 loc_F1C8:
                 
                 bra.s   sub_F18C
@@ -33362,7 +33362,7 @@ loc_F1D4:
 
 sub_F1E4:
                 
-                move.l  #$F2CE,-$16(a6)
+                move.l  #unk_F2CE,-$16(a6)
                 clr.b   -$19(a6)
                 clr.b   -$17(a6)
                 clr.b   -$18(a6)
@@ -33512,10 +33512,10 @@ unk_F2BE:       dc.b   0
                 dc.b $34 
                 dc.b   1
                 dc.b $1C
-                dc.b   1
+unk_F2CE:       dc.b   1
                 dc.b   1
                 dc.b   0
-                dc.b   3
+unk_F2D1:       dc.b   3
                 dc.b  $A
                 dc.b  $A
                 dc.b  $A
