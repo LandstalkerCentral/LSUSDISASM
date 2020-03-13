@@ -2,42 +2,33 @@
 ; ASM FILE code\gameflow\start\systeminit.asm :
 ; 0x4B8..0x75E : System Initialization
 
-; START OF FUNCTION CHUNK FOR InitializeSystem
+; =============== S U B R O U T I N E =======================================
 
-loc_4B8:
+sub_4B8:
                 
                 lea     (initStack).w,sp
                 bra.s   loc_4CE
-
-; END OF FUNCTION CHUNK FOR InitializeSystem
-
-
-; START OF FUNCTION CHUNK FOR sub_15530
-
 loc_4BE:
                 
                 lea     (initStack).w,sp
-
-; END OF FUNCTION CHUNK FOR sub_15530
-
                 sndCom  SOUND_COMMAND_FFFADE_OUT
                 move.w  #$B4,d0 
                 bsr.w   Sleep           
-
-; START OF FUNCTION CHUNK FOR InitializeSystem
-
 loc_4CE:
                 
                 bsr.w   DisableDisplayAndInterrupts
                 bsr.s   InitializeVDP
                 bsr.s   InitializeVDPData
                 jmp     (StartGame).l
-loc_4DC:
+
+    ; End of function sub_4B8
+
+
+; =============== S U B R O U T I N E =======================================
+
+sub_4DC:
                 
                 lea     (initStack).w,sp
-
-; END OF FUNCTION CHUNK FOR InitializeSystem
-
                 sndCom  SOUND_COMMAND_FFFADE_OUT
                 bsr.w   sub_9A8
                 move.w  #$B4,d0 
@@ -46,6 +37,9 @@ loc_4DC:
                 bsr.s   InitializeVDP
                 bsr.s   InitializeVDPData
                 jmp     (loc_16CA).l
+
+    ; End of function sub_4DC
+
 
 ; =============== S U B R O U T I N E =======================================
 
