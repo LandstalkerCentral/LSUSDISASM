@@ -6,7 +6,7 @@
 
                 include "code\romheader.asm"    ; ROM header
 MainLoopDelay:  dc.w 0
-                dc.b '93/07/13 20:03'
+BuildDate:      dc.b '93/07/13 20:03'
 DebugModeAccessWord:
                 debugModeActivation
 
@@ -4901,8 +4901,8 @@ unk_400C:       dc.b   4
 
 sub_401C:
                 
-                move.l     sub_403C(pc), (dword_FF1858).l
-                move.w     sub_403C+4(pc), (word_FF185C).l
+                move.l     loc_403C(pc), (dword_FF1858).l
+                move.w     loc_403C+4(pc), (word_FF185C).l
                 bsr.s   sub_40A4
                 bsr.w   sub_40F2
                 bsr.w   sub_4980
@@ -4911,15 +4911,7 @@ sub_401C:
 
     ; End of function sub_401C
 
-
-; =============== S U B R O U T I N E =======================================
-
-sub_403C:
-                
-                jmp     (sub_433E).l
-
-    ; End of function sub_403C
-
+loc_403C:       jmp     (sub_433E).l
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -5253,13 +5245,12 @@ loc_4318:
                 cmpi.w  #$4F4,d2
                 bcs.s   return_4336
                 moveq   #$A,d7
-loc_4326:
+byte_4326:
                 
-                trap    #0
-                dc.w SFX_BLOB
+                sndCom  SFX_BLOB
                 move.w  #3,d0
                 bsr.w   Sleep           
-                dbf     d7,loc_4326
+                dbf     d7,byte_4326
 return_4336:
                 
                 rts
@@ -5303,15 +5294,8 @@ loc_436A:
 
     ; End of function sub_433E
 
-
-; =============== S U B R O U T I N E =======================================
-
 j_ApplyVIntVramDMA_0:
-                
                 jmp     (ApplyVIntVramDMA).l
-
-    ; End of function j_ApplyVIntVramDMA_0
-
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -7444,8 +7428,7 @@ unk_512C:       dc.b $32
                 dc.b $12
                 dc.b   1
                 dc.b   1
-                dc.b   0
-                dc.b   1
+                dc.w 1
                 dc.b   0
                 dc.b   1
                 dc.b  $B
@@ -17769,6 +17752,8 @@ loc_8DF6:
                 move.b  #1,(byte_FF1159).l
                 bsr.w   sub_C46A        
                 jsr     (EnableDMAQueueProcessing).l
+loc_8E08:
+                
                 move.w  #$222,d1
                 move.w  #5,d7
 loc_8E10:
@@ -17783,6 +17768,8 @@ loc_8E10:
                 dbf     d7,loc_8E10
                 move.l  #$C07E0000,(VDP_Control).l
                 move.w  #0,(VDP_Data).l
+loc_8E50:
+                
                 move.w  #0,(word_FF0F4E).l
                 move.w  #0,(word_FF00FE).l
                 move.w  #$3C,d0 
@@ -17790,6 +17777,8 @@ loc_8E10:
                 sndCom  MUSIC_LABYRINTH
                 move.b  #$2B,(MUSIC_INDEX).l 
                 move.w  #$78,d0 
+loc_8E7A:
+                
                 jsr     (Sleep).l       
                 lea     word_903C(pc), a0
                 lea     (byte_FF00F4).l,a1
@@ -17838,6 +17827,8 @@ loc_8ECE:
                 lea     (PALETTE_1_BASE).l,a0
                 lea     (PALETTE_1_CURRENT).l,a1
                 move.w  #$39,d5 
+loc_8EDE:
+                
                 jsr     (sub_9CE).l
                 move.w  #2,d0
                 jsr     (Sleep).l       
@@ -17856,6 +17847,8 @@ sub_8EF4:
 loc_8EFE:
                 
                 lea     (PALETTE_1_BASE).l,a0
+loc_8F04:
+                
                 lea     (PALETTE_1_CURRENT).l,a1
                 move.w  #$39,d5 
                 jsr     (sub_9CE).l
@@ -28853,8 +28846,6 @@ sub_C57A:
 loc_C584:
                 
                 moveq   #3,d7
-loc_C586:
-                
                 move.w  d1,(a0)+
                 move.b  #$D,(a0)
                 addq.l  #2,a0
@@ -28862,11 +28853,12 @@ loc_C586:
                 move.w  d0,(a0)+
                 addq.w  #8,d2
                 addi.w  #$20,d0 
-                dbf     d7,loc_C586
-                rts
 
 ; END OF FUNCTION CHUNK FOR sub_C56E
 
+                dc.b $51 
+                dc.b $CF 
+                dc.l $FFEC4E75
                 include "data\scripting\text\intro\entries.asm"    ; Intro Text Block Entries
                 include "data\maps\global\visitedmapsflags.asm"    ; Visited Maps Flag Map
                 include "code\common\maps\maploading.asm"    ; Map Loading
