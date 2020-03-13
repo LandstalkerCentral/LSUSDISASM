@@ -9,7 +9,7 @@ StartGame:
                 lea     (initStack).w,sp
                 jsr     j_DisplaySegaLogo
                 jsr     j_ExecuteIntroLoop
-                bcc.w   loc_4B8
+                bcc.w   sub_4B8
 loc_16CA:
                 
                 bsr.w   sub_26E8
@@ -18,7 +18,7 @@ loc_16D2:
                 
                 bsr.w   MainLoop
                 bcc.s   loc_16D2
-                bra.w   loc_4DC
+                bra.w   sub_4DC
 
     ; End of function StartGame
 
