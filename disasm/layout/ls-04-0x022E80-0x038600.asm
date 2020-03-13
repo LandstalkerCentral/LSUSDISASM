@@ -6863,26 +6863,14 @@ sub_25318:
 
     ; End of function sub_25318
 
-                dc.b   1
-                dc.b $39 
-                dc.b $1F
-                dc.b   0
-                dc.b   1
-                dc.b $56 
-                dc.b $1E
-                dc.b   0
-                dc.b   1
-                dc.b $55 
-                dc.b $1D
-                dc.b   0
-                dc.b   1
-                dc.b $50 
-                dc.b $1C
-                dc.b   0
-                dc.b   1
-                dc.b $40 
-                dc.b $1B
-                dc.b   0
+                btst    d0,($1F000156).l
+                move.b  d0,d7
+                bchg    d0,(a5)
+                move.b  d0,-(a6)
+                bchg    d0,(a0)
+                move.b  d0,d6
+                bchg    d0,d0
+                move.b  d0,-(a5)
                 dc.b   1
                 dc.b $31 
                 dc.b $1A
@@ -13817,24 +13805,12 @@ word_2769A:     dc.w $1211
                 move.w  #$2E,d0 
                 bsr.w   sub_29232
                 beq.s   loc_276B6
-
-; =============== S U B R O U T I N E =======================================
-
-sub_276B0:
-                
                 trap    #1
                 dc.w $122B
                 bra.s   return_276BA
-loc_276B6:
-                
-                trap    #1
+loc_276B6:      trap    #1
                 dc.w $122F
-return_276BA:
-                
-                rts
-
-    ; End of function sub_276B0
-
+return_276BA:   rts
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -19720,8 +19696,6 @@ off_28EB2:      dc.w sub_28EBA-off_28EB2
 sub_28EBA:
                 
                 move.l  d0,-(sp)
-loc_28EBC:
-                
                 bsr.w   sub_28F9E
                 sndCom  MUSIC_ITEM_CHEST
                 move.w  (word_FF1196).l,d0
@@ -23725,8 +23699,6 @@ byte_2A4C6:     dc.b 0
 sub_2A4D0:
                 
                 bsr.w   sub_28F9E
-loc_2A4D4:
-                
                 move.w  #$1F,d0
                 bsr.w   sub_28FD8
                 clr.l   (dword_FF1878).l

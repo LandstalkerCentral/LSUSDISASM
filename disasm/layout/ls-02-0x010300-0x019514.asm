@@ -15401,7 +15401,15 @@ loc_18832:      jsr     (j_WaitForDMAQueueProcessing).l
                 jsr     sub_22E90
                 jsr     sub_22EA0
                 bra.s   loc_188BC
-loc_18850:      trap    #0
+
+; START OF FUNCTION CHUNK FOR sub_178FE
+
+loc_18850:
+                
+                trap    #0
+
+; END OF FUNCTION CHUNK FOR sub_178FE
+
                 dc.w SFX_HEALTH_RESTORE
                 cmpa.l  #dword_FF5400,a0
                 beq.s   loc_1886A
