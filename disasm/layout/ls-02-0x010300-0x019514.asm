@@ -1681,12 +1681,12 @@ loc_10BE2:
                 btst    #0,(byte_FF1039).l
                 bne.w   loc_10C86
                 move.b  #0,d0
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.b   d1
                 beq.w   loc_10C7C
                 bmi.w   loc_10C7C
                 subq.b  #1,d1
-                jsr     sub_22F0C
+                jsr     j_ConsumeOneItem
                 move.b  #1,(byte_FF114B).l
                 move.b  #$11,(byte_FF114D).l
                 move.w  #$3C,d0 
@@ -2906,7 +2906,7 @@ sub_117CC:
 sub_117E8:
                 
                 move.b  #ITEM_ARMLET,d0
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.w   sub_10F52
                 bra.w   sub_10F4C
@@ -3053,7 +3053,7 @@ sub_118EA:
 sub_118FA:
                 
                 move.b  #$2A,d0 
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.w   sub_10F52
                 bra.w   sub_10F4C
@@ -3401,7 +3401,7 @@ sub_11B70:
 sub_11B86:
                 
                 move.b  #$1E,d0
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.w   sub_10F52
                 bra.w   sub_10F4C
@@ -3633,7 +3633,7 @@ sub_11D7E:
 sub_11D8E:
                 
                 move.b  #$17,d0
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.w   sub_10F52
                 bra.w   sub_10F4C
@@ -3672,7 +3672,7 @@ sub_11DC4:
 sub_11DD4:
                 
                 move.b  #$32,d0 
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.w   sub_10F52
                 beq.w   sub_10F52
@@ -3813,7 +3813,7 @@ sub_11EBC:
                 cmpi.b  #$14,(dword_FF5400).l
                 bne.w   sub_10F52
                 move.b  #$2F,d0 
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.w   sub_10F4C
                 cmpi.b  #2,d1
@@ -3828,7 +3828,7 @@ sub_11EBC:
 sub_11EFC:
                 
                 move.b  #$1A,d0
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.w   sub_10F52
                 bra.w   sub_10F4C
@@ -4003,15 +4003,15 @@ sub_12024:
                 cmpi.b  #$16,(dword_FF5400+1).l
                 bne.w   sub_10F52
                 move.b  #$37,d0 
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.w   sub_10F52
                 move.b  #$38,d0 
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.w   sub_10F52
                 move.b  #$39,d0 
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.w   sub_10F52
                 bra.w   sub_10F4C
@@ -5918,7 +5918,7 @@ loc_138C4:
 loc_138DE:
                 
                 move.b  #$27,d0 
-                jsr     sub_22F0C
+                jsr     j_ConsumeOneItem
                 move.w  #$2C,d0 
                 bsr.w   loc_12674
                 move.b  #$5B,(byte_FF114B).l 
@@ -6063,8 +6063,8 @@ loc_13A5E:
                 lea     (byte_FF5A00).l,a5
                 jsr     sub_1A4400
                 movem.l (sp)+,a5
-                move.b  #$1F,d0
-                jmp     sub_22F0C
+                move.b  #ITEM_ARMLET,d0
+                jmp     j_ConsumeOneItem
 loc_13A90:
                 
                 move.w  #$7D,d0 
@@ -6349,9 +6349,9 @@ loc_13D6E:
 loc_13D76:
                 
                 move.b  #$28,d0 
-                jsr     sub_22F0C
+                jsr     j_ConsumeOneItem
                 move.b  #$2A,d0 
-                jsr     sub_22F0C
+                jsr     j_ConsumeOneItem
                 move.w  #$91,d0 
                 bra.w   loc_12674
 loc_13D92:
@@ -6756,7 +6756,7 @@ loc_14058:
                 beq.w   loc_140C2
                 bsr.w   sub_1584A
                 move.b  #0,d0
-                jsr     sub_22F0C
+                jsr     j_ConsumeOneItem
                 jsr     sub_10368
                 bset    #0,(word_FF1024).l
                 jsr     sub_1A4400
@@ -6874,7 +6874,7 @@ loc_14228:
                 bsr.s   byte_14266
                 bset    #0,(byte_FF1001).l
                 move.b  #$1E,d0
-                jsr     sub_22F0C
+                jsr     j_ConsumeOneItem
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
@@ -7697,7 +7697,7 @@ loc_14CA2:
                 jsr     (sub_42E).l
                 move.w  #$FE,(word_FF12DE).l 
                 move.b  #$1D,d0
-                jsr     sub_22F0C
+                jsr     j_ConsumeOneItem
                 movem.l (sp)+,d0
                 movem.l (sp)+,a5
                 movem.l (sp)+,d0
@@ -10794,7 +10794,7 @@ sub_16C3C:
                 
                 moveq   #0,d7
                 move.b  #0,d0
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 move.b  d1,d7
                 bpl.s   loc_16C4E
                 moveq   #0,d7
@@ -15382,7 +15382,7 @@ loc_187F0:
                 cmpa.l  #dword_FF5400,a0
                 bne.w   loc_188BC
                 move.b  $77(a5),d0
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 addq.b  #1,d1
                 bne.s   loc_18816
                 addq.b  #1,d1
