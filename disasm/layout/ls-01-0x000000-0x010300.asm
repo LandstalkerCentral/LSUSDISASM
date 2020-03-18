@@ -11806,7 +11806,7 @@ loc_6694:
 loc_6698:
                 
                 move.b  #$35,d0 
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.s   return_66AA
                 bsr.w   sub_8B44
@@ -12772,7 +12772,7 @@ word_7116:
                 dc.w $C8
 loc_711E:
                 
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 cmpi.b  #9,d1
                 beq.w   loc_71BC
                 addq.b  #1,d1
@@ -17351,7 +17351,7 @@ loc_89C6:
                 subi.w  #$C,d7
                 move.b  unk_89E0(pc,d7.w),d0
                 move.b  #9,d1
-                jsr     sub_22ED4
+                jsr     j_CheckAndSetOwnedItemQuantity
 loc_89D8:
                 
                 bsr.w   sub_8B98
@@ -17546,9 +17546,9 @@ sub_8B90:
 sub_8B98:
                 
                 move.b  (byte_FF1152).l,d0
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 subq.w  #1,d1
-                jsr     sub_22F0C
+                jsr     j_ConsumeOneItem
                 bsr.w   sub_D4AE
                 rts
 
@@ -17691,7 +17691,7 @@ sub_8CF6:
                 jsr     sub_22EF8
                 move.b  #0,d0
                 move.b  #9,d1
-                jsr     sub_22ED4
+                jsr     j_CheckAndSetOwnedItemQuantity
                 move.w  #$FFFF,d0
                 lea     (dword_FF5400).l,a5
                 jsr     sub_10338
@@ -17714,7 +17714,7 @@ loc_8D44:
                 jsr     sub_103AA
                 move.b  #0,d0
                 move.b  #0,d1
-                jsr     sub_22ED4
+                jsr     j_CheckAndSetOwnedItemQuantity
                 jsr     sub_10368
                 jsr     sub_1036C
                 jsr     sub_10340
@@ -20426,7 +20426,7 @@ return_A14A:
 sub_A14C:
                 
                 movem.l d1-d2/a0-a1,-(sp)
-                lea     stru_A3D8(pc), a0
+                lea     MapVariantTriggersTable(pc), a0
                 lea     (MAIN_FLAGS).l,a1
 loc_A15A:
                 
@@ -20458,7 +20458,7 @@ sub_A180:
                 
                 movem.l d1-d3/a0-a1,-(sp)
                 move.w  d0,d3
-                lea     stru_A3D8(pc), a0
+                lea     MapVariantTriggersTable(pc), a0
                 lea     (MAIN_FLAGS).l,a1
 loc_A190:
                 
@@ -20759,7 +20759,8 @@ word_A35A:      dc.w $31D
                 dc.w $325
                 dc.w $323
                 dc.w $FFFF
-stru_A3D8:      MapVariantTrigger $B9, $BA, 0, 3
+MapVariantTriggersTable:
+                MapVariantTrigger $B9, $BA, 0, 3
                 MapVariantTrigger $C0, $C1, 0, 3
                 MapVariantTrigger $CF, $D0, 0, 3
                 MapVariantTrigger $DB, $DC, 0, 3
@@ -28804,7 +28805,7 @@ unk_D55C:       dc.b   0
 
 sub_D584:
                 
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 cmpi.w  #$FFFF,d1
                 bne.s   loc_D592
                 rts
@@ -28825,7 +28826,7 @@ loc_D59C:
                 lea     -$D6(a0),a0
                 movem.l a0,-(sp)
                 bsr.s   sub_D5E4
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 movem.l (sp)+,a0
                 tst.w   d2
                 bne.s   return_D5C6
@@ -29563,7 +29564,7 @@ sub_DB28:
                 add.w   d1,d0
                 lea     $5C(a0),a0
                 move.b  (a0,d0.w),d0
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 beq.s   byte_DBBC
                 cmpi.w  #$FFFF,d1
@@ -29686,7 +29687,7 @@ loc_DC38:
 loc_DC42:
                 
                 move.b  (a0),d0
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.s   loc_DC52
                 move.b  (a0),(a1)+
@@ -32245,7 +32246,7 @@ sub_ECA6:
                 tst.b   d0
                 bmi.s   loc_ECB6
                 move.l  d2,-(sp)
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 move.l  (sp)+,d2
                 bra.s   loc_ECBC
 loc_ECB6:
@@ -32478,7 +32479,7 @@ loc_EE12:
                 move.b  (a2,d0.w),d0
                 tst.b   d0
                 bmi.w   loc_EE44
-                jsr     sub_22ED0
+                jsr     j_GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bmi.w   loc_EE80
 loc_EE44:

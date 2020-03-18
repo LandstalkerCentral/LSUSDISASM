@@ -171,20 +171,20 @@ sub_22ECC:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_22ED0:
+j_GetOwnedItemQuantityEnriched:
                 
-                jmp     sub_29192(pc)
+                jmp     GetOwnedItemQuantityEnriched(pc)
 
-    ; End of function sub_22ED0
+    ; End of function j_GetOwnedItemQuantityEnriched
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_22ED4:
+j_CheckAndSetOwnedItemQuantity:
                 
-                jmp     sub_291B6(pc)
+                jmp     CheckAndSetOwnedItemQuantity(pc)
 
-    ; End of function sub_22ED4
+    ; End of function j_CheckAndSetOwnedItemQuantity
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -306,11 +306,11 @@ sub_22F08:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_22F0C:
+j_ConsumeOneItem:
                 
-                jmp     sub_2921C(pc)
+                jmp     ConsumeOneItem(pc)
 
-    ; End of function sub_22F0C
+    ; End of function j_ConsumeOneItem
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -13968,7 +13968,7 @@ loc_27774:      trap    #1
                 dc.b $81 
                 bsr.w   sub_28FE8
                 bcc.s   loc_277B2
-                bsr.w   sub_2921C
+                bsr.w   ConsumeOneItem
                 trap    #1
                 dc.b $14
                 dc.b $7B 
@@ -20148,12 +20148,14 @@ loc_2918C:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_29192:
+; d0=item index | d1=quantity owned, d2=can carry multiple units
+
+GetOwnedItemQuantityEnriched:
                 
                 move.l  a0,-(sp)
-                bsr.w   sub_29260
+                bsr.w   GetOwnedItemQuantity
                 subq.w  #1,d1
-                bsr.w   sub_292F4
+                bsr.w   GetItemDescriptionAddress
                 move.b  (a0),d2
                 andi.w  #$F,d2
                 cmpi.w  #1,d2
@@ -20168,17 +20170,19 @@ loc_291B2:
                 movea.l (sp)+,a0
                 rts
 
-    ; End of function sub_29192
+    ; End of function GetOwnedItemQuantityEnriched
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_291B6:
+; d0=item index, d1=quantity owned
+
+CheckAndSetOwnedItemQuantity:
                 
                 movem.l d1-d2/a0,-(sp)
                 move.b  d1,d2
                 ext.w   d2
-                bsr.w   sub_292B8
+                bsr.w   GetMaxQuantityForItem
                 cmp.w   d1,d2
                 ble.s   loc_291C8
                 move.w  d1,d2
@@ -20186,11 +20190,11 @@ loc_291C8:
                 
                 addq.w  #1,d2
                 move.w  d2,d1
-                bsr.w   sub_29288
+                bsr.w   SetOwnedItemQuantity
                 movem.l (sp)+,d1-d2/a0
                 rts
 
-    ; End of function sub_291B6
+    ; End of function CheckAndSetOwnedItemQuantity
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -20209,14 +20213,14 @@ sub_291D6:
                 bra.s   loc_29212
 loc_29202:
                 
-                bsr.s   sub_29192
+                bsr.s   GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bge.s   loc_2920A
                 clr.w   d1
 loc_2920A:
                 
                 addq.w  #1,d1
-                bsr.s   sub_291B6
+                bsr.s   CheckAndSetOwnedItemQuantity
                 tst.b   d0
                 bne.s   loc_29216
 loc_29212:
@@ -20232,10 +20236,12 @@ loc_29216:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_2921C:
+; d0=item index
+
+ConsumeOneItem:
                 
                 move.l  d1,-(sp)
-                bsr.w   sub_29192
+                bsr.w   GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bge.s   loc_29228
                 clr.w   d1
@@ -20245,11 +20251,11 @@ loc_29228:
                 subq.w  #1,d1
 loc_2922C:
                 
-                bsr.s   sub_291B6
+                bsr.s   CheckAndSetOwnedItemQuantity
                 move.l  (sp)+,d1
                 rts
 
-    ; End of function sub_2921C
+    ; End of function ConsumeOneItem
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -20257,13 +20263,13 @@ loc_2922C:
 sub_29232:
                 
                 movem.l d2,-(sp)
-                bsr.w   sub_29192
+                bsr.w   GetOwnedItemQuantityEnriched
                 move.w  d1,d2
                 bge.s   loc_29240
                 clr.w   d2
 loc_29240:
                 
-                bsr.w   sub_292B8
+                bsr.w   GetMaxQuantityForItem
                 sub.w   d2,d1
                 movem.l (sp)+,d2
                 rts
@@ -20276,7 +20282,7 @@ loc_29240:
 sub_2924C:
                 
                 movem.w d1,-(sp)
-                bsr.w   sub_29192
+                bsr.w   GetOwnedItemQuantityEnriched
                 tst.w   d1
                 bge.s   loc_2925A
                 clr.w   d1
@@ -20290,11 +20296,13 @@ loc_2925A:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_29260:
+; d0=item index | d1=quantity owned
+
+GetOwnedItemQuantity:
                 
                 movem.l d0/a0,-(sp)
                 lea     (INVENTORY_FLAGS).l,a0
-                andi.w  #$3F,d0 
+                andi.w  #ITEM_EMPTY,d0
                 asr.w   #1,d0
                 bcc.s   loc_2927A
                 move.b  (a0,d0.w),d1
@@ -20309,16 +20317,18 @@ loc_2927E:
                 movem.l (sp)+,d0/a0
                 rts
 
-    ; End of function sub_29260
+    ; End of function GetOwnedItemQuantity
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_29288:
+; d0=item index, d1=item quantity
+
+SetOwnedItemQuantity:
                 
                 movem.l d0-d1/a0,-(sp)
                 lea     (INVENTORY_FLAGS).l,a0
-                andi.w  #$3F,d0 
+                andi.w  #ITEM_EMPTY,d0
                 asr.w   #1,d0
                 bcc.s   loc_292A4
                 andi.b  #$F,(a0,d0.w)
@@ -20334,21 +20344,23 @@ loc_292AE:
                 movem.l (sp)+,d0-d1/a0
                 rts
 
-    ; End of function sub_29288
+    ; End of function SetOwnedItemQuantity
 
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_292B8:
+; d0=item index | d1=max quantity for item
+
+GetMaxQuantityForItem:
                 
                 move.l  a0,-(sp)
-                bsr.s   sub_292F4
+                bsr.s   GetItemDescriptionAddress
                 move.b  (a0),d1
                 andi.w  #$F,d1
                 movea.l (sp)+,a0
                 rts
 
-    ; End of function sub_292B8
+    ; End of function GetMaxQuantityForItem
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -20356,7 +20368,7 @@ sub_292B8:
 sub_292C6:
                 
                 move.l  a0,-(sp)
-                bsr.s   sub_292F4
+                bsr.s   GetItemDescriptionAddress
                 move.b  (a0),d1
                 andi.w  #$F0,d1 
                 lsr.w   #4,d1
@@ -20372,7 +20384,7 @@ sub_292C6:
 sub_292DA:
                 
                 move.l  a0,-(sp)
-                bsr.s   sub_292F4
+                bsr.s   GetItemDescriptionAddress
                 move.b  1(a0),d1
                 ext.w   d1
                 movea.l (sp)+,a0
@@ -20386,7 +20398,7 @@ sub_292DA:
 sub_292E8:
                 
                 move.l  a0,-(sp)
-                bsr.s   sub_292F4
+                bsr.s   GetItemDescriptionAddress
                 move.w  2(a0),d1
                 movea.l (sp)+,a0
                 rts
@@ -20396,273 +20408,84 @@ sub_292E8:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_292F4:
+; d0=item index | a0=item description address
+
+GetItemDescriptionAddress:
                 
                 move.l  d0,-(sp)
-                andi.w  #$3F,d0 
+                andi.w  #ITEM_EMPTY,d0
                 asl.w   #2,d0
-                lea     unk_29304(pc,d0.w),a0
+                lea     ItemDescriptionTable(pc,d0.w),a0
                 move.l  (sp)+,d0
                 rts
 
-    ; End of function sub_292F4
+    ; End of function GetItemDescriptionAddress
 
-unk_29304:      dc.b   9
-                dc.b $FF
-                dc.b   0
-                dc.b  $F
-                dc.b   1
-                dc.b   1
-                dc.b   3
-                dc.b $E9 
-                dc.b   1
-                dc.b   2
-                dc.b   3
-                dc.b $EA 
-                dc.b   1
-                dc.b   3
-                dc.b   3
-                dc.b $EB 
-                dc.b   1
-                dc.b   4
-                dc.b   3
-                dc.b $EC 
-                dc.b   1
-                dc.b   5
-                dc.b   3
-                dc.b $ED 
-                dc.b   1
-                dc.b   6
-                dc.b   3
-                dc.b $EE 
-                dc.b   1
-                dc.b   7
-                dc.b   3
-                dc.b $EF 
-                dc.b   1
-                dc.b   8
-                dc.b   3
-                dc.b $F0 
-                dc.b   1
-                dc.b   9
-                dc.b   1
-                dc.b $40 
-                dc.b   1
-                dc.b  $A
-                dc.b   3
-                dc.b $F2 
-                dc.b   1
-                dc.b  $B
-                dc.b   3
-                dc.b $F3 
-                dc.b   1
-                dc.b  $C
-                dc.b   3
-                dc.b $F4 
-                dc.b   1
-                dc.b  $D
-                dc.b   3
-                dc.b $F5 
-                dc.b   1
-                dc.b  $E
-                dc.b   3
-                dc.b $F6 
-                dc.b   1
-                dc.b  $F
-                dc.b   3
-                dc.b $F7 
-                dc.b   1
-                dc.b $10
-                dc.b   3
-                dc.b $F8 
-                dc.b   1
-                dc.b $FF
-                dc.b   0
-                dc.b $32 
-                dc.b $19
-                dc.b $FF
-                dc.b   0
-                dc.b $14
-                dc.b   9
-                dc.b $FF
-                dc.b   0
-                dc.b $C8 
-                dc.b   9
-                dc.b $FF
-                dc.b   0
-                dc.b $C8 
-                dc.b $29 
-                dc.b $FF
-                dc.b   0
-                dc.b $50 
-                dc.b   9
-                dc.b $FF
-                dc.b   3
-                dc.b $FE 
-                dc.b   1
-                dc.b $FF
-                dc.b   3
-                dc.b $FF
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b   0
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b   1
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b   2
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b   3
-                dc.b $29 
-                dc.b $FF
-                dc.b   0
-                dc.b $64 
-                dc.b   1
-                dc.b $FF
-                dc.b   7
-                dc.b $D0 
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b   6
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b   7
-                dc.b $31 
-                dc.b $FF
-                dc.b   4
-                dc.b   8
-                dc.b   1
-                dc.b $FF
-                dc.b   0
-                dc.b  $A
-                dc.b   1
-                dc.b $FF
-                dc.b   0
-                dc.b $32 
-                dc.b   1
-                dc.b $FF
-                dc.b   0
-                dc.b   0
-                dc.b   1
-                dc.b $FF
-                dc.b   0
-                dc.b $64 
-                dc.b   1
-                dc.b $FF
-                dc.b   0
-                dc.b $14
-                dc.b   1
-                dc.b $FF
-                dc.b   0
-                dc.b   0
-                dc.b   1
-                dc.b $27 
-                dc.b   4
-                dc.b  $F
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $10
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $11
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $12
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $13
-                dc.b   1
-                dc.b $FF
-                dc.b   1
-                dc.b $F4 
-                dc.b $29 
-                dc.b $FF
-                dc.b   1
-                dc.b $2C 
-                dc.b $29 
-                dc.b $FF
-                dc.b   0
-                dc.b $C8 
-                dc.b   2
-                dc.b $FF
-                dc.b   4
-                dc.b $17
-                dc.b   1
-                dc.b $FF
-                dc.b   5
-                dc.b $DC 
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $19
-                dc.b   9
-                dc.b $FF
-                dc.b   4
-                dc.b $1A
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $1B
-                dc.b   0
-                dc.b $3F 
-                dc.b   0
-                dc.b   1
-                dc.b   1
-                dc.b $FF
-                dc.b   1
-                dc.b $F4 
-                dc.b $41 
-                dc.b $FF
-                dc.b   0
-                dc.b $C8 
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $1F
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $20
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $21 
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $22 
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $23 
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $24 
-                dc.b   1
-                dc.b $FF
-                dc.b   4
-                dc.b $25 
-                dc.b   1
-                dc.b $FF
-                dc.b   1
-                dc.b $2C 
-                dc.b   0
-                dc.b $3F 
-                dc.b   0
-                dc.b   1
+ItemDescriptionTable:
+                ItemDescription 9, $FF, 0, $F
+                ItemDescription 1, 1, 3, $E9
+                ItemDescription 1, 2, 3, $EA
+                ItemDescription 1, 3, 3, $EB
+                ItemDescription 1, 4, 3, $EC
+                ItemDescription 1, 5, 3, $ED
+                ItemDescription 1, 6, 3, $EE
+                ItemDescription 1, 7, 3, $EF
+                ItemDescription 1, 8, 3, $F0
+                ItemDescription 1, 9, 1, $40
+                ItemDescription 1, $A, 3, $F2
+                ItemDescription 1, $B, 3, $F3
+                ItemDescription 1, $C, 3, $F4
+                ItemDescription 1, $D, 3, $F5
+                ItemDescription 1, $E, 3, $F6
+                ItemDescription 1, $F, 3, $F7
+                ItemDescription 1, $10, 3, $F8
+                ItemDescription 1, $FF, 0, $32
+                ItemDescription $19, $FF, 0, $14
+                ItemDescription 9, $FF, 0, $C8
+                ItemDescription 9, $FF, 0, $C8
+                ItemDescription $29, $FF, 0, $50
+                ItemDescription 9, $FF, 3, $FE
+                ItemDescription 1, $FF, 3, $FF
+                ItemDescription 1, $FF, 4, 0
+                ItemDescription 1, $FF, 4, 1
+                ItemDescription 1, $FF, 4, 2
+                ItemDescription 1, $FF, 4, 3
+                ItemDescription $29, $FF, 0, $64
+                ItemDescription 1, $FF, 7, $D0
+                ItemDescription 1, $FF, 4, 6
+                ItemDescription 1, $FF, 4, 7
+                ItemDescription $31, $FF, 4, 8
+                ItemDescription 1, $FF, 0, $A
+                ItemDescription 1, $FF, 0, $32
+                ItemDescription 1, $FF, 0, 0
+                ItemDescription 1, $FF, 0, $64
+                ItemDescription 1, $FF, 0, $14
+                ItemDescription 1, $FF, 0, 0
+                ItemDescription 1, $27, 4, $F
+                ItemDescription 1, $FF, 4, $10
+                ItemDescription 1, $FF, 4, $11
+                ItemDescription 1, $FF, 4, $12
+                ItemDescription 1, $FF, 4, $13
+                ItemDescription 1, $FF, 1, $F4
+                ItemDescription $29, $FF, 1, $2C
+                ItemDescription $29, $FF, 0, $C8
+                ItemDescription 2, $FF, 4, $17
+                ItemDescription 1, $FF, 5, $DC
+                ItemDescription 1, $FF, 4, $19
+                ItemDescription 9, $FF, 4, $1A
+                ItemDescription 1, $FF, 4, $1B
+                ItemDescription 0, $3F, 0, 1
+                ItemDescription 1, $FF, 1, $F4
+                ItemDescription $41, $FF, 0, $C8
+                ItemDescription 1, $FF, 4, $1F
+                ItemDescription 1, $FF, 4, $20
+                ItemDescription 1, $FF, 4, $21
+                ItemDescription 1, $FF, 4, $22
+                ItemDescription 1, $FF, 4, $23
+                ItemDescription 1, $FF, 4, $24
+                ItemDescription 1, $FF, 4, $25
+                ItemDescription 1, $FF, 1, $2C
+                ItemDescription 0, $3F, 0, 1
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -20672,10 +20495,10 @@ sub_29404:
                 move.w  #$3F,d0 
 loc_2940C:
                 
-                bsr.w   sub_292B8
+                bsr.w   GetMaxQuantityForItem
                 beq.s   loc_29418
                 moveq   #9,d1
-                bsr.w   sub_291B6
+                bsr.w   CheckAndSetOwnedItemQuantity
 loc_29418:
                 
                 dbf     d0,loc_2940C
