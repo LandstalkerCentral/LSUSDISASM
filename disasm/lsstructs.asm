@@ -8,3 +8,12 @@ MapVariantTrigger: macro
 	dc.b \3
 	dc.b \4
 	endm
+
+; ---------------------------------------------------------------------------
+
+ItemDescription: macro
+	dc.b \1
+	dc.b \2
+	dc.b \3
+	dc.b \4
+	endm
