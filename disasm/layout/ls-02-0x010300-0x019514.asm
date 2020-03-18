@@ -2905,7 +2905,7 @@ sub_117CC:
 
 sub_117E8:
                 
-                move.b  #$1F,d0
+                move.b  #ITEM_ARMLET,d0
                 jsr     sub_22ED0
                 tst.w   d1
                 bmi.w   sub_10F52
@@ -9963,12 +9963,10 @@ loc_1659A:
 loc_165C2:
                 
                 movem.w (sp)+,d1/d6-d7
-return_165C6:
-                
-                rts
 
     ; End of function sub_1657E
 
+return_165C6:   rts
                 dc.w $1C0
                 dc.w $180
                 dc.w $200
