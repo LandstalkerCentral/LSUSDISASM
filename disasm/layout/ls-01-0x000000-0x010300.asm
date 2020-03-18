@@ -20426,7 +20426,7 @@ return_A14A:
 sub_A14C:
                 
                 movem.l d1-d2/a0-a1,-(sp)
-                lea     word_A3D8(pc), a0
+                lea     stru_A3D8(pc), a0
                 lea     (MAIN_FLAGS).l,a1
 loc_A15A:
                 
@@ -20458,7 +20458,7 @@ sub_A180:
                 
                 movem.l d1-d3/a0-a1,-(sp)
                 move.w  d0,d3
-                lea     word_A3D8(pc), a0
+                lea     stru_A3D8(pc), a0
                 lea     (MAIN_FLAGS).l,a1
 loc_A190:
                 
@@ -20759,538 +20759,102 @@ word_A35A:      dc.w $31D
                 dc.w $325
                 dc.w $323
                 dc.w $FFFF
-word_A3D8:      dc.w $B9
-                dc.w $BA
-                dc.b   0
-                dc.b   3
-                dc.w $C0
-                dc.w $C1
-                dc.b   0
-                dc.b   3
-                dc.w $CF
-                dc.w $D0
-                dc.b   0
-                dc.b   3
-                dc.w $DB
-                dc.w $DC
-                dc.b   0
-                dc.b   3
-                dc.w $E0
-                dc.w $E1
-                dc.b   4
-                dc.b   1
-                dc.w $259
-                dc.w $25A
-                dc.b   2
-                dc.b   4
-                dc.w $25A
-                dc.w $25B
-                dc.b   2
-                dc.b   5
-                dc.w $259
-                dc.w $25B
-                dc.b   2
-                dc.b   5
-                dc.w $2F0
-                dc.w $2F1
-                dc.b   3
-                dc.b   1
-                dc.w $3B
-                dc.w $3C
-                dc.b $12
-                dc.b   1
-                dc.w $3C
-                dc.w $3D
-                dc.b $17
-                dc.b   7
-                dc.w $3B
-                dc.w $3D
-                dc.b $17
-                dc.b   7
-                dc.w $53
-                dc.w $54
-                dc.b $20
-                dc.b   5
-                dc.w $276
-                dc.w $277
-                dc.b $14
-                dc.b   0
-                dc.w $279
-                dc.w $27A
-                dc.b $14
-                dc.b   0
-                dc.w $294
-                dc.w $295
-                dc.b $14
-                dc.b   0
-                dc.w $295
-                dc.w $294
-                dc.b $26 
-                dc.b   1
-                dc.w $281
-                dc.w $282
-                dc.b $14
-                dc.b   0
-                dc.w $282
-                dc.w $283
-                dc.b $20
-                dc.b   5
-                dc.w $281
-                dc.w $283
-                dc.b $20
-                dc.b   5
-                dc.w $273
-                dc.w $274
-                dc.b $20
-                dc.b   5
-                dc.w $274
-                dc.w $275
-                dc.b $26 
-                dc.b   1
-                dc.b   2
-                dc.b $73 
-                dc.b   2
-                dc.b $75 
-                dc.b $26 
-                dc.b   1
-                dc.b   0
-                dc.b $20
-                dc.b   0
-                dc.b $21 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $44 
-                dc.b   0
-                dc.b $45 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $41 
-                dc.b   0
-                dc.b $42 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $37 
-                dc.b   0
-                dc.b $38 
-                dc.b $12
-                dc.b   1
-                dc.b   0
-                dc.b $38 
-                dc.b   0
-                dc.b $39 
-                dc.b $17
-                dc.b   7
-                dc.b   0
-                dc.b $37 
-                dc.b   0
-                dc.b $39 
-                dc.b $17
-                dc.b   7
-                dc.b   0
-                dc.b $39 
-                dc.b   0
-                dc.b $3A 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $38 
-                dc.b   0
-                dc.b $3A 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $37 
-                dc.b   0
-                dc.b $3A 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $33 
-                dc.b   0
-                dc.b $34 
-                dc.b $12
-                dc.b   1
-                dc.b   0
-                dc.b $34 
-                dc.b   0
-                dc.b $35 
-                dc.b $17
-                dc.b   7
-                dc.b   0
-                dc.b $33 
-                dc.b   0
-                dc.b $35 
-                dc.b $17
-                dc.b   7
-                dc.b   0
-                dc.b $35 
-                dc.b   0
-                dc.b $36 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $34 
-                dc.b   0
-                dc.b $36 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $33 
-                dc.b   0
-                dc.b $36 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $4E 
-                dc.b   0
-                dc.b $4F 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $3F 
-                dc.b   0
-                dc.b $40 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $3D 
-                dc.b   0
-                dc.b $3E 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $3C 
-                dc.b   0
-                dc.b $3E 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $3B 
-                dc.b   0
-                dc.b $3E 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $56 
-                dc.b   0
-                dc.b $57 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $58 
-                dc.b   0
-                dc.b $59 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $4A 
-                dc.b   0
-                dc.b $4B 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $62 
-                dc.b   0
-                dc.b $63 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $65 
-                dc.b   0
-                dc.b $66 
-                dc.b $20
-                dc.b   5
-                dc.b   0
-                dc.b $5E 
-                dc.b   0
-                dc.b $5F 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $77 
-                dc.b   2
-                dc.b $78 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $76 
-                dc.b   2
-                dc.b $78 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $7A 
-                dc.b   2
-                dc.b $7B 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $79 
-                dc.b   2
-                dc.b $7B 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $BD 
-                dc.b   2
-                dc.b $BE 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $AD 
-                dc.b   2
-                dc.b $AE 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $A9 
-                dc.b   2
-                dc.b $AA 
-                dc.b $2A 
-                dc.b   5
-                dc.b   2
-                dc.b $AB 
-                dc.b   2
-                dc.b $AC 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $A6 
-                dc.b   2
-                dc.b $A7 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $A1 
-                dc.b   2
-                dc.b $A2 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $B1 
-                dc.b   2
-                dc.b $B2 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $AF 
-                dc.b   2
-                dc.b $B0 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $B3 
-                dc.b   2
-                dc.b $B4 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $9E 
-                dc.b   2
-                dc.b $9F 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $C1 
-                dc.b   2
-                dc.b $C2 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $9C 
-                dc.b   2
-                dc.b $9D 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $BB 
-                dc.b   2
-                dc.b $BC 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $B7 
-                dc.b   2
-                dc.b $B9 
-                dc.b $2A 
-                dc.b   4
-                dc.b   2
-                dc.b $B9 
-                dc.b   2
-                dc.b $B8 
-                dc.b $2A 
-                dc.b   3
-                dc.b   2
-                dc.b $B7 
-                dc.b   2
-                dc.b $B8 
-                dc.b $2A 
-                dc.b   4
-                dc.b   2
-                dc.b $6F 
-                dc.b   2
-                dc.b $70 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $6C 
-                dc.b   2
-                dc.b $6D 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $62 
-                dc.b   2
-                dc.b $63 
-                dc.b $20
-                dc.b   5
-                dc.b   2
-                dc.b $83 
-                dc.b   2
-                dc.b $84 
-                dc.b $26 
-                dc.b   1
-                dc.b   2
-                dc.b $82 
-                dc.b   2
-                dc.b $84 
-                dc.b $26 
-                dc.b   1
-                dc.b   2
-                dc.b $81 
-                dc.b   2
-                dc.b $84 
-                dc.b $26 
-                dc.b   1
-                dc.b   1
-                dc.b $ED 
-                dc.b   1
-                dc.b $EE 
-                dc.b $26 
-                dc.b   1
-                dc.b   1
-                dc.b $EE 
-                dc.b   1
-                dc.b $F0 
-                dc.b $28 
-                dc.b   4
-                dc.b   1
-                dc.b $ED 
-                dc.b   1
-                dc.b $F0 
-                dc.b $28 
-                dc.b   4
-                dc.b   2
-                dc.b $C9 
-                dc.b   2
-                dc.b $CA 
-                dc.b $28 
-                dc.b   0
-                dc.b   2
-                dc.b $CB 
-                dc.b   2
-                dc.b $CC 
-                dc.b $28 
-                dc.b   0
-                dc.b   2
-                dc.b $CD 
-                dc.b   2
-                dc.b $CE 
-                dc.b $28 
-                dc.b   0
-                dc.b   2
-                dc.b $CF 
-                dc.b   2
-                dc.b $D0 
-                dc.b $28 
-                dc.b   0
-                dc.b   2
-                dc.b $D2 
-                dc.b   2
-                dc.b $D3 
-                dc.b $28 
-                dc.b   0
-                dc.b   2
-                dc.b $D4 
-                dc.b   2
-                dc.b $D5 
-                dc.b $28 
-                dc.b   0
-                dc.b   2
-                dc.b $C7 
-                dc.b   2
-                dc.b $C8 
-                dc.b $28 
-                dc.b   0
-                dc.b   2
-                dc.b  $B
-                dc.b   2
-                dc.b  $C
-                dc.b $27 
-                dc.b   2
-                dc.b   0
-                dc.b $95 
-                dc.b   0
-                dc.b $96 
-                dc.b $2A 
-                dc.b   6
-                dc.b   0
-                dc.b $97 
-                dc.b   0
-                dc.b $98 
-                dc.b $2A 
-                dc.b   6
-                dc.b   0
-                dc.b $99 
-                dc.b   0
-                dc.b $9A 
-                dc.b $2A 
-                dc.b   6
-                dc.b   0
-                dc.b $9D 
-                dc.b   0
-                dc.b $9E 
-                dc.b $2A 
-                dc.b   6
-                dc.b   0
-                dc.b $90 
-                dc.b   0
-                dc.b $91 
-                dc.b $2A 
-                dc.b   6
-                dc.b   0
-                dc.b $92 
-                dc.b   0
-                dc.b $93 
-                dc.b $2A 
-                dc.b   6
-                dc.b   0
-                dc.b $9F 
-                dc.b   0
-                dc.b $A0 
-                dc.b $2A 
-                dc.b   6
-                dc.b   0
-                dc.b $A3 
-                dc.b   0
-                dc.b $A4 
-                dc.b $2A 
-                dc.b   6
-                dc.b   0
-                dc.b $A5 
-                dc.b   0
-                dc.b $A6 
-                dc.b $2A 
-                dc.b   6
-                dc.b   1
-                dc.b $58 
-                dc.b   1
-                dc.b $59 
-                dc.b $10
-                dc.b   7
+stru_A3D8:      MapVariantTrigger $B9, $BA, 0, 3
+                MapVariantTrigger $C0, $C1, 0, 3
+                MapVariantTrigger $CF, $D0, 0, 3
+                MapVariantTrigger $DB, $DC, 0, 3
+                MapVariantTrigger $E0, $E1, 4, 1
+                MapVariantTrigger $259, $25A, 2, 4
+                MapVariantTrigger $25A, $25B, 2, 5
+                MapVariantTrigger $259, $25B, 2, 5
+                MapVariantTrigger $2F0, $2F1, 3, 1
+                MapVariantTrigger $3B, $3C, $12, 1
+                MapVariantTrigger $3C, $3D, $17, 7
+                MapVariantTrigger $3B, $3D, $17, 7
+                MapVariantTrigger $53, $54, $20, 5
+                MapVariantTrigger $276, $277, $14, 0
+                MapVariantTrigger $279, $27A, $14, 0
+                MapVariantTrigger $294, $295, $14, 0
+                MapVariantTrigger $295, $294, $26, 1
+                MapVariantTrigger $281, $282, $14, 0
+                MapVariantTrigger $282, $283, $20, 5
+                MapVariantTrigger $281, $283, $20, 5
+                MapVariantTrigger $273, $274, $20, 5
+                MapVariantTrigger $274, $275, $26, 1
+                MapVariantTrigger $273, $275, $26, 1
+                MapVariantTrigger $20, $21, $20, 5
+                MapVariantTrigger $44, $45, $20, 5
+                MapVariantTrigger $41, $42, $20, 5
+                MapVariantTrigger $37, $38, $12, 1
+                MapVariantTrigger $38, $39, $17, 7
+                MapVariantTrigger $37, $39, $17, 7
+                MapVariantTrigger $39, $3A, $20, 5
+                MapVariantTrigger $38, $3A, $20, 5
+                MapVariantTrigger $37, $3A, $20, 5
+                MapVariantTrigger $33, $34, $12, 1
+                MapVariantTrigger $34, $35, $17, 7
+                MapVariantTrigger $33, $35, $17, 7
+                MapVariantTrigger $35, $36, $20, 5
+                MapVariantTrigger $34, $36, $20, 5
+                MapVariantTrigger $33, $36, $20, 5
+                MapVariantTrigger $4E, $4F, $20, 5
+                MapVariantTrigger $3F, $40, $20, 5
+                MapVariantTrigger $3D, $3E, $20, 5
+                MapVariantTrigger $3C, $3E, $20, 5
+                MapVariantTrigger $3B, $3E, $20, 5
+                MapVariantTrigger $56, $57, $20, 5
+                MapVariantTrigger $58, $59, $20, 5
+                MapVariantTrigger $4A, $4B, $20, 5
+                MapVariantTrigger $62, $63, $20, 5
+                MapVariantTrigger $65, $66, $20, 5
+                MapVariantTrigger $5E, $5F, $20, 5
+                MapVariantTrigger $277, $278, $20, 5
+                MapVariantTrigger $276, $278, $20, 5
+                MapVariantTrigger $27A, $27B, $20, 5
+                MapVariantTrigger $279, $27B, $20, 5
+                MapVariantTrigger $2BD, $2BE, $20, 5
+                MapVariantTrigger $2AD, $2AE, $20, 5
+                MapVariantTrigger $2A9, $2AA, $2A, 5
+                MapVariantTrigger $2AB, $2AC, $20, 5
+                MapVariantTrigger $2A6, $2A7, $20, 5
+                MapVariantTrigger $2A1, $2A2, $20, 5
+                MapVariantTrigger $2B1, $2B2, $20, 5
+                MapVariantTrigger $2AF, $2B0, $20, 5
+                MapVariantTrigger $2B3, $2B4, $20, 5
+                MapVariantTrigger $29E, $29F, $20, 5
+                MapVariantTrigger $2C1, $2C2, $20, 5
+                MapVariantTrigger $29C, $29D, $20, 5
+                MapVariantTrigger $2BB, $2BC, $20, 5
+                MapVariantTrigger $2B7, $2B9, $2A, 4
+                MapVariantTrigger $2B9, $2B8, $2A, 3
+                MapVariantTrigger $2B7, $2B8, $2A, 4
+                MapVariantTrigger $26F, $270, $20, 5
+                MapVariantTrigger $26C, $26D, $20, 5
+                MapVariantTrigger $262, $263, $20, 5
+                MapVariantTrigger $283, $284, $26, 1
+                MapVariantTrigger $282, $284, $26, 1
+                MapVariantTrigger $281, $284, $26, 1
+                MapVariantTrigger $1ED, $1EE, $26, 1
+                MapVariantTrigger $1EE, $1F0, $28, 4
+                MapVariantTrigger $1ED, $1F0, $28, 4
+                MapVariantTrigger $2C9, $2CA, $28, 0
+                MapVariantTrigger $2CB, $2CC, $28, 0
+                MapVariantTrigger $2CD, $2CE, $28, 0
+                MapVariantTrigger $2CF, $2D0, $28, 0
+                MapVariantTrigger $2D2, $2D3, $28, 0
+                MapVariantTrigger $2D4, $2D5, $28, 0
+                MapVariantTrigger $2C7, $2C8, $28, 0
+                MapVariantTrigger $20B, $20C, $27, 2
+                MapVariantTrigger $95, $96, $2A, 6
+                MapVariantTrigger $97, $98, $2A, 6
+                MapVariantTrigger $99, $9A, $2A, 6
+                MapVariantTrigger $9D, $9E, $2A, 6
+                MapVariantTrigger $90, $91, $2A, 6
+                MapVariantTrigger $92, $93, $2A, 6
+                MapVariantTrigger $9F, $A0, $2A, 6
+                MapVariantTrigger $A3, $A4, $2A, 6
+                MapVariantTrigger $A5, $A6, $2A, 6
+                MapVariantTrigger $158, $159, $10, 7
                 dc.b $FF
                 dc.b $FF
                 dc.b $FF
