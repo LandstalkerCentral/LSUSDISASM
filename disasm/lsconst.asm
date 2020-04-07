@@ -313,7 +313,7 @@ byte_FF190E: equ $FF190E
 byte_FF1916: equ $FF1916
 byte_FF1917: equ $FF1917
 word_FF1920: equ $FF1920
-word_FF1922: equ $FF1922
+STRING_BIT_COUNTER: equ $FF1922
 word_FF1924: equ $FF1924
 word_FF1926: equ $FF1926
 word_FF1928: equ $FF1928
