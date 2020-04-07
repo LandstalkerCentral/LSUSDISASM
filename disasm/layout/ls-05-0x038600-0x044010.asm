@@ -3780,7 +3780,7 @@ loc_399C6:
 
 sub_399CC:
                 
-                link    a6,#-$1E
+                link    a6,#$FFE2
                 movea.l a6,a0
                 moveq   #$1D,d7
                 clr.b   d0

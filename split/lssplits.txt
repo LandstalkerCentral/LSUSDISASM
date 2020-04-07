@@ -853,6 +853,8 @@
 #split	0xC732,0xC74E,data/scripting/text/intro/introtextblock11.bin
 #split	0xFD5C,0xFE37,data/graphics/specialscreens/savescreentileset1.bin
 #split	0xFE37,0xFF12,data/graphics/specialscreens/savescreentileset2.bin
+#split	0x23D60,0x23E38,data/scripting/text/huffmantreeoffsets.bin
+#split	0x23E38,0x2469C,data/scripting/text/huffmantrees.bin
 #split	0x2A884,0x2B27A,data/graphics/tech/fonts/mainfont.bin
 #split	0x2B27A,0x2C29B,data/scripting/text/textbank0.bin
 #split	0x2C29B,0x2DCC8,data/scripting/text/textbank1.bin
