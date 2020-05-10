@@ -1,21 +1,21 @@
 
-; ASM FILE music59.asm :
-; 0xE92B..0xFA96 : Music 59
-Music_59:       db 0
+; ASM FILE music31.asm :
+; 0xE92B..0xFA96 : Music 31
+Music27:        db 0
 		db 0
 		db 0
 		db 0C4h
-		dw Music_59_Channel_0
-		dw Music_59_Channel_1
-		dw Music_59_Channel_2
-		dw Music_59_Channel_3
-		dw Music_59_Channel_4
-		dw Music_59_Channel_5
-		dw Music_59_Channel_6
-		dw Music_59_Channel_7
-		dw Music_59_Channel_9
-		dw Music_59_Channel_9
-Music_59_Channel_0:
+		dw Music27_Channel0
+		dw Music27_Channel1
+		dw Music27_Channel2
+		dw Music27_Channel3
+		dw Music27_Channel4
+		dw Music27_Channel5
+		dw Music27_Channel6
+		dw Music27_Channel7
+		dw Music27_Channel9
+		dw Music27_Channel9
+Music27_Channel0:
 		  inst 49
 		  vol 0Ch
 		  setRelease 01h
@@ -329,7 +329,7 @@ Music_59_Channel_0:
 		        noteL G6,140
 		        waitL 6
 		channel_end
-Music_59_Channel_1:
+Music27_Channel1:
 		  inst 9
 		  vol 0Ah
 		  setRelease 01h
@@ -754,7 +754,7 @@ Music_59_Channel_1:
 		        noteL E5,140
 		        waitL 6
 		channel_end
-Music_59_Channel_2:
+Music27_Channel2:
 		  inst 9
 		  vol 0Ah
 		  setRelease 01h
@@ -1067,7 +1067,7 @@ Music_59_Channel_2:
 		        noteL B4,140
 		        waitL 6
 		channel_end
-Music_59_Channel_3:
+Music27_Channel3:
 		  inst 2
 		  vol 0Ch
 		  vibrato 02Ch
@@ -1437,7 +1437,7 @@ Music_59_Channel_3:
 		        noteL C4,140
 		        waitL 6
 		channel_end
-Music_59_Channel_4:
+Music27_Channel4:
 		  stereo 0C0h
 		  inst 39
 		  vol 0Ah
@@ -1757,7 +1757,7 @@ Music_59_Channel_4:
 		        noteL G6,140
 		        waitL 6
 		channel_end
-Music_59_Channel_5:
+Music27_Channel5:
 		        waitL 192
 		        wait
 		        wait
@@ -2019,7 +2019,7 @@ Music_59_Channel_5:
 		  stereo 0C0h
 		        sampleL 0,96
 		channel_end
-Music_59_Channel_6:
+Music27_Channel6:
 		  psgInst 07Ah
 		  setRelease 01h
 		  vibrato 04Ch
@@ -2032,14 +2032,14 @@ Music_59_Channel_6:
 		        psgNoteL D3,36
 		        psgNoteL D3,12
 		  psgInst 00h
-		        waitL 24
+		        waitL    24
 		  psgInst 07Ah
 		        psgNoteL F3,120
 		  psgInst 00h
-		        waitL 192
+		        waitL    192
 		        wait
 		        wait
-		        waitL 96
+		        waitL    96
 		  psgInst 07Bh
 		        psgNoteL F4,12
 		        psgNote  E4
@@ -2220,29 +2220,29 @@ Music_59_Channel_6:
 		        psgNote  G3
 		        psgNoteL Gs3,120
 		  psgInst 00h
-		        waitL 192
+		        waitL    192
 		        wait
 		        wait
 		        wait
 		        wait
 		        wait
 		        wait
-		        waitL 24
+		        waitL    24
 		  psgInst 07Bh
 		        psgNoteL Gs4,6
 		        wait
 		        psgNote  Gs4
-		        waitL 18
+		        waitL    18
 		        psgNoteL E4,6
-		        waitL 18
+		        waitL    18
 		        psgNoteL B3,6
 		        wait
 		        psgNote  A3
 		        wait
 		        psgNote  Gs3
-		        waitL 18
+		        waitL    18
 		        psgNoteL E3,6
-		        waitL 18
+		        waitL    18
 		        psgNoteL B2,36
 		  psgInst 02Bh
 		countedLoopStart 1
@@ -2388,7 +2388,7 @@ Music_59_Channel_6:
 		        psgNoteL C4,192
 		        psgNoteL Gs3,174
 		  psgInst 00h
-		        waitL 10
+		        waitL    10
 		  psgInst 07Ah
 		        psgNoteL F3,36
 		        psgNoteL Ds3,42
@@ -2399,9 +2399,9 @@ Music_59_Channel_6:
 		  vibrato 040h
 		        psgNoteL E3,140
 		  psgInst 00h
-		        waitL 6
+		        waitL    6
 		channel_end
-Music_59_Channel_7:
+Music27_Channel7:
 		  psgInst 07Ah
 		  setRelease 01h
 		  vibrato 04Ch
@@ -2414,14 +2414,14 @@ Music_59_Channel_7:
 		        psgNoteL B2,36
 		        psgNoteL B2,12
 		  psgInst 00h
-		        waitL 24
+		        waitL    24
 		  psgInst 07Ah
 		        psgNoteL A2,120
 		  psgInst 00h
-		        waitL 192
+		        waitL    192
 		        wait
 		        wait
-		        waitL 102
+		        waitL    102
 		  psgInst 079h
 		        psgNoteL F4,12
 		        psgNote  E4
@@ -2592,42 +2592,42 @@ Music_59_Channel_7:
 		        psgNoteL C3,36
 		        psgNoteL C3,12
 		  psgInst 00h
-		        waitL 24
+		        waitL    24
 		  psgInst 07Ah
 		        psgNoteL F3,120
 		        psgNoteL As2,36
 		        psgNoteL As2,12
 		  psgInst 00h
-		        waitL 24
+		        waitL    24
 		  psgInst 07Ah
 		        psgNoteL As2,120
 		  psgInst 00h
-		        waitL 192
+		        waitL    192
 		        wait
 		        wait
 		        wait
 		        wait
 		        wait
 		        wait
-		        waitL 24
+		        waitL    24
 		  psgInst 07Bh
 		        psgNoteL B3,6
 		        wait
 		        psgNote  B3
-		        waitL 18
+		        waitL    18
 		        psgNoteL Gs3,6
-		        waitL 18
+		        waitL    18
 		        psgNoteL Gs3,6
 		        wait
 		        psgNote  Fs3
 		        wait
 		        psgNote  E3
-		        waitL 18
+		        waitL    18
 		        psgNoteL Gs2,6
-		        waitL 18
+		        waitL    18
 		        psgNoteL Gs2,36
 		  psgInst 00h
-		        waitL 6
+		        waitL    6
 		  psgInst 029h
 		countedLoopStart 1
 		        psgNoteL A3,12
@@ -2748,23 +2748,23 @@ Music_59_Channel_7:
 		        psgNote  D3
 		  psgInst 07Bh
 		        psgNoteL C4,60
-		        waitL 12
+		        waitL    12
 		        psgNoteL C4,8
 		        psgNote  C4
 		        psgNote  C4
 		        psgNoteL C4,6
-		        waitL 10
+		        waitL    10
 		        psgNoteL C4,6
-		        waitL 10
+		        waitL    10
 		        psgNoteL C4,6
-		        waitL 10
+		        waitL    10
 		        psgNoteL C4,6
-		        waitL 18
+		        waitL    18
 		        psgNoteL C4,6
-		        waitL 24
+		        waitL    24
 		repeatEnd
 		repeatSection2Start
-		        waitL 48
+		        waitL    48
 		  psgInst 07Ah
 		        psgNoteL C3,24
 		        psgNote  D3
@@ -2780,7 +2780,7 @@ Music_59_Channel_7:
 		        psgNoteL D3,102
 		        psgNoteL F3,72
 		  psgInst 00h
-		        waitL 10
+		        waitL    10
 		  psgInst 07Ah
 		        psgNoteL D3,36
 		        psgNoteL C3,42
@@ -2791,7 +2791,7 @@ Music_59_Channel_7:
 		  setRelease 01h
 		        psgNoteL C3,140
 		  psgInst 00h
-		        waitL 6
+		        waitL    6
 		channel_end
-Music_59_Channel_9:
+Music27_Channel9:
 		channel_end

@@ -1032,10 +1032,10 @@
 #split	0x1A4C80,0x1A4C8E,data/graphics/sprites/palettes/spritepalette144.bin
 #split	0x1E0000,0x1E8000,data/sound/pcmbank0.bin
 #split	0x1E8000,0x1F0000,data/sound/pcmbank1.bin
-#split	0x1F0000,0x1F6000,data/sound/musicbank0build.bin
 #split	0x1F6000,0x1F8000,data/sound/sounddriver.bin
+#split	0x1F0000,0x1F8000,data/sound/musicbank1build.bin
 #split	0x1F8000,0x1F8910,data/sound/yminst.bin
-#split	0x1F8000,0x200000,data/sound/musicbank1build.bin
+#split	0x1F8000,0x200000,data/sound/musicbank0build.bin
 #split	0x121BD0,0x121E1C,data/graphics/sprites/sprite000frame0.bin
 #split	0x121E1C,0x1220AE,data/graphics/sprites/sprite001frame0.bin
 #split	0x1220AE,0x122346,data/graphics/sprites/sprite002frame0.bin
