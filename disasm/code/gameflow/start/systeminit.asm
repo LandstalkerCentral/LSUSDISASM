@@ -331,7 +331,7 @@ InitializeZ80:
                 move.w  #$100,(Z80BusReset).l
                 lea     (Z80_Memory).l,a0
                 move.w  #$1F80,d7
-                lea     (SoundDriver).l,a1
+                lea     ((MusibBank1+$6000)).l,a1
 loc_71E:
                 
                 move.b  (a1)+,d0

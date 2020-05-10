@@ -1,19 +1,20 @@
 
 ; ASM FILE music32.asm :
-; 0xDD2D..0xDD48 : Music 32
-Music_32:       db 0
+; 0xFA96..0xFDB9 : Music 32
+Music32:        db 0
 		db 0
 		db 0
 		db 0C8h
-		dw Music_32_Channel_9
-		dw Music_32_Channel_9
-		dw Music_32_Channel_9
-		dw Music_32_Channel_9
-		dw Music_32_Channel_9
-		dw Music_32_Channel_9
-		dw Music_32_Channel_9
-		dw Music_32_Channel_9
-		dw Music_32_Channel_9
-		dw Music_32_Channel_9
-Music_32_Channel_9:
+		dw Music32_Channel9
+		dw Music32_Channel9
+		dw Music32_Channel9
+		dw Music32_Channel9
+		dw Music32_Channel9
+		dw Music32_Channel9
+		dw Music32_Channel9
+		dw Music32_Channel9
+		dw Music32_Channel9
+		dw Music32_Channel9
+Music32_Channel9:
 		channel_end
+		align 8000h

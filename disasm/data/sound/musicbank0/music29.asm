@@ -1,21 +1,21 @@
 
-; ASM FILE music48.asm :
-; 0xE74E..0xE92B : Music 48
-Music_48:       db 0
+; ASM FILE music29.asm :
+; 0xE74E..0xE92B : Music 29
+Music16:        db 0
 		db 0
 		db 0
 		db 0C6h
-		dw Music_48_Channel_0
-		dw Music_48_Channel_1
-		dw Music_48_Channel_2
-		dw Music_48_Channel_3
-		dw Music_48_Channel_4
-		dw Music_48_Channel_5
-		dw Music_48_Channel_6
-		dw Music_48_Channel_7
-		dw Music_48_Channel_9
-		dw Music_48_Channel_9
-Music_48_Channel_0:
+		dw Music16_Channel0
+		dw Music16_Channel1
+		dw Music16_Channel2
+		dw Music16_Channel3
+		dw Music16_Channel4
+		dw Music16_Channel5
+		dw Music16_Channel6
+		dw Music16_Channel7
+		dw Music16_Channel9
+		dw Music16_Channel9
+Music16_Channel0:
 		countedLoopStart 1
 		        waitL 12
 		  inst 61
@@ -51,7 +51,7 @@ Music_48_Channel_0:
 		        note  Ds5
 		        wait
 		channel_end
-Music_48_Channel_1:
+Music16_Channel1:
 		        waitL 96
 		        wait
 		  inst 7
@@ -71,7 +71,7 @@ Music_48_Channel_1:
 		        note  As4
 		        wait
 		channel_end
-Music_48_Channel_2:
+Music16_Channel2:
 		  setRelease 01h
 		  vibrato 02Ch
 		  stereo 080h
@@ -97,7 +97,7 @@ Music_48_Channel_2:
 		        note  G4
 		        wait
 		channel_end
-Music_48_Channel_3:
+Music16_Channel3:
 		        waitL 96
 		        wait
 		  inst 50
@@ -124,7 +124,7 @@ Music_48_Channel_3:
 		  setRelease 01h
 		        note  Ds3
 		channel_end
-Music_48_Channel_4:
+Music16_Channel4:
 		  setRelease 01h
 		  vibrato 02Ch
 		  stereo 040h
@@ -160,13 +160,13 @@ Music_48_Channel_4:
 		  vol 06h
 		        note  Ds3
 		channel_end
-Music_48_Channel_5:
+Music16_Channel5:
 		        waitL 96
 		        waitL 192
 		        sampleL 1,24
 		        sampleL 0,72
 		channel_end
-Music_48_Channel_6:
+Music16_Channel6:
 		  setRelease 01h
 		  psgInst 087h
 		        psgNoteL F4,4
@@ -228,12 +228,12 @@ Music_48_Channel_6:
 		        psgNote  B4
 		  psgInst 0Dh
 		        psgNoteL Ds5,24
-		        waitL 6
+		        waitL    6
 		  psgInst 00h
 		channel_end
-Music_48_Channel_7:
+Music16_Channel7:
 		  psgInst 00h
-		        waitL 6
+		        waitL    6
 		  setRelease 01h
 		  psgInst 085h
 		        psgNoteL F4,4
@@ -295,8 +295,8 @@ Music_48_Channel_7:
 		        psgNote  B4
 		  psgInst 0Bh
 		        psgNoteL G4,24
-		        waitL 6
+		        waitL    6
 		  psgInst 00h
 		channel_end
-Music_48_Channel_9:
+Music16_Channel9:
 		channel_end
