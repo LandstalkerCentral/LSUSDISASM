@@ -3,3 +3,4 @@
 *.bak
 build/output.log
 build/mega-usb.exe
+*.p
