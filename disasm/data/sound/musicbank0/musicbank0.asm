@@ -41,27 +41,27 @@
 		dw Music32
 		include "music01.asm"		; Music 01
 		include "music02.asm"		; Music 02
+		include "music10.asm"		; Music 10
+		include "music18.asm"		; Music 18
+		include "music19.asm"		; Music 19
+		include "music20.asm"		; Music 20
+		include "music21.asm"		; Music 21
+		include "music22.asm"		; Music 22
+		include "music29.asm"		; Music 29
+		include "music17.asm"		; Music 17
 		include "music03.asm"		; Music 03
+		include "music31.asm"		; Music 31
 		include "music04.asm"		; Music 04
 		include "music05.asm"		; Music 05
 		include "music06.asm"		; Music 06
 		include "music07.asm"		; Music 07
 		include "music08.asm"		; Music 08
 		include "music09.asm"		; Music 09
-		include "music10.asm"		; Music 10
-		include "music11.asm"		; Music 11
 		include "music12.asm"		; Music 12
+		include "music11.asm"		; Music 11
 		include "music13.asm"		; Music 13
 		include "music14.asm"		; Music 14
 		include "music15.asm"		; Music 15
 		include "music16.asm"		; Music 16
-		include "music17.asm"		; Music 17
-		include "music18.asm"		; Music 18
-		include "music19.asm"		; Music 19
-		include "music20.asm"		; Music 20
-		include "music21.asm"		; Music 21
-		include "music22.asm"		; Music 22
 		include "music27.asm"		; Music 27
-		include "music29.asm"		; Music 29
-		include "music31.asm"		; Music 31
 		include "music32.asm"		; Music 32
