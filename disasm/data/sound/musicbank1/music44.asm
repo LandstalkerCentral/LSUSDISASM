@@ -1,26 +1,45 @@
 
 ; ASM FILE music44.asm :
-; 0xC7A1..0xCC97 : Music 44
-Music45:        db 0
+; 0xC19E..0xC7A1 : Music 44
+Music44:        db 0
 		db 0
 		db 0
 		db 0B7h
-		dw Music45_Channel0
-		dw Music45_Channel1
-		dw Music45_Channel2
-		dw Music45_Channel3
-		dw Music45_Channel4
-		dw Music45_Channel5
-		dw Music45_Channel6
-		dw Music45_Channel7
-		dw Music45_Channel9
-		dw Music45_Channel9
-Music45_Channel0:
-		mainLoopStart
-		        waitL 8
+		dw Music44_Channel0
+		dw Music44_Channel1
+		dw Music44_Channel2
+		dw Music44_Channel3
+		dw Music44_Channel4
+		dw Music44_Channel5
+		dw Music44_Channel6
+		dw Music44_Channel7
+		dw Music44_Channel9
+		dw Music44_Channel9
+Music44_Channel0:
+		        waitL 20
 		  inst 1
+		  vol 0Bh
 		  setRelease 01h
 		  vibrato 00h
+		        noteL D5,15
+		        noteL B5,13
+		        note  G5
+		  vol 0Ch
+		        noteL D6,12
+		        noteL B5,11
+		        note  G6
+		        noteL D6,10
+		        noteL B6,11
+		        note  G6
+		        noteL D7,12
+		        noteL B6,13
+		        noteL G7,14
+		        noteL D7,22
+		        waitL 7
+		  vol 0Bh
+		        noteL B7,160
+		        waitL 54
+		        waitL 8
 		  vol 0Bh
 		        noteL E6,23
 		        waitL 19
@@ -173,21 +192,52 @@ Music45_Channel0:
 		        note  D6
 		        noteL E6,22
 		        noteL F6,27
-		        waitL 13
-		        noteL E6,40
-		        noteL D6,22
-		  vol 0Ch
-		        noteL E6,25
-		  vol 0Dh
-		        noteL F6,32
-		        waitL 29
-		mainLoopEnd
-Music45_Channel1:
-		mainLoopStart
-		        waitL 28
+		        waitL 3
+		        noteL G6,80
+		  vol 0Ah
+		        noteL C6,56
+		  vol 0Bh
+		        noteL G6,73
+		  vol 0Ah
+		        noteL F5,62
+		        waitL 3
+		  vol 0Bh
+		        noteL G6,93
+		  vol 0Ah
+		        noteL B5,32
+		        noteL G6,49
+		        waitL 9
+		        noteL G7,176
+		        waitL 48
+		channel_end
+Music44_Channel1:
+		        waitL 35
 		  inst 1
+		  vol 0Ah
 		  setRelease 01h
 		  vibrato 00h
+		        noteL D5,13
+		        wait
+		        noteL G5,12
+		        noteL D5,11
+		  vol 0Bh
+		        note  B5
+		  vol 0Ah
+		        noteL G5,10
+		  vol 0Bh
+		        noteL D6,11
+		  vol 0Ah
+		        note  B5
+		        noteL G6,12
+		  vol 0Bh
+		        noteL D6,13
+		        noteL B6,14
+		  vol 0Ah
+		        noteL G6,22
+		        waitL 3
+		        noteL G7,164
+		        waitL 54
+		        waitL 28
 		  vol 0Bh
 		        noteL D6,110
 		        waitL 25
@@ -319,19 +369,38 @@ Music45_Channel1:
 		        note  A5
 		        noteL B5,22
 		        noteL C6,27
-		        waitL 9
+		        waitL 2
 		  vol 0Dh
-		        noteL B5,91
-		        waitL 28
-		  vol 0Ch
-		        noteL G6,33
-		mainLoopEnd
-Music45_Channel2:
-		mainLoopStart
+		        noteL Ds6,70
+		  vol 0Ah
+		        noteL Gs5,67
+		  vol 0Bh
+		        noteL D6,61
+		        noteL D5,74
+		        waitL 2
+		        noteL E6,36
+		        noteL E4,45
+		  vol 09h
+		        noteL G5,27
+		        waitL 18
+		  vol 0Ah
+		        noteL B5,49
 		        waitL 5
+		  vol 09h
+		        noteL D7,180
+		channel_end
+Music44_Channel2:
+		        waitL 4
 		  inst 1
+		  vol 0Ah
 		  setRelease 01h
 		  vibrato 00h
+		        noteL B4,44
+		        noteL B4,140
+		  vol 09h
+		        noteL D7,167
+		        waitL 54
+		        waitL 5
 		  vol 0Bh
 		        noteL C6,133
 		        waitL 4
@@ -437,17 +506,51 @@ Music45_Channel2:
 		        noteL G5,22
 		  vol 0Ch
 		        noteL A5,27
-		        waitL 5
-		        noteL F5,93
-		        noteL As5,63
-		mainLoopEnd
-Music45_Channel3:
-		mainLoopStart
-		        waitL 3
+		        waitL 1
+		        noteL C6,60
+		  vol 0Bh
+		        noteL Ds5,66
+		  vol 0Ah
+		        noteL As6,3
+		        noteL A6,4
+		        noteL Gs6,5
+		  vol 0Bh
+		        noteL As5,51
+		  vol 0Ah
+		        noteL Gs4,70
+		  vol 0Bh
+		        noteL As6,4
+		  vol 0Ah
+		        noteL A6,5
+		  vol 0Dh
+		        note  Gs6
+		        waitL 1
+		  vol 0Bh
+		        noteL D6,27
+		  vol 0Ah
+		        noteL C4,43
+		  vol 09h
+		        noteL E5,39
+		  vol 0Ah
+		        noteL D6,38
+		  vol 0Bh
+		        noteL B6,29
+		        waitL 2
+		  vol 09h
+		        noteL A6,183
+		channel_end
+Music44_Channel3:
+		        waitL 2
 		  inst 1
+		  vol 0Ah
 		  setRelease 01h
 		  vibrato 00h
-		  vol 0Ah
+		  sustain
+		        noteL G4,186
+		  setRelease 01h
+		        noteL G4,167
+		        waitL 54
+		        waitL 3
 		        noteL A5,135
 		        waitL 2
 		        noteL G5,140
@@ -556,18 +659,47 @@ Music45_Channel3:
 		        note  C4
 		        noteL B3,22
 		        noteL A3,27
-		        waitL 4
 		  vol 0Bh
-		        noteL G3,93
+		        noteL Gs5,16
+		  vol 0Ch
+		        noteL Gs3,14
+		  vol 0Bh
+		        noteL Ds4,11
+		        noteL Gs4,10
+		        noteL C5,44
+		  vol 0Ch
+		        note  Ds6
+		        waitL 11
 		  vol 0Ah
-		        noteL E5,64
-		mainLoopEnd
-Music45_Channel4:
-		mainLoopStart
+		        noteL F3,10
+		  vol 0Ch
+		        note  Gs3
+		  vol 0Ah
+		        note  D4
+		  vol 09h
+		        noteL F4,46
+		  vol 0Ah
+		        noteL Gs5,48
+		        noteL B5,17
+		  vol 09h
+		        noteL G3,43
+		        noteL C5,50
+		        noteL G5,38
+		  vol 0Ah
+		        noteL D6,29
+		  vol 08h
+		        noteL C6,185
+		channel_end
+Music44_Channel4:
 		  inst 1
+		  vol 0Ah
 		  setRelease 01h
 		  vibrato 00h
-		  vol 0Ah
+		  sustain
+		        noteL C4,188
+		  setRelease 01h
+		        noteL C4,167
+		        waitL 54
 		        noteL F4,138
 		  vol 09h
 		        noteL E4,142
@@ -643,15 +775,20 @@ Music45_Channel4:
 		        noteL B2,22
 		        noteL A2,27
 		  vol 0Ch
-		        noteL G2,97
-		  vol 08h
-		        noteL C4,64
-		mainLoopEnd
-Music45_Channel5:
+		        noteL Gs2,139
+		  vol 0Bh
+		        noteL As2,135
+		        waitL 1
+		  vol 0Ah
+		        noteL C3,48
+		        noteL G4,128
+		        waitL 185
 		channel_end
-Music45_Channel6:
+Music44_Channel5:
 		channel_end
-Music45_Channel7:
+Music44_Channel6:
 		channel_end
-Music45_Channel9:
+Music44_Channel7:
+		channel_end
+Music44_Channel9:
 		channel_end
