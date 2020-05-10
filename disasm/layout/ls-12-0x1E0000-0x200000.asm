@@ -6,6 +6,5 @@
 
 PCMBank0:       incbin "data/sound/pcmbank0.bin"
 PCMBank1:       incbin "data/sound/pcmbank1.bin"
-MusibBank0:     incbin "data/sound/musicbank0build.bin"
-SoundDriver:    incbin "data/sound/sounddriver.bin"
 MusicBank1:     incbin "data/sound/musicbank1build.bin"
+MusicBank0:     incbin "data/sound/musicbank0build.bin"

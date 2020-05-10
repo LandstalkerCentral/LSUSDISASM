@@ -21,7 +21,7 @@ cd ../disasm/data/sound/
 ..\..\..\tools\asw\p2bin.exe ..\..\code\common\tech\sound\sounddriver.p .\sounddriver.bin -k -r $0000-$1fff
 cd musicbank0/
 ..\..\..\..\tools\asw\asw.exe -x -E errors.log .\musicbank0.asm
-..\..\..\..\tools\asw\p2bin.exe .\musicbank0.p ..\musicbank0build.bin -k -r $8000-$dfff
+..\..\..\..\tools\asw\p2bin.exe .\musicbank0.p ..\musicbank0build.bin -k -r $8000-$ffff
 cd ../musicbank1/
 ..\..\..\..\tools\asw\asw.exe -x -E errors.log .\musicbank1.asm
 ..\..\..\..\tools\asw\p2bin.exe .\musicbank1.p ..\musicbank1build.bin -k -r $8000-$ffff
