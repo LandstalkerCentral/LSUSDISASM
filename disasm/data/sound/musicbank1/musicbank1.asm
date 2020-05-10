@@ -47,11 +47,11 @@
 		include "music39.asm"		; Music 39
 		include "music40.asm"		; Music 40
 		include "music41.asm"		; Music 41
-		include "music42.asm"		; Music 42
 		include "music43.asm"		; Music 43
 		include "music44.asm"		; Music 44
 		include "music45.asm"		; Music 45
 		include "music46.asm"		; Music 46
+		include "music42.asm"		; Music 42
 		include "music47.asm"		; Music 47
 		include "music64.asm"		; Music 64
 		org 0E000h
